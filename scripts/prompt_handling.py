@@ -2,7 +2,6 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 import json
-import os
 
 # Define the JSON schema for structured output
 json_schema = {
@@ -21,9 +20,9 @@ json_schema = {
                 "description": "The type of SKOS match",
                 "enum": ["skos:exactMatch", "skos:closeMatch", "skos:relatedMatch"],
             },
-            "field_name_de": {
+            "field_name": {
                 "type": "string",
-                "description": "The exact Field Name (de) from Schema B without additional information",
+                "description": "The exact Field Name (de) or Field Name (en) from Schema B without additional information",
             },
         },
         "required": ["attribute", "match_type", "field_name_de"],
@@ -81,7 +80,7 @@ Return the response in JSON format adhering to the defined schema:
     {{
         "attribute": "string",
         "match_type": "string (one of 'skos:exactMatch', 'skos:closeMatch', 'skos:relatedMatch')",
-        "field_name_de": "string (exact value of 'Field Name (de)' without any additional information)"
+        "field_name": "string (exact value of 'Field Name (de)' or 'Field Name (de)' without any additional information)"
     }}
 ]
 """
@@ -132,10 +131,16 @@ Return the response in JSON format adhering to the defined schema:
 if __name__ == "__main__":
     question = """Match the following attributes from Dataset A:
 
-    Bezugsgroesse
-    Bezugseinheit
-    Referenzfluss-UUID
-    Referenzfluss-Name
+    Schuettdichte (kg/m3)
+    Flaechengewicht (kg/m2)
+    Rohdichte (kg/m3)
+    Schichtdicke (m)
+    Ergiebigkeit (m2)
+    Laengengewicht (kg/m)
+    Stueckgewicht (kg)
+    Umrechungsfaktor auf 1kg
+    biogener Kohlenstoffgehalt in kg
+    biogener Kohlenstoffgehalt (Verpackung) in kg
     
     to Schema B."""
     vectorstore_path = "embeddings/faiss_index"
