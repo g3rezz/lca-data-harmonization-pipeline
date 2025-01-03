@@ -31,27 +31,35 @@ json_schema = {
 }
 
 
-def query_system(question, vectorstore_base_path):
-    # Determine the schema type to filter by
-    if "UUID" in question or "Version" in question:
-        schema_filter = "EPD_DataSet"
-    elif "PERE" in question or "FW" in question:
-        schema_filter = "EPD_FlowDataSet"
-    elif "Bezugsgroesse" in question or "Rohdichte" in question:
-        schema_filter = "ILCD_FlowPropertyDataSet"
-    else:
-        schema_filter = "ILCD_LCIAMethodDataSet"
+def determine_schema_filter(question):
+    schema_keywords = {
+        "EPD_DataSet": ["UUID", "Version", "Name"],
+        "EPD_FlowDataSet": ["PERE", "FW", "RSF"],
+        "ILCD_FlowPropertyDataSet": ["Bezugsgroesse", "Rohdichte", "Schichtdicke"],
+        "ILCD_LCIAMethodDataSet": ["GWP", "ODP", "POCP"],
+    }
 
-    # Construct the path to the appropriate vector store
-    vectorstore_path = os.path.join(
-        vectorstore_base_path, f"{schema_filter}_faiss_index"
-    )
+    for schema_type, keywords in schema_keywords.items():
+        if any(keyword in question for keyword in keywords):
+            return schema_type
 
-    # Load the vector store with deserialization permission
+    return "EPD_DataSet"  # Default to EPD_DataSet if no match is found
+
+
+def query_system(question, vectorstore_path, schema_filter=None):
+    # Allow manual override of schema filter
+    if not schema_filter:
+        schema_filter = determine_schema_filter(question)
+
+    # Load the single vector store
     embeddings = OllamaEmbeddings(model="bge-m3:latest")
     vectorstore = FAISS.load_local(
         vectorstore_path, embeddings=embeddings, allow_dangerous_deserialization=True
     )
+
+    # Debugging: Check the total number of documents in the vector store
+    all_docs = vectorstore.similarity_search("", k=1000)
+    print(f"Total documents in vector store: {len(all_docs)}")
 
     # Define the prompt template
     RAG_TEMPLATE = """
@@ -80,8 +88,18 @@ Return the response in JSON format adhering to the defined schema:
     prompt = ChatPromptTemplate.from_template(RAG_TEMPLATE)
 
     # Retrieve documents with metadata filtering
-    retriever = vectorstore.as_retriever()
-    retrieved_docs = retriever.invoke(question)  # Pass the question as a plain string
+    retriever = vectorstore.as_retriever(
+        search_kwargs={"filter": {"schema_type": schema_filter}}
+    )
+    print(f"Applying filter: schema_type={schema_filter}")
+    retrieved_docs = retriever.invoke(question)
+
+    # Ensure the retrieved_docs are valid
+    if not retrieved_docs:
+        print("No relevant documents found for the given query.")
+        return None
+
+    print(f"Number of documents retrieved: {len(retrieved_docs)}")
     context = "\n\n".join(doc.page_content for doc in retrieved_docs)
 
     # Generate the final prompt
@@ -112,10 +130,16 @@ Return the response in JSON format adhering to the defined schema:
 
 
 if __name__ == "__main__":
-    # question = """Match the following attributes from Dataset A: 'UUID'; 'Version'; 'Name (de)'; 'Name (en)'; to Schema B."""
-    question = """Match the following attributes from Dataset A: 
-    'GWP';'ODP';'POCP';'AP';'EP';'ADPE';'ADPF'; 
+    question = """Match the following attributes from Dataset A:
+
+    Bezugsgroesse
+    Bezugseinheit
+    Referenzfluss-UUID
+    Referenzfluss-Name
+    
     to Schema B."""
-    vectorstore_base_path = "embeddings"
-    response = query_system(question, vectorstore_base_path)
+    vectorstore_path = "embeddings/faiss_index"
+    response = query_system(
+        question, vectorstore_path, schema_filter="ILCD_FlowPropertyDataSet"
+    )
     print("Response:\n", response)

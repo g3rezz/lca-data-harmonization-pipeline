@@ -5,7 +5,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_ollama import OllamaEmbeddings
 
 
-def load_and_store(csv_paths, vectorstore_path, schema_type):
+def load_and_store(csv_paths, vectorstore_path):
     documents = []
 
     # Process each CSV
@@ -29,6 +29,9 @@ def load_and_store(csv_paths, vectorstore_path, schema_type):
                 )
                 continue
 
+        # Add schema_type based on file name
+        schema_type = csv_path.split("/")[-1].split(".")[0]
+
         for _, row in df.iterrows():
             content = (
                 f"Field Name (de): {row.get('Field Name (de)', 'N/A')}\n"
@@ -50,11 +53,13 @@ def load_and_store(csv_paths, vectorstore_path, schema_type):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=3000, chunk_overlap=0)
     all_splits = text_splitter.split_documents(documents)
 
-    # Write the split chunks to a text file
-    with open(f"data/chunks/{schema_type}_chunks_output.txt", "w") as file:
+    # Write the split chunks to a text file with metadata
+    with open("data/chunks/all_chunks_output.txt", "w") as file:
         for i, chunk in enumerate(all_splits):
             file.write(f"Chunk {i+1}:\n")
             file.write(chunk.page_content + "\n")
+            file.write("Metadata:\n")
+            file.write(str(chunk.metadata) + "\n")
             file.write("-" * 50 + "\n")
 
     # Create and save FAISS vector store
@@ -66,13 +71,11 @@ def load_and_store(csv_paths, vectorstore_path, schema_type):
 
 if __name__ == "__main__":
     # Example usage with schema-specific CSV files
-    datasets = {
-        "EPD_DataSet": ["data/csv/EPD_DataSet.csv"],
-        "EPD_FlowDataSet": ["data/csv/EPD_FlowDataSet.csv"],
-        "ILCD_FlowPropertyDataSet": ["data/csv/ILCD_FlowPropertyDataSet.csv"],
-        "ILCD_LCIAMethodDataSet": ["data/csv/ILCD_LCIAMethodDataSet.csv"],
-    }
-
-    for schema_type, csv_files in datasets.items():
-        vectorstore_dir = f"embeddings/{schema_type}_faiss_index"
-        load_and_store(csv_files, vectorstore_dir, schema_type)
+    csv_files = [
+        "data/csv/EPD_DataSet.csv",
+        "data/csv/EPD_FlowDataSet.csv",
+        "data/csv/ILCD_FlowPropertyDataSet.csv",
+        "data/csv/ILCD_LCIAMethodDataSet.csv",
+    ]
+    vectorstore_dir = "embeddings/faiss_index"
+    load_and_store(csv_files, vectorstore_dir)
