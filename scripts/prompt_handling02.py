@@ -25,71 +25,74 @@ attribute_schema_mapping = {
         "UUID des Vorgängers",
         "Version des Vorgängers",
         "URL des Vorgängers",
+        "Modul",
+        "Szenario",
+        "Szenariobeschreibung",
     ],
-    "EPD_FlowDataSet": [
-        "PERE",
-        "PERM",
-        "PERT",
-        "PENRE",
-        "PENRM",
-        "PENRT",
-        "SM",
-        "RSF",
-        "NRSF",
-        "FW",
-        "HWD",
-        "NHWD",
-        "RWD",
-        "CRU",
-        "MFR",
-        "MER",
-        "EEE",
-        "EET",
-    ],
-    "ILCD_FlowPropertyDataSet": [
-        "Bezugsgroesse",
-        "Bezugseinheit",
-        "Referenzfluss-UUID",
-        "Referenzfluss-Name",
-        "Schuettdichte (kg/m3)",
-        "Flaechengewicht (kg/m2)",
-        "Rohdichte (kg/m3)",
-        "Schichtdicke (m)",
-        "Ergiebigkeit (m2)",
-        "Laengengewicht (kg/m)",
-        "Stueckgewicht (kg)",
-        "Umrechungsfaktor auf 1kg",
-        "biogener Kohlenstoffgehalt in kg",
-        "biogener Kohlenstoffgehalt (Verpackung) in kg",
-    ],
-    "ILCD_LCIAMethodDataSet": [
-        "GWP",
-        "ODP",
-        "POCP",
-        "AP",
-        "EP",
-        "ADPE",
-        "ADPF",
-        "AP (A2)",
-        "GWPtotal (A2)",
-        "GWPbiogenic (A2)",
-        "GWPfossil (A2)",
-        "GWPluluc (A2)",
-        "ETPfw (A2)",
-        "PM (A2)",
-        "EPmarine (A2)",
-        "EPfreshwater (A2)",
-        "EPterrestrial (A2)",
-        "HTPc (A2)",
-        "HTPnc (A2)",
-        "IRP (A2)",
-        "SOP (A2)",
-        "ODP (A2)",
-        "POCP (A2)",
-        "ADPF (A2)",
-        "ADPE (A2)",
-        "WDP (A2)",
-    ],
+    # "EPD_FlowDataSet": [
+    #     "PERE",
+    #     "PERM",
+    #     "PERT",
+    #     "PENRE",
+    #     "PENRM",
+    #     "PENRT",
+    #     "SM",
+    #     "RSF",
+    #     "NRSF",
+    #     "FW",
+    #     "HWD",
+    #     "NHWD",
+    #     "RWD",
+    #     "CRU",
+    #     "MFR",
+    #     "MER",
+    #     "EEE",
+    #     "EET",
+    # ],
+    # "ILCD_FlowPropertyDataSet": [
+    #     "Bezugsgroesse",
+    #     "Bezugseinheit",
+    #     "Referenzfluss-UUID",
+    #     "Referenzfluss-Name",
+    #     "Schuettdichte (kg/m3)",
+    #     "Flaechengewicht (kg/m2)",
+    #     "Rohdichte (kg/m3)",
+    #     "Schichtdicke (m)",
+    #     "Ergiebigkeit (m2)",
+    #     "Laengengewicht (kg/m)",
+    #     "Stueckgewicht (kg)",
+    #     "Umrechungsfaktor auf 1kg",
+    #     "biogener Kohlenstoffgehalt in kg",
+    #     "biogener Kohlenstoffgehalt (Verpackung) in kg",
+    # ],
+    # "ILCD_LCIAMethodDataSet": [
+    #     "GWP",
+    #     "ODP",
+    #     "POCP",
+    #     "AP",
+    #     "EP",
+    #     "ADPE",
+    #     "ADPF",
+    #     "AP (A2)",
+    #     "GWPtotal (A2)",
+    #     "GWPbiogenic (A2)",
+    #     "GWPfossil (A2)",
+    #     "GWPluluc (A2)",
+    #     "ETPfw (A2)",
+    #     "PM (A2)",
+    #     "EPmarine (A2)",
+    #     "EPfreshwater (A2)",
+    #     "EPterrestrial (A2)",
+    #     "HTPc (A2)",
+    #     "HTPnc (A2)",
+    #     "IRP (A2)",
+    #     "SOP (A2)",
+    #     "ODP (A2)",
+    #     "POCP (A2)",
+    #     "ADPF (A2)",
+    #     "ADPE (A2)",
+    #     "WDP (A2)",
+    # ],
 }
 
 # Define JSON schema
@@ -131,14 +134,12 @@ def query_system(attributes, vectorstore_path, schema_filter):
     retrieved_docs = retriever.invoke("\n".join(attributes))
 
     print(f"Number of attributes: {len(attributes)}")
-
-    num_retrieved_docs = len(retrieved_docs)
-    print(f"Number of retrieved documents: {num_retrieved_docs}")
+    print(f"Number of retrieved documents: {len(retrieved_docs)}")
 
     if not retrieved_docs:
         return None
 
-    context = "\n\n".join(doc.page_content for doc in retrieved_docs)
+    context = "\n".join(doc.page_content for doc in retrieved_docs)
 
     prompt_template = ChatPromptTemplate.from_template(
         """
@@ -147,15 +148,19 @@ You are an expert in semantic data alignment and ontology matching. Your task is
 - skos:closeMatch: Attributes are strongly similar, differing only in minor details.
 - skos:relatedMatch: Attributes are conceptually related but not hierarchically or equivalently aligned.
 
-Attribute Schema B:
+Definition Schema B:
+<headers>
+'Field Name (de)','Field Name (en)','Element/Attribute Name','Datatype','Definition (de)','Definition (en)','Original ILCD Format Definition'
+</headers>
 <context>
 {context}
 </context>
 
-Match the following attributes to Schema B:
+Match the following attributes to the data under <context> in Schema B:
 <attributes>
 {attributes}
 </attributes>
+
 Return the response in JSON format adhering to the defined schema.
 """
     )
@@ -164,7 +169,7 @@ Return the response in JSON format adhering to the defined schema.
         context=context, attributes="\n".join(attributes)
     ).to_string()
 
-    with open("data/prompts/prompts_ollama.txt", "a") as prompt_file:
+    with open(f"{ollama_prompts}", "a") as prompt_file:
         prompt_file.write(final_prompt + "\n\n" + ("-" * 50) + "\n\n")
 
     print(final_prompt)
@@ -184,15 +189,16 @@ Return the response in JSON format adhering to the defined schema.
 
 
 if __name__ == "__main__":
-    vectorstore_path = "embeddings/bge-m3_faiss_index"
-    output_file = "data/responses/response_ollama.json"
+    vectorstore_path = "embeddings/bge-m3_csv_faiss_index"
+    output_file = "data/responses/response_ollama_csv.json"
 
     # Reset the JSON file
     with open(output_file, "w") as file:
         json.dump([], file)
 
     # Reset the prompts text file
-    with open("data/prompts/prompts_ollama.txt", "w") as prompt_file:
+    ollama_prompts = "data/prompts/prompts_ollama_csv.txt"
+    with open(f"{ollama_prompts}", "w") as prompt_file:
         prompt_file.write("")
 
     all_responses = []
