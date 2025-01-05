@@ -1,9 +1,101 @@
+import json
 from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama, OllamaEmbeddings
-import json
 
-# Define the JSON schema for structured output
+# Define attribute-schema mapping
+attribute_schema_mapping = {
+    "EPD_DataSet": [
+        "UUID",
+        "Version",
+        "Name (de)",
+        "Name (en)",
+        "Kategorie (original)",
+        "Kategorie (en)",
+        "Konformität",
+        "Laenderkennung",
+        "Typ",
+        "Referenzjahr",
+        "Gueltig bis",
+        "URL",
+        "Declaration owner",
+        "Veroeffentlicht am",
+        "Registrierungsnummer",
+        "Registrierungsstelle",
+        "UUID des Vorgängers",
+        "Version des Vorgängers",
+        "URL des Vorgängers",
+        "Modul",
+        "Szenario",
+        "Szenariobeschreibung",
+    ],
+    "EPD_FlowDataSet": [
+        "PERE",
+        "PERM",
+        "PERT",
+        "PENRE",
+        "PENRM",
+        "PENRT",
+        "SM",
+        "RSF",
+        "NRSF",
+        "FW",
+        "HWD",
+        "NHWD",
+        "RWD",
+        "CRU",
+        "MFR",
+        "MER",
+        "EEE",
+        "EET",
+    ],
+    "ILCD_FlowPropertyDataSet": [
+        "Bezugsgroesse",
+        "Bezugseinheit",
+        "Referenzfluss-UUID",
+        "Referenzfluss-Name",
+        "Schuettdichte (kg/m3)",
+        "Flaechengewicht (kg/m2)",
+        "Rohdichte (kg/m3)",
+        "Schichtdicke (m)",
+        "Ergiebigkeit (m2)",
+        "Laengengewicht (kg/m)",
+        "Stueckgewicht (kg)",
+        "Umrechungsfaktor auf 1kg",
+        "biogener Kohlenstoffgehalt in kg",
+        "biogener Kohlenstoffgehalt (Verpackung) in kg",
+    ],
+    "ILCD_LCIAMethodDataSet": [
+        "GWP",
+        "ODP",
+        "POCP",
+        "AP",
+        "EP",
+        "ADPE",
+        "ADPF",
+        "AP (A2)",
+        "GWPtotal (A2)",
+        "GWPbiogenic (A2)",
+        "GWPfossil (A2)",
+        "GWPluluc (A2)",
+        "ETPfw (A2)",
+        "PM (A2)",
+        "EPmarine (A2)",
+        "EPfreshwater (A2)",
+        "EPterrestrial (A2)",
+        "HTPc (A2)",
+        "HTPnc (A2)",
+        "IRP (A2)",
+        "SOP (A2)",
+        "ODP (A2)",
+        "POCP (A2)",
+        "ADPF (A2)",
+        "ADPE (A2)",
+        "WDP (A2)",
+    ],
+}
+
+# Define JSON schema
 json_schema = {
     "title": "AlignmentResponse",
     "description": "Response containing alignment mappings.",
@@ -13,7 +105,7 @@ json_schema = {
         "properties": {
             "attribute": {
                 "type": "string",
-                "description": "The attribute from dataset A",
+                "description": "The exact attribute name from dataset A without additional information",
             },
             "match_type": {
                 "type": "string",
@@ -22,47 +114,33 @@ json_schema = {
             },
             "field_name": {
                 "type": "string",
-                "description": "The exact Field Name (de) or Field Name (en) from Schema B without additional information",
+                "description": "The exact 'Field Name (en)' from Schema B without additional information",
             },
         },
-        "required": ["attribute", "match_type", "field_name_de"],
+        "required": ["attribute", "match_type", "field_name"],
     },
 }
 
 
-def determine_schema_filter(question):
-    schema_keywords = {
-        "EPD_DataSet": ["UUID", "Version", "Name"],
-        "EPD_FlowDataSet": ["PERE", "FW", "RSF"],
-        "ILCD_FlowPropertyDataSet": ["Bezugsgroesse", "Rohdichte", "Schichtdicke"],
-        "ILCD_LCIAMethodDataSet": ["GWP", "ODP", "POCP"],
-    }
-
-    for schema_type, keywords in schema_keywords.items():
-        if any(keyword in question for keyword in keywords):
-            return schema_type
-
-    return "EPD_DataSet"  # Default to EPD_DataSet if no match is found
-
-
-def query_system(question, vectorstore_path, schema_filter=None):
-    # Allow manual override of schema filter
-    if not schema_filter:
-        schema_filter = determine_schema_filter(question)
-
-    # Load the single vector store
+def query_system(attribute, vectorstore_path, schema_filter):
     embeddings = OllamaEmbeddings(model="bge-m3:latest")
     vectorstore = FAISS.load_local(
         vectorstore_path, embeddings=embeddings, allow_dangerous_deserialization=True
     )
 
-    # Debugging: Check the total number of documents in the vector store
-    all_docs = vectorstore.similarity_search("", k=1000)
-    print(f"Total documents in vector store: {len(all_docs)}")
+    retriever = vectorstore.as_retriever(
+        search_kwargs={"filter": {"schema_type": schema_filter}}
+    )
+    retrieved_docs = retriever.invoke(attribute)
 
-    # Define the prompt template
-    RAG_TEMPLATE = """
-You are an expert in semantic data alignment and ontology matching. Your task is to map the provided attributes from dataset A to their corresponding fields in Schema B. Use the SKOS relationship types to indicate the alignment:
+    if not retrieved_docs:
+        return None
+
+    context = "\n\n".join(doc.page_content for doc in retrieved_docs)
+
+    prompt_template = ChatPromptTemplate.from_template(
+        """
+You are an expert in semantic data alignment and ontology matching. Your task is to map the provided attribute from dataset A to its corresponding attribute in Schema B. Use the SKOS relationship types to indicate the alignment:
 - skos:exactMatch: Attributes are identical in meaning.
 - skos:closeMatch: Attributes are strongly similar, differing only in minor details.
 - skos:relatedMatch: Attributes are conceptually related but not hierarchically or equivalently aligned.
@@ -73,78 +151,62 @@ Attribute Schema B:
 </context>
 
 Answer the following question:
-{question}
+Match the following attribute from dataset A: '{attribute}' to one and only one attribute from Schema B.
 
 Return the response in JSON format adhering to the defined schema:
 [
     {{
         "attribute": "string",
         "match_type": "string (one of 'skos:exactMatch', 'skos:closeMatch', 'skos:relatedMatch')",
-        "field_name": "string (exact value of 'Field Name (de)' or 'Field Name (de)' without any additional information)"
+        "field_name": "string (exact value of 'Field Name (en)' without any additional information)"
     }}
 ]
 """
-    prompt = ChatPromptTemplate.from_template(RAG_TEMPLATE)
-
-    # Retrieve documents with metadata filtering
-    retriever = vectorstore.as_retriever(
-        search_kwargs={"filter": {"schema_type": schema_filter}}
     )
-    print(f"Applying filter: schema_type={schema_filter}")
-    retrieved_docs = retriever.invoke(question)
 
-    # Ensure the retrieved_docs are valid
-    if not retrieved_docs:
-        print("No relevant documents found for the given query.")
-        return None
+    final_prompt = prompt_template.format_prompt(
+        context=context, attribute=attribute
+    ).to_string()
 
-    print(f"Number of documents retrieved: {len(retrieved_docs)}")
-    context = "\n\n".join(doc.page_content for doc in retrieved_docs)
+    # Write the final prompt to a text file
+    with open("data/prompts/prompts.txt", "a") as prompt_file:
+        prompt_file.write(f"Final Prompt for {attribute}:\n")
+        prompt_file.write(final_prompt + "\n")
+        prompt_file.write("-" * 50 + "\n")
 
-    # Generate the final prompt
-    final_prompt = prompt.format_prompt(context=context, question=question).to_string()
-    print("Final Prompt:\n", final_prompt)
+    print(final_prompt)
 
-    # Query the model with structured output
     model = ChatOllama(model="llama3.1:8b")
     structured_llm = model.with_structured_output(
         json_schema, method="json_schema", include_raw=True
     )
     raw_response = structured_llm.invoke(final_prompt)
 
-    # Debugging: Print raw response
-    print("Raw Response:\n", raw_response.get("raw", None))
-
-    # Extract and return parsed structured response
     structured_response = raw_response.get("parsed", None)
-    if structured_response is None:
-        print("Parsing Error:", raw_response.get("parsing_error", None))
-    else:
-        print("Structured Response:", structured_response)
-        # Save the structured response to a JSON file
-        with open("data/response.json", "w") as json_file:
-            json.dump(structured_response, json_file, indent=4)
-            print("Response saved to data/response.json")
+
+    print(structured_response)
+    print("-" * 50 + "\n")
+
     return structured_response
 
 
 if __name__ == "__main__":
-    question = """Match the following attributes from Dataset A:
+    vectorstore_path = "embeddings/bge-m3_faiss_index"
+    output_file = "data/responses/response.json"
 
-    Schuettdichte (kg/m3)
-    Flaechengewicht (kg/m2)
-    Rohdichte (kg/m3)
-    Schichtdicke (m)
-    Ergiebigkeit (m2)
-    Laengengewicht (kg/m)
-    Stueckgewicht (kg)
-    Umrechungsfaktor auf 1kg
-    biogener Kohlenstoffgehalt in kg
-    biogener Kohlenstoffgehalt (Verpackung) in kg
-    
-    to Schema B."""
-    vectorstore_path = "embeddings/faiss_index"
-    response = query_system(
-        question, vectorstore_path, schema_filter="ILCD_FlowPropertyDataSet"
-    )
-    print("Response:\n", response)
+    # Reset the JSON file
+    with open(output_file, "w") as file:
+        json.dump([], file)
+
+    all_responses = []
+
+    for schema, attributes in attribute_schema_mapping.items():
+        for attribute in attributes:
+            response = query_system(attribute, vectorstore_path, schema)
+            if response:
+                all_responses.extend(response)
+
+    with open(output_file, "w") as file:
+        json.dump(all_responses, file, indent=2)
+
+    print(f"All responses saved to {output_file}")
