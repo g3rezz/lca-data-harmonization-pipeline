@@ -34,13 +34,13 @@ def load_and_store(csv_paths, vectorstore_path):
 
         for _, row in df.iterrows():
             content = (
-                f"Field Name (de): {row.get('Field Name (de)', 'N/A')}\n"
-                f"Field Name (en): {row.get('Field Name (en)', 'N/A')}\n"
-                f"Element/Attribute Name: {row.get('Element/Attribute Name', 'N/A')}\n"
-                f"Datatype: {row.get('Datatype', 'N/A')}\n"
-                f"Definition (de): {row.get('Definition (de)', 'N/A')}\n"
-                f"Definition (en): {row.get('Definition (en)', 'N/A')}\n"
-                f"Original ILCD Format Definition (en): {row.get('Original ILCD Format Definition (en)', 'N/A')}\n"
+                f"'{row.get('Field Name (de)', '')}',"
+                f"'{row.get('Field Name (en)', '')}',"
+                f"'{row.get('Element/Attribute Name', '')}',"
+                f"'{row.get('Datatype', '')}',"
+                f"'{row.get('Definition (de)', '')}',"
+                f"'{row.get('Definition (en)', '')}',"
+                f"'{row.get('Original ILCD Format Definition (en)', '')}'"
             )
             documents.append(
                 Document(
@@ -54,7 +54,7 @@ def load_and_store(csv_paths, vectorstore_path):
     all_splits = text_splitter.split_documents(documents)
 
     # Write the split chunks to a text file with metadata
-    with open("data/chunks/all_chunks_output.txt", "w") as file:
+    with open("data/chunks/all_chunks_output_csv.txt", "w", encoding="utf-8") as file:
         for i, chunk in enumerate(all_splits):
             file.write(f"Chunk {i+1}:\n")
             file.write(chunk.page_content + "\n")
@@ -77,5 +77,5 @@ if __name__ == "__main__":
         "data/csv/ILCD_FlowPropertyDataSet.csv",
         "data/csv/ILCD_LCIAMethodDataSet.csv",
     ]
-    vectorstore_dir = "embeddings/faiss_index"
+    vectorstore_dir = "embeddings/bge-m3_csv_faiss_index"
     load_and_store(csv_files, vectorstore_dir)
