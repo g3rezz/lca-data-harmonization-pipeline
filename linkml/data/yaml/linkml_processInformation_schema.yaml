@@ -1,0 +1,254 @@
+name: ILCDprocessInformation
+id: https://example.org/ILCDprocessInformation
+license: CC-BY-4.0
+imports:
+  - linkml:types
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  this: https://example.org/ILCDprocessInformation/
+default_prefix: this
+
+########################################
+# Types
+########################################
+types:
+  UUIDType:
+    base: str
+    description: "Universally Unique Identifier."
+    uri: linkml:UUIDType
+  Year:
+    base: int
+    description: "4-digit year."
+    uri: linkml:Year
+
+########################################
+# Classes
+########################################
+classes:
+  ProcessInformation:
+    slots:
+      - dataSetInformation
+      - quantitativeReference
+      - time
+      - geography
+      - technology
+
+  # -- DataSet information
+  DataSetInformation:
+    slots:
+      - UUID
+      - dataSetName
+      - classificationInformation
+
+  DataSetName:
+    slots:
+      - baseName
+
+  ClassificationInformation:
+    slots:
+      - classification
+
+  Classification:
+    slots:
+      - name # formerly systemName
+      - classEntries # formerly 'class' (reserved in Python)
+
+  ClassificationEntry:
+    slots:
+      - value
+      - level
+      - classId
+
+  # -- Quantitative reference
+  QuantitativeReference:
+    slots:
+      - referenceToReferenceFlow
+      - type
+
+  # -- Time
+  TimeInformation:
+    slots:
+      - referenceYear
+      - dataSetValidUntil
+      - timeRepresentativenessDescription
+      - otherTime
+
+  OtherContent:
+    slots:
+      - anies
+
+  AniesEntry:
+    slots:
+      - name
+      - value
+
+  # -- Geography
+  GeographyInformation:
+    slots:
+      - locationOfOperationSupplyOrProduction
+
+  LocationInfo:
+    slots:
+      - descriptionOfRestrictions
+      - location
+
+  # -- Technology
+  TechnologyInformation:
+    slots:
+      - technologyDescriptionAndIncludedProcesses
+      - technologicalApplicability
+      - referenceToTechnologyFlowDiagrammOrPicture
+
+  TechnologyReference:
+    slots:
+      - shortDescription
+      - type
+      - refObjectId
+
+  # -- Multi-language helper
+  MultiLangString:
+    slots:
+      - value
+      - lang
+
+########################################
+# Slots
+########################################
+slots:
+  # -- Main top-level
+  dataSetInformation:
+    range: DataSetInformation
+
+  quantitativeReference:
+    range: QuantitativeReference
+
+  time:
+    range: TimeInformation
+
+  geography:
+    range: GeographyInformation
+
+  technology:
+    range: TechnologyInformation
+
+  # -- Dataset Info
+  UUID:
+    range: UUIDType
+    description: "Unique dataset identifier."
+
+  dataSetName:
+    range: DataSetName
+    description: "Container for baseName (multi-lang)."
+
+  classificationInformation:
+    range: ClassificationInformation
+
+  baseName:
+    range: MultiLangString
+    multivalued: true
+    description: "Base name as a list of {value, lang}."
+
+  # -- Classification
+  classification:
+    range: Classification
+    multivalued: true
+    description: "List of classification objects."
+
+  name:
+    range: string
+    description: "Generic name field (used by Classification, Anies, etc.)."
+
+  classEntries:
+    range: ClassificationEntry
+    multivalued: true
+    description: "List of classification entries."
+
+  value:
+    range: string
+    description: "Generic value field (used by multi-lang or anies)."
+
+  level:
+    range: integer
+    description: "Hierarchy level."
+
+  classId:
+    range: string
+    description: "Unique class identifier."
+
+  # -- Quantitative Reference
+  referenceToReferenceFlow:
+    range: integer
+    multivalued: true
+    description: "List of integer indices to reference flows."
+
+  type:
+    range: string
+    description: "Type indicator."
+
+  # -- Time
+  referenceYear:
+    range: Year
+    description: "Reference year."
+
+  dataSetValidUntil:
+    range: Year
+    description: "Year until which the data set is valid."
+
+  timeRepresentativenessDescription:
+    range: MultiLangString
+    multivalued: true
+    description: "Time representativeness as list of {value, lang}."
+
+  otherTime:
+    range: OtherContent
+    description: "Additional time-related dictionary data."
+
+  anies:
+    range: AniesEntry
+    multivalued: true
+    description: "List of arbitrary name-value pairs."
+
+  # -- Geography
+  locationOfOperationSupplyOrProduction:
+    range: LocationInfo
+    description: "Dictionary with location details."
+
+  descriptionOfRestrictions:
+    range: MultiLangString
+    multivalued: true
+    description: "List of {value, lang} describing restrictions."
+
+  location:
+    range: string
+    description: "Location code or name."
+
+  # -- Technology
+  technologyDescriptionAndIncludedProcesses:
+    range: MultiLangString
+    multivalued: true
+    description: "List of multi-language strings describing technology."
+
+  technologicalApplicability:
+    range: MultiLangString
+    multivalued: true
+    description: "List of multi-language strings for technology applicability."
+
+  referenceToTechnologyFlowDiagrammOrPicture:
+    range: TechnologyReference
+    multivalued: true
+    description: "List of references to diagrams/pictures."
+
+  shortDescription:
+    range: MultiLangString
+    multivalued: true
+    description: "Short description as multi-lang list."
+
+  refObjectId:
+    range: string
+    description: "Reference object ID."
+
+  # -- Multi-lang
+  lang:
+    range: string
+    description: "Language code (e.g. 'en', 'de')."
