@@ -1,0 +1,347 @@
+[
+  {
+    "@id": "_:N73dba7b208ae47c9adb8740177d01695",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/ProcessInformation"
+    ],
+    "https://example.org/ILCDprocessInformation/dataSetInformation": [
+      {
+        "@id": "_:Nf7605abb5f8f4f42bf81928ccfeb6d40"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/geography": [
+      {
+        "@id": "_:Nbdcb222837ff40798583277e4290b0cd"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/quantitativeReference": [
+      {
+        "@id": "_:N2e994fda7d7544ccafda684f010dfa80"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/technology": [
+      {
+        "@id": "_:N2cd2e1b15b3d46f39603c05f46a84b59"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/time": [
+      {
+        "@id": "_:N585396bb14f24334b6f82f19cf3654a0"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf7605abb5f8f4f42bf81928ccfeb6d40",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/DataSetInformation"
+    ],
+    "https://example.org/ILCDprocessInformation/UUID": [
+      {
+        "@type": "https://w3id.org/linkml/UUIDType",
+        "@value": "63a79af1-1ab0-4677-45a8-08dc6fc9d4ca"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/classificationInformation": [
+      {
+        "@id": "_:Nd08454198ab44d8ab0cec996d5ae47e9"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/dataSetName": [
+      {
+        "@id": "_:N5133279137d545ccb432853710e8fb00"
+      }
+    ]
+  },
+  {
+    "@id": "_:N5133279137d545ccb432853710e8fb00",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/DataSetName"
+    ],
+    "https://example.org/ILCDprocessInformation/baseName": [
+      {
+        "@id": "_:N63bc19e0395c44a5aee32deb8491dba8"
+      }
+    ]
+  },
+  {
+    "@id": "_:N63bc19e0395c44a5aee32deb8491dba8",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/MultiLangString"
+    ],
+    "https://example.org/ILCDprocessInformation/lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/value": [
+      {
+        "@value": " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd08454198ab44d8ab0cec996d5ae47e9",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/ClassificationInformation"
+    ],
+    "https://example.org/ILCDprocessInformation/classification": [
+      {
+        "@id": "_:N23a586afab1649cf98e7d71bffa11015"
+      }
+    ]
+  },
+  {
+    "@id": "_:N23a586afab1649cf98e7d71bffa11015",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/Classification"
+    ],
+    "https://example.org/ILCDprocessInformation/classEntries": [
+      {
+        "@id": "_:N9e69a0e288584612a4a4585490a549cc"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/name": [
+      {
+        "@value": "The International EPD System"
+      }
+    ]
+  },
+  {
+    "@id": "_:N9e69a0e288584612a4a4585490a549cc",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/ClassificationEntry"
+    ],
+    "https://example.org/ILCDprocessInformation/classId": [
+      {
+        "@value": "0"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/level": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 0
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/value": [
+      {
+        "@value": "Construction products, Infrastructure & buildings"
+      }
+    ]
+  },
+  {
+    "@id": "_:N2e994fda7d7544ccafda684f010dfa80",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/QuantitativeReference"
+    ],
+    "https://example.org/ILCDprocessInformation/referenceToReferenceFlow": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 0
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/type": [
+      {
+        "@value": "Reference flow(s)"
+      }
+    ]
+  },
+  {
+    "@id": "_:N585396bb14f24334b6f82f19cf3654a0",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/TimeInformation"
+    ],
+    "https://example.org/ILCDprocessInformation/dataSetValidUntil": [
+      {
+        "@type": "https://w3id.org/linkml/Year",
+        "@value": "2029"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/otherTime": [
+      {
+        "@id": "_:N6e12f97093f647759b65dea90b3432c4"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/referenceYear": [
+      {
+        "@type": "https://w3id.org/linkml/Year",
+        "@value": "2024"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/timeRepresentativenessDescription": [
+      {
+        "@id": "_:N17b4e4e958d8455389e7a2d542054a38"
+      }
+    ]
+  },
+  {
+    "@id": "_:N17b4e4e958d8455389e7a2d542054a38",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/MultiLangString"
+    ],
+    "https://example.org/ILCDprocessInformation/lang": [
+      {
+        "@value": "en"
+      }
+    ]
+  },
+  {
+    "@id": "_:N6e12f97093f647759b65dea90b3432c4",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/OtherContent"
+    ],
+    "https://example.org/ILCDprocessInformation/anies": [
+      {
+        "@id": "_:N66662f4b3ab64187acf837cd0fff01ec"
+      }
+    ]
+  },
+  {
+    "@id": "_:N66662f4b3ab64187acf837cd0fff01ec",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/AniesEntry"
+    ],
+    "https://example.org/ILCDprocessInformation/name": [
+      {
+        "@value": "publicationDateOfEPD"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/value": [
+      {
+        "@value": "1715904000000"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nbdcb222837ff40798583277e4290b0cd",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/GeographyInformation"
+    ],
+    "https://example.org/ILCDprocessInformation/locationOfOperationSupplyOrProduction": [
+      {
+        "@id": "_:N3b4b17f8f29a4d9f99f29f9b68d78047"
+      }
+    ]
+  },
+  {
+    "@id": "_:N3b4b17f8f29a4d9f99f29f9b68d78047",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/LocationInfo"
+    ],
+    "https://example.org/ILCDprocessInformation/descriptionOfRestrictions": [
+      {
+        "@id": "_:Nea390e048cdb469895017f048b798730"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/location": [
+      {
+        "@value": "IT"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nea390e048cdb469895017f048b798730",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/MultiLangString"
+    ],
+    "https://example.org/ILCDprocessInformation/lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/value": [
+      {
+        "@value": "Costituents, production and use in Italy. "
+      }
+    ]
+  },
+  {
+    "@id": "_:N2cd2e1b15b3d46f39603c05f46a84b59",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/TechnologyInformation"
+    ],
+    "https://example.org/ILCDprocessInformation/referenceToTechnologyFlowDiagrammOrPicture": [
+      {
+        "@id": "_:N5b6ab8237058418da1736cb3efc93a8d"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/technologicalApplicability": [
+      {
+        "@id": "_:Nf0578b37eaed460f8be9e67b9e646452"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/technologyDescriptionAndIncludedProcesses": [
+      {
+        "@id": "_:Naa5481ed090f498da3597688230085f2"
+      }
+    ]
+  },
+  {
+    "@id": "_:Naa5481ed090f498da3597688230085f2",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/MultiLangString"
+    ],
+    "https://example.org/ILCDprocessInformation/lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/value": [
+      {
+        "@value": "Concrete is produced by mixing cement, aggregates (sand, crushed stone and gravel), water and additives. The cement section is  consists  of storage silos connected to a weighbridge, the extraction and loading of the cement into the truck mixer takes place via closed augers. The suction system and filters guarantee the abatement of dust during  loading of the truck mixers.  The coarse aggregate (“Gravel” or commercially “Cobblestone”) is unloaded directly into a hopper from the tipper trucks owned by the supplier and is then transferred by means of belts from the hopper on the ground to the loading ones. The same applies  for sand. The additives are dosed separately using volumetric dosers, whereas the mixing water is dosed with electromechanical meters. All the components described above are conveyed into the concrete mixer barrel where the homogenization and mixing phases take  place; the energy required for the production of concrete is given by electricity. The shipment of the final product is carried out using special truck mixers. The concretes subject to analysis comply with the requirements of the REACH regulation."
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf0578b37eaed460f8be9e67b9e646452",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/MultiLangString"
+    ],
+    "https://example.org/ILCDprocessInformation/lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/value": [
+      {
+        "@value": "Structural concrete for civil buildings and constructions."
+      }
+    ]
+  },
+  {
+    "@id": "_:N5b6ab8237058418da1736cb3efc93a8d",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/TechnologyReference"
+    ],
+    "https://example.org/ILCDprocessInformation/refObjectId": [
+      {
+        "@value": "785a09be-82f3-461a-ba60-c49b80204481"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/shortDescription": [
+      {
+        "@id": "_:N5faa1295eeed4bce82c3d5ca765dcd2c"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/type": [
+      {
+        "@value": "source data set"
+      }
+    ]
+  },
+  {
+    "@id": "_:N5faa1295eeed4bce82c3d5ca765dcd2c",
+    "@type": [
+      "https://example.org/ILCDprocessInformation/MultiLangString"
+    ],
+    "https://example.org/ILCDprocessInformation/lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "https://example.org/ILCDprocessInformation/value": [
+      {
+        "@value": "Process flow"
+      }
+    ]
+  }
+]

@@ -1,0 +1,742 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shex: <http://www.w3.org/ns/shex#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/EPDProcessInformation/EPDProcessInformation> a linkml:SchemaDefinition ;
+    dcterms:license "CC-BY-4.0" ;
+    sh:declare [ sh:namespace <https://example.org/EPDProcessInformation/> ;
+            sh:prefix "this" ],
+        [ sh:namespace linkml: ;
+            sh:prefix "linkml" ] ;
+    linkml:classes <https://example.org/EPDProcessInformation/AniesEntry>,
+        <https://example.org/EPDProcessInformation/Classification>,
+        <https://example.org/EPDProcessInformation/ClassificationEntry>,
+        <https://example.org/EPDProcessInformation/ClassificationInformation>,
+        <https://example.org/EPDProcessInformation/DataSetInformation>,
+        <https://example.org/EPDProcessInformation/DataSetName>,
+        <https://example.org/EPDProcessInformation/GeographyInformation>,
+        <https://example.org/EPDProcessInformation/LocationInfo>,
+        <https://example.org/EPDProcessInformation/MultiLangString>,
+        <https://example.org/EPDProcessInformation/OtherContent>,
+        <https://example.org/EPDProcessInformation/ProcessInformation>,
+        <https://example.org/EPDProcessInformation/QuantitativeReference>,
+        <https://example.org/EPDProcessInformation/TechnologyInformation>,
+        <https://example.org/EPDProcessInformation/TechnologyReference>,
+        <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:default_prefix "this" ;
+    linkml:default_range <https://example.org/EPDProcessInformation/string> ;
+    linkml:generation_date "2025-02-15T20:31:23"^^xsd:dateTime ;
+    linkml:id <https://example.org/EPDProcessInformation> ;
+    linkml:imports linkml:types ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:slots <https://example.org/EPDProcessInformation/UUID>,
+        <https://example.org/EPDProcessInformation/anies>,
+        <https://example.org/EPDProcessInformation/baseName>,
+        <https://example.org/EPDProcessInformation/classEntries>,
+        <https://example.org/EPDProcessInformation/classId>,
+        <https://example.org/EPDProcessInformation/classification>,
+        <https://example.org/EPDProcessInformation/classificationInformation>,
+        <https://example.org/EPDProcessInformation/dataSetInformation>,
+        <https://example.org/EPDProcessInformation/dataSetName>,
+        <https://example.org/EPDProcessInformation/dataSetValidUntil>,
+        <https://example.org/EPDProcessInformation/descriptionOfRestrictions>,
+        <https://example.org/EPDProcessInformation/geography>,
+        <https://example.org/EPDProcessInformation/lang>,
+        <https://example.org/EPDProcessInformation/level>,
+        <https://example.org/EPDProcessInformation/location>,
+        <https://example.org/EPDProcessInformation/locationOfOperationSupplyOrProduction>,
+        <https://example.org/EPDProcessInformation/name>,
+        <https://example.org/EPDProcessInformation/otherTime>,
+        <https://example.org/EPDProcessInformation/quantitativeReference>,
+        <https://example.org/EPDProcessInformation/refObjectId>,
+        <https://example.org/EPDProcessInformation/referenceToReferenceFlow>,
+        <https://example.org/EPDProcessInformation/referenceToTechnologyFlowDiagrammOrPicture>,
+        <https://example.org/EPDProcessInformation/referenceYear>,
+        <https://example.org/EPDProcessInformation/shortDescription>,
+        <https://example.org/EPDProcessInformation/technologicalApplicability>,
+        <https://example.org/EPDProcessInformation/technology>,
+        <https://example.org/EPDProcessInformation/technologyDescriptionAndIncludedProcesses>,
+        <https://example.org/EPDProcessInformation/time>,
+        <https://example.org/EPDProcessInformation/timeRepresentativenessDescription>,
+        <https://example.org/EPDProcessInformation/type>,
+        <https://example.org/EPDProcessInformation/value> ;
+    linkml:source_file "epd_linkml_minimal_schema.yaml" ;
+    linkml:source_file_date "2025-02-15T20:08:09"^^xsd:dateTime ;
+    linkml:source_file_size 5618 ;
+    linkml:types <https://example.org/EPDProcessInformation/UUIDType>,
+        <https://example.org/EPDProcessInformation/Year>,
+        <https://example.org/EPDProcessInformation/boolean>,
+        <https://example.org/EPDProcessInformation/curie>,
+        <https://example.org/EPDProcessInformation/date>,
+        <https://example.org/EPDProcessInformation/date_or_datetime>,
+        <https://example.org/EPDProcessInformation/datetime>,
+        <https://example.org/EPDProcessInformation/decimal>,
+        <https://example.org/EPDProcessInformation/double>,
+        <https://example.org/EPDProcessInformation/float>,
+        <https://example.org/EPDProcessInformation/integer>,
+        <https://example.org/EPDProcessInformation/jsonpath>,
+        <https://example.org/EPDProcessInformation/jsonpointer>,
+        <https://example.org/EPDProcessInformation/ncname>,
+        <https://example.org/EPDProcessInformation/nodeidentifier>,
+        <https://example.org/EPDProcessInformation/objectidentifier>,
+        <https://example.org/EPDProcessInformation/sparqlpath>,
+        <https://example.org/EPDProcessInformation/string>,
+        <https://example.org/EPDProcessInformation/time>,
+        <https://example.org/EPDProcessInformation/uri>,
+        <https://example.org/EPDProcessInformation/uriorcurie> .
+
+<https://example.org/EPDProcessInformation/boolean> a linkml:TypeDefinition ;
+    skos:definition "A binary (true or false) value" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"." ;
+    skos:exactMatch schema1:Boolean ;
+    skos:inScheme linkml:types ;
+    linkml:base "Bool" ;
+    linkml:definition_uri linkml:Boolean ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "bool" ;
+    linkml:uri xsd:boolean .
+
+<https://example.org/EPDProcessInformation/curie> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.w3.org/TR/curie/" ;
+    skos:definition "a compact URI" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"." ;
+    skos:inScheme linkml:types ;
+    skos:note "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation" ;
+    linkml:base "Curie" ;
+    linkml:definition_uri linkml:Curie ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri xsd:string .
+
+<https://example.org/EPDProcessInformation/date> a linkml:TypeDefinition ;
+    skos:definition "a date (year, month and day) in an idealized calendar" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\".",
+        "URI is dateTime because OWL reasoners don't work with straight date or time" ;
+    skos:exactMatch schema1:Date ;
+    skos:inScheme linkml:types ;
+    linkml:base "XSDDate" ;
+    linkml:definition_uri linkml:Date ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri xsd:date .
+
+<https://example.org/EPDProcessInformation/date_or_datetime> a linkml:TypeDefinition ;
+    skos:definition "Either a date or a datetime" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"." ;
+    skos:inScheme linkml:types ;
+    linkml:base "str" ;
+    linkml:definition_uri linkml:DateOrDatetime ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri linkml:DateOrDatetime .
+
+<https://example.org/EPDProcessInformation/datetime> a linkml:TypeDefinition ;
+    skos:definition "The combination of a date and time" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"." ;
+    skos:exactMatch schema1:DateTime ;
+    skos:inScheme linkml:types ;
+    linkml:base "XSDDateTime" ;
+    linkml:definition_uri linkml:Datetime ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri xsd:dateTime .
+
+<https://example.org/EPDProcessInformation/decimal> a linkml:TypeDefinition ;
+    skos:broadMatch schema1:Number ;
+    skos:definition "A real number with arbitrary precision that conforms to the xsd:decimal specification" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"." ;
+    skos:inScheme linkml:types ;
+    linkml:base "Decimal" ;
+    linkml:definition_uri linkml:Decimal ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri xsd:decimal .
+
+<https://example.org/EPDProcessInformation/double> a linkml:TypeDefinition ;
+    skos:closeMatch schema1:Float ;
+    skos:definition "A real number that conforms to the xsd:double specification" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"." ;
+    skos:inScheme linkml:types ;
+    linkml:base "float" ;
+    linkml:definition_uri linkml:Double ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri xsd:double .
+
+<https://example.org/EPDProcessInformation/float> a linkml:TypeDefinition ;
+    skos:definition "A real number that conforms to the xsd:float specification" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"." ;
+    skos:exactMatch schema1:Float ;
+    skos:inScheme linkml:types ;
+    linkml:base "float" ;
+    linkml:definition_uri linkml:Float ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri xsd:float .
+
+<https://example.org/EPDProcessInformation/jsonpath> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html" ;
+    skos:definition "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form." ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"." ;
+    skos:inScheme linkml:types ;
+    linkml:base "str" ;
+    linkml:definition_uri linkml:Jsonpath ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri xsd:string .
+
+<https://example.org/EPDProcessInformation/jsonpointer> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://datatracker.ietf.org/doc/html/rfc6901" ;
+    skos:definition "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form." ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"." ;
+    skos:inScheme linkml:types ;
+    linkml:base "str" ;
+    linkml:definition_uri linkml:Jsonpointer ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri xsd:string .
+
+<https://example.org/EPDProcessInformation/ncname> a linkml:TypeDefinition ;
+    skos:definition "Prefix part of CURIE" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"." ;
+    skos:inScheme linkml:types ;
+    linkml:base "NCName" ;
+    linkml:definition_uri linkml:Ncname ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri xsd:string .
+
+<https://example.org/EPDProcessInformation/nodeidentifier> a linkml:TypeDefinition ;
+    skos:definition "A URI, CURIE or BNODE that represents a node in a model." ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"." ;
+    skos:inScheme linkml:types ;
+    linkml:base "NodeIdentifier" ;
+    linkml:definition_uri linkml:Nodeidentifier ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri shex:nonLiteral .
+
+<https://example.org/EPDProcessInformation/objectidentifier> a linkml:TypeDefinition ;
+    skos:definition "A URI or CURIE that represents an object in the model." ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"." ;
+    skos:inScheme linkml:types ;
+    skos:note "Used for inheritance and type checking" ;
+    linkml:base "ElementIdentifier" ;
+    linkml:definition_uri linkml:Objectidentifier ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri shex:iri .
+
+<https://example.org/EPDProcessInformation/sparqlpath> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.w3.org/TR/sparql11-query/#propertypaths" ;
+    skos:definition "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF." ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"." ;
+    skos:inScheme linkml:types ;
+    linkml:base "str" ;
+    linkml:definition_uri linkml:Sparqlpath ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri xsd:string .
+
+<https://example.org/EPDProcessInformation/uri> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.ietf.org/rfc/rfc3987.txt" ;
+    skos:closeMatch schema1:URL ;
+    skos:definition "a complete URI" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"." ;
+    skos:inScheme linkml:types ;
+    skos:note "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node" ;
+    linkml:base "URI" ;
+    linkml:definition_uri linkml:Uri ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri xsd:anyURI .
+
+<https://example.org/EPDProcessInformation/uriorcurie> a linkml:TypeDefinition ;
+    skos:definition "a URI or a CURIE" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"." ;
+    skos:inScheme linkml:types ;
+    linkml:base "URIorCURIE" ;
+    linkml:definition_uri linkml:Uriorcurie ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri xsd:anyURI .
+
+<https://example.org/EPDProcessInformation/UUIDType> a linkml:TypeDefinition ;
+    skos:definition "Unique Universal Identifier." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:base "str" ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/UUIDType> ;
+    linkml:uri linkml:UUIDType .
+
+<https://example.org/EPDProcessInformation/integer> a linkml:TypeDefinition ;
+    skos:definition "An integer" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"." ;
+    skos:exactMatch schema1:Integer ;
+    skos:inScheme linkml:types ;
+    linkml:base "int" ;
+    linkml:definition_uri linkml:Integer ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri xsd:integer .
+
+<https://example.org/EPDProcessInformation/UUID> a linkml:SlotDefinition ;
+    skos:definition "Unique dataset identifier." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/UUID> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/DataSetInformation> ;
+    linkml:owner <https://example.org/EPDProcessInformation/DataSetInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/UUIDType> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/UUID> .
+
+<https://example.org/EPDProcessInformation/Year> a linkml:TypeDefinition ;
+    skos:definition "4-digit year." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:base "int" ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/Year> ;
+    linkml:uri linkml:Year .
+
+<https://example.org/EPDProcessInformation/anies> a linkml:SlotDefinition ;
+    skos:definition "List of arbitrary name-value pairs." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/anies> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/OtherContent> ;
+    linkml:inlined true ;
+    linkml:multivalued true ;
+    linkml:owner <https://example.org/EPDProcessInformation/OtherContent> ;
+    linkml:range <https://example.org/EPDProcessInformation/AniesEntry> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/anies> .
+
+<https://example.org/EPDProcessInformation/baseName> a linkml:SlotDefinition ;
+    skos:definition "Base name as a list of {value, lang}." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/baseName> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/DataSetName> ;
+    linkml:inlined true ;
+    linkml:multivalued true ;
+    linkml:owner <https://example.org/EPDProcessInformation/DataSetName> ;
+    linkml:range <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/baseName> .
+
+<https://example.org/EPDProcessInformation/classEntries> a linkml:SlotDefinition ;
+    skos:definition "List of classification entries." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/classEntries> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/Classification> ;
+    linkml:inlined true ;
+    linkml:multivalued true ;
+    linkml:owner <https://example.org/EPDProcessInformation/Classification> ;
+    linkml:range <https://example.org/EPDProcessInformation/ClassificationEntry> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/classEntries> .
+
+<https://example.org/EPDProcessInformation/classId> a linkml:SlotDefinition ;
+    skos:definition "Unique class identifier." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/classId> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/ClassificationEntry> ;
+    linkml:owner <https://example.org/EPDProcessInformation/ClassificationEntry> ;
+    linkml:range <https://example.org/EPDProcessInformation/string> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/classId> .
+
+<https://example.org/EPDProcessInformation/classification> a linkml:SlotDefinition ;
+    skos:definition "List of classification objects." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/classification> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/ClassificationInformation> ;
+    linkml:inlined true ;
+    linkml:multivalued true ;
+    linkml:owner <https://example.org/EPDProcessInformation/ClassificationInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/Classification> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/classification> .
+
+<https://example.org/EPDProcessInformation/classificationInformation> a linkml:SlotDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/classificationInformation> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/DataSetInformation> ;
+    linkml:inlined true ;
+    linkml:owner <https://example.org/EPDProcessInformation/DataSetInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/ClassificationInformation> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/classificationInformation> .
+
+<https://example.org/EPDProcessInformation/dataSetInformation> a linkml:SlotDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/dataSetInformation> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:inlined true ;
+    linkml:owner <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/DataSetInformation> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/dataSetInformation> .
+
+<https://example.org/EPDProcessInformation/dataSetName> a linkml:SlotDefinition ;
+    skos:definition "Container for baseName (multi-lang)." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/dataSetName> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/DataSetInformation> ;
+    linkml:inlined true ;
+    linkml:owner <https://example.org/EPDProcessInformation/DataSetInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/DataSetName> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/dataSetName> .
+
+<https://example.org/EPDProcessInformation/dataSetValidUntil> a linkml:SlotDefinition ;
+    skos:definition "Year until which the data set is valid." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/dataSetValidUntil> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:owner <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/Year> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/dataSetValidUntil> .
+
+<https://example.org/EPDProcessInformation/descriptionOfRestrictions> a linkml:SlotDefinition ;
+    skos:definition "List of {value, lang} describing restrictions." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/descriptionOfRestrictions> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/LocationInfo> ;
+    linkml:inlined true ;
+    linkml:multivalued true ;
+    linkml:owner <https://example.org/EPDProcessInformation/LocationInfo> ;
+    linkml:range <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/descriptionOfRestrictions> .
+
+<https://example.org/EPDProcessInformation/geography> a linkml:SlotDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/geography> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:inlined true ;
+    linkml:owner <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/GeographyInformation> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/geography> .
+
+<https://example.org/EPDProcessInformation/lang> a linkml:SlotDefinition ;
+    skos:definition "Language code (e.g. 'en', 'de')." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/lang> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:owner <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:range <https://example.org/EPDProcessInformation/string> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/lang> .
+
+<https://example.org/EPDProcessInformation/level> a linkml:SlotDefinition ;
+    skos:definition "Hierarchy level." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/level> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/ClassificationEntry> ;
+    linkml:owner <https://example.org/EPDProcessInformation/ClassificationEntry> ;
+    linkml:range <https://example.org/EPDProcessInformation/integer> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/level> .
+
+<https://example.org/EPDProcessInformation/location> a linkml:SlotDefinition ;
+    skos:definition "Location code or name." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/location> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/LocationInfo> ;
+    linkml:owner <https://example.org/EPDProcessInformation/LocationInfo> ;
+    linkml:range <https://example.org/EPDProcessInformation/string> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/location> .
+
+<https://example.org/EPDProcessInformation/locationOfOperationSupplyOrProduction> a linkml:SlotDefinition ;
+    skos:definition "Dictionary with location details." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/locationOfOperationSupplyOrProduction> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/GeographyInformation> ;
+    linkml:inlined true ;
+    linkml:owner <https://example.org/EPDProcessInformation/GeographyInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/LocationInfo> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/locationOfOperationSupplyOrProduction> .
+
+<https://example.org/EPDProcessInformation/otherTime> a linkml:SlotDefinition ;
+    skos:definition "Additional time-related dictionary data." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/otherTime> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:inlined true ;
+    linkml:owner <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/OtherContent> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/otherTime> .
+
+<https://example.org/EPDProcessInformation/quantitativeReference> a linkml:SlotDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/quantitativeReference> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:inlined true ;
+    linkml:owner <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/QuantitativeReference> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/quantitativeReference> .
+
+<https://example.org/EPDProcessInformation/refObjectId> a linkml:SlotDefinition ;
+    skos:definition "Reference object ID." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/refObjectId> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/TechnologyReference> ;
+    linkml:owner <https://example.org/EPDProcessInformation/TechnologyReference> ;
+    linkml:range <https://example.org/EPDProcessInformation/string> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/refObjectId> .
+
+<https://example.org/EPDProcessInformation/referenceToReferenceFlow> a linkml:SlotDefinition ;
+    skos:definition "List of integer indices to reference flows." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/referenceToReferenceFlow> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/QuantitativeReference> ;
+    linkml:multivalued true ;
+    linkml:owner <https://example.org/EPDProcessInformation/QuantitativeReference> ;
+    linkml:range <https://example.org/EPDProcessInformation/integer> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/referenceToReferenceFlow> .
+
+<https://example.org/EPDProcessInformation/referenceToTechnologyFlowDiagrammOrPicture> a linkml:SlotDefinition ;
+    skos:definition "List of references to diagrams/pictures." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/referenceToTechnologyFlowDiagrammOrPicture> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/TechnologyInformation> ;
+    linkml:inlined true ;
+    linkml:multivalued true ;
+    linkml:owner <https://example.org/EPDProcessInformation/TechnologyInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/TechnologyReference> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/referenceToTechnologyFlowDiagrammOrPicture> .
+
+<https://example.org/EPDProcessInformation/referenceYear> a linkml:SlotDefinition ;
+    skos:definition "Reference year." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/referenceYear> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:owner <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/Year> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/referenceYear> .
+
+<https://example.org/EPDProcessInformation/shortDescription> a linkml:SlotDefinition ;
+    skos:definition "Short description as multi-lang list." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/shortDescription> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/TechnologyReference> ;
+    linkml:inlined true ;
+    linkml:multivalued true ;
+    linkml:owner <https://example.org/EPDProcessInformation/TechnologyReference> ;
+    linkml:range <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/shortDescription> .
+
+<https://example.org/EPDProcessInformation/technologicalApplicability> a linkml:SlotDefinition ;
+    skos:definition "List of multi-language strings for technology applicability." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/technologicalApplicability> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/TechnologyInformation> ;
+    linkml:inlined true ;
+    linkml:multivalued true ;
+    linkml:owner <https://example.org/EPDProcessInformation/TechnologyInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/technologicalApplicability> .
+
+<https://example.org/EPDProcessInformation/technology> a linkml:SlotDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/technology> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:inlined true ;
+    linkml:owner <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/TechnologyInformation> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/technology> .
+
+<https://example.org/EPDProcessInformation/technologyDescriptionAndIncludedProcesses> a linkml:SlotDefinition ;
+    skos:definition "List of multi-language strings describing technology." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/technologyDescriptionAndIncludedProcesses> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/TechnologyInformation> ;
+    linkml:inlined true ;
+    linkml:multivalued true ;
+    linkml:owner <https://example.org/EPDProcessInformation/TechnologyInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/technologyDescriptionAndIncludedProcesses> .
+
+<https://example.org/EPDProcessInformation/timeRepresentativenessDescription> a linkml:SlotDefinition ;
+    skos:definition "Time representativeness as list of {value, lang}." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/timeRepresentativenessDescription> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:inlined true ;
+    linkml:multivalued true ;
+    linkml:owner <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/timeRepresentativenessDescription> .
+
+<https://example.org/EPDProcessInformation/name> a linkml:SlotDefinition ;
+    skos:definition "Generic name field (used by Classification, Anies, etc.)." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/name> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/AniesEntry>,
+        <https://example.org/EPDProcessInformation/Classification> ;
+    linkml:owner <https://example.org/EPDProcessInformation/AniesEntry> ;
+    linkml:range <https://example.org/EPDProcessInformation/string> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/name> .
+
+<https://example.org/EPDProcessInformation/time> a linkml:SlotDefinition,
+        linkml:TypeDefinition ;
+    skos:definition "A time object represents a (local) time of day, independent of any particular day" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\".",
+        "URI is dateTime because OWL reasoners do not work with straight date or time" ;
+    skos:exactMatch schema1:Time ;
+    skos:inScheme <https://example.org/EPDProcessInformation>,
+        linkml:types ;
+    linkml:base "XSDTime" ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/time>,
+        linkml:Time ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:imported_from "linkml:types" ;
+    linkml:inlined true ;
+    linkml:owner <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:range <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:repr "str" ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/time> ;
+    linkml:uri xsd:time .
+
+<https://example.org/EPDProcessInformation/type> a linkml:SlotDefinition ;
+    skos:definition "Type indicator." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/type> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/QuantitativeReference>,
+        <https://example.org/EPDProcessInformation/TechnologyReference> ;
+    linkml:owner <https://example.org/EPDProcessInformation/TechnologyReference> ;
+    linkml:range <https://example.org/EPDProcessInformation/string> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/type> .
+
+<https://example.org/EPDProcessInformation/ClassificationInformation> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/ClassificationInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/ClassificationInformation> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/classification> .
+
+<https://example.org/EPDProcessInformation/DataSetName> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/DataSetName> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/DataSetName> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/baseName> .
+
+<https://example.org/EPDProcessInformation/GeographyInformation> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/GeographyInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/GeographyInformation> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/locationOfOperationSupplyOrProduction> .
+
+<https://example.org/EPDProcessInformation/OtherContent> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/OtherContent> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/OtherContent> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/anies> .
+
+<https://example.org/EPDProcessInformation/value> a linkml:SlotDefinition ;
+    skos:definition "Generic value field (used by multi-lang or anies)." ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/value> ;
+    linkml:domain_of <https://example.org/EPDProcessInformation/AniesEntry>,
+        <https://example.org/EPDProcessInformation/ClassificationEntry>,
+        <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:owner <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:range <https://example.org/EPDProcessInformation/string> ;
+    linkml:slot_uri <https://example.org/EPDProcessInformation/value> .
+
+<https://example.org/EPDProcessInformation/AniesEntry> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/AniesEntry> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/AniesEntry> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/name>,
+        <https://example.org/EPDProcessInformation/value> .
+
+<https://example.org/EPDProcessInformation/Classification> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/Classification> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/Classification> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/classEntries>,
+        <https://example.org/EPDProcessInformation/name> .
+
+<https://example.org/EPDProcessInformation/QuantitativeReference> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/QuantitativeReference> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/QuantitativeReference> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/referenceToReferenceFlow>,
+        <https://example.org/EPDProcessInformation/type> .
+
+<https://example.org/EPDProcessInformation/LocationInfo> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/LocationInfo> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/LocationInfo> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/descriptionOfRestrictions>,
+        <https://example.org/EPDProcessInformation/location> .
+
+<https://example.org/EPDProcessInformation/ClassificationEntry> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/ClassificationEntry> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/ClassificationEntry> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/classId>,
+        <https://example.org/EPDProcessInformation/level>,
+        <https://example.org/EPDProcessInformation/value> .
+
+<https://example.org/EPDProcessInformation/string> a linkml:TypeDefinition ;
+    skos:definition "A character string" ;
+    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
+    skos:exactMatch schema1:Text ;
+    skos:inScheme linkml:types ;
+    linkml:base "str" ;
+    linkml:definition_uri linkml:String ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri xsd:string .
+
+<https://example.org/EPDProcessInformation/DataSetInformation> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/DataSetInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/DataSetInformation> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/UUID>,
+        <https://example.org/EPDProcessInformation/classificationInformation>,
+        <https://example.org/EPDProcessInformation/dataSetName> .
+
+<https://example.org/EPDProcessInformation/TechnologyInformation> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/TechnologyInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/TechnologyInformation> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/referenceToTechnologyFlowDiagrammOrPicture>,
+        <https://example.org/EPDProcessInformation/technologicalApplicability>,
+        <https://example.org/EPDProcessInformation/technologyDescriptionAndIncludedProcesses> .
+
+<https://example.org/EPDProcessInformation/TechnologyReference> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/TechnologyReference> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/TechnologyReference> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/refObjectId>,
+        <https://example.org/EPDProcessInformation/shortDescription>,
+        <https://example.org/EPDProcessInformation/type> .
+
+<https://example.org/EPDProcessInformation/TimeInformation> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/TimeInformation> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/dataSetValidUntil>,
+        <https://example.org/EPDProcessInformation/otherTime>,
+        <https://example.org/EPDProcessInformation/referenceYear>,
+        <https://example.org/EPDProcessInformation/timeRepresentativenessDescription> .
+
+<https://example.org/EPDProcessInformation/MultiLangString> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/MultiLangString> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/lang>,
+        <https://example.org/EPDProcessInformation/value> .
+
+<https://example.org/EPDProcessInformation/ProcessInformation> a linkml:ClassDefinition ;
+    skos:inScheme <https://example.org/EPDProcessInformation> ;
+    linkml:class_uri <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:definition_uri <https://example.org/EPDProcessInformation/ProcessInformation> ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://example.org/EPDProcessInformation/dataSetInformation>,
+        <https://example.org/EPDProcessInformation/geography>,
+        <https://example.org/EPDProcessInformation/quantitativeReference>,
+        <https://example.org/EPDProcessInformation/technology>,
+        <https://example.org/EPDProcessInformation/time> .
+

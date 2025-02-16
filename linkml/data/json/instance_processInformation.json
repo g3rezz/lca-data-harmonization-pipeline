@@ -1,0 +1,73 @@
+{
+  "processInformation": {
+    "dataSetInformation": {
+      "UUID": "63a79af1-1ab0-4677-45a8-08dc6fc9d4ca",
+      "dataSetName": {
+        "baseName": [
+          {
+            "value": " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20",
+            "lang": "en"
+          }
+        ]
+      },
+      "classificationInformation": {
+        "classification": [
+          {
+            "classEntries": [
+              {
+                "value": "Construction products, Infrastructure & buildings",
+                "level": 0,
+                "classId": "0"
+              }
+            ],
+            "name": "The International EPD System"
+          }
+        ]
+      }
+    },
+    "quantitativeReference": {
+      "referenceToReferenceFlow": [0],
+      "type": "Reference flow(s)"
+    },
+    "time": {
+      "referenceYear": 2024,
+      "dataSetValidUntil": 2029,
+      "timeRepresentativenessDescription": [{ "lang": "en" }],
+      "otherTime": {
+        "anies": [{ "name": "publicationDateOfEPD", "value": "1715904000000" }]
+      }
+    },
+    "geography": {
+      "locationOfOperationSupplyOrProduction": {
+        "descriptionOfRestrictions": [
+          {
+            "value": "Costituents, production and use in Italy. ",
+            "lang": "en"
+          }
+        ],
+        "location": "IT"
+      }
+    },
+    "technology": {
+      "technologyDescriptionAndIncludedProcesses": [
+        {
+          "value": "Concrete is produced by mixing cement, aggregates (sand, crushed stone and gravel), water and additives. The cement section is  consists  of storage silos connected to a weighbridge, the extraction and loading of the cement into the truck mixer takes place via closed augers. The suction system and filters guarantee the abatement of dust during  loading of the truck mixers.  The coarse aggregate (“Gravel” or commercially “Cobblestone”) is unloaded directly into a hopper from the tipper trucks owned by the supplier and is then transferred by means of belts from the hopper on the ground to the loading ones. The same applies  for sand. The additives are dosed separately using volumetric dosers, whereas the mixing water is dosed with electromechanical meters. All the components described above are conveyed into the concrete mixer barrel where the homogenization and mixing phases take  place; the energy required for the production of concrete is given by electricity. The shipment of the final product is carried out using special truck mixers. The concretes subject to analysis comply with the requirements of the REACH regulation.",
+          "lang": "en"
+        }
+      ],
+      "technologicalApplicability": [
+        {
+          "value": "Structural concrete for civil buildings and constructions.",
+          "lang": "en"
+        }
+      ],
+      "referenceToTechnologyFlowDiagrammOrPicture": [
+        {
+          "shortDescription": [{ "value": "Process flow", "lang": "en" }],
+          "type": "source data set",
+          "refObjectId": "785a09be-82f3-461a-ba60-c49b80204481"
+        }
+      ]
+    }
+  }
+}
