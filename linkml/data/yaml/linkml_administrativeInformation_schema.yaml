@@ -1,0 +1,102 @@
+name: ILCDadministrativeInformation
+id: https://example.org/ILCDadministrativeInformation
+license: CC-BY-4.0
+
+imports:
+  - linkml:types
+  - linkml_shared_definitions # Import shared definitions between ILCD YAML schemas
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ILCDadmin: https://example.org/ILCDadministrativeInformation/
+default_prefix: ILCDadmin
+
+########################################
+# Classes
+########################################
+classes:
+  AdministrativeInformation:
+    description: "Container for the administrativeInformation section."
+    slots:
+      - dataGenerator
+      - dataEntryBy
+      - publicationAndOwnership
+
+  DataGenerator:
+    description: "Holds the reference to the person or entity generating the dataset."
+    slots:
+      - referenceToPersonOrEntityGeneratingTheDataSet
+
+  DataEntryBy:
+    description: "Holds timestamp and references to data set formats."
+    slots:
+      - timeStamp
+      - referenceToDataSetFormat
+
+  PublicationAndOwnership:
+    description: "Contains dataset version, ownership references, etc."
+    slots:
+      - dataSetVersion
+      - registrationNumber
+      - referenceToOwnershipOfDataSet
+      - copyright
+      - accessRestrictions
+
+########################################
+# Slots
+########################################
+slots:
+  # -- AdministrativeInformation
+  dataGenerator:
+    range: DataGenerator
+    description: "Data generator details."
+
+  dataEntryBy:
+    range: DataEntryBy
+    description: "Information on who entered the data, timestamp, etc."
+
+  publicationAndOwnership:
+    range: PublicationAndOwnership
+    description: "Contains ownership, version, access restrictions, etc."
+
+  # -- DataGenerator
+  referenceToPersonOrEntityGeneratingTheDataSet:
+    range: ShortDescripTypeRefVersion
+    multivalued: true
+    description: "Array of references (shortDescription, type, version). "
+    # 'refObjectId' is optional in the JSON, so it's okay to keep it from the base class.
+
+  # -- DataEntryBy
+  timeStamp:
+    range: UnixTimestamp
+    description: "Numeric timestamp for data entry (in milliseconds since epoch)."
+
+  referenceToDataSetFormat:
+    range: ShortDescripTypeRefVersionUri
+    multivalued: true
+    description: "List of references to data set formats, each with shortDesc, type, version, optional uri."
+
+  # -- PublicationAndOwnership
+  dataSetVersion:
+    range: string
+    description: "Dataset version string (e.g., '07.01.004')."
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+
+  registrationNumber:
+    range: string
+    description: "Registration number (e.g., 'EPD-IES-0013906:001')."
+
+  referenceToOwnershipOfDataSet:
+    range: ShortDescripTypeRefVersion
+    description: "Ownership references, reusing shortDesc, type, refObjectId, version."
+
+  copyright:
+    range: boolean
+    description: "Indicates if the dataset is copyrighted."
+
+  accessRestrictions:
+    range: MultiLangString
+    multivalued: true
+    description: "List of textual restrictions, each with value + lang."

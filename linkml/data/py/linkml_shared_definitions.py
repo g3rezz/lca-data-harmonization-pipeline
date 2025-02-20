@@ -1,5 +1,5 @@
 # Auto generated from linkml_shared_definitions.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-20T11:54:33
+# Generation date: 2025-02-20T16:23:34
 # Schema: SharedDefinitions
 #
 # id: https://example.org/SharedDefinitions
@@ -109,6 +109,32 @@ class AnyObject(str):
 
 
 @dataclass(repr=False)
+class ShortDescripAndType(YAMLRoot):
+    """
+    Holds shortDescription and type only.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripAndType"]
+    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripAndType"
+    class_name: ClassVar[str] = "ShortDescripAndType"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripAndType
+
+    shortDescription: Optional[Union[Union[dict, "MultiLangString"], List[Union[dict, "MultiLangString"]]]] = empty_list()
+    type: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if not isinstance(self.shortDescription, list):
+            self.shortDescription = [self.shortDescription] if self.shortDescription is not None else []
+        self.shortDescription = [v if isinstance(v, MultiLangString) else MultiLangString(**as_dict(v)) for v in self.shortDescription]
+
+        if self.type is not None and not isinstance(self.type, str):
+            self.type = str(self.type)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class ShortDescripTypeRef(YAMLRoot):
     """
     Base pattern with shortDescription, type, refObjectId.
@@ -173,19 +199,22 @@ class ShortDescripTypeRefVersion(YAMLRoot):
 
 
 @dataclass(repr=False)
-class ShortDescripAndType(YAMLRoot):
+class ShortDescripTypeRefVersionUri(YAMLRoot):
     """
-    Holds shortDescription and type only.
+    Base pattern with shortDescription, type, refObjectId, version.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripAndType"]
-    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripAndType"
-    class_name: ClassVar[str] = "ShortDescripAndType"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripAndType
+    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripTypeRefVersionUri"]
+    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripTypeRefVersionUri"
+    class_name: ClassVar[str] = "ShortDescripTypeRefVersionUri"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripTypeRefVersionUri
 
     shortDescription: Optional[Union[Union[dict, "MultiLangString"], List[Union[dict, "MultiLangString"]]]] = empty_list()
     type: Optional[str] = None
+    refObjectId: Optional[str] = None
+    version: Optional[str] = None
+    uri: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if not isinstance(self.shortDescription, list):
@@ -194,6 +223,15 @@ class ShortDescripAndType(YAMLRoot):
 
         if self.type is not None and not isinstance(self.type, str):
             self.type = str(self.type)
+
+        if self.refObjectId is not None and not isinstance(self.refObjectId, str):
+            self.refObjectId = str(self.refObjectId)
+
+        if self.version is not None and not isinstance(self.version, str):
+            self.version = str(self.version)
+
+        if self.uri is not None and not isinstance(self.uri, str):
+            self.uri = str(self.uri)
 
         super().__post_init__(**kwargs)
 
@@ -230,6 +268,7 @@ class AniesEntry(YAMLRoot):
     value: Optional[str] = None
     timestampValue: Optional[int] = None
     objectValue: Optional[str] = None
+    module: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.name is not None and not isinstance(self.name, str):
@@ -243,6 +282,9 @@ class AniesEntry(YAMLRoot):
 
         if self.objectValue is not None and not isinstance(self.objectValue, str):
             self.objectValue = str(self.objectValue)
+
+        if self.module is not None and not isinstance(self.module, str):
+            self.module = str(self.module)
 
         super().__post_init__(**kwargs)
 
@@ -265,6 +307,39 @@ class MultiLangString(YAMLRoot):
 
         if self.lang is not None and not isinstance(self.lang, str):
             self.lang = str(self.lang)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class MaterialPropEntry(YAMLRoot):
+    """
+    Material property list with name, value, unit, unitDescription.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["MaterialPropEntry"]
+    class_class_curie: ClassVar[str] = "ILCDsd:MaterialPropEntry"
+    class_name: ClassVar[str] = "MaterialPropEntry"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.MaterialPropEntry
+
+    name: Optional[str] = None
+    value: Optional[str] = None
+    unit: Optional[str] = None
+    unitDescription: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self.value is not None and not isinstance(self.value, str):
+            self.value = str(self.value)
+
+        if self.unit is not None and not isinstance(self.unit, str):
+            self.unit = str(self.unit)
+
+        if self.unitDescription is not None and not isinstance(self.unitDescription, str):
+            self.unitDescription = str(self.unitDescription)
 
         super().__post_init__(**kwargs)
 
@@ -305,3 +380,18 @@ slots.anies = Slot(uri=ILCDSD.anies, name="anies", curie=ILCDSD.curie('anies'),
 
 slots.lang = Slot(uri=ILCDSD.lang, name="lang", curie=ILCDSD.curie('lang'),
                    model_uri=ILCDSD.lang, domain=None, range=Optional[str])
+
+slots.uri = Slot(uri=ILCDSD.uri, name="uri", curie=ILCDSD.curie('uri'),
+                   model_uri=ILCDSD.uri, domain=None, range=Optional[str])
+
+slots.unit = Slot(uri=ILCDSD.unit, name="unit", curie=ILCDSD.curie('unit'),
+                   model_uri=ILCDSD.unit, domain=None, range=Optional[str])
+
+slots.unitDescription = Slot(uri=ILCDSD.unitDescription, name="unitDescription", curie=ILCDSD.curie('unitDescription'),
+                   model_uri=ILCDSD.unitDescription, domain=None, range=Optional[str])
+
+slots.UUID = Slot(uri=ILCDSD.UUID, name="UUID", curie=ILCDSD.curie('UUID'),
+                   model_uri=ILCDSD.UUID, domain=None, range=str)
+
+slots.module = Slot(uri=ILCDSD.module, name="module", curie=ILCDSD.curie('module'),
+                   model_uri=ILCDSD.module, domain=None, range=Optional[str])

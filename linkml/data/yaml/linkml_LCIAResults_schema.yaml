@@ -1,0 +1,52 @@
+name: ILCDLCIAResults
+id: https://example.org/ILCDLCIAResults
+license: CC-BY-4.0
+
+imports:
+  - linkml:types
+  - linkml_shared_definitions # Reuse classes/slots from SharedDefinitions
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ILCDlcia: https://example.org/ILCDLCIAResults/
+default_prefix: ILCDlcia
+
+########################################
+# Classes
+########################################
+classes:
+  LCIAResults:
+    description: "Top-level container for the LCIAResults section."
+    slots:
+      - LCIAResult
+
+  # Each entry in the LCIAResult array
+  LCIAResultEntry:
+    description: "Represents a single LCIA result object."
+    slots:
+      - referenceToLCIAMethodDataSet
+      - meanAmount
+      - otherLCIA # renamed from 'other' to avoid collisions
+
+########################################
+# Slots
+########################################
+slots:
+  # -- LCIAResults
+  LCIAResult:
+    range: LCIAResultEntry
+    multivalued: true
+    description: "List of LCIAResultEntry objects."
+
+  # -- LCIAResultEntry
+  referenceToLCIAMethodDataSet:
+    range: ShortDescripTypeRefVersionUri
+    description: "Reference to the LCIA method data set (includes shortDescription, type, refObjectId, version, uri)."
+
+  meanAmount:
+    range: float
+    description: "Mean numeric value for the LCIA indicator."
+
+  otherLCIA:
+    range: OtherContent
+    description: "Renamed from 'other' in JSON. Holds an 'anies' array with modules and possibly referenceToUnitGroupDataSet."

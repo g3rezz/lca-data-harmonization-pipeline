@@ -1,0 +1,150 @@
+name: ILCDexchanges
+id: https://example.org/ILCDexchanges
+license: CC-BY-4.0
+
+imports:
+  - linkml:types
+  - linkml_shared_definitions # Reuse classes from SharedDefinitions
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ILCDex: https://example.org/ILCDexchanges/
+default_prefix: ILCDex
+
+########################################
+# Classes
+########################################
+classes:
+  Exchanges:
+    description: "Top-level container for the 'exchanges' section."
+    slots:
+      - exchange
+
+  # Each item in 'exchange' array
+  ExchangeEntry:
+    description: "A single exchange entry with flow data, amounts, and properties."
+    slots:
+      - dataSetInternalID
+      - referenceToFlowDataSet
+      - meanAmount
+      - referenceFlow
+      - resultingflowAmount
+      - flowProperties
+      - resolvedFlowVersion
+      - materialProperties
+      - typeOfFlow
+      - exchangeDirection # rename from 'exchange direction'
+      - otherEx # second exchange has 'other' with anies
+      - classificationEx # for 'classification' { classHierarchy, name }
+
+  # For arrays in 'flowProperties'
+  FlowPropertyEntry:
+    description: "One flow property with name, uuid, referenceFlowProperty, meanValue, referenceUnit, unitGroupUUID."
+    slots:
+      - name
+      - uuidFP
+      - referenceFlowProperty
+      - meanValue
+      - referenceUnit
+      - unitGroupUUID
+
+  # 'other': e.g. has 'anies', reusing existing 'OtherContent', but we name it 'otherEx'
+  # We'll just map it in the ExchangeEntry slot.
+
+  # classification e.g. {classHierarchy: 'Quantities', name: 'GaBiCategories'}
+  ExchangeClassification:
+    description: "Simple object for classification with 'classHierarchy' and 'name'."
+    slots:
+      - classHierarchy
+      - nameClass
+
+########################################
+# Slots
+########################################
+slots:
+  # --- Exchanges
+  exchange:
+    range: ExchangeEntry
+    multivalued: true
+    description: "List of ExchangeEntry objects."
+
+  # --- ExchangeEntry
+  dataSetInternalID:
+    range: integer
+    description: "Integer ID for the dataset within the exchange."
+
+  referenceToFlowDataSet:
+    range: ShortDescripTypeRefVersion
+    description: "Reference to flow dataset with shortDescription, type, refObjectId, version."
+
+  meanAmount:
+    range: float
+    description: "Mean quantity for the exchange."
+
+  referenceFlow:
+    range: boolean
+    description: "If true, indicates this is a reference flow."
+
+  resultingflowAmount:
+    range: float
+    description: "Resulting flow amount."
+
+  flowProperties:
+    range: FlowPropertyEntry
+    multivalued: true
+    description: "Array of flow properties."
+
+  materialProperties:
+    range: MaterialPropEntry
+    multivalued: true
+    description: "Array of material properties."
+
+  resolvedFlowVersion:
+    range: string
+    description: "Version of the resolved flow."
+
+  typeOfFlow:
+    range: string
+    description: "String identifying the type of flow (e.g., 'Product flow', 'Other flow')."
+
+  exchangeDirection:
+    range: string
+    description: "Renamed from 'exchange direction'; indicates flow direction (INPUT/OUTPUT)."
+
+  otherEx:
+    range: OtherContent
+    description: "Equivalent to 'other' in JSON, storing anies with modules or references."
+
+  classificationEx:
+    range: ExchangeClassification
+    description: "Flow classification object with classHierarchy and name."
+
+  # --- FlowPropertyEntry
+  uuidFP:
+    range: UUIDType
+    description: "UUID for the flow property."
+
+  referenceFlowProperty:
+    range: boolean
+    description: "Indicates if this property is the reference flow property."
+
+  meanValue:
+    range: float
+    description: "Mean numeric value of the flow property."
+
+  referenceUnit:
+    range: string
+    description: "Units (e.g., 'm3')."
+
+  unitGroupUUID:
+    range: UUIDType
+    description: "UUID referencing the unit group."
+
+  # --- ExchangeClassification
+  classHierarchy:
+    range: string
+    description: "Classification hierarchy string (e.g., 'Quantities')."
+
+  nameClass:
+    range: string
+    description: "Classification system name (e.g., 'GaBiCategories')."

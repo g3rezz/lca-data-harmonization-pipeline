@@ -105,14 +105,6 @@ slots:
   technology:
     range: TechnologyInformation
 
-  # -- Dataset Info
-  UUID:
-    range: UUIDType
-    required: true
-    minimum_cardinality: 1
-    maximum_cardinality: 1
-    description: "Unique Universal Identifier, 16-byte hex number."
-
   dataSetName:
     range: DataSetName
     description: "Container for baseName (multi-lang)."
