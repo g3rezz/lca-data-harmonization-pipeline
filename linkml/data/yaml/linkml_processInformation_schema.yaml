@@ -3,25 +3,16 @@ id: https://example.org/ILCDprocessInformation
 license: CC-BY-4.0
 imports:
   - linkml:types
+  - linkml_shared_definitions # Import shared definitions between ILCD YAML schemas
 
 prefixes:
   linkml: https://w3id.org/linkml/
-  this: https://example.org/ILCDprocessInformation/
-default_prefix: this
+  ILCDpi: https://example.org/ILCDprocessInformation/
+default_prefix: ILCDpi
 
 ########################################
 # Types
 ########################################
-types:
-  UUIDType:
-    base: str
-    description: "Universally Unique Identifier."
-    uri: linkml:UUIDType
-  Year:
-    base: int
-    description: "4-digit year."
-    uri: linkml:Year
-
 ########################################
 # Classes
 ########################################
@@ -30,7 +21,7 @@ classes:
     slots:
       - dataSetInformation
       - quantitativeReference
-      - time
+      - timeInformation
       - geography
       - technology
 
@@ -74,15 +65,6 @@ classes:
       - timeRepresentativenessDescription
       - otherTime
 
-  OtherContent:
-    slots:
-      - anies
-
-  AniesEntry:
-    slots:
-      - name
-      - value
-
   # -- Geography
   GeographyInformation:
     slots:
@@ -100,18 +82,6 @@ classes:
       - technologicalApplicability
       - referenceToTechnologyFlowDiagrammOrPicture
 
-  TechnologyReference:
-    slots:
-      - shortDescription
-      - type
-      - refObjectId
-
-  # -- Multi-language helper
-  MultiLangString:
-    slots:
-      - value
-      - lang
-
 ########################################
 # Slots
 ########################################
@@ -119,11 +89,14 @@ slots:
   # -- Main top-level
   dataSetInformation:
     range: DataSetInformation
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
 
   quantitativeReference:
     range: QuantitativeReference
 
-  time:
+  timeInformation:
     range: TimeInformation
 
   geography:
@@ -135,7 +108,10 @@ slots:
   # -- Dataset Info
   UUID:
     range: UUIDType
-    description: "Unique dataset identifier."
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+    description: "Unique Universal Identifier, 16-byte hex number."
 
   dataSetName:
     range: DataSetName
@@ -147,6 +123,9 @@ slots:
   baseName:
     range: MultiLangString
     multivalued: true
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
     description: "Base name as a list of {value, lang}."
 
   # -- Classification
@@ -155,18 +134,10 @@ slots:
     multivalued: true
     description: "List of classification objects."
 
-  name:
-    range: string
-    description: "Generic name field (used by Classification, Anies, etc.)."
-
   classEntries:
     range: ClassificationEntry
     multivalued: true
     description: "List of classification entries."
-
-  value:
-    range: string
-    description: "Generic value field (used by multi-lang or anies)."
 
   level:
     range: integer
@@ -181,10 +152,6 @@ slots:
     range: integer
     multivalued: true
     description: "List of integer indices to reference flows."
-
-  type:
-    range: string
-    description: "Type indicator."
 
   # -- Time
   referenceYear:
@@ -203,11 +170,6 @@ slots:
   otherTime:
     range: OtherContent
     description: "Additional time-related dictionary data."
-
-  anies:
-    range: AniesEntry
-    multivalued: true
-    description: "List of arbitrary name-value pairs."
 
   # -- Geography
   locationOfOperationSupplyOrProduction:
@@ -235,20 +197,6 @@ slots:
     description: "List of multi-language strings for technology applicability."
 
   referenceToTechnologyFlowDiagrammOrPicture:
-    range: TechnologyReference
+    range: ShortDescripTypeRef
     multivalued: true
     description: "List of references to diagrams/pictures."
-
-  shortDescription:
-    range: MultiLangString
-    multivalued: true
-    description: "Short description as multi-lang list."
-
-  refObjectId:
-    range: string
-    description: "Reference object ID."
-
-  # -- Multi-lang
-  lang:
-    range: string
-    description: "Language code (e.g. 'en', 'de')."

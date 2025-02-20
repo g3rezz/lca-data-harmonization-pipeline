@@ -29,12 +29,14 @@
       "referenceToReferenceFlow": [0],
       "type": "Reference flow(s)"
     },
-    "time": {
+    "timeInformation": {
       "referenceYear": 2024,
       "dataSetValidUntil": 2029,
       "timeRepresentativenessDescription": [{ "lang": "en" }],
       "otherTime": {
-        "anies": [{ "name": "publicationDateOfEPD", "value": "1715904000000" }]
+        "anies": [
+          { "name": "publicationDateOfEPD", "timestampValue": 1715904000000 }
+        ]
       }
     },
     "geography": {

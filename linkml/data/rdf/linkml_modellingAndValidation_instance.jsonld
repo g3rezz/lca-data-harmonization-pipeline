@@ -1,0 +1,475 @@
+[
+  {
+    "@id": "_:Nb330413a60a64ff4906128bd7f2d66aa",
+    "@type": [
+      "https://example.org/ILCDmodellingAndValidation/ModellingAndValidation"
+    ],
+    "https://example.org/ILCDmodellingAndValidation/LCIMethodAndAllocation": [
+      {
+        "@id": "_:N175bf02c02014702a44ae6769af2fbf1"
+      }
+    ],
+    "https://example.org/ILCDmodellingAndValidation/complianceDeclarations": [
+      {
+        "@id": "_:N74d4dfa1e4d2494c90ce13235f9d8756"
+      }
+    ],
+    "https://example.org/ILCDmodellingAndValidation/dataSourcesTreatmentAndRepresentativeness": [
+      {
+        "@id": "_:Nf24705d90fe14fc2a1ada1e5f475f5eb"
+      }
+    ],
+    "https://example.org/ILCDmodellingAndValidation/otherMAV": [
+      {
+        "@id": "_:N684d4c11e301480784b268c9bff20cf9"
+      }
+    ],
+    "https://example.org/ILCDmodellingAndValidation/validationInfo": [
+      {
+        "@id": "_:N4bbd04bf083f46bca46a81226261214e"
+      }
+    ]
+  },
+  {
+    "@id": "_:N175bf02c02014702a44ae6769af2fbf1",
+    "@type": [
+      "https://example.org/ILCDmodellingAndValidation/LCIMethodAndAllocation"
+    ],
+    "https://example.org/ILCDmodellingAndValidation/otherMAA": [
+      {
+        "@id": "_:Ncd5f0b9b45e8415f866bf3a064d028f3"
+      }
+    ],
+    "https://example.org/ILCDmodellingAndValidation/referenceToLCAMethodDetails": [
+      {
+        "@id": "_:Nb9449ebe93e7428eb9fec8fea6fa4f3d"
+      }
+    ],
+    "https://example.org/ILCDmodellingAndValidation/typeOfDataSet": [
+      {
+        "@value": "EPD"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nb9449ebe93e7428eb9fec8fea6fa4f3d",
+    "@type": [
+      "ILCDsd:ShortDescripTypeRefVersion"
+    ],
+    "ILCDsd:refObjectId": [
+      {
+        "@type": "https://w3id.org/linkml/UUIDType",
+        "@value": "45538f2e-17c0-49fd-a543-b1a02ac27658"
+      }
+    ],
+    "ILCDsd:shortDescription": [
+      {
+        "@id": "_:Ne33dc8772a43492e85272b5b6941e88b"
+      }
+    ],
+    "ILCDsd:type": [
+      {
+        "@value": "source data set"
+      }
+    ],
+    "ILCDsd:version": [
+      {
+        "@value": "00.00.001"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ne33dc8772a43492e85272b5b6941e88b",
+    "@type": [
+      "ILCDsd:MultiLangString"
+    ],
+    "ILCDsd:lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "Construction products (EN 15804A2)"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ncd5f0b9b45e8415f866bf3a064d028f3",
+    "@type": [
+      "ILCDsd:OtherContent"
+    ],
+    "ILCDsd:anies": [
+      {
+        "@id": "_:Nf60483a6f85c47fe873db9d6dfe3ef2d"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf60483a6f85c47fe873db9d6dfe3ef2d",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:name": [
+      {
+        "@value": "subType"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "specific dataset"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf24705d90fe14fc2a1ada1e5f475f5eb",
+    "@type": [
+      "https://example.org/ILCDmodellingAndValidation/DataSourcesTreatmentAndRepresentativeness"
+    ],
+    "https://example.org/ILCDmodellingAndValidation/otherDSTAR": [
+      {
+        "@id": "_:N40bff86ec2b94b039c1c497ef1a853fb"
+      }
+    ],
+    "https://example.org/ILCDmodellingAndValidation/referenceToDataSource": [
+      {
+        "@id": "_:N8874248846074f4f823b59d15d31820b"
+      },
+      {
+        "@id": "_:Ne5cad0dcf1364ed2b65b9b8ac1664c75"
+      }
+    ],
+    "https://example.org/ILCDmodellingAndValidation/useAdviceForDataSet": [
+      {
+        "@id": "_:Nd19bfe413839450b95edd88d2c92f1ab"
+      }
+    ]
+  },
+  {
+    "@id": "_:N8874248846074f4f823b59d15d31820b",
+    "@type": [
+      "ILCDsd:ShortDescripTypeRefVersion"
+    ],
+    "ILCDsd:refObjectId": [
+      {
+        "@type": "https://w3id.org/linkml/UUIDType",
+        "@value": "b497a91f-e14b-4b69-8f28-f50eb1576766"
+      }
+    ],
+    "ILCDsd:shortDescription": [
+      {
+        "@id": "_:N194ab42376684512b1d0596b13f65090"
+      }
+    ],
+    "ILCDsd:type": [
+      {
+        "@value": "source data set"
+      }
+    ]
+  },
+  {
+    "@id": "_:N194ab42376684512b1d0596b13f65090",
+    "@type": [
+      "ILCDsd:MultiLangString"
+    ],
+    "ILCDsd:lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "ecoinvent database (general)"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ne5cad0dcf1364ed2b65b9b8ac1664c75",
+    "@type": [
+      "ILCDsd:ShortDescripTypeRefVersion"
+    ],
+    "ILCDsd:refObjectId": [
+      {
+        "@type": "https://w3id.org/linkml/UUIDType",
+        "@value": "ca0da4f4-c837-4005-9c17-e77b9bd09d8b"
+      }
+    ],
+    "ILCDsd:shortDescription": [
+      {
+        "@id": "_:Nb9fdf22bc2bd44d38e2964ebe111c427"
+      }
+    ],
+    "ILCDsd:type": [
+      {
+        "@value": "source data set"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nb9fdf22bc2bd44d38e2964ebe111c427",
+    "@type": [
+      "ILCDsd:MultiLangString"
+    ],
+    "ILCDsd:lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "ecoinvent 3.5 database"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd19bfe413839450b95edd88d2c92f1ab",
+    "@type": [
+      "ILCDsd:MultiLangString"
+    ],
+    "ILCDsd:lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "\"Cradle to gate with options\" UNI EN 15804:2021 (EN 15804:2012+A2:2019 and EN 15804:2012+A2:2019+AC:2021).  \nIncluded: A1, A2, A3, B1, B2, B3, B4, B5, B6, B7, C1, C2, C3, C4, D.\nNot declared: A4, A5."
+      }
+    ]
+  },
+  {
+    "@id": "_:N40bff86ec2b94b039c1c497ef1a853fb",
+    "@type": [
+      "ILCDsd:OtherContent"
+    ],
+    "ILCDsd:anies": [
+      {
+        "@id": "_:N0bd0132a8b5d45298f8ac5880d187bfc"
+      }
+    ]
+  },
+  {
+    "@id": "_:N0bd0132a8b5d45298f8ac5880d187bfc",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:name": [
+      {
+        "@value": "referenceToOriginalEPD"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "JsonObj(shortDescription=JsonObj(value='EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20', defaultValue='EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20', lstrings=[{'lang': 'en', 'value': 'EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20'}]), version=JsonObj(version=1, majorVersion=0, minorVersion=0, subMinorVersion=1, zero=False, versionString='00.00.001'), type='source data set', uuid=JsonObj(uuid='c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca'), refObjectId='c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca', versionAsString='00.00.001', resourceURLs=['https://data.environdec.com/resource/sources/c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca/https://www.environdec.com/Detail/epd13906?version=00.00.001'])"
+      }
+    ]
+  },
+  {
+    "@id": "_:N4bbd04bf083f46bca46a81226261214e",
+    "@type": [
+      "https://example.org/ILCDmodellingAndValidation/ValidationInfo"
+    ],
+    "https://example.org/ILCDmodellingAndValidation/review": [
+      {
+        "@id": "_:N134f491744884555b6d364a137e6bc53"
+      }
+    ]
+  },
+  {
+    "@id": "_:N134f491744884555b6d364a137e6bc53",
+    "@type": [
+      "https://example.org/ILCDmodellingAndValidation/ReviewEntry"
+    ],
+    "ILCDsd:type": [
+      {
+        "@value": "Independent external review"
+      }
+    ],
+    "https://example.org/ILCDmodellingAndValidation/referenceToNameOfReviewerAndInstitution": [
+      {
+        "@id": "_:Ncdce5177565e462898e4d106229990e8"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ncdce5177565e462898e4d106229990e8",
+    "@type": [
+      "ILCDsd:ShortDescripAndType"
+    ],
+    "ILCDsd:shortDescription": [
+      {
+        "@id": "_:N78bc3bffdfa0400b80b405b5869a724a"
+      }
+    ],
+    "ILCDsd:type": [
+      {
+        "@value": "source data set"
+      }
+    ]
+  },
+  {
+    "@id": "_:N78bc3bffdfa0400b80b405b5869a724a",
+    "@type": [
+      "ILCDsd:MultiLangString"
+    ],
+    "ILCDsd:lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": ", "
+      }
+    ]
+  },
+  {
+    "@id": "_:N74d4dfa1e4d2494c90ce13235f9d8756",
+    "@type": [
+      "https://example.org/ILCDmodellingAndValidation/ComplianceDeclarations"
+    ],
+    "https://example.org/ILCDmodellingAndValidation/compliance": [
+      {
+        "@id": "_:N309f279795b84429a249b1b3db8e0fae"
+      },
+      {
+        "@id": "_:Ndeb7f37d527147059f28a91def07f80c"
+      }
+    ]
+  },
+  {
+    "@id": "_:N309f279795b84429a249b1b3db8e0fae",
+    "@type": [
+      "https://example.org/ILCDmodellingAndValidation/ComplianceEntry"
+    ],
+    "https://example.org/ILCDmodellingAndValidation/referenceToComplianceSystem": [
+      {
+        "@id": "_:N7d4058b5ec554067a5165437efe0d457"
+      }
+    ]
+  },
+  {
+    "@id": "_:N7d4058b5ec554067a5165437efe0d457",
+    "@type": [
+      "ILCDsd:ShortDescripTypeRefVersion"
+    ],
+    "ILCDsd:refObjectId": [
+      {
+        "@type": "https://w3id.org/linkml/UUIDType",
+        "@value": "c0016b33-8cf7-415c-ac6e-deba0d21440d"
+      }
+    ],
+    "ILCDsd:shortDescription": [
+      {
+        "@id": "_:Nc6e25b96836a417b8bcf0eefb0a1c566"
+      }
+    ],
+    "ILCDsd:type": [
+      {
+        "@value": "source data set"
+      }
+    ],
+    "ILCDsd:version": [
+      {
+        "@value": "00.02.000"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nc6e25b96836a417b8bcf0eefb0a1c566",
+    "@type": [
+      "ILCDsd:MultiLangString"
+    ],
+    "ILCDsd:lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "EN 15804+A2 (EF 3.0)"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ndeb7f37d527147059f28a91def07f80c",
+    "@type": [
+      "https://example.org/ILCDmodellingAndValidation/ComplianceEntry"
+    ],
+    "https://example.org/ILCDmodellingAndValidation/referenceToComplianceSystem": [
+      {
+        "@id": "_:Nd6fb60cc4e144f0b856284f8a2bfb570"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd6fb60cc4e144f0b856284f8a2bfb570",
+    "@type": [
+      "ILCDsd:ShortDescripTypeRefVersion"
+    ],
+    "ILCDsd:refObjectId": [
+      {
+        "@type": "https://w3id.org/linkml/UUIDType",
+        "@value": "4f2eb655-6e44-4874-a95a-e28f5442cd4d"
+      }
+    ],
+    "ILCDsd:shortDescription": [
+      {
+        "@id": "_:Ncdec59bcf0144e57abab084b01b20fc6"
+      }
+    ],
+    "ILCDsd:type": [
+      {
+        "@value": "source data set"
+      }
+    ],
+    "ILCDsd:version": [
+      {
+        "@value": "00.00.004"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ncdec59bcf0144e57abab084b01b20fc6",
+    "@type": [
+      "ILCDsd:MultiLangString"
+    ],
+    "ILCDsd:lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "ISO 14025"
+      }
+    ]
+  },
+  {
+    "@id": "_:N684d4c11e301480784b268c9bff20cf9",
+    "@type": [
+      "ILCDsd:OtherContent"
+    ],
+    "ILCDsd:anies": [
+      {
+        "@id": "_:Nf956c4275b4b48889ca5b558b881e8ce"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf956c4275b4b48889ca5b558b881e8ce",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:name": [
+      {
+        "@value": "referenceToOriginalEPD"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "JsonObj(shortDescription=[{'value': 'EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20', 'lang': 'en'}], type='source data set', refObjectId='c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca', version='00.00.001')"
+      }
+    ]
+  }
+]

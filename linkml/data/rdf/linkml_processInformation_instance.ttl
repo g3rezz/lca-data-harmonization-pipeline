@@ -1,50 +1,51 @@
+@prefix ILCDpi: <https://example.org/ILCDprocessInformation/> .
 @prefix linkml: <https://w3id.org/linkml/> .
-@prefix this: <https://example.org/ILCDprocessInformation/> .
+@prefix ns1: <ILCDsd:> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a this:ProcessInformation ;
-    this:dataSetInformation [ a this:DataSetInformation ;
-            this:UUID "63a79af1-1ab0-4677-45a8-08dc6fc9d4ca"^^linkml:UUIDType ;
-            this:classificationInformation [ a this:ClassificationInformation ;
-                    this:classification [ a this:Classification ;
-                            this:classEntries [ a this:ClassificationEntry ;
-                                    this:classId "0" ;
-                                    this:level 0 ;
-                                    this:value "Construction products, Infrastructure & buildings" ] ;
-                            this:name "The International EPD System" ] ] ;
-            this:dataSetName [ a this:DataSetName ;
-                    this:baseName [ a this:MultiLangString ;
-                            this:lang "en" ;
-                            this:value " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20" ] ] ] ;
-    this:geography [ a this:GeographyInformation ;
-            this:locationOfOperationSupplyOrProduction [ a this:LocationInfo ;
-                    this:descriptionOfRestrictions [ a this:MultiLangString ;
-                            this:lang "en" ;
-                            this:value "Costituents, production and use in Italy. " ] ;
-                    this:location "IT" ] ] ;
-    this:quantitativeReference [ a this:QuantitativeReference ;
-            this:referenceToReferenceFlow 0 ;
-            this:type "Reference flow(s)" ] ;
-    this:technology [ a this:TechnologyInformation ;
-            this:referenceToTechnologyFlowDiagrammOrPicture [ a this:TechnologyReference ;
-                    this:refObjectId "785a09be-82f3-461a-ba60-c49b80204481" ;
-                    this:shortDescription [ a this:MultiLangString ;
-                            this:lang "en" ;
-                            this:value "Process flow" ] ;
-                    this:type "source data set" ] ;
-            this:technologicalApplicability [ a this:MultiLangString ;
-                    this:lang "en" ;
-                    this:value "Structural concrete for civil buildings and constructions." ] ;
-            this:technologyDescriptionAndIncludedProcesses [ a this:MultiLangString ;
-                    this:lang "en" ;
-                    this:value "Concrete is produced by mixing cement, aggregates (sand, crushed stone and gravel), water and additives. The cement section is  consists  of storage silos connected to a weighbridge, the extraction and loading of the cement into the truck mixer takes place via closed augers. The suction system and filters guarantee the abatement of dust during  loading of the truck mixers.  The coarse aggregate (“Gravel” or commercially “Cobblestone”) is unloaded directly into a hopper from the tipper trucks owned by the supplier and is then transferred by means of belts from the hopper on the ground to the loading ones. The same applies  for sand. The additives are dosed separately using volumetric dosers, whereas the mixing water is dosed with electromechanical meters. All the components described above are conveyed into the concrete mixer barrel where the homogenization and mixing phases take  place; the energy required for the production of concrete is given by electricity. The shipment of the final product is carried out using special truck mixers. The concretes subject to analysis comply with the requirements of the REACH regulation." ] ] ;
-    this:time [ a this:TimeInformation ;
-            this:dataSetValidUntil "2029"^^linkml:Year ;
-            this:otherTime [ a this:OtherContent ;
-                    this:anies [ a this:AniesEntry ;
-                            this:name "publicationDateOfEPD" ;
-                            this:value "1715904000000" ] ] ;
-            this:referenceYear "2024"^^linkml:Year ;
-            this:timeRepresentativenessDescription [ a this:MultiLangString ;
-                    this:lang "en" ] ] .
+[] a ILCDpi:ProcessInformation ;
+    ILCDpi:dataSetInformation [ a ILCDpi:DataSetInformation ;
+            ILCDpi:UUID "63a79af1-1ab0-4677-45a8-08dc6fc9d4ca"^^linkml:UUIDType ;
+            ILCDpi:classificationInformation [ a ILCDpi:ClassificationInformation ;
+                    ILCDpi:classification [ a ILCDpi:Classification ;
+                            ns1:name "The International EPD System" ;
+                            ILCDpi:classEntries [ a ILCDpi:ClassificationEntry ;
+                                    ns1:value "Construction products, Infrastructure & buildings" ;
+                                    ILCDpi:classId "0" ;
+                                    ILCDpi:level 0 ] ] ] ;
+            ILCDpi:dataSetName [ a ILCDpi:DataSetName ;
+                    ILCDpi:baseName [ a ns1:MultiLangString ;
+                            ns1:lang "en" ;
+                            ns1:value " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20" ] ] ] ;
+    ILCDpi:geography [ a ILCDpi:GeographyInformation ;
+            ILCDpi:locationOfOperationSupplyOrProduction [ a ILCDpi:LocationInfo ;
+                    ILCDpi:descriptionOfRestrictions [ a ns1:MultiLangString ;
+                            ns1:lang "en" ;
+                            ns1:value "Costituents, production and use in Italy. " ] ;
+                    ILCDpi:location "IT" ] ] ;
+    ILCDpi:quantitativeReference [ a ILCDpi:QuantitativeReference ;
+            ns1:type "Reference flow(s)" ;
+            ILCDpi:referenceToReferenceFlow 0 ] ;
+    ILCDpi:technology [ a ILCDpi:TechnologyInformation ;
+            ILCDpi:referenceToTechnologyFlowDiagrammOrPicture [ a ns1:ShortDescripTypeRef ;
+                    ns1:refObjectId "785a09be-82f3-461a-ba60-c49b80204481"^^linkml:UUIDType ;
+                    ns1:shortDescription [ a ns1:MultiLangString ;
+                            ns1:lang "en" ;
+                            ns1:value "Process flow" ] ;
+                    ns1:type "source data set" ] ;
+            ILCDpi:technologicalApplicability [ a ns1:MultiLangString ;
+                    ns1:lang "en" ;
+                    ns1:value "Structural concrete for civil buildings and constructions." ] ;
+            ILCDpi:technologyDescriptionAndIncludedProcesses [ a ns1:MultiLangString ;
+                    ns1:lang "en" ;
+                    ns1:value "Concrete is produced by mixing cement, aggregates (sand, crushed stone and gravel), water and additives. The cement section is  consists  of storage silos connected to a weighbridge, the extraction and loading of the cement into the truck mixer takes place via closed augers. The suction system and filters guarantee the abatement of dust during  loading of the truck mixers.  The coarse aggregate (“Gravel” or commercially “Cobblestone”) is unloaded directly into a hopper from the tipper trucks owned by the supplier and is then transferred by means of belts from the hopper on the ground to the loading ones. The same applies  for sand. The additives are dosed separately using volumetric dosers, whereas the mixing water is dosed with electromechanical meters. All the components described above are conveyed into the concrete mixer barrel where the homogenization and mixing phases take  place; the energy required for the production of concrete is given by electricity. The shipment of the final product is carried out using special truck mixers. The concretes subject to analysis comply with the requirements of the REACH regulation." ] ] ;
+    ILCDpi:timeInformation [ a ILCDpi:TimeInformation ;
+            ILCDpi:dataSetValidUntil "2029"^^linkml:Year ;
+            ILCDpi:otherTime [ a ns1:OtherContent ;
+                    ns1:anies [ a ns1:AniesEntry ;
+                            ns1:name "publicationDateOfEPD" ;
+                            ns1:timestampValue "1715904000000"^^linkml:UnixTimestamp ] ] ;
+            ILCDpi:referenceYear "2024"^^linkml:Year ;
+            ILCDpi:timeRepresentativenessDescription [ a ns1:MultiLangString ;
+                    ns1:lang "en" ] ] .
 

@@ -1,0 +1,133 @@
+name: SharedDefinitions
+id: https://example.org/SharedDefinitions
+license: CC-BY-4.0
+imports:
+  - linkml:types
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ILCDsd: https://example.org/SharedDefinitions/
+default_prefix: ILCDsd
+
+########################################
+# Types
+########################################
+
+types:
+  UUIDType:
+    base: str
+    pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+    description: "A standard UUID (8-4-4-4-12 hex digits)."
+    uri: linkml:UUIDType
+
+  Year:
+    base: int
+    pattern: "^[0-9]{4}$"
+    description: "4-digit year."
+    uri: linkml:Year
+
+  UnixTimestamp:
+    base: int
+    description: "Unix timestamp (milliseconds since epoch)."
+    uri: linkml:UnixTimestamp
+
+  # Type to store a dictionary-based object (serialized as string or JSON in practice)
+  AnyObject:
+    base: str
+    description: "Placeholder for any dictionary-like JSON object."
+    uri: linkml:AnyObject
+
+########################################
+# Classes
+########################################
+
+classes:
+  # Used for short desc + type + refObjectId
+  ShortDescripTypeRef:
+    description: "Base pattern with shortDescription, type, refObjectId."
+    slots:
+      - shortDescription
+      - type
+      - refObjectId
+
+  # Extends the above pattern by adding 'version' slot
+  ShortDescripTypeRefVersion:
+    description: "Base pattern with shortDescription, type, refObjectId, version."
+    slots:
+      - shortDescription
+      - type
+      - refObjectId
+      - version
+
+  # For scenario where only shortDescription + type
+  ShortDescripAndType:
+    description: "Holds shortDescription and type only."
+    slots:
+      - shortDescription
+      - type
+
+  # Generic container for "other" patterns that hold anies
+  OtherContent:
+    slots:
+      - anies
+
+  # A simple anies entry that can handle strings, timestamps, or objects
+  AniesEntry:
+    slots:
+      - name
+      - value
+      - timestampValue
+      - objectValue
+
+  # -- Multi-language helper
+  MultiLangString:
+    slots:
+      - value
+      - lang
+
+########################################
+# Slots
+########################################
+
+slots:
+  shortDescription:
+    range: MultiLangString
+    multivalued: true
+    description: "Short description as multi-lang list."
+
+  type:
+    range: string
+    description: "Type indicator."
+
+  refObjectId:
+    range: UUIDType
+    description: "Reference object ID."
+
+  version:
+    range: string
+    description: "Version string (e.g., '00.00.001')."
+
+  name:
+    range: string
+    description: "Key name in anies entries."
+
+  value:
+    range: string
+    description: "Generic value field for simple strings."
+
+  timestampValue:
+    range: UnixTimestamp
+    description: "Stores numeric Unix timestamp."
+
+  objectValue:
+    range: AnyObject
+    description: "Dictionary-like object stored as JSON."
+
+  anies:
+    range: AniesEntry
+    multivalued: true
+    description: "List of arbitrary name-value pairs."
+
+  lang:
+    range: string
+    description: "Language code (e.g. 'en', 'de')."

@@ -16,7 +16,7 @@ processInformation:
     referenceToReferenceFlow:
     - 0
     type: Reference flow(s)
-  time:
+  timeInformation:
     referenceYear: 2024
     dataSetValidUntil: 2029
     timeRepresentativenessDescription:
@@ -24,7 +24,7 @@ processInformation:
     otherTime:
       anies:
       - name: publicationDateOfEPD
-        value: '1715904000000'
+        timestampValue: 1715904000000
   geography:
     locationOfOperationSupplyOrProduction:
       descriptionOfRestrictions:
