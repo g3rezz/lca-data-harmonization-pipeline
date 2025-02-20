@@ -1,0 +1,675 @@
+[
+  {
+    "@id": "_:N0aed836e66124634afa32eba262ccd4b",
+    "@type": [
+      "https://example.org/ILCDexchanges/Exchanges"
+    ],
+    "https://example.org/ILCDexchanges/exchange": [
+      {
+        "@id": "_:N6600094334334924b3a9d2d6ca3d788f"
+      },
+      {
+        "@id": "_:Nd5e2834313a94648b7e968b6cf91e370"
+      }
+    ]
+  },
+  {
+    "@id": "_:N6600094334334924b3a9d2d6ca3d788f",
+    "@type": [
+      "https://example.org/ILCDexchanges/ExchangeEntry"
+    ],
+    "https://example.org/ILCDexchanges/dataSetInternalID": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 0
+      }
+    ],
+    "https://example.org/ILCDexchanges/flowProperties": [
+      {
+        "@id": "_:N6460d3d9ffb14f15933eed777005a534"
+      }
+    ],
+    "https://example.org/ILCDexchanges/materialProperties": [
+      {
+        "@id": "_:N0d253c45e1ef47a98fec936ad4d4cf90"
+      },
+      {
+        "@id": "_:N8da5c082393144b7b1c5fe644bd931d0"
+      }
+    ],
+    "https://example.org/ILCDexchanges/meanAmount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#float",
+        "@value": "1.0"
+      }
+    ],
+    "https://example.org/ILCDexchanges/referenceFlow": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ],
+    "https://example.org/ILCDexchanges/referenceToFlowDataSet": [
+      {
+        "@id": "_:Nd3cab49b249046bf9e5f3ee59e3445d9"
+      }
+    ],
+    "https://example.org/ILCDexchanges/resultingflowAmount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#float",
+        "@value": "1.0"
+      }
+    ],
+    "https://example.org/ILCDexchanges/typeOfFlow": [
+      {
+        "@value": "Product flow"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd3cab49b249046bf9e5f3ee59e3445d9",
+    "@type": [
+      "ILCDsd:ShortDescripTypeRefVersion"
+    ],
+    "ILCDsd:refObjectId": [
+      {
+        "@type": "https://w3id.org/linkml/UUIDType",
+        "@value": "5e4009b3-9918-4d43-0fea-08dc6ff8f90b"
+      }
+    ],
+    "ILCDsd:shortDescription": [
+      {
+        "@id": "_:Nc5fddec918d643af9acbcef02ab90f08"
+      }
+    ],
+    "ILCDsd:type": [
+      {
+        "@value": "flow data set"
+      }
+    ],
+    "ILCDsd:version": [
+      {
+        "@value": "00.01.000"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nc5fddec918d643af9acbcef02ab90f08",
+    "@type": [
+      "ILCDsd:MultiLangString"
+    ],
+    "ILCDsd:lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20"
+      }
+    ]
+  },
+  {
+    "@id": "_:N6460d3d9ffb14f15933eed777005a534",
+    "@type": [
+      "https://example.org/ILCDexchanges/FlowPropertyEntry"
+    ],
+    "ILCDsd:name": [
+      {
+        "@value": "[{'lang': 'en', 'value': 'Volume'}]"
+      }
+    ],
+    "https://example.org/ILCDexchanges/meanValue": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#float",
+        "@value": "1.0"
+      }
+    ],
+    "https://example.org/ILCDexchanges/referenceFlowProperty": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ],
+    "https://example.org/ILCDexchanges/referenceUnit": [
+      {
+        "@value": "m3"
+      }
+    ],
+    "https://example.org/ILCDexchanges/unitGroupUUID": [
+      {
+        "@type": "https://w3id.org/linkml/UUIDType",
+        "@value": "93a60a57-a3c8-12da-a746-0800200c9a66"
+      }
+    ],
+    "https://example.org/ILCDexchanges/uuidFP": [
+      {
+        "@type": "https://w3id.org/linkml/UUIDType",
+        "@value": "93a60a56-a3c8-22da-a746-0800200c9a66"
+      }
+    ]
+  },
+  {
+    "@id": "_:N0d253c45e1ef47a98fec936ad4d4cf90",
+    "@type": [
+      "ILCDsd:MaterialPropEntry"
+    ],
+    "ILCDsd:name": [
+      {
+        "@value": "bulk density (kg/m^3)"
+      }
+    ],
+    "ILCDsd:unit": [
+      {
+        "@value": "bulk density (kg/m^3)"
+      }
+    ],
+    "ILCDsd:unitDescription": [
+      {
+        "@value": "bulk density (kg/m^3)"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "2475.0"
+      }
+    ]
+  },
+  {
+    "@id": "_:N8da5c082393144b7b1c5fe644bd931d0",
+    "@type": [
+      "ILCDsd:MaterialPropEntry"
+    ],
+    "ILCDsd:name": [
+      {
+        "@value": "compressive strength (mpa)"
+      }
+    ],
+    "ILCDsd:unit": [
+      {
+        "@value": "Compressive strength (MPa)"
+      }
+    ],
+    "ILCDsd:unitDescription": [
+      {
+        "@value": "Compressive strength (MPa)"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "50.0"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd5e2834313a94648b7e968b6cf91e370",
+    "@type": [
+      "https://example.org/ILCDexchanges/ExchangeEntry"
+    ],
+    "https://example.org/ILCDexchanges/classificationEx": [
+      {
+        "@id": "_:Nf378b8b8298b4099958b9800cfe9d245"
+      }
+    ],
+    "https://example.org/ILCDexchanges/dataSetInternalID": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ],
+    "https://example.org/ILCDexchanges/exchangeDirection": [
+      {
+        "@value": "INPUT"
+      }
+    ],
+    "https://example.org/ILCDexchanges/meanAmount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#float",
+        "@value": "0.0"
+      }
+    ],
+    "https://example.org/ILCDexchanges/otherEx": [
+      {
+        "@id": "_:N31950ff99a244496954d134792beff9a"
+      }
+    ],
+    "https://example.org/ILCDexchanges/referenceToFlowDataSet": [
+      {
+        "@id": "_:N277bc81f3d2c403498d66fd2448b7870"
+      }
+    ],
+    "https://example.org/ILCDexchanges/resolvedFlowVersion": [
+      {
+        "@value": "35.00.000"
+      }
+    ],
+    "https://example.org/ILCDexchanges/typeOfFlow": [
+      {
+        "@value": "Other flow"
+      }
+    ]
+  },
+  {
+    "@id": "_:N277bc81f3d2c403498d66fd2448b7870",
+    "@type": [
+      "ILCDsd:ShortDescripTypeRefVersion"
+    ],
+    "ILCDsd:refObjectId": [
+      {
+        "@type": "https://w3id.org/linkml/UUIDType",
+        "@value": "20f32be5-0398-4288-9b6d-accddd195317"
+      }
+    ],
+    "ILCDsd:shortDescription": [
+      {
+        "@id": "_:N87b00770b7ea4d4eaab9d18aea5e6987"
+      }
+    ],
+    "ILCDsd:type": [
+      {
+        "@value": "flow data set"
+      }
+    ]
+  },
+  {
+    "@id": "_:N87b00770b7ea4d4eaab9d18aea5e6987",
+    "@type": [
+      "ILCDsd:MultiLangString"
+    ],
+    "ILCDsd:lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "Use of renewable primary energy as energy carrier (PERE)"
+      }
+    ]
+  },
+  {
+    "@id": "_:N31950ff99a244496954d134792beff9a",
+    "@type": [
+      "ILCDsd:OtherContent"
+    ],
+    "ILCDsd:anies": [
+      {
+        "@id": "_:Ne3fcd94acc2f4140bd4f5cc7967f3170"
+      },
+      {
+        "@id": "_:Nd35fabc6637748d5a59fdd9e61b71bf4"
+      },
+      {
+        "@id": "_:N6d2135b0d14f4db08c9f0227b8898168"
+      },
+      {
+        "@id": "_:N13a81533385340dcb39c6a93088c43f4"
+      },
+      {
+        "@id": "_:N13cbd7e83a1c455eb62fcbd7b38e1eab"
+      },
+      {
+        "@id": "_:N5ae272f71cd540af971540065c539c75"
+      },
+      {
+        "@id": "_:Nd7c3e173a62649c7bcbefc7b69e9158d"
+      },
+      {
+        "@id": "_:Nd6615b85ae2942afa501db0f3314e7f2"
+      },
+      {
+        "@id": "_:Nb63399149c624a03a8945ed5d6368688"
+      },
+      {
+        "@id": "_:N405e6dd1bcc2431da30ed9440711ea38"
+      },
+      {
+        "@id": "_:Nc91a0b29dd5c4d60b1efa3e3eab427bf"
+      },
+      {
+        "@id": "_:N6c31cb038f3d40b78276e375ff9757f2"
+      },
+      {
+        "@id": "_:Nfb525220327e4bc4bb4ca701eaac765e"
+      },
+      {
+        "@id": "_:N4cb533d992804306a2a2327d5a30f6ae"
+      },
+      {
+        "@id": "_:Nbc3175c105444d9bb6589263a55132b2"
+      },
+      {
+        "@id": "_:N8b95e1e0259d4d98a0707bd36ccf73bf"
+      },
+      {
+        "@id": "_:N739253e9b9d94e07baedb6d60ab39ead"
+      },
+      {
+        "@id": "_:N86531b7b04c6402bbb83198df0e9e668"
+      },
+      {
+        "@id": "_:N091ba7c233374d20879df1903e8c482b"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ne3fcd94acc2f4140bd4f5cc7967f3170",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A1"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "200.331850129794"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd35fabc6637748d5a59fdd9e61b71bf4",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A2"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "2.48154315611149"
+      }
+    ]
+  },
+  {
+    "@id": "_:N6d2135b0d14f4db08c9f0227b8898168",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A3"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "1.10198021926091"
+      }
+    ]
+  },
+  {
+    "@id": "_:N13a81533385340dcb39c6a93088c43f4",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A1-A3"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "203.915373505166"
+      }
+    ]
+  },
+  {
+    "@id": "_:N13cbd7e83a1c455eb62fcbd7b38e1eab",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A4"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "ND"
+      }
+    ]
+  },
+  {
+    "@id": "_:N5ae272f71cd540af971540065c539c75",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A5"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "ND"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd7c3e173a62649c7bcbefc7b69e9158d",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B1"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd6615b85ae2942afa501db0f3314e7f2",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B2"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nb63399149c624a03a8945ed5d6368688",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B3"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:N405e6dd1bcc2431da30ed9440711ea38",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B4"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nc91a0b29dd5c4d60b1efa3e3eab427bf",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B5"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:N6c31cb038f3d40b78276e375ff9757f2",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B6"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nfb525220327e4bc4bb4ca701eaac765e",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B7"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:N4cb533d992804306a2a2327d5a30f6ae",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "C1"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0.758557945488"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nbc3175c105444d9bb6589263a55132b2",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "C2"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "3.542532703875"
+      }
+    ]
+  },
+  {
+    "@id": "_:N8b95e1e0259d4d98a0707bd36ccf73bf",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "C3"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "8.991775066725"
+      }
+    ]
+  },
+  {
+    "@id": "_:N739253e9b9d94e07baedb6d60ab39ead",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "C4"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "1.953996895125"
+      }
+    ]
+  },
+  {
+    "@id": "_:N86531b7b04c6402bbb83198df0e9e668",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "D"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "-14.21955172935"
+      }
+    ]
+  },
+  {
+    "@id": "_:N091ba7c233374d20879df1903e8c482b",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:name": [
+      {
+        "@value": "referenceToUnitGroupDataSet"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "JsonObj(shortDescription=[{'value': 'MJ'}], type='unit group data set', refObjectId='93a60a57-a3c8-11da-a746-0800200c9a66', uri='../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66')"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nf378b8b8298b4099958b9800cfe9d245",
+    "@type": [
+      "https://example.org/ILCDexchanges/ExchangeClassification"
+    ],
+    "https://example.org/ILCDexchanges/classHierarchy": [
+      {
+        "@value": "Quantities"
+      }
+    ],
+    "https://example.org/ILCDexchanges/nameClass": [
+      {
+        "@value": "GaBiCategories"
+      }
+    ]
+  }
+]

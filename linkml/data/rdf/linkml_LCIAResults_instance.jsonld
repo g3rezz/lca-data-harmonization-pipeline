@@ -1,0 +1,447 @@
+[
+  {
+    "@id": "_:N9792989cce50402e9ba084b43ab8c9e1",
+    "@type": [
+      "https://example.org/ILCDLCIAResults/LCIAResults"
+    ],
+    "https://example.org/ILCDLCIAResults/LCIAResult": [
+      {
+        "@id": "_:N21fabe587ffb4e1b97756890c0b79502"
+      }
+    ]
+  },
+  {
+    "@id": "_:N21fabe587ffb4e1b97756890c0b79502",
+    "@type": [
+      "https://example.org/ILCDLCIAResults/LCIAResultEntry"
+    ],
+    "https://example.org/ILCDLCIAResults/meanAmount": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#float",
+        "@value": "0.0"
+      }
+    ],
+    "https://example.org/ILCDLCIAResults/otherLCIA": [
+      {
+        "@id": "_:N3a120d3e060d44388128bea351b84177"
+      }
+    ],
+    "https://example.org/ILCDLCIAResults/referenceToLCIAMethodDataSet": [
+      {
+        "@id": "_:N973a9177b5434696850924cd93850ca5"
+      }
+    ]
+  },
+  {
+    "@id": "_:N973a9177b5434696850924cd93850ca5",
+    "@type": [
+      "ILCDsd:ShortDescripTypeRefVersionUri"
+    ],
+    "ILCDsd:refObjectId": [
+      {
+        "@type": "https://w3id.org/linkml/UUIDType",
+        "@value": "5f635281-343e-44fb-83df-1971b155e6b6"
+      }
+    ],
+    "ILCDsd:shortDescription": [
+      {
+        "@id": "_:N762f51f2c8c34490a3139d528f8a475a"
+      }
+    ],
+    "ILCDsd:type": [
+      {
+        "@value": "LCIA method data set"
+      }
+    ],
+    "ILCDsd:uri": [
+      {
+        "@value": "../lciamethods/5f635281-343e-44fb-83df-1971b155e6b6"
+      }
+    ]
+  },
+  {
+    "@id": "_:N762f51f2c8c34490a3139d528f8a475a",
+    "@type": [
+      "ILCDsd:MultiLangString"
+    ],
+    "ILCDsd:lang": [
+      {
+        "@value": "en"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "Global Warming Potential - fossil fuels (GWP-fossil)"
+      }
+    ]
+  },
+  {
+    "@id": "_:N3a120d3e060d44388128bea351b84177",
+    "@type": [
+      "ILCDsd:OtherContent"
+    ],
+    "ILCDsd:anies": [
+      {
+        "@id": "_:Nc6dec3fe58d14951b5073ab050a078a7"
+      },
+      {
+        "@id": "_:N2dbf33947d4242afa314e9a17af7794e"
+      },
+      {
+        "@id": "_:Ncdbae57d6c99445e834753d1f1308b29"
+      },
+      {
+        "@id": "_:Nfac9bfba7bb5402a9e8a9bc66b1be565"
+      },
+      {
+        "@id": "_:N6b945357733248d196c621d302cb76e6"
+      },
+      {
+        "@id": "_:N8ef8f179521d47ddbf24173fbe0de581"
+      },
+      {
+        "@id": "_:N2a1d35923c3c48e6b5c569567558156c"
+      },
+      {
+        "@id": "_:N08938c2aafb84abca7665050a36f9f3b"
+      },
+      {
+        "@id": "_:Nd9925a5273cc425b851b3f5e70d03aba"
+      },
+      {
+        "@id": "_:N495a5dd3e33f46658a57d21b907a014a"
+      },
+      {
+        "@id": "_:N97264fdac3834700b0b2329b6ab16bf8"
+      },
+      {
+        "@id": "_:Nad59e0cd64214dd38fbf79d1200e25ab"
+      },
+      {
+        "@id": "_:Na683856f2e644e34bed06b2c5f82a3e5"
+      },
+      {
+        "@id": "_:N643d7bfafaa74fb3b57b1e6efe812e90"
+      },
+      {
+        "@id": "_:N2c7971a77089420d9b438a8d327ccf4a"
+      },
+      {
+        "@id": "_:N69140e93d77b4652882fca61ca0f66c1"
+      },
+      {
+        "@id": "_:N507c3d147f64479785cd44e7adda8bbb"
+      },
+      {
+        "@id": "_:N633ccdf398034c4697aaa378cf297488"
+      },
+      {
+        "@id": "_:N1720e1c5452244749dbe6b515ef9a854"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nc6dec3fe58d14951b5073ab050a078a7",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A1"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "376.846524413267"
+      }
+    ]
+  },
+  {
+    "@id": "_:N2dbf33947d4242afa314e9a17af7794e",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A2"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "10.658975130637"
+      }
+    ]
+  },
+  {
+    "@id": "_:Ncdbae57d6c99445e834753d1f1308b29",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A3"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "1.20162072189971"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nfac9bfba7bb5402a9e8a9bc66b1be565",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A1-A3"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "388.707120265804"
+      }
+    ]
+  },
+  {
+    "@id": "_:N6b945357733248d196c621d302cb76e6",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A4"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "ND"
+      }
+    ]
+  },
+  {
+    "@id": "_:N8ef8f179521d47ddbf24173fbe0de581",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "A5"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "ND"
+      }
+    ]
+  },
+  {
+    "@id": "_:N2a1d35923c3c48e6b5c569567558156c",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B1"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "-4.12301904146275"
+      }
+    ]
+  },
+  {
+    "@id": "_:N08938c2aafb84abca7665050a36f9f3b",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B2"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nd9925a5273cc425b851b3f5e70d03aba",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B3"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:N495a5dd3e33f46658a57d21b907a014a",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B4"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:N97264fdac3834700b0b2329b6ab16bf8",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B5"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:Nad59e0cd64214dd38fbf79d1200e25ab",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B6"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:Na683856f2e644e34bed06b2c5f82a3e5",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "B7"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "0"
+      }
+    ]
+  },
+  {
+    "@id": "_:N643d7bfafaa74fb3b57b1e6efe812e90",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "C1"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "8.991347753066"
+      }
+    ]
+  },
+  {
+    "@id": "_:N2c7971a77089420d9b438a8d327ccf4a",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "C2"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "9.2273105665125"
+      }
+    ]
+  },
+  {
+    "@id": "_:N69140e93d77b4652882fca61ca0f66c1",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "C3"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "3.51999580619816"
+      }
+    ]
+  },
+  {
+    "@id": "_:N507c3d147f64479785cd44e7adda8bbb",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "C4"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "-4.05759050692558"
+      }
+    ]
+  },
+  {
+    "@id": "_:N633ccdf398034c4697aaa378cf297488",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:module": [
+      {
+        "@value": "D"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "-15.07571924265"
+      }
+    ]
+  },
+  {
+    "@id": "_:N1720e1c5452244749dbe6b515ef9a854",
+    "@type": [
+      "ILCDsd:AniesEntry"
+    ],
+    "ILCDsd:name": [
+      {
+        "@value": "referenceToUnitGroupDataSet"
+      }
+    ],
+    "ILCDsd:value": [
+      {
+        "@value": "JsonObj(shortDescription=[{'value': 'kg CO2 eq.'}], type='unit group data set', refObjectId='1ebf3012-d0db-4de2-aefd-ef30cedb0be1', uri='../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1')"
+      }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+administrativeInformation:
+  dataGenerator:
+    referenceToPersonOrEntityGeneratingTheDataSet:
+    - shortDescription:
+      - value: ', gm.nardelli@financo.it'
+        lang: en
+      type: contact data set
+      version: 00.00.001
+  dataEntryBy:
+    timeStamp: 1715937801610
+    referenceToDataSetFormat:
+    - shortDescription:
+      - value: EPD Data Format Extension
+        lang: en
+      type: source data set
+      refObjectId: cba73800-7874-11e3-981f-0800200c9a66
+      version: 00.01.000
+    - shortDescription:
+      - value: ILCD format
+        lang: en
+      type: source data set
+      refObjectId: a97a0155-0234-4b87-b4ce-a45da52f2a40
+      version: 01.00.000
+      uri: http://lca.jrc.ec.europa.eu/lcainfohub/sample_data/ilcd/sources/ILCD_Format_a97a0155-0234-4b87-b4ce-a45da52f2a40_01.00.000.xml
+  publicationAndOwnership:
+    dataSetVersion: 07.01.004
+    registrationNumber: EPD-IES-0013906:001 (S-P-13906)
+    referenceToOwnershipOfDataSet:
+      shortDescription:
+      - value: 'Colabeton S.p.A. '
+        lang: en
+      type: contact data set
+      refObjectId: 56d6d18a-8f7f-4966-500f-08dac88134dd
+      version: 00.00.001
+    copyright: true
+    accessRestrictions:
+    - value: Your use of this material is subject to the General Terms of Use published
+        on by EPD International AB:s homepage at https://www.environdec.com/contact/General-terms-of-use/.
+        If you have not accepted EPD International AB:s the General Terms of Use,
+        you are not authorized to exploit this work in any manner.
+      lang: en

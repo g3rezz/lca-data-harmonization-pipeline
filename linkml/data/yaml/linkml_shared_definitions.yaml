@@ -42,7 +42,14 @@ types:
 ########################################
 
 classes:
-  # Used for short desc + type + refObjectId
+  # For scenario where only shortDescription + type
+  ShortDescripAndType:
+    description: "Holds shortDescription and type only."
+    slots:
+      - shortDescription
+      - type
+
+  # Extends the above pattern by adding 'refObjectId' slot
   ShortDescripTypeRef:
     description: "Base pattern with shortDescription, type, refObjectId."
     slots:
@@ -59,12 +66,15 @@ classes:
       - refObjectId
       - version
 
-  # For scenario where only shortDescription + type
-  ShortDescripAndType:
-    description: "Holds shortDescription and type only."
+  # Extends the above pattern by adding 'uri' slot
+  ShortDescripTypeRefVersionUri:
+    description: "Base pattern with shortDescription, type, refObjectId, version."
     slots:
       - shortDescription
       - type
+      - refObjectId
+      - version
+      - uri
 
   # Generic container for "other" patterns that hold anies
   OtherContent:
@@ -76,14 +86,24 @@ classes:
     slots:
       - name
       - value
-      - timestampValue
-      - objectValue
+      - timestampValue # int needed in ILCDprocessInformation
+      - objectValue # dict needed in ILCDmodellingAndValidation
+      - module # str needed in ILCDexchanges
 
   # -- Multi-language helper
   MultiLangString:
     slots:
       - value
       - lang
+
+  # -- Material Properties
+  MaterialPropEntry:
+    description: "Material property list with name, value, unit, unitDescription."
+    slots:
+      - name
+      - value
+      - unit
+      - unitDescription
 
 ########################################
 # Slots
@@ -131,3 +151,26 @@ slots:
   lang:
     range: string
     description: "Language code (e.g. 'en', 'de')."
+
+  uri:
+    range: string
+    description: "Optional URI for the data set format."
+
+  unit:
+    range: string
+    description: "Descriptive name of the unit."
+
+  unitDescription:
+    range: string
+    description: "Extra description for the unit."
+
+  UUID:
+    range: UUIDType
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+    description: "Unique Universal Identifier, 16-byte hex number."
+
+  module:
+    range: string
+    description: "Module name for environmental indicatores."

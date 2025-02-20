@@ -1,0 +1,101 @@
+{
+  "exchanges": {
+    "exchange": [
+      {
+        "dataSetInternalID": 0,
+        "referenceToFlowDataSet": {
+          "shortDescription": [
+            {
+              "value": " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "5e4009b3-9918-4d43-0fea-08dc6ff8f90b",
+          "version": "00.01.000"
+        },
+        "meanAmount": 1.0,
+        "referenceFlow": true,
+        "resultingflowAmount": 1.0,
+        "flowProperties": [
+          {
+            "name": [{ "lang": "en", "value": "Volume" }],
+            "uuidFP": "93a60a56-a3c8-22da-a746-0800200c9a66",
+            "referenceFlowProperty": true,
+            "meanValue": 1.0,
+            "referenceUnit": "m3",
+            "unitGroupUUID": "93a60a57-a3c8-12da-a746-0800200c9a66"
+          }
+        ],
+        "materialProperties": [
+          {
+            "name": "bulk density (kg/m^3)",
+            "value": "2475.0",
+            "unit": "bulk density (kg/m^3)",
+            "unitDescription": "bulk density (kg/m^3)"
+          },
+          {
+            "name": "compressive strength (mpa)",
+            "value": "50.0",
+            "unit": "Compressive strength (MPa)",
+            "unitDescription": "Compressive strength (MPa)"
+          }
+        ],
+        "typeOfFlow": "Product flow"
+      },
+      {
+        "dataSetInternalID": 1,
+        "referenceToFlowDataSet": {
+          "shortDescription": [
+            {
+              "value": "Use of renewable primary energy as energy carrier (PERE)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "20f32be5-0398-4288-9b6d-accddd195317"
+        },
+        "exchangeDirection": "INPUT",
+        "meanAmount": 0.0,
+        "otherEx": {
+          "anies": [
+            { "value": "200.331850129794", "module": "A1" },
+            { "value": "2.48154315611149", "module": "A2" },
+            { "value": "1.10198021926091", "module": "A3" },
+            { "value": "203.915373505166", "module": "A1-A3" },
+            { "value": "ND", "module": "A4" },
+            { "value": "ND", "module": "A5" },
+            { "value": "0", "module": "B1" },
+            { "value": "0", "module": "B2" },
+            { "value": "0", "module": "B3" },
+            { "value": "0", "module": "B4" },
+            { "value": "0", "module": "B5" },
+            { "value": "0", "module": "B6" },
+            { "value": "0", "module": "B7" },
+            { "value": "0.758557945488", "module": "C1" },
+            { "value": "3.542532703875", "module": "C2" },
+            { "value": "8.991775066725", "module": "C3" },
+            { "value": "1.953996895125", "module": "C4" },
+            { "value": "-14.21955172935", "module": "D" },
+            {
+              "name": "referenceToUnitGroupDataSet",
+              "value": {
+                "shortDescription": [{ "value": "MJ" }],
+                "type": "unit group data set",
+                "refObjectId": "93a60a57-a3c8-11da-a746-0800200c9a66",
+                "uri": "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66"
+              }
+            }
+          ]
+        },
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "classificationEx": {
+          "classHierarchy": "Quantities",
+          "nameClass": "GaBiCategories"
+        }
+      }
+    ]
+  }
+}
