@@ -1,0 +1,133 @@
+name: ILCDmodellingAndValidation
+id: https://example.org/ILCDmodellingAndValidation
+license: CC-BY-4.0
+imports:
+  - linkml:types
+  - linkml_shared_definitions # Import shared definitions between ILCD YAML schemas
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ILCDmav: https://example.org/ILCDmodellingAndValidation/
+default_prefix: ILCDmav
+
+########################################
+# Classes
+########################################
+classes:
+  ModellingAndValidation:
+    description: "Top-level container for the modellingAndValidation section."
+    slots:
+      - LCIMethodAndAllocation
+      - dataSourcesTreatmentAndRepresentativeness
+      - validationInfo
+      - complianceDeclarations
+      - otherMAV
+
+  LCIMethodAndAllocation:
+    description: "Holds LCI method, allocation info, references, other content."
+    slots:
+      - typeOfDataSet
+      - referenceToLCAMethodDetails
+      - otherMAA # 'other' referencing the same pattern used in processInformation
+
+  DataSourcesTreatmentAndRepresentativeness:
+    description: "Holds references to data sources, usage advice, and other extras."
+    slots:
+      - referenceToDataSource
+      - useAdviceForDataSet
+      - otherDSTAR
+
+  # "Validation" is a reserved word in some contexts, so let's rename it to "ValidationInfo"
+  ValidationInfo:
+    description: "Represents the validation object containing review info."
+    slots:
+      - review
+
+  ReviewEntry:
+    description: "A single review entry with name of reviewer, institution, etc."
+    slots:
+      - referenceToNameOfReviewerAndInstitution
+      - type
+
+  ComplianceDeclarations:
+    description: "Container for compliance-related declarations."
+    slots:
+      - compliance
+
+  ComplianceEntry:
+    description: "Holds a reference to a specific compliance system."
+    slots:
+      - referenceToComplianceSystem
+
+########################################
+# Slots
+########################################
+slots:
+  # --- ModellingAndValidation
+  LCIMethodAndAllocation:
+    range: LCIMethodAndAllocation
+
+  dataSourcesTreatmentAndRepresentativeness:
+    range: DataSourcesTreatmentAndRepresentativeness
+
+  validationInfo:
+    range: ValidationInfo
+
+  complianceDeclarations:
+    range: ComplianceDeclarations
+
+  otherMAV:
+    range: OtherContent
+    description: "Equivalent to 'other' in JSON, reuses 'OtherContent' from processInformation."
+
+  # --- LCIMethodAndAllocation
+  typeOfDataSet:
+    range: string
+    description: "Indicates type of data set (e.g., EPD)."
+
+  referenceToLCAMethodDetails:
+    range: ShortDescripTypeRefVersion
+    multivalued: true
+    description: "List of references to LCA method details."
+
+  otherMAA:
+    range: OtherContent
+    description: "An 'other' object with 'anies', reusing the pattern from processInformation."
+
+  # --- DataSourcesTreatmentAndRepresentativeness
+  referenceToDataSource:
+    range: ShortDescripTypeRefVersion
+    multivalued: true
+    description: "A list of data sources each with shortDescription, type, refObjectId, version."
+
+  useAdviceForDataSet:
+    range: MultiLangString
+    multivalued: true
+    description: "Guidance on data set usage, typically multi-language."
+
+  otherDSTAR:
+    range: OtherContent
+    description: "A specialized 'other' object supporting dictionary-based values."
+
+  # --- ValidationInfo
+  review:
+    range: ReviewEntry
+    multivalued: true
+    description: "A list of reviews for the validation."
+
+  # --- ReviewEntry
+  referenceToNameOfReviewerAndInstitution:
+    range: ShortDescripAndType
+    multivalued: true
+    description: "Multi-language short descriptions for reviewer and institution."
+
+  # --- ComplianceDeclarations
+  compliance:
+    range: ComplianceEntry
+    multivalued: true
+    description: "Compliance array."
+
+  # --- ComplianceEntry
+  referenceToComplianceSystem:
+    range: ShortDescripTypeRefVersion
+    description: "Details referencing the compliance system."
