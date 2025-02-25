@@ -1,6 +1,9 @@
 LCIAResults:
+  id: ILCDlcia:LCIAResults
   LCIAResult:
-  - referenceToLCIAMethodDataSet:
+  - id: ILCDlcia:LCIAResult
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:referenceToLCIAMethodDataSetEntry0
       shortDescription:
       - value: Global Warming Potential - fossil fuels (GWP-fossil)
         lang: en
@@ -9,45 +12,65 @@ LCIAResults:
       uri: ../lciamethods/5f635281-343e-44fb-83df-1971b155e6b6
     meanAmount: 0.0
     otherLCIA:
-      anies:
-      - value: '376.846524413267'
+      id: ILCDlcia:otherLCIAEntry0
+      aniesLCIAResult:
+      - id: ILCDlcia:moduleA1
+        value: '376.846524413267'
         module: A1
-      - value: '10.658975130637'
+      - id: ILCDlcia:moduleA2
+        value: '10.658975130637'
         module: A2
-      - value: '1.20162072189971'
+      - id: ILCDlcia:moduleA3
+        value: '1.20162072189971'
         module: A3
-      - value: '388.707120265804'
+      - id: ILCDlcia:moduleA1A3
+        value: '388.707120265804'
         module: A1-A3
-      - value: ND
+      - id: ILCDlcia:moduleA4
+        value: ND
         module: A4
-      - value: ND
+      - id: ILCDlcia:moduleA5
+        value: ND
         module: A5
-      - value: '-4.12301904146275'
+      - id: ILCDlcia:moduleB1
+        value: '-4.12301904146275'
         module: B1
-      - value: '0'
+      - id: ILCDlcia:moduleB2
+        value: '0'
         module: B2
-      - value: '0'
+      - id: ILCDlcia:moduleB3
+        value: '0'
         module: B3
-      - value: '0'
+      - id: ILCDlcia:moduleB4
+        value: '0'
         module: B4
-      - value: '0'
+      - id: ILCDlcia:moduleB5
+        value: '0'
         module: B5
-      - value: '0'
+      - id: ILCDlcia:moduleB6
+        value: '0'
         module: B6
-      - value: '0'
+      - id: ILCDlcia:moduleB7
+        value: '0'
         module: B7
-      - value: '8.991347753066'
+      - id: ILCDlcia:moduleC1
+        value: '8.991347753066'
         module: C1
-      - value: '9.2273105665125'
+      - id: ILCDlcia:moduleC2
+        value: '9.2273105665125'
         module: C2
-      - value: '3.51999580619816'
+      - id: ILCDlcia:moduleC3
+        value: '3.51999580619816'
         module: C3
-      - value: '-4.05759050692558'
+      - id: ILCDlcia:moduleC4
+        value: '-4.05759050692558'
         module: C4
-      - value: '-15.07571924265'
+      - id: ILCDlcia:moduleD
+        value: '-15.07571924265'
         module: D
-      - name: referenceToUnitGroupDataSet
-        value:
+      - id: ILCDlcia:referenceToUnitGroupDataSetEntry0
+        name: referenceToUnitGroupDataSet
+        objectValue:
           shortDescription:
           - value: kg CO2 eq.
           type: unit group data set

@@ -16,17 +16,50 @@ default_prefix: ILCDlcia
 ########################################
 classes:
   LCIAResults:
+    attributes:
+      id:
+        identifier: true
     description: "Top-level container for the LCIAResults section."
     slots:
       - LCIAResult
 
   # Each entry in the LCIAResult array
   LCIAResultEntry:
+    attributes:
+      id:
+        identifier: true
     description: "Represents a single LCIA result object."
     slots:
       - referenceToLCIAMethodDataSet
       - meanAmount
       - otherLCIA # renamed from 'other' to avoid collisions
+
+  referenceToLCIAMethodDataSetEntry:
+    is_a: ShortDescripTypeRefVersionUri
+    attributes:
+      id:
+        identifier: true
+    description: "Local sub-class for referenceToLCIAMethodDataSet, inheriting from ShortDescripTypeRefVersionUri"
+
+  LCIAOtherContent:
+    attributes:
+      id:
+        identifier: true
+    description: "Custom class for LCIA 'other'."
+    slots:
+      - aniesLCIAResult
+
+  aniesLCIAResultEntry:
+    attributes:
+      id:
+        identifier: true
+        description: "Unique identifier for the module entry (e.g. ILCDlcia:module_A1-A3)."
+    description: "Specialized class for modules with an explicit ID for named resources."
+    slots:
+      - value
+      - module
+      - name
+      - objectValue
 
 ########################################
 # Slots
@@ -36,11 +69,13 @@ slots:
   LCIAResult:
     range: LCIAResultEntry
     multivalued: true
+    inlined_as_list: true
     description: "List of LCIAResultEntry objects."
 
   # -- LCIAResultEntry
   referenceToLCIAMethodDataSet:
-    range: ShortDescripTypeRefVersionUri
+    range: referenceToLCIAMethodDataSetEntry
+    inlined: true
     description: "Reference to the LCIA method data set (includes shortDescription, type, refObjectId, version, uri)."
 
   meanAmount:
@@ -48,5 +83,12 @@ slots:
     description: "Mean numeric value for the LCIA indicator."
 
   otherLCIA:
-    range: OtherContent
+    range: LCIAOtherContent
+    inlined: true
     description: "Renamed from 'other' in JSON. Holds an 'anies' array with modules and possibly referenceToUnitGroupDataSet."
+
+  aniesLCIAResult:
+    description: "Our custom array of aniesLCIAResults objects."
+    range: aniesLCIAResultEntry
+    multivalued: true
+    inlined_as_list: true
