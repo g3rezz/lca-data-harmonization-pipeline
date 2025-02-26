@@ -3,9 +3,10 @@ LCIAResults:
   LCIAResult:
   - id: ILCDlcia:LCIAResult
     referenceToLCIAMethodDataSet:
-      id: ILCDlcia:referenceToLCIAMethodDataSetEntry0
+      id: ILCDlcia:LCIAResultreferenceToLCIAMethodDataSetEntry0
       shortDescription:
-      - value: Global Warming Potential - fossil fuels (GWP-fossil)
+      - id: ILCDlcia:LCIAResultreferenceToLCIAMethodDataSetEntry0shortDescription
+        value: Global Warming Potential - fossil fuels (GWP-fossil)
         lang: en
       type: LCIA method data set
       refObjectId: 5f635281-343e-44fb-83df-1971b155e6b6
@@ -13,7 +14,7 @@ LCIAResults:
     meanAmount: 0.0
     otherLCIA:
       id: ILCDlcia:otherLCIAEntry0
-      aniesLCIAResult:
+      anies:
       - id: ILCDlcia:moduleA1
         value: '376.846524413267'
         module: A1
@@ -68,11 +69,13 @@ LCIAResults:
       - id: ILCDlcia:moduleD
         value: '-15.07571924265'
         module: D
-      - id: ILCDlcia:referenceToUnitGroupDataSetEntry0
+      - id: ILCDlcia:referenceToUnitGroupDataSet
         name: referenceToUnitGroupDataSet
         objectValue:
+          id: ILCDlcia:otherLCIAEntry0objectValue
           shortDescription:
-          - value: kg CO2 eq.
+          - id: ILCDlcia:otherLCIAEntry0objectValueshortDescription
+            value: kg CO2 eq.
           type: unit group data set
           refObjectId: 1ebf3012-d0db-4de2-aefd-ef30cedb0be1
           uri: ../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1

@@ -5,9 +5,10 @@
       {
         "id": "ILCDlcia:LCIAResult",
         "referenceToLCIAMethodDataSet": {
-          "id": "ILCDlcia:referenceToLCIAMethodDataSetEntry0",
+          "id": "ILCDlcia:LCIAResultreferenceToLCIAMethodDataSetEntry0",
           "shortDescription": [
             {
+              "id": "ILCDlcia:LCIAResultreferenceToLCIAMethodDataSetEntry0shortDescription",
               "value": "Global Warming Potential - fossil fuels (GWP-fossil)",
               "lang": "en"
             }
@@ -19,7 +20,7 @@
         "meanAmount": 0.0,
         "otherLCIA": {
           "id": "ILCDlcia:otherLCIAEntry0",
-          "aniesLCIAResult": [
+          "anies": [
             {
               "id": "ILCDlcia:moduleA1",
               "value": "376.846524413267",
@@ -79,10 +80,16 @@
               "module": "D"
             },
             {
-              "id": "ILCDlcia:referenceToUnitGroupDataSetEntry0",
+              "id": "ILCDlcia:referenceToUnitGroupDataSet",
               "name": "referenceToUnitGroupDataSet",
               "objectValue": {
-                "shortDescription": [{ "value": "kg CO2 eq." }],
+                "id": "ILCDlcia:otherLCIAEntry0objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDlcia:otherLCIAEntry0objectValueshortDescription",
+                    "value": "kg CO2 eq."
+                  }
+                ],
                 "type": "unit group data set",
                 "refObjectId": "1ebf3012-d0db-4de2-aefd-ef30cedb0be1",
                 "uri": "../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1"
