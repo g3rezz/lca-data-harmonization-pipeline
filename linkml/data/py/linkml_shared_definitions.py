@@ -1,5 +1,5 @@
 # Auto generated from linkml_shared_definitions.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-20T16:23:34
+# Generation date: 2025-02-26T13:13:51
 # Schema: SharedDefinitions
 #
 # id: https://example.org/SharedDefinitions
@@ -96,130 +96,93 @@ class UnixTimestamp(int):
     type_model_uri = ILCDSD.UnixTimestamp
 
 
-class AnyObject(str):
-    """ Placeholder for any dictionary-like JSON object. """
-    type_class_uri = LINKML["AnyObject"]
-    type_class_curie = "linkml:AnyObject"
-    type_name = "AnyObject"
-    type_model_uri = ILCDSD.AnyObject
+class ResourceURL(str):
+    """ A URL string representing a resource location. """
+    type_class_uri = LINKML["ResourceURL"]
+    type_class_curie = "linkml:ResourceURL"
+    type_name = "ResourceURL"
+    type_model_uri = ILCDSD.ResourceURL
 
 
 # Class references
+class ReferenceBaseId(extended_str):
+    pass
 
 
-
-@dataclass(repr=False)
-class ShortDescripAndType(YAMLRoot):
-    """
-    Holds shortDescription and type only.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripAndType"]
-    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripAndType"
-    class_name: ClassVar[str] = "ShortDescripAndType"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripAndType
-
-    shortDescription: Optional[Union[Union[dict, "MultiLangString"], List[Union[dict, "MultiLangString"]]]] = empty_list()
-    type: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.shortDescription, list):
-            self.shortDescription = [self.shortDescription] if self.shortDescription is not None else []
-        self.shortDescription = [v if isinstance(v, MultiLangString) else MultiLangString(**as_dict(v)) for v in self.shortDescription]
-
-        if self.type is not None and not isinstance(self.type, str):
-            self.type = str(self.type)
-
-        super().__post_init__(**kwargs)
+class ShortDescripAndTypeId(ReferenceBaseId):
+    pass
 
 
-@dataclass(repr=False)
-class ShortDescripTypeRef(YAMLRoot):
-    """
-    Base pattern with shortDescription, type, refObjectId.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
+class ShortDescripTypeRefId(ReferenceBaseId):
+    pass
 
-    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripTypeRef"]
-    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripTypeRef"
-    class_name: ClassVar[str] = "ShortDescripTypeRef"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripTypeRef
 
-    shortDescription: Optional[Union[Union[dict, "MultiLangString"], List[Union[dict, "MultiLangString"]]]] = empty_list()
-    type: Optional[str] = None
-    refObjectId: Optional[str] = None
+class ShortDescripTypeRefVersionId(ReferenceBaseId):
+    pass
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.shortDescription, list):
-            self.shortDescription = [self.shortDescription] if self.shortDescription is not None else []
-        self.shortDescription = [v if isinstance(v, MultiLangString) else MultiLangString(**as_dict(v)) for v in self.shortDescription]
 
-        if self.type is not None and not isinstance(self.type, str):
-            self.type = str(self.type)
+class ShortDescripTypeRefVersionUriId(ReferenceBaseId):
+    pass
 
-        if self.refObjectId is not None and not isinstance(self.refObjectId, str):
-            self.refObjectId = str(self.refObjectId)
 
-        super().__post_init__(**kwargs)
+class AniesBaseId(extended_str):
+    pass
+
+
+class AniesNameValueId(AniesBaseId):
+    pass
+
+
+class AniesNameValueModuleId(AniesBaseId):
+    pass
+
+
+class AniesNameTimestampId(AniesBaseId):
+    pass
+
+
+class AniesNameObjectValueId(AniesBaseId):
+    pass
+
+
+class AniesNameValueObjectValueModuleId(AniesBaseId):
+    pass
+
+
+class AniesNameTypedReferenceId(AniesBaseId):
+    pass
+
+
+class MultiLangStringId(extended_str):
+    pass
 
 
 @dataclass(repr=False)
-class ShortDescripTypeRefVersion(YAMLRoot):
+class ReferenceBase(YAMLRoot):
     """
-    Base pattern with shortDescription, type, refObjectId, version.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripTypeRefVersion"]
-    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripTypeRefVersion"
-    class_name: ClassVar[str] = "ShortDescripTypeRefVersion"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripTypeRefVersion
-
-    shortDescription: Optional[Union[Union[dict, "MultiLangString"], List[Union[dict, "MultiLangString"]]]] = empty_list()
-    type: Optional[str] = None
-    refObjectId: Optional[str] = None
-    version: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.shortDescription, list):
-            self.shortDescription = [self.shortDescription] if self.shortDescription is not None else []
-        self.shortDescription = [v if isinstance(v, MultiLangString) else MultiLangString(**as_dict(v)) for v in self.shortDescription]
-
-        if self.type is not None and not isinstance(self.type, str):
-            self.type = str(self.type)
-
-        if self.refObjectId is not None and not isinstance(self.refObjectId, str):
-            self.refObjectId = str(self.refObjectId)
-
-        if self.version is not None and not isinstance(self.version, str):
-            self.version = str(self.version)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ShortDescripTypeRefVersionUri(YAMLRoot):
-    """
-    Base pattern with shortDescription, type, refObjectId, version.
+    Master reference pattern with optional shortDesc, type, refObjectId, version, uri.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripTypeRefVersionUri"]
-    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripTypeRefVersionUri"
-    class_name: ClassVar[str] = "ShortDescripTypeRefVersionUri"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripTypeRefVersionUri
+    class_class_uri: ClassVar[URIRef] = ILCDSD["ReferenceBase"]
+    class_class_curie: ClassVar[str] = "ILCDsd:ReferenceBase"
+    class_name: ClassVar[str] = "ReferenceBase"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.ReferenceBase
 
-    shortDescription: Optional[Union[Union[dict, "MultiLangString"], List[Union[dict, "MultiLangString"]]]] = empty_list()
+    id: Union[str, ReferenceBaseId] = None
+    shortDescription: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, "MultiLangString"]], List[Union[dict, "MultiLangString"]]]] = empty_dict()
     type: Optional[str] = None
     refObjectId: Optional[str] = None
     version: Optional[str] = None
     uri: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.shortDescription, list):
-            self.shortDescription = [self.shortDescription] if self.shortDescription is not None else []
-        self.shortDescription = [v if isinstance(v, MultiLangString) else MultiLangString(**as_dict(v)) for v in self.shortDescription]
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ReferenceBaseId):
+            self.id = ReferenceBaseId(self.id)
+
+        self._normalize_inlined_as_list(slot_name="shortDescription", slot_type=MultiLangString, key_name="id", keyed=True)
 
         if self.type is not None and not isinstance(self.type, str):
             self.type = str(self.type)
@@ -237,7 +200,126 @@ class ShortDescripTypeRefVersionUri(YAMLRoot):
 
 
 @dataclass(repr=False)
+class ShortDescripAndType(ReferenceBase):
+    """
+    Only shortDescription + type, ignoring refObjectId, version, uri.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripAndType"]
+    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripAndType"
+    class_name: ClassVar[str] = "ShortDescripAndType"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripAndType
+
+    id: Union[str, ShortDescripAndTypeId] = None
+    refObjectId: Optional[str] = None
+    version: Optional[str] = None
+    uri: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ShortDescripAndTypeId):
+            self.id = ShortDescripAndTypeId(self.id)
+
+        if self.refObjectId is not None and not isinstance(self.refObjectId, str):
+            self.refObjectId = str(self.refObjectId)
+
+        if self.version is not None and not isinstance(self.version, str):
+            self.version = str(self.version)
+
+        if self.uri is not None and not isinstance(self.uri, str):
+            self.uri = str(self.uri)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ShortDescripTypeRef(ReferenceBase):
+    """
+    shortDescription, type, refObjectId only, ignoring version, uri.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripTypeRef"]
+    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripTypeRef"
+    class_name: ClassVar[str] = "ShortDescripTypeRef"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripTypeRef
+
+    id: Union[str, ShortDescripTypeRefId] = None
+    version: Optional[str] = None
+    uri: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ShortDescripTypeRefId):
+            self.id = ShortDescripTypeRefId(self.id)
+
+        if self.version is not None and not isinstance(self.version, str):
+            self.version = str(self.version)
+
+        if self.uri is not None and not isinstance(self.uri, str):
+            self.uri = str(self.uri)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ShortDescripTypeRefVersion(ReferenceBase):
+    """
+    shortDescription, type, refObjectId, version; ignoring uri.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripTypeRefVersion"]
+    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripTypeRefVersion"
+    class_name: ClassVar[str] = "ShortDescripTypeRefVersion"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripTypeRefVersion
+
+    id: Union[str, ShortDescripTypeRefVersionId] = None
+    uri: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ShortDescripTypeRefVersionId):
+            self.id = ShortDescripTypeRefVersionId(self.id)
+
+        if self.uri is not None and not isinstance(self.uri, str):
+            self.uri = str(self.uri)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ShortDescripTypeRefVersionUri(ReferenceBase):
+    """
+    Full pattern with shortDescription, type, refObjectId, version, uri.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripTypeRefVersionUri"]
+    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripTypeRefVersionUri"
+    class_name: ClassVar[str] = "ShortDescripTypeRefVersionUri"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripTypeRefVersionUri
+
+    id: Union[str, ShortDescripTypeRefVersionUriId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ShortDescripTypeRefVersionUriId):
+            self.id = ShortDescripTypeRefVersionUriId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class OtherContent(YAMLRoot):
+    """
+    A container holding 'anies': a list of anies objects
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDSD["OtherContent"]
@@ -245,32 +327,39 @@ class OtherContent(YAMLRoot):
     class_name: ClassVar[str] = "OtherContent"
     class_model_uri: ClassVar[URIRef] = ILCDSD.OtherContent
 
-    anies: Optional[Union[Union[dict, "AniesEntry"], List[Union[dict, "AniesEntry"]]]] = empty_list()
+    anies: Optional[Union[Dict[Union[str, AniesBaseId], Union[dict, "AniesBase"]], List[Union[dict, "AniesBase"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.anies, list):
-            self.anies = [self.anies] if self.anies is not None else []
-        self.anies = [v if isinstance(v, AniesEntry) else AniesEntry(**as_dict(v)) for v in self.anies]
+        self._normalize_inlined_as_list(slot_name="anies", slot_type=AniesBase, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
-class AniesEntry(YAMLRoot):
+class AniesBase(YAMLRoot):
+    """
+    Master pattern for anies with optional name, value, timestampValue, objectValue, module.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = ILCDSD["AniesEntry"]
-    class_class_curie: ClassVar[str] = "ILCDsd:AniesEntry"
-    class_name: ClassVar[str] = "AniesEntry"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.AniesEntry
+    class_class_uri: ClassVar[URIRef] = ILCDSD["AniesBase"]
+    class_class_curie: ClassVar[str] = "ILCDsd:AniesBase"
+    class_name: ClassVar[str] = "AniesBase"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.AniesBase
 
+    id: Union[str, AniesBaseId] = None
     name: Optional[str] = None
     value: Optional[str] = None
     timestampValue: Optional[int] = None
-    objectValue: Optional[str] = None
+    objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
     module: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AniesBaseId):
+            self.id = AniesBaseId(self.id)
+
         if self.name is not None and not isinstance(self.name, str):
             self.name = str(self.name)
 
@@ -280,8 +369,212 @@ class AniesEntry(YAMLRoot):
         if self.timestampValue is not None and not isinstance(self.timestampValue, int):
             self.timestampValue = int(self.timestampValue)
 
-        if self.objectValue is not None and not isinstance(self.objectValue, str):
-            self.objectValue = str(self.objectValue)
+        if self.objectValue is not None and not isinstance(self.objectValue, ShortDescripTypeRefVersion):
+            self.objectValue = ShortDescripTypeRefVersion(**as_dict(self.objectValue))
+
+        if self.module is not None and not isinstance(self.module, str):
+            self.module = str(self.module)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class AniesNameValue(AniesBase):
+    """
+    Only name + value, ignoring timestampValue, objectValue, module.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["AniesNameValue"]
+    class_class_curie: ClassVar[str] = "ILCDsd:AniesNameValue"
+    class_name: ClassVar[str] = "AniesNameValue"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.AniesNameValue
+
+    id: Union[str, AniesNameValueId] = None
+    timestampValue: Optional[int] = None
+    objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    module: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AniesNameValueId):
+            self.id = AniesNameValueId(self.id)
+
+        if self.timestampValue is not None and not isinstance(self.timestampValue, int):
+            self.timestampValue = int(self.timestampValue)
+
+        if self.objectValue is not None and not isinstance(self.objectValue, ShortDescripTypeRefVersion):
+            self.objectValue = ShortDescripTypeRefVersion(**as_dict(self.objectValue))
+
+        if self.module is not None and not isinstance(self.module, str):
+            self.module = str(self.module)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class AniesNameValueModule(AniesBase):
+    """
+    Requires 'module' but discards timestampValue, objectValue.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["AniesNameValueModule"]
+    class_class_curie: ClassVar[str] = "ILCDsd:AniesNameValueModule"
+    class_name: ClassVar[str] = "AniesNameValueModule"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.AniesNameValueModule
+
+    id: Union[str, AniesNameValueModuleId] = None
+    module: str = None
+    timestampValue: Optional[int] = None
+    objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AniesNameValueModuleId):
+            self.id = AniesNameValueModuleId(self.id)
+
+        if self._is_empty(self.module):
+            self.MissingRequiredField("module")
+        if not isinstance(self.module, str):
+            self.module = str(self.module)
+
+        if self.timestampValue is not None and not isinstance(self.timestampValue, int):
+            self.timestampValue = int(self.timestampValue)
+
+        if self.objectValue is not None and not isinstance(self.objectValue, ShortDescripTypeRefVersion):
+            self.objectValue = ShortDescripTypeRefVersion(**as_dict(self.objectValue))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class AniesNameTimestamp(AniesBase):
+    """
+    Includes name and timestampValue. Ignores value, objectValue, and module.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["AniesNameTimestamp"]
+    class_class_curie: ClassVar[str] = "ILCDsd:AniesNameTimestamp"
+    class_name: ClassVar[str] = "AniesNameTimestamp"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.AniesNameTimestamp
+
+    id: Union[str, AniesNameTimestampId] = None
+    value: Optional[str] = None
+    objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    module: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AniesNameTimestampId):
+            self.id = AniesNameTimestampId(self.id)
+
+        if self.value is not None and not isinstance(self.value, str):
+            self.value = str(self.value)
+
+        if self.objectValue is not None and not isinstance(self.objectValue, ShortDescripTypeRefVersion):
+            self.objectValue = ShortDescripTypeRefVersion(**as_dict(self.objectValue))
+
+        if self.module is not None and not isinstance(self.module, str):
+            self.module = str(self.module)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class AniesNameObjectValue(AniesBase):
+    """
+    Includes name and objectValue. Ignores value, timestampValue, and module.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["AniesNameObjectValue"]
+    class_class_curie: ClassVar[str] = "ILCDsd:AniesNameObjectValue"
+    class_name: ClassVar[str] = "AniesNameObjectValue"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.AniesNameObjectValue
+
+    id: Union[str, AniesNameObjectValueId] = None
+    value: Optional[str] = None
+    timestampValue: Optional[int] = None
+    module: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AniesNameObjectValueId):
+            self.id = AniesNameObjectValueId(self.id)
+
+        if self.value is not None and not isinstance(self.value, str):
+            self.value = str(self.value)
+
+        if self.timestampValue is not None and not isinstance(self.timestampValue, int):
+            self.timestampValue = int(self.timestampValue)
+
+        if self.module is not None and not isinstance(self.module, str):
+            self.module = str(self.module)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class AniesNameValueObjectValueModule(AniesBase):
+    """
+    Includes name, value, objectValue and module. Ignores timestampValue.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["AniesNameValueObjectValueModule"]
+    class_class_curie: ClassVar[str] = "ILCDsd:AniesNameValueObjectValueModule"
+    class_name: ClassVar[str] = "AniesNameValueObjectValueModule"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.AniesNameValueObjectValueModule
+
+    id: Union[str, AniesNameValueObjectValueModuleId] = None
+    timestampValue: Optional[int] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AniesNameValueObjectValueModuleId):
+            self.id = AniesNameValueObjectValueModuleId(self.id)
+
+        if self.timestampValue is not None and not isinstance(self.timestampValue, int):
+            self.timestampValue = int(self.timestampValue)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class AniesNameTypedReference(AniesBase):
+    """
+    An anies pattern where 'name' is required and 'objectValue' is a ShortDescripTypeRefVersion.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["AniesNameTypedReference"]
+    class_class_curie: ClassVar[str] = "ILCDsd:AniesNameTypedReference"
+    class_name: ClassVar[str] = "AniesNameTypedReference"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.AniesNameTypedReference
+
+    id: Union[str, AniesNameTypedReferenceId] = None
+    value: Optional[str] = None
+    timestampValue: Optional[int] = None
+    module: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AniesNameTypedReferenceId):
+            self.id = AniesNameTypedReferenceId(self.id)
+
+        if self.value is not None and not isinstance(self.value, str):
+            self.value = str(self.value)
+
+        if self.timestampValue is not None and not isinstance(self.timestampValue, int):
+            self.timestampValue = int(self.timestampValue)
 
         if self.module is not None and not isinstance(self.module, str):
             self.module = str(self.module)
@@ -298,48 +591,21 @@ class MultiLangString(YAMLRoot):
     class_name: ClassVar[str] = "MultiLangString"
     class_model_uri: ClassVar[URIRef] = ILCDSD.MultiLangString
 
+    id: Union[str, MultiLangStringId] = None
     value: Optional[str] = None
     lang: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MultiLangStringId):
+            self.id = MultiLangStringId(self.id)
+
         if self.value is not None and not isinstance(self.value, str):
             self.value = str(self.value)
 
         if self.lang is not None and not isinstance(self.lang, str):
             self.lang = str(self.lang)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class MaterialPropEntry(YAMLRoot):
-    """
-    Material property list with name, value, unit, unitDescription.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDSD["MaterialPropEntry"]
-    class_class_curie: ClassVar[str] = "ILCDsd:MaterialPropEntry"
-    class_name: ClassVar[str] = "MaterialPropEntry"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.MaterialPropEntry
-
-    name: Optional[str] = None
-    value: Optional[str] = None
-    unit: Optional[str] = None
-    unitDescription: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.name is not None and not isinstance(self.name, str):
-            self.name = str(self.name)
-
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
-
-        if self.unit is not None and not isinstance(self.unit, str):
-            self.unit = str(self.unit)
-
-        if self.unitDescription is not None and not isinstance(self.unitDescription, str):
-            self.unitDescription = str(self.unitDescription)
 
         super().__post_init__(**kwargs)
 
@@ -351,8 +617,11 @@ class MaterialPropEntry(YAMLRoot):
 class slots:
     pass
 
+slots.id = Slot(uri=ILCDSD.id, name="id", curie=ILCDSD.curie('id'),
+                   model_uri=ILCDSD.id, domain=None, range=URIRef)
+
 slots.shortDescription = Slot(uri=ILCDSD.shortDescription, name="shortDescription", curie=ILCDSD.curie('shortDescription'),
-                   model_uri=ILCDSD.shortDescription, domain=None, range=Optional[Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]]])
+                   model_uri=ILCDSD.shortDescription, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
 slots.type = Slot(uri=ILCDSD.type, name="type", curie=ILCDSD.curie('type'),
                    model_uri=ILCDSD.type, domain=None, range=Optional[str])
@@ -373,10 +642,10 @@ slots.timestampValue = Slot(uri=ILCDSD.timestampValue, name="timestampValue", cu
                    model_uri=ILCDSD.timestampValue, domain=None, range=Optional[int])
 
 slots.objectValue = Slot(uri=ILCDSD.objectValue, name="objectValue", curie=ILCDSD.curie('objectValue'),
-                   model_uri=ILCDSD.objectValue, domain=None, range=Optional[str])
+                   model_uri=ILCDSD.objectValue, domain=None, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
 
 slots.anies = Slot(uri=ILCDSD.anies, name="anies", curie=ILCDSD.curie('anies'),
-                   model_uri=ILCDSD.anies, domain=None, range=Optional[Union[Union[dict, AniesEntry], List[Union[dict, AniesEntry]]]])
+                   model_uri=ILCDSD.anies, domain=None, range=Optional[Union[Dict[Union[str, AniesBaseId], Union[dict, AniesBase]], List[Union[dict, AniesBase]]]])
 
 slots.lang = Slot(uri=ILCDSD.lang, name="lang", curie=ILCDSD.curie('lang'),
                    model_uri=ILCDSD.lang, domain=None, range=Optional[str])
@@ -395,3 +664,78 @@ slots.UUID = Slot(uri=ILCDSD.UUID, name="UUID", curie=ILCDSD.curie('UUID'),
 
 slots.module = Slot(uri=ILCDSD.module, name="module", curie=ILCDSD.curie('module'),
                    model_uri=ILCDSD.module, domain=None, range=Optional[str])
+
+slots.referenceBase__id = Slot(uri=ILCDSD.id, name="referenceBase__id", curie=ILCDSD.curie('id'),
+                   model_uri=ILCDSD.referenceBase__id, domain=None, range=URIRef)
+
+slots.aniesBase__id = Slot(uri=ILCDSD.id, name="aniesBase__id", curie=ILCDSD.curie('id'),
+                   model_uri=ILCDSD.aniesBase__id, domain=None, range=URIRef)
+
+slots.multiLangString__id = Slot(uri=ILCDSD.id, name="multiLangString__id", curie=ILCDSD.curie('id'),
+                   model_uri=ILCDSD.multiLangString__id, domain=None, range=URIRef)
+
+slots.ShortDescripAndType_refObjectId = Slot(uri=ILCDSD.refObjectId, name="ShortDescripAndType_refObjectId", curie=ILCDSD.curie('refObjectId'),
+                   model_uri=ILCDSD.ShortDescripAndType_refObjectId, domain=ShortDescripAndType, range=Optional[str])
+
+slots.ShortDescripAndType_version = Slot(uri=ILCDSD.version, name="ShortDescripAndType_version", curie=ILCDSD.curie('version'),
+                   model_uri=ILCDSD.ShortDescripAndType_version, domain=ShortDescripAndType, range=Optional[str])
+
+slots.ShortDescripAndType_uri = Slot(uri=ILCDSD.uri, name="ShortDescripAndType_uri", curie=ILCDSD.curie('uri'),
+                   model_uri=ILCDSD.ShortDescripAndType_uri, domain=ShortDescripAndType, range=Optional[str])
+
+slots.ShortDescripTypeRef_version = Slot(uri=ILCDSD.version, name="ShortDescripTypeRef_version", curie=ILCDSD.curie('version'),
+                   model_uri=ILCDSD.ShortDescripTypeRef_version, domain=ShortDescripTypeRef, range=Optional[str])
+
+slots.ShortDescripTypeRef_uri = Slot(uri=ILCDSD.uri, name="ShortDescripTypeRef_uri", curie=ILCDSD.curie('uri'),
+                   model_uri=ILCDSD.ShortDescripTypeRef_uri, domain=ShortDescripTypeRef, range=Optional[str])
+
+slots.ShortDescripTypeRefVersion_uri = Slot(uri=ILCDSD.uri, name="ShortDescripTypeRefVersion_uri", curie=ILCDSD.curie('uri'),
+                   model_uri=ILCDSD.ShortDescripTypeRefVersion_uri, domain=ShortDescripTypeRefVersion, range=Optional[str])
+
+slots.AniesNameValue_timestampValue = Slot(uri=ILCDSD.timestampValue, name="AniesNameValue_timestampValue", curie=ILCDSD.curie('timestampValue'),
+                   model_uri=ILCDSD.AniesNameValue_timestampValue, domain=AniesNameValue, range=Optional[int])
+
+slots.AniesNameValue_objectValue = Slot(uri=ILCDSD.objectValue, name="AniesNameValue_objectValue", curie=ILCDSD.curie('objectValue'),
+                   model_uri=ILCDSD.AniesNameValue_objectValue, domain=AniesNameValue, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+
+slots.AniesNameValue_module = Slot(uri=ILCDSD.module, name="AniesNameValue_module", curie=ILCDSD.curie('module'),
+                   model_uri=ILCDSD.AniesNameValue_module, domain=AniesNameValue, range=Optional[str])
+
+slots.AniesNameValueModule_timestampValue = Slot(uri=ILCDSD.timestampValue, name="AniesNameValueModule_timestampValue", curie=ILCDSD.curie('timestampValue'),
+                   model_uri=ILCDSD.AniesNameValueModule_timestampValue, domain=AniesNameValueModule, range=Optional[int])
+
+slots.AniesNameValueModule_objectValue = Slot(uri=ILCDSD.objectValue, name="AniesNameValueModule_objectValue", curie=ILCDSD.curie('objectValue'),
+                   model_uri=ILCDSD.AniesNameValueModule_objectValue, domain=AniesNameValueModule, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+
+slots.AniesNameValueModule_module = Slot(uri=ILCDSD.module, name="AniesNameValueModule_module", curie=ILCDSD.curie('module'),
+                   model_uri=ILCDSD.AniesNameValueModule_module, domain=AniesNameValueModule, range=str)
+
+slots.AniesNameTimestamp_value = Slot(uri=ILCDSD.value, name="AniesNameTimestamp_value", curie=ILCDSD.curie('value'),
+                   model_uri=ILCDSD.AniesNameTimestamp_value, domain=AniesNameTimestamp, range=Optional[str])
+
+slots.AniesNameTimestamp_objectValue = Slot(uri=ILCDSD.objectValue, name="AniesNameTimestamp_objectValue", curie=ILCDSD.curie('objectValue'),
+                   model_uri=ILCDSD.AniesNameTimestamp_objectValue, domain=AniesNameTimestamp, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+
+slots.AniesNameTimestamp_module = Slot(uri=ILCDSD.module, name="AniesNameTimestamp_module", curie=ILCDSD.curie('module'),
+                   model_uri=ILCDSD.AniesNameTimestamp_module, domain=AniesNameTimestamp, range=Optional[str])
+
+slots.AniesNameObjectValue_value = Slot(uri=ILCDSD.value, name="AniesNameObjectValue_value", curie=ILCDSD.curie('value'),
+                   model_uri=ILCDSD.AniesNameObjectValue_value, domain=AniesNameObjectValue, range=Optional[str])
+
+slots.AniesNameObjectValue_timestampValue = Slot(uri=ILCDSD.timestampValue, name="AniesNameObjectValue_timestampValue", curie=ILCDSD.curie('timestampValue'),
+                   model_uri=ILCDSD.AniesNameObjectValue_timestampValue, domain=AniesNameObjectValue, range=Optional[int])
+
+slots.AniesNameObjectValue_module = Slot(uri=ILCDSD.module, name="AniesNameObjectValue_module", curie=ILCDSD.curie('module'),
+                   model_uri=ILCDSD.AniesNameObjectValue_module, domain=AniesNameObjectValue, range=Optional[str])
+
+slots.AniesNameValueObjectValueModule_timestampValue = Slot(uri=ILCDSD.timestampValue, name="AniesNameValueObjectValueModule_timestampValue", curie=ILCDSD.curie('timestampValue'),
+                   model_uri=ILCDSD.AniesNameValueObjectValueModule_timestampValue, domain=AniesNameValueObjectValueModule, range=Optional[int])
+
+slots.AniesNameTypedReference_value = Slot(uri=ILCDSD.value, name="AniesNameTypedReference_value", curie=ILCDSD.curie('value'),
+                   model_uri=ILCDSD.AniesNameTypedReference_value, domain=AniesNameTypedReference, range=Optional[str])
+
+slots.AniesNameTypedReference_timestampValue = Slot(uri=ILCDSD.timestampValue, name="AniesNameTypedReference_timestampValue", curie=ILCDSD.curie('timestampValue'),
+                   model_uri=ILCDSD.AniesNameTypedReference_timestampValue, domain=AniesNameTypedReference, range=Optional[int])
+
+slots.AniesNameTypedReference_module = Slot(uri=ILCDSD.module, name="AniesNameTypedReference_module", curie=ILCDSD.curie('module'),
+                   model_uri=ILCDSD.AniesNameTypedReference_module, domain=AniesNameTypedReference, range=Optional[str])

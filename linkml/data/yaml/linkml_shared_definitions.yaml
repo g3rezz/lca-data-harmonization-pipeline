@@ -3,7 +3,6 @@ id: https://example.org/SharedDefinitions
 license: CC-BY-4.0
 imports:
   - linkml:types
-
 prefixes:
   linkml: https://w3id.org/linkml/
   ILCDsd: https://example.org/SharedDefinitions/
@@ -12,7 +11,6 @@ default_prefix: ILCDsd
 ########################################
 # Types
 ########################################
-
 types:
   UUIDType:
     base: str
@@ -31,44 +29,21 @@ types:
     description: "Unix timestamp (milliseconds since epoch)."
     uri: linkml:UnixTimestamp
 
-  # Type to store a dictionary-based object (serialized as string or JSON in practice)
-  AnyObject:
+  ResourceURL:
     base: str
-    description: "Placeholder for any dictionary-like JSON object."
-    uri: linkml:AnyObject
+    description: "A URL string representing a resource location."
+    uri: linkml:ResourceURL
 
 ########################################
 # Classes
 ########################################
 
 classes:
-  # For scenario where only shortDescription + type
-  ShortDescripAndType:
-    description: "Holds shortDescription and type only."
-    slots:
-      - shortDescription
-      - type
-
-  # Extends the above pattern by adding 'refObjectId' slot
-  ShortDescripTypeRef:
-    description: "Base pattern with shortDescription, type, refObjectId."
-    slots:
-      - shortDescription
-      - type
-      - refObjectId
-
-  # Extends the above pattern by adding 'version' slot
-  ShortDescripTypeRefVersion:
-    description: "Base pattern with shortDescription, type, refObjectId, version."
-    slots:
-      - shortDescription
-      - type
-      - refObjectId
-      - version
-
-  # Extends the above pattern by adding 'uri' slot
-  ShortDescripTypeRefVersionUri:
-    description: "Base pattern with shortDescription, type, refObjectId, version."
+  ReferenceBase:
+    attributes:
+      id:
+        identifier: true
+    description: "Master reference pattern with optional shortDesc, type, refObjectId, version, uri."
     slots:
       - shortDescription
       - type
@@ -76,43 +51,139 @@ classes:
       - version
       - uri
 
-  # Generic container for "other" patterns that hold anies
+  ShortDescripAndType:
+    is_a: ReferenceBase
+    description: "Only shortDescription + type, ignoring refObjectId, version, uri."
+    slot_usage:
+      refObjectId:
+        recommended: false
+      version:
+        recommended: false
+      uri:
+        recommended: false
+
+  ShortDescripTypeRef:
+    is_a: ReferenceBase
+    description: "shortDescription, type, refObjectId only, ignoring version, uri."
+    slot_usage:
+      version:
+        recommended: false
+      uri:
+        recommended: false
+
+  ShortDescripTypeRefVersion:
+    is_a: ReferenceBase
+    description: "shortDescription, type, refObjectId, version; ignoring uri."
+    slot_usage:
+      uri:
+        recommended: false
+
+  ShortDescripTypeRefVersionUri:
+    is_a: ReferenceBase
+    description: "Full pattern with shortDescription, type, refObjectId, version, uri."
+
   OtherContent:
+    description: "A container holding 'anies': a list of anies objects"
     slots:
       - anies
 
-  # A simple anies entry that can handle strings, timestamps, or objects
-  AniesEntry:
+  AniesBase:
+    attributes:
+      id:
+        identifier: true
+    description: "Master pattern for anies with optional name, value, timestampValue, objectValue, module."
     slots:
       - name
       - value
-      - timestampValue # int needed in ILCDprocessInformation
-      - objectValue # dict needed in ILCDmodellingAndValidation
-      - module # str needed in ILCDexchanges
+      - timestampValue
+      - objectValue
+      - module
 
-  # -- Multi-language helper
+  AniesNameValue:
+    is_a: AniesBase
+    description: "Only name + value, ignoring timestampValue, objectValue, module."
+    slot_usage:
+      timestampValue:
+        recommended: false
+      objectValue:
+        recommended: false
+      module:
+        recommended: false
+
+  AniesNameValueModule:
+    is_a: AniesBase
+    description: "Requires 'module' but discards timestampValue, objectValue."
+    slot_usage:
+      timestampValue:
+        recommended: false
+      objectValue:
+        recommended: false
+      module:
+        required: true
+
+  AniesNameTimestamp:
+    is_a: AniesBase
+    description: "Includes name and timestampValue. Ignores value, objectValue, and module."
+    slot_usage:
+      value:
+        recommended: false
+      objectValue:
+        recommended: false
+      module:
+        recommended: false
+
+  AniesNameObjectValue:
+    is_a: AniesBase
+    description: "Includes name and objectValue. Ignores value, timestampValue, and module."
+    slot_usage:
+      value:
+        recommended: false
+      timestampValue:
+        recommended: false
+      module:
+        recommended: false
+
+  AniesNameValueObjectValueModule:
+    is_a: AniesBase
+    description: "Includes name, value, objectValue and module. Ignores timestampValue."
+    slot_usage:
+      timestampValue:
+        recommended: false
+
+  AniesNameTypedReference:
+    is_a: AniesBase
+    description: "An anies pattern where 'name' is required and 'objectValue' is a ShortDescripTypeRefVersion."
+    slot_usage:
+      value:
+        recommended: false
+      timestampValue:
+        recommended: false
+      module:
+        recommended: false
+
   MultiLangString:
+    attributes:
+      id:
+        identifier: true
     slots:
       - value
       - lang
-
-  # -- Material Properties
-  MaterialPropEntry:
-    description: "Material property list with name, value, unit, unitDescription."
-    slots:
-      - name
-      - value
-      - unit
-      - unitDescription
 
 ########################################
 # Slots
 ########################################
 
 slots:
+  id:
+    range: string
+    identifier: true
+    required: true
+    description: "Unique ID for building URIs, e.g. 'ex:admininfo/123'."
+
   shortDescription:
     range: MultiLangString
     multivalued: true
+    inlined_as_list: true
     description: "Short description as multi-lang list."
 
   type:
@@ -140,12 +211,14 @@ slots:
     description: "Stores numeric Unix timestamp."
 
   objectValue:
-    range: AnyObject
+    range: ShortDescripTypeRefVersion
+    inlined: true
     description: "Dictionary-like object stored as JSON."
 
   anies:
-    range: AniesEntry
+    range: AniesBase
     multivalued: true
+    inlined_as_list: true
     description: "List of arbitrary name-value pairs."
 
   lang:
