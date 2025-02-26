@@ -229,14 +229,6 @@ slots:
     range: string
     description: "Optional URI for the data set format."
 
-  unit:
-    range: string
-    description: "Descriptive name of the unit."
-
-  unitDescription:
-    range: string
-    description: "Extra description for the unit."
-
   UUID:
     range: UUIDType
     required: true
