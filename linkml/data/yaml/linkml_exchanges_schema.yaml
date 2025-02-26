@@ -69,10 +69,6 @@ classes:
       - referenceUnit
       - unitGroupUUID
 
-  # 'other': e.g. has 'anies', reusing existing 'OtherContent', but we name it 'otherEx'
-  # We'll just map it in the ExchangeEntry slot.
-
-  # classification e.g. {classHierarchy: 'Quantities', name: 'GaBiCategories'}
   ExchangeClassification:
     attributes:
       id:
@@ -82,7 +78,6 @@ classes:
       - classHierarchy
       - nameClass
 
-  # -- Material Properties
   MaterialPropEntry:
     attributes:
       id:
@@ -196,3 +191,12 @@ slots:
     multivalued: true
     inlined_as_list: true
     description: "Name of the flow property"
+
+  # -- Material Properties
+  unit:
+    range: string
+    description: "Descriptive name of the unit."
+
+  unitDescription:
+    range: string
+    description: "Extra description for the unit."
