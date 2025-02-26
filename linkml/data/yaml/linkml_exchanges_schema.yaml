@@ -16,12 +16,18 @@ default_prefix: ILCDex
 ########################################
 classes:
   Exchanges:
+    attributes:
+      id:
+        identifier: true
     description: "Top-level container for the 'exchanges' section."
     slots:
       - exchange
 
   # Each item in 'exchange' array
   ExchangeEntry:
+    attributes:
+      id:
+        identifier: true
     description: "A single exchange entry with flow data, amounts, and properties."
     slots:
       - dataSetInternalID
@@ -37,11 +43,26 @@ classes:
       - otherEx # second exchange has 'other' with anies
       - classificationEx # for 'classification' { classHierarchy, name }
 
+  # Define a local sub-class to override the shared 'OtherContent'
+  # so that we can override 'anies' to reference a specialized Anies
+  ExchangeOtherContent:
+    attributes:
+      id:
+        identifier: true
+    is_a: OtherContent
+    description: "Local sub-class that enforces 'module' is required."
+    slot_usage:
+      anies:
+        range: AniesNameValueObjectValueModule
+
   # For arrays in 'flowProperties'
   FlowPropertyEntry:
+    attributes:
+      id:
+        identifier: true
     description: "One flow property with name, uuid, referenceFlowProperty, meanValue, referenceUnit, unitGroupUUID."
     slots:
-      - name
+      - nameFP
       - uuidFP
       - referenceFlowProperty
       - meanValue
@@ -53,10 +74,25 @@ classes:
 
   # classification e.g. {classHierarchy: 'Quantities', name: 'GaBiCategories'}
   ExchangeClassification:
+    attributes:
+      id:
+        identifier: true
     description: "Simple object for classification with 'classHierarchy' and 'name'."
     slots:
       - classHierarchy
       - nameClass
+
+  # -- Material Properties
+  MaterialPropEntry:
+    attributes:
+      id:
+        identifier: true
+    description: "Material property list with name, value, unit, unitDescription."
+    slots:
+      - name
+      - value
+      - unit
+      - unitDescription
 
 ########################################
 # Slots
@@ -66,6 +102,7 @@ slots:
   exchange:
     range: ExchangeEntry
     multivalued: true
+    inlined_as_list: true
     description: "List of ExchangeEntry objects."
 
   # --- ExchangeEntry
@@ -75,6 +112,7 @@ slots:
 
   referenceToFlowDataSet:
     range: ShortDescripTypeRefVersion
+    inlined: true
     description: "Reference to flow dataset with shortDescription, type, refObjectId, version."
 
   meanAmount:
@@ -92,11 +130,13 @@ slots:
   flowProperties:
     range: FlowPropertyEntry
     multivalued: true
+    inlined_as_list: true
     description: "Array of flow properties."
 
   materialProperties:
     range: MaterialPropEntry
     multivalued: true
+    inlined_as_list: true
     description: "Array of material properties."
 
   resolvedFlowVersion:
@@ -112,11 +152,13 @@ slots:
     description: "Renamed from 'exchange direction'; indicates flow direction (INPUT/OUTPUT)."
 
   otherEx:
-    range: OtherContent
+    range: ExchangeOtherContent
+    inlined: true
     description: "Equivalent to 'other' in JSON, storing anies with modules or references."
 
   classificationEx:
     range: ExchangeClassification
+    inlined: true
     description: "Flow classification object with classHierarchy and name."
 
   # --- FlowPropertyEntry
@@ -148,3 +190,9 @@ slots:
   nameClass:
     range: string
     description: "Classification system name (e.g., 'GaBiCategories')."
+
+  nameFP:
+    range: MultiLangString
+    multivalued: true
+    inlined_as_list: true
+    description: "Name of the flow property"
