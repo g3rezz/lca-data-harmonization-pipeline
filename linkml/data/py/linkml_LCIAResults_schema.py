@@ -1,5 +1,5 @@
 # Auto generated from linkml_LCIAResults_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-25T13:39:00
+# Generation date: 2025-02-26T10:09:03
 # Schema: ILCDLCIAResults
 #
 # id: https://example.org/ILCDLCIAResults
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import MultiLangString, ShortDescripTypeRefVersion, ShortDescripTypeRefVersionUri, UUIDType
+from . linkml_shared_definitions import AniesNameValueObjectValueModule, AniesNameValueObjectValueModuleId, MultiLangString, MultiLangStringId, OtherContent, ShortDescripTypeRefVersionUri, ShortDescripTypeRefVersionUriId, UUIDType
 from linkml_runtime.linkml_model.types import Float, String
 
 metamodel_version = "1.7.0"
@@ -83,15 +83,11 @@ class LCIAResultEntryId(extended_str):
     pass
 
 
+class ReferenceToLCIAMethodDataSetEntryId(ShortDescripTypeRefVersionUriId):
+    pass
+
+
 class LCIAOtherContentId(extended_str):
-    pass
-
-
-class AniesLCIAResultEntryId(extended_str):
-    pass
-
-
-class ReferenceToLCIAMethodDataSetEntryId(extended_str):
     pass
 
 
@@ -157,71 +153,6 @@ class LCIAResultEntry(YAMLRoot):
 
 
 @dataclass(repr=False)
-class LCIAOtherContent(YAMLRoot):
-    """
-    Custom class for LCIA 'other'.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDLCIA["LCIAOtherContent"]
-    class_class_curie: ClassVar[str] = "ILCDlcia:LCIAOtherContent"
-    class_name: ClassVar[str] = "LCIAOtherContent"
-    class_model_uri: ClassVar[URIRef] = ILCDLCIA.LCIAOtherContent
-
-    id: Union[str, LCIAOtherContentId] = None
-    aniesLCIAResult: Optional[Union[Dict[Union[str, AniesLCIAResultEntryId], Union[dict, "AniesLCIAResultEntry"]], List[Union[dict, "AniesLCIAResultEntry"]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, LCIAOtherContentId):
-            self.id = LCIAOtherContentId(self.id)
-
-        self._normalize_inlined_as_list(slot_name="aniesLCIAResult", slot_type=AniesLCIAResultEntry, key_name="id", keyed=True)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class AniesLCIAResultEntry(YAMLRoot):
-    """
-    Specialized class for modules with an explicit ID for named resources.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDLCIA["AniesLCIAResultEntry"]
-    class_class_curie: ClassVar[str] = "ILCDlcia:AniesLCIAResultEntry"
-    class_name: ClassVar[str] = "aniesLCIAResultEntry"
-    class_model_uri: ClassVar[URIRef] = ILCDLCIA.AniesLCIAResultEntry
-
-    id: Union[str, AniesLCIAResultEntryId] = None
-    value: Optional[str] = None
-    module: Optional[str] = None
-    name: Optional[str] = None
-    objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, AniesLCIAResultEntryId):
-            self.id = AniesLCIAResultEntryId(self.id)
-
-        if self.value is not None and not isinstance(self.value, str):
-            self.value = str(self.value)
-
-        if self.module is not None and not isinstance(self.module, str):
-            self.module = str(self.module)
-
-        if self.name is not None and not isinstance(self.name, str):
-            self.name = str(self.name)
-
-        if self.objectValue is not None and not isinstance(self.objectValue, ShortDescripTypeRefVersion):
-            self.objectValue = ShortDescripTypeRefVersion(**as_dict(self.objectValue))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
 class ReferenceToLCIAMethodDataSetEntry(ShortDescripTypeRefVersionUri):
     """
     Local sub-class for referenceToLCIAMethodDataSet, inheriting from ShortDescripTypeRefVersionUri
@@ -240,6 +171,32 @@ class ReferenceToLCIAMethodDataSetEntry(ShortDescripTypeRefVersionUri):
             self.MissingRequiredField("id")
         if not isinstance(self.id, ReferenceToLCIAMethodDataSetEntryId):
             self.id = ReferenceToLCIAMethodDataSetEntryId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class LCIAOtherContent(OtherContent):
+    """
+    Custom class for LCIA 'other'.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDLCIA["LCIAOtherContent"]
+    class_class_curie: ClassVar[str] = "ILCDlcia:LCIAOtherContent"
+    class_name: ClassVar[str] = "LCIAOtherContent"
+    class_model_uri: ClassVar[URIRef] = ILCDLCIA.LCIAOtherContent
+
+    id: Union[str, LCIAOtherContentId] = None
+    anies: Optional[Union[Dict[Union[str, AniesNameValueObjectValueModuleId], Union[dict, AniesNameValueObjectValueModule]], List[Union[dict, AniesNameValueObjectValueModule]]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, LCIAOtherContentId):
+            self.id = LCIAOtherContentId(self.id)
+
+        self._normalize_inlined_as_list(slot_name="anies", slot_type=AniesNameValueObjectValueModule, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -263,9 +220,6 @@ slots.meanAmount = Slot(uri=ILCDLCIA.meanAmount, name="meanAmount", curie=ILCDLC
 slots.otherLCIA = Slot(uri=ILCDLCIA.otherLCIA, name="otherLCIA", curie=ILCDLCIA.curie('otherLCIA'),
                    model_uri=ILCDLCIA.otherLCIA, domain=None, range=Optional[Union[dict, LCIAOtherContent]])
 
-slots.aniesLCIAResult = Slot(uri=ILCDLCIA.aniesLCIAResult, name="aniesLCIAResult", curie=ILCDLCIA.curie('aniesLCIAResult'),
-                   model_uri=ILCDLCIA.aniesLCIAResult, domain=None, range=Optional[Union[Dict[Union[str, AniesLCIAResultEntryId], Union[dict, AniesLCIAResultEntry]], List[Union[dict, AniesLCIAResultEntry]]]])
-
 slots.lCIAResults__id = Slot(uri=ILCDLCIA.id, name="lCIAResults__id", curie=ILCDLCIA.curie('id'),
                    model_uri=ILCDLCIA.lCIAResults__id, domain=None, range=URIRef)
 
@@ -277,6 +231,3 @@ slots.referenceToLCIAMethodDataSetEntry__id = Slot(uri=ILCDLCIA.id, name="refere
 
 slots.lCIAOtherContent__id = Slot(uri=ILCDLCIA.id, name="lCIAOtherContent__id", curie=ILCDLCIA.curie('id'),
                    model_uri=ILCDLCIA.lCIAOtherContent__id, domain=None, range=URIRef)
-
-slots.aniesLCIAResultEntry__id = Slot(uri=ILCDLCIA.id, name="aniesLCIAResultEntry__id", curie=ILCDLCIA.curie('id'),
-                   model_uri=ILCDLCIA.aniesLCIAResultEntry__id, domain=None, range=URIRef)

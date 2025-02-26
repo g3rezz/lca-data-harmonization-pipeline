@@ -45,21 +45,11 @@ classes:
     attributes:
       id:
         identifier: true
+    is_a: OtherContent
     description: "Custom class for LCIA 'other'."
-    slots:
-      - aniesLCIAResult
-
-  aniesLCIAResultEntry:
-    attributes:
-      id:
-        identifier: true
-        description: "Unique identifier for the module entry (e.g. ILCDlcia:module_A1-A3)."
-    description: "Specialized class for modules with an explicit ID for named resources."
-    slots:
-      - value
-      - module
-      - name
-      - objectValue
+    slot_usage:
+      anies:
+        range: AniesNameValueObjectValueModule
 
 ########################################
 # Slots
@@ -86,9 +76,3 @@ slots:
     range: LCIAOtherContent
     inlined: true
     description: "Renamed from 'other' in JSON. Holds an 'anies' array with modules and possibly referenceToUnitGroupDataSet."
-
-  aniesLCIAResult:
-    description: "Our custom array of aniesLCIAResults objects."
-    range: aniesLCIAResultEntry
-    multivalued: true
-    inlined_as_list: true
