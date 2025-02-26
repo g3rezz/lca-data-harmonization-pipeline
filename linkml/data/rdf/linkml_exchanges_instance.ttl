@@ -3,108 +3,181 @@
 @prefix ns1: <ILCDsd:> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a ILCDex:Exchanges ;
-    ILCDex:exchange [ a ILCDex:ExchangeEntry ;
-            ILCDex:dataSetInternalID 0 ;
-            ILCDex:flowProperties [ a ILCDex:FlowPropertyEntry ;
-                    ns1:name "[{'lang': 'en', 'value': 'Volume'}]" ;
-                    ILCDex:meanValue "1.0"^^xsd:float ;
-                    ILCDex:referenceFlowProperty true ;
-                    ILCDex:referenceUnit "m3" ;
-                    ILCDex:unitGroupUUID "93a60a57-a3c8-12da-a746-0800200c9a66"^^linkml:UUIDType ;
-                    ILCDex:uuidFP "93a60a56-a3c8-22da-a746-0800200c9a66"^^linkml:UUIDType ] ;
-            ILCDex:materialProperties [ a ns1:MaterialPropEntry ;
-                    ns1:name "compressive strength (mpa)" ;
-                    ns1:unit "Compressive strength (MPa)" ;
-                    ns1:unitDescription "Compressive strength (MPa)" ;
-                    ns1:value "50.0" ],
-                [ a ns1:MaterialPropEntry ;
-                    ns1:name "bulk density (kg/m^3)" ;
-                    ns1:unit "bulk density (kg/m^3)" ;
-                    ns1:unitDescription "bulk density (kg/m^3)" ;
-                    ns1:value "2475.0" ] ;
-            ILCDex:meanAmount "1.0"^^xsd:float ;
-            ILCDex:referenceFlow true ;
-            ILCDex:referenceToFlowDataSet [ a ns1:ShortDescripTypeRefVersion ;
-                    ns1:refObjectId "5e4009b3-9918-4d43-0fea-08dc6ff8f90b"^^linkml:UUIDType ;
-                    ns1:shortDescription [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20" ] ;
-                    ns1:type "flow data set" ;
-                    ns1:version "00.01.000" ] ;
-            ILCDex:resultingflowAmount "1.0"^^xsd:float ;
-            ILCDex:typeOfFlow "Product flow" ],
-        [ a ILCDex:ExchangeEntry ;
-            ILCDex:classificationEx [ a ILCDex:ExchangeClassification ;
-                    ILCDex:classHierarchy "Quantities" ;
-                    ILCDex:nameClass "GaBiCategories" ] ;
-            ILCDex:dataSetInternalID 1 ;
-            ILCDex:exchangeDirection "INPUT" ;
-            ILCDex:meanAmount "0.0"^^xsd:float ;
-            ILCDex:otherEx [ a ns1:OtherContent ;
-                    ns1:anies [ a ns1:AniesEntry ;
-                            ns1:module "B2" ;
-                            ns1:value "0" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "C3" ;
-                            ns1:value "8.991775066725" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "C4" ;
-                            ns1:value "1.953996895125" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "A1" ;
-                            ns1:value "200.331850129794" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "B4" ;
-                            ns1:value "0" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "C1" ;
-                            ns1:value "0.758557945488" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "B1" ;
-                            ns1:value "0" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "A5" ;
-                            ns1:value "ND" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "B3" ;
-                            ns1:value "0" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:name "referenceToUnitGroupDataSet" ;
-                            ns1:value "JsonObj(shortDescription=[{'value': 'MJ'}], type='unit group data set', refObjectId='93a60a57-a3c8-11da-a746-0800200c9a66', uri='../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66')" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "A1-A3" ;
-                            ns1:value "203.915373505166" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "A2" ;
-                            ns1:value "2.48154315611149" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "C2" ;
-                            ns1:value "3.542532703875" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "A3" ;
-                            ns1:value "1.10198021926091" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "B7" ;
-                            ns1:value "0" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "D" ;
-                            ns1:value "-14.21955172935" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "A4" ;
-                            ns1:value "ND" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "B6" ;
-                            ns1:value "0" ],
-                        [ a ns1:AniesEntry ;
-                            ns1:module "B5" ;
-                            ns1:value "0" ] ] ;
-            ILCDex:referenceToFlowDataSet [ a ns1:ShortDescripTypeRefVersion ;
-                    ns1:refObjectId "20f32be5-0398-4288-9b6d-accddd195317"^^linkml:UUIDType ;
-                    ns1:shortDescription [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value "Use of renewable primary energy as energy carrier (PERE)" ] ;
-                    ns1:type "flow data set" ] ;
-            ILCDex:resolvedFlowVersion "35.00.000" ;
-            ILCDex:typeOfFlow "Other flow" ] .
+ILCDex:exchanges a ILCDex:Exchanges ;
+    ILCDex:exchange ILCDex:exchangeEntry0,
+        ILCDex:exchangeEntry1 .
+
+ILCDex:classificationEx a ILCDex:ExchangeClassification ;
+    ILCDex:classHierarchy "Quantities" ;
+    ILCDex:nameClass "GaBiCategories" .
+
+ILCDex:exchangeEntry0 a ILCDex:ExchangeEntry ;
+    ILCDex:dataSetInternalID 0 ;
+    ILCDex:flowProperties ILCDex:exchangeEntry0flowPropertyEntry0 ;
+    ILCDex:materialProperties ILCDex:materialPropertyEntry0,
+        ILCDex:materialPropertyEntry1 ;
+    ILCDex:meanAmount "1.0"^^xsd:float ;
+    ILCDex:referenceFlow true ;
+    ILCDex:referenceToFlowDataSet ILCDex:exchangeEntry0referenceToFlowDataSet ;
+    ILCDex:resultingflowAmount "1.0"^^xsd:float ;
+    ILCDex:typeOfFlow "Product flow" .
+
+ILCDex:exchangeEntry0flowPropertyEntry0 a ILCDex:FlowPropertyEntry ;
+    ILCDex:meanValue "1.0"^^xsd:float ;
+    ILCDex:nameFP ILCDex:exchangeEntry0flowPropertyEntry0nameFP ;
+    ILCDex:referenceFlowProperty true ;
+    ILCDex:referenceUnit "m3" ;
+    ILCDex:unitGroupUUID "93a60a57-a3c8-12da-a746-0800200c9a66"^^linkml:UUIDType ;
+    ILCDex:uuidFP "93a60a56-a3c8-22da-a746-0800200c9a66"^^linkml:UUIDType .
+
+ILCDex:exchangeEntry0flowPropertyEntry0nameFP a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Volume" .
+
+ILCDex:exchangeEntry0referenceToFlowDataSet a ns1:ShortDescripTypeRefVersion ;
+    ns1:refObjectId "5e4009b3-9918-4d43-0fea-08dc6ff8f90b"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDex:exchangeEntry0referenceToFlowDataSetshortDescription ;
+    ns1:type "flow data set" ;
+    ns1:version "00.01.000" .
+
+ILCDex:exchangeEntry0referenceToFlowDataSetshortDescription a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20" .
+
+ILCDex:exchangeEntry1 a ILCDex:ExchangeEntry ;
+    ILCDex:classificationEx ILCDex:classificationEx ;
+    ILCDex:dataSetInternalID 1 ;
+    ILCDex:exchangeDirection "INPUT" ;
+    ILCDex:meanAmount "0.0"^^xsd:float ;
+    ILCDex:otherEx ILCDex:otherExEntry1 ;
+    ILCDex:referenceToFlowDataSet ILCDex:exchangeEntry1referenceToFlowDataSet ;
+    ILCDex:resolvedFlowVersion "35.00.000" ;
+    ILCDex:typeOfFlow "Other flow" .
+
+ILCDex:exchangeEntry1referenceToFlowDataSet a ns1:ShortDescripTypeRefVersion ;
+    ns1:refObjectId "20f32be5-0398-4288-9b6d-accddd195317"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDex:exchangeEntry1referenceToFlowDataSetshortDescription ;
+    ns1:type "flow data set" .
+
+ILCDex:exchangeEntry1referenceToFlowDataSetshortDescription a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Use of renewable primary energy as energy carrier (PERE)" .
+
+ILCDex:materialPropertyEntry0 a ILCDex:MaterialPropEntry ;
+    ns1:name "bulk density (kg/m^3)" ;
+    ns1:unit "bulk density (kg/m^3)" ;
+    ns1:unitDescription "bulk density (kg/m^3)" ;
+    ns1:value "2475.0" .
+
+ILCDex:materialPropertyEntry1 a ILCDex:MaterialPropEntry ;
+    ns1:name "compressive strength (mpa)" ;
+    ns1:unit "Compressive strength (MPa)" ;
+    ns1:unitDescription "Compressive strength (MPa)" ;
+    ns1:value "50.0" .
+
+ILCDex:moduleA1 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A1" ;
+    ns1:value "200.331850129794" .
+
+ILCDex:moduleA1A3 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A1-A3" ;
+    ns1:value "203.915373505166" .
+
+ILCDex:moduleA2 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A2" ;
+    ns1:value "2.48154315611149" .
+
+ILCDex:moduleA3 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A3" ;
+    ns1:value "1.10198021926091" .
+
+ILCDex:moduleA4 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDex:moduleA5 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDex:moduleB1 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDex:moduleB2 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDex:moduleB3 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDex:moduleB4 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDex:moduleB5 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDex:moduleB6 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDex:moduleB7 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDex:moduleC1 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "C1" ;
+    ns1:value "0.758557945488" .
+
+ILCDex:moduleC2 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "C2" ;
+    ns1:value "3.542532703875" .
+
+ILCDex:moduleC3 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "C3" ;
+    ns1:value "8.991775066725" .
+
+ILCDex:moduleC4 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "C4" ;
+    ns1:value "1.953996895125" .
+
+ILCDex:moduleD a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "D" ;
+    ns1:value "-14.21955172935" .
+
+ILCDex:otherExEntry1 a ILCDex:ExchangeOtherContent ;
+    ns1:anies ILCDex:moduleA1,
+        ILCDex:moduleA1A3,
+        ILCDex:moduleA2,
+        ILCDex:moduleA3,
+        ILCDex:moduleA4,
+        ILCDex:moduleA5,
+        ILCDex:moduleB1,
+        ILCDex:moduleB2,
+        ILCDex:moduleB3,
+        ILCDex:moduleB4,
+        ILCDex:moduleB5,
+        ILCDex:moduleB6,
+        ILCDex:moduleB7,
+        ILCDex:moduleC1,
+        ILCDex:moduleC2,
+        ILCDex:moduleC3,
+        ILCDex:moduleC4,
+        ILCDex:moduleD,
+        ILCDex:referenceToUnitGroupDataSet .
+
+ILCDex:referenceToUnitGroupDataSet a ns1:AniesNameValueObjectValueModule ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDex:referenceToUnitGroupDataSetobjectValue .
+
+ILCDex:referenceToUnitGroupDataSetobjectValue a ns1:ShortDescripTypeRefVersion ;
+    ns1:refObjectId "93a60a57-a3c8-11da-a746-0800200c9a66"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDex:referenceToUnitGroupDataSetobjectValueshortDescription ;
+    ns1:type "unit group data set" ;
+    ns1:uri "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66" .
+
+ILCDex:referenceToUnitGroupDataSetobjectValueshortDescription a ns1:MultiLangString ;
+    ns1:value "MJ" .
 

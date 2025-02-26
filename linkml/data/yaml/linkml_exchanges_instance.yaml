@@ -1,9 +1,13 @@
 exchanges:
+  id: ILCDex:exchanges
   exchange:
-  - dataSetInternalID: 0
+  - id: ILCDex:exchangeEntry0
+    dataSetInternalID: 0
     referenceToFlowDataSet:
+      id: ILCDex:exchangeEntry0referenceToFlowDataSet
       shortDescription:
-      - value: ' beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20'
+      - id: ILCDex:exchangeEntry0referenceToFlowDataSetshortDescription
+        value: ' beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20'
         lang: en
       type: flow data set
       refObjectId: 5e4009b3-9918-4d43-0fea-08dc6ff8f90b
@@ -12,8 +16,10 @@ exchanges:
     referenceFlow: true
     resultingflowAmount: 1.0
     flowProperties:
-    - name:
-      - lang: en
+    - id: ILCDex:exchangeEntry0flowPropertyEntry0
+      nameFP:
+      - id: ILCDex:exchangeEntry0flowPropertyEntry0nameFP
+        lang: en
         value: Volume
       uuidFP: 93a60a56-a3c8-22da-a746-0800200c9a66
       referenceFlowProperty: true
@@ -21,66 +27,93 @@ exchanges:
       referenceUnit: m3
       unitGroupUUID: 93a60a57-a3c8-12da-a746-0800200c9a66
     materialProperties:
-    - name: bulk density (kg/m^3)
+    - id: ILCDex:materialPropertyEntry0
+      name: bulk density (kg/m^3)
       value: '2475.0'
       unit: bulk density (kg/m^3)
       unitDescription: bulk density (kg/m^3)
-    - name: compressive strength (mpa)
+    - id: ILCDex:materialPropertyEntry1
+      name: compressive strength (mpa)
       value: '50.0'
       unit: Compressive strength (MPa)
       unitDescription: Compressive strength (MPa)
     typeOfFlow: Product flow
-  - dataSetInternalID: 1
+  - id: ILCDex:exchangeEntry1
+    dataSetInternalID: 1
     referenceToFlowDataSet:
+      id: ILCDex:exchangeEntry1referenceToFlowDataSet
       shortDescription:
-      - value: Use of renewable primary energy as energy carrier (PERE)
+      - id: ILCDex:exchangeEntry1referenceToFlowDataSetshortDescription
+        value: Use of renewable primary energy as energy carrier (PERE)
         lang: en
       type: flow data set
       refObjectId: 20f32be5-0398-4288-9b6d-accddd195317
     exchangeDirection: INPUT
     meanAmount: 0.0
     otherEx:
+      id: ILCDex:otherExEntry1
       anies:
-      - value: '200.331850129794'
+      - id: ILCDex:moduleA1
+        value: '200.331850129794'
         module: A1
-      - value: '2.48154315611149'
+      - id: ILCDex:moduleA2
+        value: '2.48154315611149'
         module: A2
-      - value: '1.10198021926091'
+      - id: ILCDex:moduleA3
+        value: '1.10198021926091'
         module: A3
-      - value: '203.915373505166'
+      - id: ILCDex:moduleA1A3
+        value: '203.915373505166'
         module: A1-A3
-      - value: ND
+      - id: ILCDex:moduleA4
+        value: ND
         module: A4
-      - value: ND
+      - id: ILCDex:moduleA5
+        value: ND
         module: A5
-      - value: '0'
+      - id: ILCDex:moduleB1
+        value: '0'
         module: B1
-      - value: '0'
+      - id: ILCDex:moduleB2
+        value: '0'
         module: B2
-      - value: '0'
+      - id: ILCDex:moduleB3
+        value: '0'
         module: B3
-      - value: '0'
+      - id: ILCDex:moduleB4
+        value: '0'
         module: B4
-      - value: '0'
+      - id: ILCDex:moduleB5
+        value: '0'
         module: B5
-      - value: '0'
+      - id: ILCDex:moduleB6
+        value: '0'
         module: B6
-      - value: '0'
+      - id: ILCDex:moduleB7
+        value: '0'
         module: B7
-      - value: '0.758557945488'
+      - id: ILCDex:moduleC1
+        value: '0.758557945488'
         module: C1
-      - value: '3.542532703875'
+      - id: ILCDex:moduleC2
+        value: '3.542532703875'
         module: C2
-      - value: '8.991775066725'
+      - id: ILCDex:moduleC3
+        value: '8.991775066725'
         module: C3
-      - value: '1.953996895125'
+      - id: ILCDex:moduleC4
+        value: '1.953996895125'
         module: C4
-      - value: '-14.21955172935'
+      - id: ILCDex:moduleD
+        value: '-14.21955172935'
         module: D
-      - name: referenceToUnitGroupDataSet
-        value:
+      - id: ILCDex:referenceToUnitGroupDataSet
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDex:referenceToUnitGroupDataSetobjectValue
           shortDescription:
-          - value: MJ
+          - id: ILCDex:referenceToUnitGroupDataSetobjectValueshortDescription
+            value: MJ
           type: unit group data set
           refObjectId: 93a60a57-a3c8-11da-a746-0800200c9a66
           uri: ../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66
@@ -88,5 +121,6 @@ exchanges:
     flowProperties: []
     typeOfFlow: Other flow
     classificationEx:
+      id: ILCDex:classificationEx
       classHierarchy: Quantities
       nameClass: GaBiCategories
