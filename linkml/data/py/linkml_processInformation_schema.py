@@ -1,5 +1,5 @@
 # Auto generated from linkml_processInformation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-20T11:35:38
+# Generation date: 2025-02-26T11:17:42
 # Schema: ILCDprocessInformation
 #
 # id: https://example.org/ILCDprocessInformation
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import MultiLangString, OtherContent, ShortDescripTypeRef, UUIDType, Year
+from . linkml_shared_definitions import AniesNameTimestamp, AniesNameTimestampId, MultiLangString, MultiLangStringId, OtherContent, ShortDescripTypeRef, ShortDescripTypeRefId, UUIDType, Year
 from linkml_runtime.linkml_model.types import Integer, String
 
 metamodel_version = "1.7.0"
@@ -75,11 +75,59 @@ DEFAULT_ = ILCDPI
 # Types
 
 # Class references
+class ProcessInformationId(extended_str):
+    pass
 
+
+class DataSetInformationId(extended_str):
+    pass
+
+
+class DataSetNameId(extended_str):
+    pass
+
+
+class ClassificationInformationId(extended_str):
+    pass
+
+
+class ClassificationId(extended_str):
+    pass
+
+
+class ClassificationEntryId(extended_str):
+    pass
+
+
+class QuantitativeReferenceId(extended_str):
+    pass
+
+
+class TimeInformationId(extended_str):
+    pass
+
+
+class GeographyInformationId(extended_str):
+    pass
+
+
+class LocationInfoId(extended_str):
+    pass
+
+
+class TechnologyInformationId(extended_str):
+    pass
+
+
+class TimeOtherContentId(extended_str):
+    pass
 
 
 @dataclass(repr=False)
 class ProcessInformation(YAMLRoot):
+    """
+    Container for the process information section.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDPI["ProcessInformation"]
@@ -87,6 +135,7 @@ class ProcessInformation(YAMLRoot):
     class_name: ClassVar[str] = "ProcessInformation"
     class_model_uri: ClassVar[URIRef] = ILCDPI.ProcessInformation
 
+    id: Union[str, ProcessInformationId] = None
     dataSetInformation: Union[dict, "DataSetInformation"] = None
     quantitativeReference: Optional[Union[dict, "QuantitativeReference"]] = None
     timeInformation: Optional[Union[dict, "TimeInformation"]] = None
@@ -94,6 +143,11 @@ class ProcessInformation(YAMLRoot):
     technology: Optional[Union[dict, "TechnologyInformation"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ProcessInformationId):
+            self.id = ProcessInformationId(self.id)
+
         if self._is_empty(self.dataSetInformation):
             self.MissingRequiredField("dataSetInformation")
         if not isinstance(self.dataSetInformation, DataSetInformation):
@@ -116,6 +170,9 @@ class ProcessInformation(YAMLRoot):
 
 @dataclass(repr=False)
 class DataSetInformation(YAMLRoot):
+    """
+    Data set information details.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDPI["DataSetInformation"]
@@ -123,11 +180,17 @@ class DataSetInformation(YAMLRoot):
     class_name: ClassVar[str] = "DataSetInformation"
     class_model_uri: ClassVar[URIRef] = ILCDPI.DataSetInformation
 
+    id: Union[str, DataSetInformationId] = None
     UUID: str = None
     dataSetName: Optional[Union[dict, "DataSetName"]] = None
     classificationInformation: Optional[Union[dict, "ClassificationInformation"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DataSetInformationId):
+            self.id = DataSetInformationId(self.id)
+
         if self._is_empty(self.UUID):
             self.MissingRequiredField("UUID")
         if not isinstance(self.UUID, str):
@@ -144,6 +207,9 @@ class DataSetInformation(YAMLRoot):
 
 @dataclass(repr=False)
 class DataSetName(YAMLRoot):
+    """
+    Container for the data set name.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDPI["DataSetName"]
@@ -151,20 +217,27 @@ class DataSetName(YAMLRoot):
     class_name: ClassVar[str] = "DataSetName"
     class_model_uri: ClassVar[URIRef] = ILCDPI.DataSetName
 
-    baseName: Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]] = None
+    id: Union[str, DataSetNameId] = None
+    baseName: Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DataSetNameId):
+            self.id = DataSetNameId(self.id)
+
         if self._is_empty(self.baseName):
             self.MissingRequiredField("baseName")
-        if not isinstance(self.baseName, list):
-            self.baseName = [self.baseName] if self.baseName is not None else []
-        self.baseName = [v if isinstance(v, MultiLangString) else MultiLangString(**as_dict(v)) for v in self.baseName]
+        self._normalize_inlined_as_list(slot_name="baseName", slot_type=MultiLangString, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
 class ClassificationInformation(YAMLRoot):
+    """
+    Classification information for the data set.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDPI["ClassificationInformation"]
@@ -172,18 +245,25 @@ class ClassificationInformation(YAMLRoot):
     class_name: ClassVar[str] = "ClassificationInformation"
     class_model_uri: ClassVar[URIRef] = ILCDPI.ClassificationInformation
 
-    classification: Optional[Union[Union[dict, "Classification"], List[Union[dict, "Classification"]]]] = empty_list()
+    id: Union[str, ClassificationInformationId] = None
+    classification: Optional[Union[Dict[Union[str, ClassificationId], Union[dict, "Classification"]], List[Union[dict, "Classification"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.classification, list):
-            self.classification = [self.classification] if self.classification is not None else []
-        self.classification = [v if isinstance(v, Classification) else Classification(**as_dict(v)) for v in self.classification]
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ClassificationInformationId):
+            self.id = ClassificationInformationId(self.id)
+
+        self._normalize_inlined_as_list(slot_name="classification", slot_type=Classification, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
 class Classification(YAMLRoot):
+    """
+    Classification object.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDPI["Classification"]
@@ -191,22 +271,29 @@ class Classification(YAMLRoot):
     class_name: ClassVar[str] = "Classification"
     class_model_uri: ClassVar[URIRef] = ILCDPI.Classification
 
+    id: Union[str, ClassificationId] = None
     name: Optional[str] = None
-    classEntries: Optional[Union[Union[dict, "ClassificationEntry"], List[Union[dict, "ClassificationEntry"]]]] = empty_list()
+    classEntries: Optional[Union[Dict[Union[str, ClassificationEntryId], Union[dict, "ClassificationEntry"]], List[Union[dict, "ClassificationEntry"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ClassificationId):
+            self.id = ClassificationId(self.id)
+
         if self.name is not None and not isinstance(self.name, str):
             self.name = str(self.name)
 
-        if not isinstance(self.classEntries, list):
-            self.classEntries = [self.classEntries] if self.classEntries is not None else []
-        self.classEntries = [v if isinstance(v, ClassificationEntry) else ClassificationEntry(**as_dict(v)) for v in self.classEntries]
+        self._normalize_inlined_as_list(slot_name="classEntries", slot_type=ClassificationEntry, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
 class ClassificationEntry(YAMLRoot):
+    """
+    Classification entry.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDPI["ClassificationEntry"]
@@ -214,11 +301,17 @@ class ClassificationEntry(YAMLRoot):
     class_name: ClassVar[str] = "ClassificationEntry"
     class_model_uri: ClassVar[URIRef] = ILCDPI.ClassificationEntry
 
+    id: Union[str, ClassificationEntryId] = None
     value: Optional[str] = None
     level: Optional[int] = None
     classId: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ClassificationEntryId):
+            self.id = ClassificationEntryId(self.id)
+
         if self.value is not None and not isinstance(self.value, str):
             self.value = str(self.value)
 
@@ -233,6 +326,9 @@ class ClassificationEntry(YAMLRoot):
 
 @dataclass(repr=False)
 class QuantitativeReference(YAMLRoot):
+    """
+    Quantitative reference details.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDPI["QuantitativeReference"]
@@ -240,10 +336,16 @@ class QuantitativeReference(YAMLRoot):
     class_name: ClassVar[str] = "QuantitativeReference"
     class_model_uri: ClassVar[URIRef] = ILCDPI.QuantitativeReference
 
+    id: Union[str, QuantitativeReferenceId] = None
     referenceToReferenceFlow: Optional[Union[int, List[int]]] = empty_list()
     type: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, QuantitativeReferenceId):
+            self.id = QuantitativeReferenceId(self.id)
+
         if not isinstance(self.referenceToReferenceFlow, list):
             self.referenceToReferenceFlow = [self.referenceToReferenceFlow] if self.referenceToReferenceFlow is not None else []
         self.referenceToReferenceFlow = [v if isinstance(v, int) else int(v) for v in self.referenceToReferenceFlow]
@@ -256,6 +358,9 @@ class QuantitativeReference(YAMLRoot):
 
 @dataclass(repr=False)
 class TimeInformation(YAMLRoot):
+    """
+    Time-related information for the data set.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDPI["TimeInformation"]
@@ -263,30 +368,37 @@ class TimeInformation(YAMLRoot):
     class_name: ClassVar[str] = "TimeInformation"
     class_model_uri: ClassVar[URIRef] = ILCDPI.TimeInformation
 
+    id: Union[str, TimeInformationId] = None
     referenceYear: Optional[int] = None
     dataSetValidUntil: Optional[int] = None
-    timeRepresentativenessDescription: Optional[Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]]] = empty_list()
-    otherTime: Optional[Union[dict, OtherContent]] = None
+    timeRepresentativenessDescription: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
+    otherTime: Optional[Union[dict, "TimeOtherContent"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, TimeInformationId):
+            self.id = TimeInformationId(self.id)
+
         if self.referenceYear is not None and not isinstance(self.referenceYear, int):
             self.referenceYear = int(self.referenceYear)
 
         if self.dataSetValidUntil is not None and not isinstance(self.dataSetValidUntil, int):
             self.dataSetValidUntil = int(self.dataSetValidUntil)
 
-        if not isinstance(self.timeRepresentativenessDescription, list):
-            self.timeRepresentativenessDescription = [self.timeRepresentativenessDescription] if self.timeRepresentativenessDescription is not None else []
-        self.timeRepresentativenessDescription = [v if isinstance(v, MultiLangString) else MultiLangString(**as_dict(v)) for v in self.timeRepresentativenessDescription]
+        self._normalize_inlined_as_list(slot_name="timeRepresentativenessDescription", slot_type=MultiLangString, key_name="id", keyed=True)
 
-        if self.otherTime is not None and not isinstance(self.otherTime, OtherContent):
-            self.otherTime = OtherContent(**as_dict(self.otherTime))
+        if self.otherTime is not None and not isinstance(self.otherTime, TimeOtherContent):
+            self.otherTime = TimeOtherContent(**as_dict(self.otherTime))
 
         super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
 class GeographyInformation(YAMLRoot):
+    """
+    Geographical information details.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDPI["GeographyInformation"]
@@ -294,9 +406,15 @@ class GeographyInformation(YAMLRoot):
     class_name: ClassVar[str] = "GeographyInformation"
     class_model_uri: ClassVar[URIRef] = ILCDPI.GeographyInformation
 
+    id: Union[str, GeographyInformationId] = None
     locationOfOperationSupplyOrProduction: Optional[Union[dict, "LocationInfo"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, GeographyInformationId):
+            self.id = GeographyInformationId(self.id)
+
         if self.locationOfOperationSupplyOrProduction is not None and not isinstance(self.locationOfOperationSupplyOrProduction, LocationInfo):
             self.locationOfOperationSupplyOrProduction = LocationInfo(**as_dict(self.locationOfOperationSupplyOrProduction))
 
@@ -305,6 +423,9 @@ class GeographyInformation(YAMLRoot):
 
 @dataclass(repr=False)
 class LocationInfo(YAMLRoot):
+    """
+    Location details.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDPI["LocationInfo"]
@@ -312,13 +433,17 @@ class LocationInfo(YAMLRoot):
     class_name: ClassVar[str] = "LocationInfo"
     class_model_uri: ClassVar[URIRef] = ILCDPI.LocationInfo
 
-    descriptionOfRestrictions: Optional[Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]]] = empty_list()
+    id: Union[str, LocationInfoId] = None
+    descriptionOfRestrictions: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
     location: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.descriptionOfRestrictions, list):
-            self.descriptionOfRestrictions = [self.descriptionOfRestrictions] if self.descriptionOfRestrictions is not None else []
-        self.descriptionOfRestrictions = [v if isinstance(v, MultiLangString) else MultiLangString(**as_dict(v)) for v in self.descriptionOfRestrictions]
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, LocationInfoId):
+            self.id = LocationInfoId(self.id)
+
+        self._normalize_inlined_as_list(slot_name="descriptionOfRestrictions", slot_type=MultiLangString, key_name="id", keyed=True)
 
         if self.location is not None and not isinstance(self.location, str):
             self.location = str(self.location)
@@ -328,6 +453,9 @@ class LocationInfo(YAMLRoot):
 
 @dataclass(repr=False)
 class TechnologyInformation(YAMLRoot):
+    """
+    Technology information for the data set.
+    """
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = ILCDPI["TechnologyInformation"]
@@ -335,22 +463,48 @@ class TechnologyInformation(YAMLRoot):
     class_name: ClassVar[str] = "TechnologyInformation"
     class_model_uri: ClassVar[URIRef] = ILCDPI.TechnologyInformation
 
-    technologyDescriptionAndIncludedProcesses: Optional[Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]]] = empty_list()
-    technologicalApplicability: Optional[Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]]] = empty_list()
-    referenceToTechnologyFlowDiagrammOrPicture: Optional[Union[Union[dict, ShortDescripTypeRef], List[Union[dict, ShortDescripTypeRef]]]] = empty_list()
+    id: Union[str, TechnologyInformationId] = None
+    technologyDescriptionAndIncludedProcesses: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
+    technologicalApplicability: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
+    referenceToTechnologyFlowDiagrammOrPicture: Optional[Union[Dict[Union[str, ShortDescripTypeRefId], Union[dict, ShortDescripTypeRef]], List[Union[dict, ShortDescripTypeRef]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.technologyDescriptionAndIncludedProcesses, list):
-            self.technologyDescriptionAndIncludedProcesses = [self.technologyDescriptionAndIncludedProcesses] if self.technologyDescriptionAndIncludedProcesses is not None else []
-        self.technologyDescriptionAndIncludedProcesses = [v if isinstance(v, MultiLangString) else MultiLangString(**as_dict(v)) for v in self.technologyDescriptionAndIncludedProcesses]
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, TechnologyInformationId):
+            self.id = TechnologyInformationId(self.id)
 
-        if not isinstance(self.technologicalApplicability, list):
-            self.technologicalApplicability = [self.technologicalApplicability] if self.technologicalApplicability is not None else []
-        self.technologicalApplicability = [v if isinstance(v, MultiLangString) else MultiLangString(**as_dict(v)) for v in self.technologicalApplicability]
+        self._normalize_inlined_as_list(slot_name="technologyDescriptionAndIncludedProcesses", slot_type=MultiLangString, key_name="id", keyed=True)
 
-        if not isinstance(self.referenceToTechnologyFlowDiagrammOrPicture, list):
-            self.referenceToTechnologyFlowDiagrammOrPicture = [self.referenceToTechnologyFlowDiagrammOrPicture] if self.referenceToTechnologyFlowDiagrammOrPicture is not None else []
-        self.referenceToTechnologyFlowDiagrammOrPicture = [v if isinstance(v, ShortDescripTypeRef) else ShortDescripTypeRef(**as_dict(v)) for v in self.referenceToTechnologyFlowDiagrammOrPicture]
+        self._normalize_inlined_as_list(slot_name="technologicalApplicability", slot_type=MultiLangString, key_name="id", keyed=True)
+
+        self._normalize_inlined_as_list(slot_name="referenceToTechnologyFlowDiagrammOrPicture", slot_type=ShortDescripTypeRef, key_name="id", keyed=True)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class TimeOtherContent(OtherContent):
+    """
+    Local subclass for time-related 'other' content.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDPI["TimeOtherContent"]
+    class_class_curie: ClassVar[str] = "ILCDpi:TimeOtherContent"
+    class_name: ClassVar[str] = "TimeOtherContent"
+    class_model_uri: ClassVar[URIRef] = ILCDPI.TimeOtherContent
+
+    id: Union[str, TimeOtherContentId] = None
+    anies: Optional[Union[Dict[Union[str, AniesNameTimestampId], Union[dict, AniesNameTimestamp]], List[Union[dict, AniesNameTimestamp]]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, TimeOtherContentId):
+            self.id = TimeOtherContentId(self.id)
+
+        self._normalize_inlined_as_list(slot_name="anies", slot_type=AniesNameTimestamp, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -377,9 +531,6 @@ slots.geography = Slot(uri=ILCDPI.geography, name="geography", curie=ILCDPI.curi
 slots.technology = Slot(uri=ILCDPI.technology, name="technology", curie=ILCDPI.curie('technology'),
                    model_uri=ILCDPI.technology, domain=None, range=Optional[Union[dict, TechnologyInformation]])
 
-slots.UUID = Slot(uri=ILCDPI.UUID, name="UUID", curie=ILCDPI.curie('UUID'),
-                   model_uri=ILCDPI.UUID, domain=None, range=str)
-
 slots.dataSetName = Slot(uri=ILCDPI.dataSetName, name="dataSetName", curie=ILCDPI.curie('dataSetName'),
                    model_uri=ILCDPI.dataSetName, domain=None, range=Optional[Union[dict, DataSetName]])
 
@@ -387,13 +538,13 @@ slots.classificationInformation = Slot(uri=ILCDPI.classificationInformation, nam
                    model_uri=ILCDPI.classificationInformation, domain=None, range=Optional[Union[dict, ClassificationInformation]])
 
 slots.baseName = Slot(uri=ILCDPI.baseName, name="baseName", curie=ILCDPI.curie('baseName'),
-                   model_uri=ILCDPI.baseName, domain=None, range=Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]])
+                   model_uri=ILCDPI.baseName, domain=None, range=Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]])
 
 slots.classification = Slot(uri=ILCDPI.classification, name="classification", curie=ILCDPI.curie('classification'),
-                   model_uri=ILCDPI.classification, domain=None, range=Optional[Union[Union[dict, Classification], List[Union[dict, Classification]]]])
+                   model_uri=ILCDPI.classification, domain=None, range=Optional[Union[Dict[Union[str, ClassificationId], Union[dict, Classification]], List[Union[dict, Classification]]]])
 
 slots.classEntries = Slot(uri=ILCDPI.classEntries, name="classEntries", curie=ILCDPI.curie('classEntries'),
-                   model_uri=ILCDPI.classEntries, domain=None, range=Optional[Union[Union[dict, ClassificationEntry], List[Union[dict, ClassificationEntry]]]])
+                   model_uri=ILCDPI.classEntries, domain=None, range=Optional[Union[Dict[Union[str, ClassificationEntryId], Union[dict, ClassificationEntry]], List[Union[dict, ClassificationEntry]]]])
 
 slots.level = Slot(uri=ILCDPI.level, name="level", curie=ILCDPI.curie('level'),
                    model_uri=ILCDPI.level, domain=None, range=Optional[int])
@@ -411,25 +562,61 @@ slots.dataSetValidUntil = Slot(uri=ILCDPI.dataSetValidUntil, name="dataSetValidU
                    model_uri=ILCDPI.dataSetValidUntil, domain=None, range=Optional[int])
 
 slots.timeRepresentativenessDescription = Slot(uri=ILCDPI.timeRepresentativenessDescription, name="timeRepresentativenessDescription", curie=ILCDPI.curie('timeRepresentativenessDescription'),
-                   model_uri=ILCDPI.timeRepresentativenessDescription, domain=None, range=Optional[Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]]])
+                   model_uri=ILCDPI.timeRepresentativenessDescription, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
 slots.otherTime = Slot(uri=ILCDPI.otherTime, name="otherTime", curie=ILCDPI.curie('otherTime'),
-                   model_uri=ILCDPI.otherTime, domain=None, range=Optional[Union[dict, OtherContent]])
+                   model_uri=ILCDPI.otherTime, domain=None, range=Optional[Union[dict, TimeOtherContent]])
 
 slots.locationOfOperationSupplyOrProduction = Slot(uri=ILCDPI.locationOfOperationSupplyOrProduction, name="locationOfOperationSupplyOrProduction", curie=ILCDPI.curie('locationOfOperationSupplyOrProduction'),
                    model_uri=ILCDPI.locationOfOperationSupplyOrProduction, domain=None, range=Optional[Union[dict, LocationInfo]])
 
 slots.descriptionOfRestrictions = Slot(uri=ILCDPI.descriptionOfRestrictions, name="descriptionOfRestrictions", curie=ILCDPI.curie('descriptionOfRestrictions'),
-                   model_uri=ILCDPI.descriptionOfRestrictions, domain=None, range=Optional[Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]]])
+                   model_uri=ILCDPI.descriptionOfRestrictions, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
 slots.location = Slot(uri=ILCDPI.location, name="location", curie=ILCDPI.curie('location'),
                    model_uri=ILCDPI.location, domain=None, range=Optional[str])
 
 slots.technologyDescriptionAndIncludedProcesses = Slot(uri=ILCDPI.technologyDescriptionAndIncludedProcesses, name="technologyDescriptionAndIncludedProcesses", curie=ILCDPI.curie('technologyDescriptionAndIncludedProcesses'),
-                   model_uri=ILCDPI.technologyDescriptionAndIncludedProcesses, domain=None, range=Optional[Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]]])
+                   model_uri=ILCDPI.technologyDescriptionAndIncludedProcesses, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
 slots.technologicalApplicability = Slot(uri=ILCDPI.technologicalApplicability, name="technologicalApplicability", curie=ILCDPI.curie('technologicalApplicability'),
-                   model_uri=ILCDPI.technologicalApplicability, domain=None, range=Optional[Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]]])
+                   model_uri=ILCDPI.technologicalApplicability, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
 slots.referenceToTechnologyFlowDiagrammOrPicture = Slot(uri=ILCDPI.referenceToTechnologyFlowDiagrammOrPicture, name="referenceToTechnologyFlowDiagrammOrPicture", curie=ILCDPI.curie('referenceToTechnologyFlowDiagrammOrPicture'),
-                   model_uri=ILCDPI.referenceToTechnologyFlowDiagrammOrPicture, domain=None, range=Optional[Union[Union[dict, ShortDescripTypeRef], List[Union[dict, ShortDescripTypeRef]]]])
+                   model_uri=ILCDPI.referenceToTechnologyFlowDiagrammOrPicture, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefId], Union[dict, ShortDescripTypeRef]], List[Union[dict, ShortDescripTypeRef]]]])
+
+slots.processInformation__id = Slot(uri=ILCDPI.id, name="processInformation__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.processInformation__id, domain=None, range=URIRef)
+
+slots.dataSetInformation__id = Slot(uri=ILCDPI.id, name="dataSetInformation__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.dataSetInformation__id, domain=None, range=URIRef)
+
+slots.dataSetName__id = Slot(uri=ILCDPI.id, name="dataSetName__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.dataSetName__id, domain=None, range=URIRef)
+
+slots.classificationInformation__id = Slot(uri=ILCDPI.id, name="classificationInformation__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.classificationInformation__id, domain=None, range=URIRef)
+
+slots.classification__id = Slot(uri=ILCDPI.id, name="classification__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.classification__id, domain=None, range=URIRef)
+
+slots.classificationEntry__id = Slot(uri=ILCDPI.id, name="classificationEntry__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.classificationEntry__id, domain=None, range=URIRef)
+
+slots.quantitativeReference__id = Slot(uri=ILCDPI.id, name="quantitativeReference__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.quantitativeReference__id, domain=None, range=URIRef)
+
+slots.timeInformation__id = Slot(uri=ILCDPI.id, name="timeInformation__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.timeInformation__id, domain=None, range=URIRef)
+
+slots.geographyInformation__id = Slot(uri=ILCDPI.id, name="geographyInformation__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.geographyInformation__id, domain=None, range=URIRef)
+
+slots.locationInfo__id = Slot(uri=ILCDPI.id, name="locationInfo__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.locationInfo__id, domain=None, range=URIRef)
+
+slots.technologyInformation__id = Slot(uri=ILCDPI.id, name="technologyInformation__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.technologyInformation__id, domain=None, range=URIRef)
+
+slots.timeOtherContent__id = Slot(uri=ILCDPI.id, name="timeOtherContent__id", curie=ILCDPI.curie('id'),
+                   model_uri=ILCDPI.timeOtherContent__id, domain=None, range=URIRef)
