@@ -1,5 +1,5 @@
 # Auto generated from linkml_administrativeInformation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-20T14:10:45
+# Generation date: 2025-02-26T13:13:52
 # Schema: ILCDadministrativeInformation
 #
 # id: https://example.org/ILCDadministrativeInformation
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import MultiLangString, ShortDescripTypeRefVersion, ShortDescripTypeRefVersionUri, UnixTimestamp
+from . linkml_shared_definitions import MultiLangString, MultiLangStringId, ShortDescripTypeRefVersion, ShortDescripTypeRefVersionId, ShortDescripTypeRefVersionUri, ShortDescripTypeRefVersionUriId, UnixTimestamp
 from linkml_runtime.linkml_model.types import Boolean, String
 from linkml_runtime.utils.metamodelcore import Bool
 
@@ -76,7 +76,20 @@ DEFAULT_ = ILCDADMIN
 # Types
 
 # Class references
+class AdministrativeInformationId(extended_str):
+    pass
 
+
+class DataGeneratorId(extended_str):
+    pass
+
+
+class DataEntryById(extended_str):
+    pass
+
+
+class PublicationAndOwnershipId(extended_str):
+    pass
 
 
 @dataclass(repr=False)
@@ -91,11 +104,17 @@ class AdministrativeInformation(YAMLRoot):
     class_name: ClassVar[str] = "AdministrativeInformation"
     class_model_uri: ClassVar[URIRef] = ILCDADMIN.AdministrativeInformation
 
+    id: Union[str, AdministrativeInformationId] = None
     dataGenerator: Optional[Union[dict, "DataGenerator"]] = None
     dataEntryBy: Optional[Union[dict, "DataEntryBy"]] = None
     publicationAndOwnership: Optional[Union[dict, "PublicationAndOwnership"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AdministrativeInformationId):
+            self.id = AdministrativeInformationId(self.id)
+
         if self.dataGenerator is not None and not isinstance(self.dataGenerator, DataGenerator):
             self.dataGenerator = DataGenerator(**as_dict(self.dataGenerator))
 
@@ -120,12 +139,16 @@ class DataGenerator(YAMLRoot):
     class_name: ClassVar[str] = "DataGenerator"
     class_model_uri: ClassVar[URIRef] = ILCDADMIN.DataGenerator
 
-    referenceToPersonOrEntityGeneratingTheDataSet: Optional[Union[Union[dict, ShortDescripTypeRefVersion], List[Union[dict, ShortDescripTypeRefVersion]]]] = empty_list()
+    id: Union[str, DataGeneratorId] = None
+    referenceToPersonOrEntityGeneratingTheDataSet: Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.referenceToPersonOrEntityGeneratingTheDataSet, list):
-            self.referenceToPersonOrEntityGeneratingTheDataSet = [self.referenceToPersonOrEntityGeneratingTheDataSet] if self.referenceToPersonOrEntityGeneratingTheDataSet is not None else []
-        self.referenceToPersonOrEntityGeneratingTheDataSet = [v if isinstance(v, ShortDescripTypeRefVersion) else ShortDescripTypeRefVersion(**as_dict(v)) for v in self.referenceToPersonOrEntityGeneratingTheDataSet]
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DataGeneratorId):
+            self.id = DataGeneratorId(self.id)
+
+        self._normalize_inlined_as_list(slot_name="referenceToPersonOrEntityGeneratingTheDataSet", slot_type=ShortDescripTypeRefVersion, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -142,16 +165,20 @@ class DataEntryBy(YAMLRoot):
     class_name: ClassVar[str] = "DataEntryBy"
     class_model_uri: ClassVar[URIRef] = ILCDADMIN.DataEntryBy
 
+    id: Union[str, DataEntryById] = None
     timeStamp: Optional[int] = None
-    referenceToDataSetFormat: Optional[Union[Union[dict, ShortDescripTypeRefVersionUri], List[Union[dict, ShortDescripTypeRefVersionUri]]]] = empty_list()
+    referenceToDataSetFormat: Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionUriId], Union[dict, ShortDescripTypeRefVersionUri]], List[Union[dict, ShortDescripTypeRefVersionUri]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DataEntryById):
+            self.id = DataEntryById(self.id)
+
         if self.timeStamp is not None and not isinstance(self.timeStamp, int):
             self.timeStamp = int(self.timeStamp)
 
-        if not isinstance(self.referenceToDataSetFormat, list):
-            self.referenceToDataSetFormat = [self.referenceToDataSetFormat] if self.referenceToDataSetFormat is not None else []
-        self.referenceToDataSetFormat = [v if isinstance(v, ShortDescripTypeRefVersionUri) else ShortDescripTypeRefVersionUri(**as_dict(v)) for v in self.referenceToDataSetFormat]
+        self._normalize_inlined_as_list(slot_name="referenceToDataSetFormat", slot_type=ShortDescripTypeRefVersionUri, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -168,14 +195,22 @@ class PublicationAndOwnership(YAMLRoot):
     class_name: ClassVar[str] = "PublicationAndOwnership"
     class_model_uri: ClassVar[URIRef] = ILCDADMIN.PublicationAndOwnership
 
-    dataSetVersion: Optional[str] = None
+    id: Union[str, PublicationAndOwnershipId] = None
+    dataSetVersion: str = None
     registrationNumber: Optional[str] = None
     referenceToOwnershipOfDataSet: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
     copyright: Optional[Union[bool, Bool]] = None
-    accessRestrictions: Optional[Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]]] = empty_list()
+    accessRestrictions: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.dataSetVersion is not None and not isinstance(self.dataSetVersion, str):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, PublicationAndOwnershipId):
+            self.id = PublicationAndOwnershipId(self.id)
+
+        if self._is_empty(self.dataSetVersion):
+            self.MissingRequiredField("dataSetVersion")
+        if not isinstance(self.dataSetVersion, str):
             self.dataSetVersion = str(self.dataSetVersion)
 
         if self.registrationNumber is not None and not isinstance(self.registrationNumber, str):
@@ -187,9 +222,7 @@ class PublicationAndOwnership(YAMLRoot):
         if self.copyright is not None and not isinstance(self.copyright, Bool):
             self.copyright = Bool(self.copyright)
 
-        if not isinstance(self.accessRestrictions, list):
-            self.accessRestrictions = [self.accessRestrictions] if self.accessRestrictions is not None else []
-        self.accessRestrictions = [v if isinstance(v, MultiLangString) else MultiLangString(**as_dict(v)) for v in self.accessRestrictions]
+        self._normalize_inlined_as_list(slot_name="accessRestrictions", slot_type=MultiLangString, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -211,16 +244,16 @@ slots.publicationAndOwnership = Slot(uri=ILCDADMIN.publicationAndOwnership, name
                    model_uri=ILCDADMIN.publicationAndOwnership, domain=None, range=Optional[Union[dict, PublicationAndOwnership]])
 
 slots.referenceToPersonOrEntityGeneratingTheDataSet = Slot(uri=ILCDADMIN.referenceToPersonOrEntityGeneratingTheDataSet, name="referenceToPersonOrEntityGeneratingTheDataSet", curie=ILCDADMIN.curie('referenceToPersonOrEntityGeneratingTheDataSet'),
-                   model_uri=ILCDADMIN.referenceToPersonOrEntityGeneratingTheDataSet, domain=None, range=Optional[Union[Union[dict, ShortDescripTypeRefVersion], List[Union[dict, ShortDescripTypeRefVersion]]]])
+                   model_uri=ILCDADMIN.referenceToPersonOrEntityGeneratingTheDataSet, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]])
 
 slots.timeStamp = Slot(uri=ILCDADMIN.timeStamp, name="timeStamp", curie=ILCDADMIN.curie('timeStamp'),
                    model_uri=ILCDADMIN.timeStamp, domain=None, range=Optional[int])
 
 slots.referenceToDataSetFormat = Slot(uri=ILCDADMIN.referenceToDataSetFormat, name="referenceToDataSetFormat", curie=ILCDADMIN.curie('referenceToDataSetFormat'),
-                   model_uri=ILCDADMIN.referenceToDataSetFormat, domain=None, range=Optional[Union[Union[dict, ShortDescripTypeRefVersionUri], List[Union[dict, ShortDescripTypeRefVersionUri]]]])
+                   model_uri=ILCDADMIN.referenceToDataSetFormat, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionUriId], Union[dict, ShortDescripTypeRefVersionUri]], List[Union[dict, ShortDescripTypeRefVersionUri]]]])
 
 slots.dataSetVersion = Slot(uri=ILCDADMIN.dataSetVersion, name="dataSetVersion", curie=ILCDADMIN.curie('dataSetVersion'),
-                   model_uri=ILCDADMIN.dataSetVersion, domain=None, range=Optional[str])
+                   model_uri=ILCDADMIN.dataSetVersion, domain=None, range=str)
 
 slots.registrationNumber = Slot(uri=ILCDADMIN.registrationNumber, name="registrationNumber", curie=ILCDADMIN.curie('registrationNumber'),
                    model_uri=ILCDADMIN.registrationNumber, domain=None, range=Optional[str])
@@ -232,4 +265,16 @@ slots.copyright = Slot(uri=ILCDADMIN.copyright, name="copyright", curie=ILCDADMI
                    model_uri=ILCDADMIN.copyright, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.accessRestrictions = Slot(uri=ILCDADMIN.accessRestrictions, name="accessRestrictions", curie=ILCDADMIN.curie('accessRestrictions'),
-                   model_uri=ILCDADMIN.accessRestrictions, domain=None, range=Optional[Union[Union[dict, MultiLangString], List[Union[dict, MultiLangString]]]])
+                   model_uri=ILCDADMIN.accessRestrictions, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
+
+slots.administrativeInformation__id = Slot(uri=ILCDADMIN.id, name="administrativeInformation__id", curie=ILCDADMIN.curie('id'),
+                   model_uri=ILCDADMIN.administrativeInformation__id, domain=None, range=URIRef)
+
+slots.dataGenerator__id = Slot(uri=ILCDADMIN.id, name="dataGenerator__id", curie=ILCDADMIN.curie('id'),
+                   model_uri=ILCDADMIN.dataGenerator__id, domain=None, range=URIRef)
+
+slots.dataEntryBy__id = Slot(uri=ILCDADMIN.id, name="dataEntryBy__id", curie=ILCDADMIN.curie('id'),
+                   model_uri=ILCDADMIN.dataEntryBy__id, domain=None, range=URIRef)
+
+slots.publicationAndOwnership__id = Slot(uri=ILCDADMIN.id, name="publicationAndOwnership__id", curie=ILCDADMIN.curie('id'),
+                   model_uri=ILCDADMIN.publicationAndOwnership__id, domain=None, range=URIRef)

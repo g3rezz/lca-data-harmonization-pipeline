@@ -3,43 +3,67 @@
 @prefix ns1: <ILCDsd:> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a ILCDadmin:AdministrativeInformation ;
-    ILCDadmin:dataEntryBy [ a ILCDadmin:DataEntryBy ;
-            ILCDadmin:referenceToDataSetFormat [ a ns1:ShortDescripTypeRefVersionUri ;
-                    ns1:refObjectId "a97a0155-0234-4b87-b4ce-a45da52f2a40"^^linkml:UUIDType ;
-                    ns1:shortDescription [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value "ILCD format" ] ;
-                    ns1:type "source data set" ;
-                    ns1:uri "http://lca.jrc.ec.europa.eu/lcainfohub/sample_data/ilcd/sources/ILCD_Format_a97a0155-0234-4b87-b4ce-a45da52f2a40_01.00.000.xml" ;
-                    ns1:version "01.00.000" ],
-                [ a ns1:ShortDescripTypeRefVersionUri ;
-                    ns1:refObjectId "cba73800-7874-11e3-981f-0800200c9a66"^^linkml:UUIDType ;
-                    ns1:shortDescription [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value "EPD Data Format Extension" ] ;
-                    ns1:type "source data set" ;
-                    ns1:version "00.01.000" ] ;
-            ILCDadmin:timeStamp "1715937801610"^^linkml:UnixTimestamp ] ;
-    ILCDadmin:dataGenerator [ a ILCDadmin:DataGenerator ;
-            ILCDadmin:referenceToPersonOrEntityGeneratingTheDataSet [ a ns1:ShortDescripTypeRefVersion ;
-                    ns1:shortDescription [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value ", gm.nardelli@financo.it" ] ;
-                    ns1:type "contact data set" ;
-                    ns1:version "00.00.001" ] ] ;
-    ILCDadmin:publicationAndOwnership [ a ILCDadmin:PublicationAndOwnership ;
-            ILCDadmin:accessRestrictions [ a ns1:MultiLangString ;
-                    ns1:lang "en" ;
-                    ns1:value "Your use of this material is subject to the General Terms of Use published on by EPD International AB:s homepage at https://www.environdec.com/contact/General-terms-of-use/. If you have not accepted EPD International AB:s the General Terms of Use, you are not authorized to exploit this work in any manner." ] ;
-            ILCDadmin:copyright true ;
-            ILCDadmin:dataSetVersion "07.01.004" ;
-            ILCDadmin:referenceToOwnershipOfDataSet [ a ns1:ShortDescripTypeRefVersion ;
-                    ns1:refObjectId "56d6d18a-8f7f-4966-500f-08dac88134dd"^^linkml:UUIDType ;
-                    ns1:shortDescription [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value "Colabeton S.p.A. " ] ;
-                    ns1:type "contact data set" ;
-                    ns1:version "00.00.001" ] ;
-            ILCDadmin:registrationNumber "EPD-IES-0013906:001 (S-P-13906)" ] .
+ILCDadmin:AdministrativeInformation a ILCDadmin:AdministrativeInformation ;
+    ILCDadmin:dataEntryBy ILCDadmin:DataEntryBy ;
+    ILCDadmin:dataGenerator ILCDadmin:DataGenerator ;
+    ILCDadmin:publicationAndOwnership ILCDadmin:PublicationAndOwnership .
+
+ILCDadmin:DataEntryByreferenceToDataSetFormat0 a ns1:ShortDescripTypeRefVersionUri ;
+    ns1:refObjectId "cba73800-7874-11e3-981f-0800200c9a66"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDadmin:DataEntryByreferenceToDataSetFormat0shortDescriptionEN ;
+    ns1:type "source data set" ;
+    ns1:version "00.01.000" .
+
+ILCDadmin:DataEntryByreferenceToDataSetFormat0shortDescriptionEN a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "EPD Data Format Extension" .
+
+ILCDadmin:DataEntryByreferenceToDataSetFormat1 a ns1:ShortDescripTypeRefVersionUri ;
+    ns1:refObjectId "a97a0155-0234-4b87-b4ce-a45da52f2a40"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDadmin:DataEntryByreferenceToDataSetFormat1shortDescriptionEN ;
+    ns1:type "source data set" ;
+    ns1:uri "http://lca.jrc.ec.europa.eu/lcainfohub/sample_data/ilcd/sources/ILCD_Format_a97a0155-0234-4b87-b4ce-a45da52f2a40_01.00.000.xml" ;
+    ns1:version "01.00.000" .
+
+ILCDadmin:DataEntryByreferenceToDataSetFormat1shortDescriptionEN a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "ILCD format" .
+
+ILCDadmin:DataGeneratorreferenceToPersonOrEntityGeneratingTheDataSet a ns1:ShortDescripTypeRefVersion ;
+    ns1:shortDescription ILCDadmin:DataGeneratorreferenceToPersonOrEntityGeneratingTheDataSetshortDescriptionEN ;
+    ns1:type "contact data set" ;
+    ns1:version "00.00.001" .
+
+ILCDadmin:DataGeneratorreferenceToPersonOrEntityGeneratingTheDataSetshortDescriptionEN a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value ", gm.nardelli@financo.it" .
+
+ILCDadmin:PublicationAndOwnershipaccessRestrictionsEN a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Your use of this material is subject to the General Terms of Use published on by EPD International AB:s homepage at https://www.environdec.com/contact/General-terms-of-use/. If you have not accepted EPD International AB:s the General Terms of Use, you are not authorized to exploit this work in any manner." .
+
+ILCDadmin:PublicationAndOwnershipreferenceToOwnershipOfDataSet a ns1:ShortDescripTypeRefVersion ;
+    ns1:refObjectId "56d6d18a-8f7f-4966-500f-08dac88134dd"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDadmin:PublicationAndOwnershipreferenceToOwnershipOfDataSetshortDescriptionEN ;
+    ns1:type "contact data set" ;
+    ns1:version "00.00.001" .
+
+ILCDadmin:PublicationAndOwnershipreferenceToOwnershipOfDataSetshortDescriptionEN a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Colabeton S.p.A. " .
+
+ILCDadmin:DataEntryBy a ILCDadmin:DataEntryBy ;
+    ILCDadmin:referenceToDataSetFormat ILCDadmin:DataEntryByreferenceToDataSetFormat0,
+        ILCDadmin:DataEntryByreferenceToDataSetFormat1 ;
+    ILCDadmin:timeStamp "1715937801610"^^linkml:UnixTimestamp .
+
+ILCDadmin:DataGenerator a ILCDadmin:DataGenerator ;
+    ILCDadmin:referenceToPersonOrEntityGeneratingTheDataSet ILCDadmin:DataGeneratorreferenceToPersonOrEntityGeneratingTheDataSet .
+
+ILCDadmin:PublicationAndOwnership a ILCDadmin:PublicationAndOwnership ;
+    ILCDadmin:accessRestrictions ILCDadmin:PublicationAndOwnershipaccessRestrictionsEN ;
+    ILCDadmin:copyright true ;
+    ILCDadmin:dataSetVersion "07.01.004" ;
+    ILCDadmin:referenceToOwnershipOfDataSet ILCDadmin:PublicationAndOwnershipreferenceToOwnershipOfDataSet ;
+    ILCDadmin:registrationNumber "EPD-IES-0013906:001 (S-P-13906)" .
 

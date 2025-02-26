@@ -3,49 +3,87 @@
 @prefix ns1: <ILCDsd:> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a ILCDpi:ProcessInformation ;
-    ILCDpi:dataSetInformation [ a ILCDpi:DataSetInformation ;
-            ILCDpi:UUID "63a79af1-1ab0-4677-45a8-08dc6fc9d4ca"^^linkml:UUIDType ;
-            ILCDpi:classificationInformation [ a ILCDpi:ClassificationInformation ;
-                    ILCDpi:classification [ a ILCDpi:Classification ;
-                            ns1:name "The International EPD System" ;
-                            ILCDpi:classEntries [ a ILCDpi:ClassificationEntry ;
-                                    ns1:value "Construction products, Infrastructure & buildings" ;
-                                    ILCDpi:classId "0" ;
-                                    ILCDpi:level 0 ] ] ] ;
-            ILCDpi:dataSetName [ a ILCDpi:DataSetName ;
-                    ILCDpi:baseName [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20" ] ] ] ;
-    ILCDpi:geography [ a ILCDpi:GeographyInformation ;
-            ILCDpi:locationOfOperationSupplyOrProduction [ a ILCDpi:LocationInfo ;
-                    ILCDpi:descriptionOfRestrictions [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value "Costituents, production and use in Italy. " ] ;
-                    ILCDpi:location "IT" ] ] ;
-    ILCDpi:quantitativeReference [ a ILCDpi:QuantitativeReference ;
-            ns1:type "Reference flow(s)" ;
-            ILCDpi:referenceToReferenceFlow 0 ] ;
-    ILCDpi:technology [ a ILCDpi:TechnologyInformation ;
-            ILCDpi:referenceToTechnologyFlowDiagrammOrPicture [ a ns1:ShortDescripTypeRef ;
-                    ns1:refObjectId "785a09be-82f3-461a-ba60-c49b80204481"^^linkml:UUIDType ;
-                    ns1:shortDescription [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value "Process flow" ] ;
-                    ns1:type "source data set" ] ;
-            ILCDpi:technologicalApplicability [ a ns1:MultiLangString ;
-                    ns1:lang "en" ;
-                    ns1:value "Structural concrete for civil buildings and constructions." ] ;
-            ILCDpi:technologyDescriptionAndIncludedProcesses [ a ns1:MultiLangString ;
-                    ns1:lang "en" ;
-                    ns1:value "Concrete is produced by mixing cement, aggregates (sand, crushed stone and gravel), water and additives. The cement section is  consists  of storage silos connected to a weighbridge, the extraction and loading of the cement into the truck mixer takes place via closed augers. The suction system and filters guarantee the abatement of dust during  loading of the truck mixers.  The coarse aggregate (“Gravel” or commercially “Cobblestone”) is unloaded directly into a hopper from the tipper trucks owned by the supplier and is then transferred by means of belts from the hopper on the ground to the loading ones. The same applies  for sand. The additives are dosed separately using volumetric dosers, whereas the mixing water is dosed with electromechanical meters. All the components described above are conveyed into the concrete mixer barrel where the homogenization and mixing phases take  place; the energy required for the production of concrete is given by electricity. The shipment of the final product is carried out using special truck mixers. The concretes subject to analysis comply with the requirements of the REACH regulation." ] ] ;
-    ILCDpi:timeInformation [ a ILCDpi:TimeInformation ;
-            ILCDpi:dataSetValidUntil "2029"^^linkml:Year ;
-            ILCDpi:otherTime [ a ns1:OtherContent ;
-                    ns1:anies [ a ns1:AniesEntry ;
-                            ns1:name "publicationDateOfEPD" ;
-                            ns1:timestampValue "1715904000000"^^linkml:UnixTimestamp ] ] ;
-            ILCDpi:referenceYear "2024"^^linkml:Year ;
-            ILCDpi:timeRepresentativenessDescription [ a ns1:MultiLangString ;
-                    ns1:lang "en" ] ] .
+ILCDpi:ClassEntry a ILCDpi:ClassificationEntry ;
+    ns1:value "Construction products, Infrastructure & buildings" ;
+    ILCDpi:classId "0" ;
+    ILCDpi:level 0 .
+
+ILCDpi:DataSetNamebaseName a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20" .
+
+ILCDpi:Geography a ILCDpi:GeographyInformation ;
+    ILCDpi:locationOfOperationSupplyOrProduction ILCDpi:LocationOfOperationSupplyOrProduction .
+
+ILCDpi:LocationOfOperationSupplyOrProduction a ILCDpi:LocationInfo ;
+    ILCDpi:descriptionOfRestrictions ILCDpi:LocationOfOperationSupplyOrProductiondescriptionOfRestrictions ;
+    ILCDpi:location "IT" .
+
+ILCDpi:LocationOfOperationSupplyOrProductiondescriptionOfRestrictions a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Costituents, production and use in Italy. " .
+
+ILCDpi:ProcessInformation a ILCDpi:ProcessInformation ;
+    ILCDpi:dataSetInformation ILCDpi:DataSetInformation ;
+    ILCDpi:geography ILCDpi:Geography ;
+    ILCDpi:quantitativeReference ILCDpi:QuantitativeReference ;
+    ILCDpi:technology ILCDpi:Technology ;
+    ILCDpi:timeInformation ILCDpi:TimeInformation .
+
+ILCDpi:Technology a ILCDpi:TechnologyInformation ;
+    ILCDpi:referenceToTechnologyFlowDiagrammOrPicture ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPicture ;
+    ILCDpi:technologicalApplicability ILCDpi:TechnologytechnologicalApplicability ;
+    ILCDpi:technologyDescriptionAndIncludedProcesses ILCDpi:TechnologytechnologyDescriptionAndIncludedProcesses .
+
+ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPicture a ns1:ShortDescripTypeRef ;
+    ns1:refObjectId "785a09be-82f3-461a-ba60-c49b80204481"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPictureshortDescription ;
+    ns1:type "source data set" .
+
+ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPictureshortDescription a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Process flow" .
+
+ILCDpi:TechnologytechnologicalApplicability a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Structural concrete for civil buildings and constructions." .
+
+ILCDpi:TechnologytechnologyDescriptionAndIncludedProcesses a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Concrete is produced by mixing cement, aggregates (sand, crushed stone and gravel), water and additives. The cement section is  consists  of storage silos connected to a weighbridge, the extraction and loading of the cement into the truck mixer takes place via closed augers. The suction system and filters guarantee the abatement of dust during  loading of the truck mixers.  The coarse aggregate (“Gravel” or commercially “Cobblestone”) is unloaded directly into a hopper from the tipper trucks owned by the supplier and is then transferred by means of belts from the hopper on the ground to the loading ones. The same applies  for sand. The additives are dosed separately using volumetric dosers, whereas the mixing water is dosed with electromechanical meters. All the components described above are conveyed into the concrete mixer barrel where the homogenization and mixing phases take  place; the energy required for the production of concrete is given by electricity. The shipment of the final product is carried out using special truck mixers. The concretes subject to analysis comply with the requirements of the REACH regulation." .
+
+ILCDpi:TimeInformationotherTime a ILCDpi:TimeOtherContent ;
+    ns1:anies ILCDpi:publicationDateOfEPD .
+
+ILCDpi:TimeInformationtimeRepresentativenessDescription a ns1:MultiLangString ;
+    ns1:lang "en" .
+
+ILCDpi:publicationDateOfEPD a ns1:AniesNameTimestamp ;
+    ns1:name "publicationDateOfEPD" ;
+    ns1:timestampValue "1715904000000"^^linkml:UnixTimestamp .
+
+ILCDpi:Classification a ILCDpi:Classification ;
+    ns1:name "The International EPD System" ;
+    ILCDpi:classEntries ILCDpi:ClassEntry .
+
+ILCDpi:ClassificationInformation a ILCDpi:ClassificationInformation ;
+    ILCDpi:classification ILCDpi:Classification .
+
+ILCDpi:DataSetInformation a ILCDpi:DataSetInformation ;
+    ns1:UUID "63a79af1-1ab0-4677-45a8-08dc6fc9d4ca"^^linkml:UUIDType ;
+    ILCDpi:classificationInformation ILCDpi:ClassificationInformation ;
+    ILCDpi:dataSetName ILCDpi:DataSetName .
+
+ILCDpi:DataSetName a ILCDpi:DataSetName ;
+    ILCDpi:baseName ILCDpi:DataSetNamebaseName .
+
+ILCDpi:QuantitativeReference a ILCDpi:QuantitativeReference ;
+    ns1:type "Reference flow(s)" ;
+    ILCDpi:referenceToReferenceFlow 0 .
+
+ILCDpi:TimeInformation a ILCDpi:TimeInformation ;
+    ILCDpi:dataSetValidUntil "2029"^^linkml:Year ;
+    ILCDpi:otherTime ILCDpi:TimeInformationotherTime ;
+    ILCDpi:referenceYear "2024"^^linkml:Year ;
+    ILCDpi:timeRepresentativenessDescription ILCDpi:TimeInformationtimeRepresentativenessDescription .
 

@@ -17,6 +17,9 @@ default_prefix: ILCDadmin
 classes:
   AdministrativeInformation:
     description: "Container for the administrativeInformation section."
+    attributes:
+      id:
+        identifier: true
     slots:
       - dataGenerator
       - dataEntryBy
@@ -24,17 +27,26 @@ classes:
 
   DataGenerator:
     description: "Holds the reference to the person or entity generating the dataset."
+    attributes:
+      id:
+        identifier: true
     slots:
       - referenceToPersonOrEntityGeneratingTheDataSet
 
   DataEntryBy:
     description: "Holds timestamp and references to data set formats."
+    attributes:
+      id:
+        identifier: true
     slots:
       - timeStamp
       - referenceToDataSetFormat
 
   PublicationAndOwnership:
     description: "Contains dataset version, ownership references, etc."
+    attributes:
+      id:
+        identifier: true
     slots:
       - dataSetVersion
       - registrationNumber
@@ -49,22 +61,25 @@ slots:
   # -- AdministrativeInformation
   dataGenerator:
     range: DataGenerator
+    inlined: true
     description: "Data generator details."
 
   dataEntryBy:
     range: DataEntryBy
+    inlined: true
     description: "Information on who entered the data, timestamp, etc."
 
   publicationAndOwnership:
     range: PublicationAndOwnership
+    inlined: true
     description: "Contains ownership, version, access restrictions, etc."
 
   # -- DataGenerator
   referenceToPersonOrEntityGeneratingTheDataSet:
     range: ShortDescripTypeRefVersion
     multivalued: true
-    description: "Array of references (shortDescription, type, version). "
-    # 'refObjectId' is optional in the JSON, so it's okay to keep it from the base class.
+    inlined_as_list: true
+    description: "Array of references (shortDescription, type, version)."
 
   # -- DataEntryBy
   timeStamp:
@@ -74,6 +89,7 @@ slots:
   referenceToDataSetFormat:
     range: ShortDescripTypeRefVersionUri
     multivalued: true
+    inlined_as_list: true
     description: "List of references to data set formats, each with shortDesc, type, version, optional uri."
 
   # -- PublicationAndOwnership
@@ -90,6 +106,7 @@ slots:
 
   referenceToOwnershipOfDataSet:
     range: ShortDescripTypeRefVersion
+    inlined: true
     description: "Ownership references, reusing shortDesc, type, refObjectId, version."
 
   copyright:
@@ -99,4 +116,5 @@ slots:
   accessRestrictions:
     range: MultiLangString
     multivalued: true
+    inlined_as_list: true
     description: "List of textual restrictions, each with value + lang."

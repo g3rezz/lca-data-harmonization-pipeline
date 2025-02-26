@@ -1,70 +1,162 @@
 @prefix ILCDmav: <https://example.org/ILCDmodellingAndValidation/> .
 @prefix linkml: <https://w3id.org/linkml/> .
 @prefix ns1: <ILCDsd:> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a ILCDmav:ModellingAndValidation ;
-    ILCDmav:LCIMethodAndAllocation [ a ILCDmav:LCIMethodAndAllocation ;
-            ILCDmav:otherMAA [ a ns1:OtherContent ;
-                    ns1:anies [ a ns1:AniesEntry ;
-                            ns1:name "subType" ;
-                            ns1:value "specific dataset" ] ] ;
-            ILCDmav:referenceToLCAMethodDetails [ a ns1:ShortDescripTypeRefVersion ;
-                    ns1:refObjectId "45538f2e-17c0-49fd-a543-b1a02ac27658"^^linkml:UUIDType ;
-                    ns1:shortDescription [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value "Construction products (EN 15804A2)" ] ;
-                    ns1:type "source data set" ;
-                    ns1:version "00.00.001" ] ;
-            ILCDmav:typeOfDataSet "EPD" ] ;
-    ILCDmav:complianceDeclarations [ a ILCDmav:ComplianceDeclarations ;
-            ILCDmav:compliance [ a ILCDmav:ComplianceEntry ;
-                    ILCDmav:referenceToComplianceSystem [ a ns1:ShortDescripTypeRefVersion ;
-                            ns1:refObjectId "4f2eb655-6e44-4874-a95a-e28f5442cd4d"^^linkml:UUIDType ;
-                            ns1:shortDescription [ a ns1:MultiLangString ;
-                                    ns1:lang "en" ;
-                                    ns1:value "ISO 14025" ] ;
-                            ns1:type "source data set" ;
-                            ns1:version "00.00.004" ] ],
-                [ a ILCDmav:ComplianceEntry ;
-                    ILCDmav:referenceToComplianceSystem [ a ns1:ShortDescripTypeRefVersion ;
-                            ns1:refObjectId "c0016b33-8cf7-415c-ac6e-deba0d21440d"^^linkml:UUIDType ;
-                            ns1:shortDescription [ a ns1:MultiLangString ;
-                                    ns1:lang "en" ;
-                                    ns1:value "EN 15804+A2 (EF 3.0)" ] ;
-                            ns1:type "source data set" ;
-                            ns1:version "00.02.000" ] ] ] ;
-    ILCDmav:dataSourcesTreatmentAndRepresentativeness [ a ILCDmav:DataSourcesTreatmentAndRepresentativeness ;
-            ILCDmav:otherDSTAR [ a ns1:OtherContent ;
-                    ns1:anies [ a ns1:AniesEntry ;
-                            ns1:name "referenceToOriginalEPD" ;
-                            ns1:value "JsonObj(shortDescription=JsonObj(value='EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20', defaultValue='EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20', lstrings=[{'lang': 'en', 'value': 'EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20'}]), version=JsonObj(version=1, majorVersion=0, minorVersion=0, subMinorVersion=1, zero=False, versionString='00.00.001'), type='source data set', uuid=JsonObj(uuid='c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca'), refObjectId='c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca', versionAsString='00.00.001', resourceURLs=['https://data.environdec.com/resource/sources/c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca/https://www.environdec.com/Detail/epd13906?version=00.00.001'])" ] ] ;
-            ILCDmav:referenceToDataSource [ a ns1:ShortDescripTypeRefVersion ;
-                    ns1:refObjectId "b497a91f-e14b-4b69-8f28-f50eb1576766"^^linkml:UUIDType ;
-                    ns1:shortDescription [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value "ecoinvent database (general)" ] ;
-                    ns1:type "source data set" ],
-                [ a ns1:ShortDescripTypeRefVersion ;
-                    ns1:refObjectId "ca0da4f4-c837-4005-9c17-e77b9bd09d8b"^^linkml:UUIDType ;
-                    ns1:shortDescription [ a ns1:MultiLangString ;
-                            ns1:lang "en" ;
-                            ns1:value "ecoinvent 3.5 database" ] ;
-                    ns1:type "source data set" ] ;
-            ILCDmav:useAdviceForDataSet [ a ns1:MultiLangString ;
-                    ns1:lang "en" ;
-                    ns1:value """"Cradle to gate with options" UNI EN 15804:2021 (EN 15804:2012+A2:2019 and EN 15804:2012+A2:2019+AC:2021).  
+ILCDmav:ComplianceDeclarationscompliance0 a ILCDmav:ComplianceEntry ;
+    ILCDmav:referenceToComplianceSystem ILCDmav:ComplianceDeclarationscompliance0referenceToComplianceSystem .
+
+ILCDmav:ComplianceDeclarationscompliance0referenceToComplianceSystem a ns1:ShortDescripTypeRefVersion ;
+    ns1:refObjectId "c0016b33-8cf7-415c-ac6e-deba0d21440d"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDmav:ComplianceDeclarationscompliance0referenceToComplianceSystemshortDescription ;
+    ns1:type "source data set" ;
+    ns1:version "00.02.000" .
+
+ILCDmav:ComplianceDeclarationscompliance0referenceToComplianceSystemshortDescription a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "EN 15804+A2 (EF 3.0)" .
+
+ILCDmav:ComplianceDeclarationscompliance1 a ILCDmav:ComplianceEntry ;
+    ILCDmav:referenceToComplianceSystem ILCDmav:ComplianceDeclarationscompliance1referenceToComplianceSystem .
+
+ILCDmav:ComplianceDeclarationscompliance1referenceToComplianceSystem a ns1:ShortDescripTypeRefVersion ;
+    ns1:refObjectId "4f2eb655-6e44-4874-a95a-e28f5442cd4d"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDmav:ComplianceDeclarationscompliance1referenceToComplianceSystemshortDescription ;
+    ns1:type "source data set" ;
+    ns1:version "00.00.004" .
+
+ILCDmav:ComplianceDeclarationscompliance1referenceToComplianceSystemshortDescription a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "ISO 14025" .
+
+ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTAR a ILCDmav:DSTAROtherRoot ;
+    ILCDmav:aniesDSTAR ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTAR .
+
+ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTAR a ILCDmav:DSTAREntry ;
+    ns1:name "referenceToOriginalEPD" ;
+    ILCDmav:valueDSTAR ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTAR .
+
+ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARuuidDict a ILCDmav:UUIDDict ;
+    ILCDmav:uuidValue "c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca"^^linkml:UUIDType .
+
+ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTAR a ILCDmav:DSTARReference ;
+    ns1:refObjectId "c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca"^^linkml:UUIDType ;
+    ns1:type "source data set" ;
+    ILCDmav:resourceURLs "https://data.environdec.com/resource/sources/c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca/https://www.environdec.com/Detail/epd13906?version=00.00.001"^^linkml:ResourceURL ;
+    ILCDmav:shortDescriptionExtended ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTARshortDescriptionExtended ;
+    ILCDmav:uuidDict ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARuuidDict ;
+    ILCDmav:versionAsString "00.00.001" ;
+    ILCDmav:versionDict ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTARversionDict .
+
+ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTARshortDescriptionExtended a ILCDmav:ExtendedMultiLangString ;
+    ns1:value "EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20" ;
+    ILCDmav:defaultValue "EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20" ;
+    ILCDmav:lstrings ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTARshortDescriptionExtendedlstringsEN .
+
+ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTARshortDescriptionExtendedlstringsEN a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20" .
+
+ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTARversionDict a ILCDmav:VersionDict ;
+    ILCDmav:majorVersion 0 ;
+    ILCDmav:minorVersion 0 ;
+    ILCDmav:subMinorVersion 1 ;
+    ILCDmav:versionInt 1 ;
+    ILCDmav:versionString "00.00.001" ;
+    ILCDmav:zero false .
+
+ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource0 a ns1:ShortDescripTypeRefVersion ;
+    ns1:refObjectId "b497a91f-e14b-4b69-8f28-f50eb1576766"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource0shortDescriptionEN ;
+    ns1:type "source data set" .
+
+ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource0shortDescriptionEN a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "ecoinvent database (general)" .
+
+ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource1 a ns1:ShortDescripTypeRefVersion ;
+    ns1:refObjectId "ca0da4f4-c837-4005-9c17-e77b9bd09d8b"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource1shortDescriptionEN ;
+    ns1:type "source data set" .
+
+ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource1shortDescriptionEN a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "ecoinvent 3.5 database" .
+
+ILCDmav:DataSourcesTreatmentAndRepresentativenessuseAdviceForDataSetEN a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value """"Cradle to gate with options" UNI EN 15804:2021 (EN 15804:2012+A2:2019 and EN 15804:2012+A2:2019+AC:2021).  
 Included: A1, A2, A3, B1, B2, B3, B4, B5, B6, B7, C1, C2, C3, C4, D.
-Not declared: A4, A5.""" ] ] ;
-    ILCDmav:otherMAV [ a ns1:OtherContent ;
-            ns1:anies [ a ns1:AniesEntry ;
-                    ns1:name "referenceToOriginalEPD" ;
-                    ns1:value "JsonObj(shortDescription=[{'value': 'EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20', 'lang': 'en'}], type='source data set', refObjectId='c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca', version='00.00.001')" ] ] ;
-    ILCDmav:validationInfo [ a ILCDmav:ValidationInfo ;
-            ILCDmav:review [ a ILCDmav:ReviewEntry ;
-                    ns1:type "Independent external review" ;
-                    ILCDmav:referenceToNameOfReviewerAndInstitution [ a ns1:ShortDescripAndType ;
-                            ns1:shortDescription [ a ns1:MultiLangString ;
-                                    ns1:lang "en" ;
-                                    ns1:value ", " ] ;
-                            ns1:type "source data set" ] ] ] .
+Not declared: A4, A5.""" .
+
+ILCDmav:LCIMethodAndAllocationotherMAA a ILCDmav:MAAOtherContent ;
+    ns1:anies ILCDmav:LCIMethodAndAllocationotherMAAanies .
+
+ILCDmav:LCIMethodAndAllocationotherMAAanies a ns1:AniesNameValue ;
+    ns1:name "subType" ;
+    ns1:value "specific dataset" .
+
+ILCDmav:LCIMethodAndAllocationreferenceToLCAMethodDetails0 a ns1:ShortDescripTypeRefVersion ;
+    ns1:refObjectId "45538f2e-17c0-49fd-a543-b1a02ac27658"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDmav:LCIMethodAndAllocationreferenceToLCAMethodDetails0shortDescriptionEN ;
+    ns1:type "source data set" ;
+    ns1:version "00.00.001" .
+
+ILCDmav:LCIMethodAndAllocationreferenceToLCAMethodDetails0shortDescriptionEN a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Construction products (EN 15804A2)" .
+
+ILCDmav:ModellingAndValidation a ILCDmav:ModellingAndValidation ;
+    ILCDmav:LCIMethodAndAllocation ILCDmav:LCIMethodAndAllocation ;
+    ILCDmav:complianceDeclarations ILCDmav:ComplianceDeclarations ;
+    ILCDmav:dataSourcesTreatmentAndRepresentativeness ILCDmav:DataSourcesTreatmentAndRepresentativeness ;
+    ILCDmav:otherMAV ILCDmav:OtherMAV ;
+    ILCDmav:validationInfo ILCDmav:ValidationInfo .
+
+ILCDmav:OtherMAV a ILCDmav:MAVOtherContent ;
+    ns1:anies ILCDmav:OtherMAVanies .
+
+ILCDmav:OtherMAVanies a ns1:AniesNameTypedReference ;
+    ns1:name "referenceToOriginalEPD" ;
+    ns1:objectValue ILCDmav:OtherMAVaniesobjectValue .
+
+ILCDmav:OtherMAVaniesobjectValue a ns1:ShortDescripTypeRefVersion ;
+    ns1:refObjectId "c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDmav:OtherMAVaniesobjectValueshortDescription ;
+    ns1:type "source data set" ;
+    ns1:version "00.00.001" .
+
+ILCDmav:OtherMAVaniesobjectValueshortDescription a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20" .
+
+ILCDmav:ValidationInforeview0 a ILCDmav:ReviewEntry ;
+    ns1:type "Independent external review" ;
+    ILCDmav:referenceToNameOfReviewerAndInstitution ILCDmav:ValidationInforeview0referenceToNameOfReviewerAndInstitution .
+
+ILCDmav:ValidationInforeview0referenceToNameOfReviewerAndInstitution a ns1:ShortDescripAndType ;
+    ns1:shortDescription ILCDmav:ValidationInforeview0referenceToNameOfReviewerAndInstitutionshortDescription ;
+    ns1:type "source data set" .
+
+ILCDmav:ValidationInforeview0referenceToNameOfReviewerAndInstitutionshortDescription a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value ", " .
+
+ILCDmav:ComplianceDeclarations a ILCDmav:ComplianceDeclarations ;
+    ILCDmav:compliance ILCDmav:ComplianceDeclarationscompliance0,
+        ILCDmav:ComplianceDeclarationscompliance1 .
+
+ILCDmav:DataSourcesTreatmentAndRepresentativeness a ILCDmav:DataSourcesTreatmentAndRepresentativeness ;
+    ILCDmav:otherDSTAR ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTAR ;
+    ILCDmav:referenceToDataSource ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource0,
+        ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource1 ;
+    ILCDmav:useAdviceForDataSet ILCDmav:DataSourcesTreatmentAndRepresentativenessuseAdviceForDataSetEN .
+
+ILCDmav:LCIMethodAndAllocation a ILCDmav:LCIMethodAndAllocation ;
+    ILCDmav:otherMAA ILCDmav:LCIMethodAndAllocationotherMAA ;
+    ILCDmav:referenceToLCAMethodDetails ILCDmav:LCIMethodAndAllocationreferenceToLCAMethodDetails0 ;
+    ILCDmav:typeOfDataSet "EPD" .
+
+ILCDmav:ValidationInfo a ILCDmav:ValidationInfo ;
+    ILCDmav:review ILCDmav:ValidationInforeview0 .
 

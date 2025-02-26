@@ -4,20 +4,20 @@ license: CC-BY-4.0
 imports:
   - linkml:types
   - linkml_shared_definitions # Import shared definitions between ILCD YAML schemas
-
 prefixes:
   linkml: https://w3id.org/linkml/
   ILCDpi: https://example.org/ILCDprocessInformation/
 default_prefix: ILCDpi
 
 ########################################
-# Types
-########################################
-########################################
 # Classes
 ########################################
 classes:
   ProcessInformation:
+    description: "Container for the process information section."
+    attributes:
+      id:
+        identifier: true
     slots:
       - dataSetInformation
       - quantitativeReference
@@ -25,110 +25,168 @@ classes:
       - geography
       - technology
 
-  # -- DataSet information
   DataSetInformation:
+    description: "Data set information details."
+    attributes:
+      id:
+        identifier: true
     slots:
       - UUID
       - dataSetName
       - classificationInformation
 
   DataSetName:
+    description: "Container for the data set name."
+    attributes:
+      id:
+        identifier: true
     slots:
       - baseName
 
   ClassificationInformation:
+    description: "Classification information for the data set."
+    attributes:
+      id:
+        identifier: true
     slots:
       - classification
 
   Classification:
+    description: "Classification object."
+    attributes:
+      id:
+        identifier: true
     slots:
-      - name # formerly systemName
-      - classEntries # formerly 'class' (reserved in Python)
+      - name
+      - classEntries
 
   ClassificationEntry:
+    description: "Classification entry."
+    attributes:
+      id:
+        identifier: true
     slots:
       - value
       - level
       - classId
 
-  # -- Quantitative reference
   QuantitativeReference:
+    description: "Quantitative reference details."
+    attributes:
+      id:
+        identifier: true
     slots:
       - referenceToReferenceFlow
       - type
 
-  # -- Time
   TimeInformation:
+    description: "Time-related information for the data set."
+    attributes:
+      id:
+        identifier: true
     slots:
       - referenceYear
       - dataSetValidUntil
       - timeRepresentativenessDescription
       - otherTime
 
-  # -- Geography
   GeographyInformation:
+    description: "Geographical information details."
+    attributes:
+      id:
+        identifier: true
     slots:
       - locationOfOperationSupplyOrProduction
 
   LocationInfo:
+    description: "Location details."
+    attributes:
+      id:
+        identifier: true
     slots:
       - descriptionOfRestrictions
       - location
 
-  # -- Technology
   TechnologyInformation:
+    description: "Technology information for the data set."
+    attributes:
+      id:
+        identifier: true
     slots:
       - technologyDescriptionAndIncludedProcesses
       - technologicalApplicability
       - referenceToTechnologyFlowDiagrammOrPicture
 
+  TimeOtherContent:
+    attributes:
+      id:
+        identifier: true
+    is_a: OtherContent
+    description: "Local subclass for time-related 'other' content."
+    slot_usage:
+      anies:
+        range: AniesNameTimestamp
+
 ########################################
 # Slots
 ########################################
 slots:
-  # -- Main top-level
+  # -- ProcessInformation top-level
   dataSetInformation:
     range: DataSetInformation
     required: true
     minimum_cardinality: 1
     maximum_cardinality: 1
+    inlined: true
 
   quantitativeReference:
     range: QuantitativeReference
+    inlined: true
 
   timeInformation:
     range: TimeInformation
+    inlined: true
 
   geography:
     range: GeographyInformation
+    inlined: true
 
   technology:
     range: TechnologyInformation
+    inlined: true
 
+  # -- DataSetInformation
   dataSetName:
     range: DataSetName
+    inlined: true
     description: "Container for baseName (multi-lang)."
 
   classificationInformation:
     range: ClassificationInformation
+    inlined: true
 
+  # -- DataSetName
   baseName:
     range: MultiLangString
     multivalued: true
+    inlined_as_list: true
     required: true
     minimum_cardinality: 1
     maximum_cardinality: 1
     description: "Base name as a list of {value, lang}."
 
-  # -- Classification
+  # -- ClassificationInformation
   classification:
     range: Classification
     multivalued: true
+    inlined_as_list: true
     description: "List of classification objects."
 
+  # -- Classification
   classEntries:
     range: ClassificationEntry
     multivalued: true
+    inlined_as_list: true
     description: "List of classification entries."
 
   level:
@@ -139,13 +197,14 @@ slots:
     range: string
     description: "Unique class identifier."
 
-  # -- Quantitative Reference
+  # -- QuantitativeReference
   referenceToReferenceFlow:
     range: integer
     multivalued: true
+    inlined_as_list: true
     description: "List of integer indices to reference flows."
 
-  # -- Time
+  # -- TimeInformation
   referenceYear:
     range: Year
     description: "Reference year."
@@ -157,38 +216,46 @@ slots:
   timeRepresentativenessDescription:
     range: MultiLangString
     multivalued: true
+    inlined_as_list: true
     description: "Time representativeness as list of {value, lang}."
 
   otherTime:
-    range: OtherContent
+    range: TimeOtherContent
+    inlined: true
     description: "Additional time-related dictionary data."
 
-  # -- Geography
+  # -- GeographyInformation
   locationOfOperationSupplyOrProduction:
     range: LocationInfo
+    inlined: true
     description: "Dictionary with location details."
 
+  # -- LocationInfo
   descriptionOfRestrictions:
     range: MultiLangString
     multivalued: true
+    inlined_as_list: true
     description: "List of {value, lang} describing restrictions."
 
   location:
     range: string
     description: "Location code or name."
 
-  # -- Technology
+  # -- TechnologyInformation
   technologyDescriptionAndIncludedProcesses:
     range: MultiLangString
     multivalued: true
+    inlined_as_list: true
     description: "List of multi-language strings describing technology."
 
   technologicalApplicability:
     range: MultiLangString
     multivalued: true
+    inlined_as_list: true
     description: "List of multi-language strings for technology applicability."
 
   referenceToTechnologyFlowDiagrammOrPicture:
     range: ShortDescripTypeRef
     multivalued: true
+    inlined_as_list: true
     description: "List of references to diagrams/pictures."

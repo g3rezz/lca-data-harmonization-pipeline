@@ -4,7 +4,6 @@ license: CC-BY-4.0
 imports:
   - linkml:types
   - linkml_shared_definitions # Import shared definitions between ILCD YAML schemas
-
 prefixes:
   linkml: https://w3id.org/linkml/
   ILCDmav: https://example.org/ILCDmodellingAndValidation/
@@ -16,6 +15,9 @@ default_prefix: ILCDmav
 classes:
   ModellingAndValidation:
     description: "Top-level container for the modellingAndValidation section."
+    attributes:
+      id:
+        identifier: true
     slots:
       - LCIMethodAndAllocation
       - dataSourcesTreatmentAndRepresentativeness
@@ -24,61 +26,169 @@ classes:
       - otherMAV
 
   LCIMethodAndAllocation:
-    description: "Holds LCI method, allocation info, references, other content."
+    description: "Holds LCI method, allocation info, references, and other content."
+    attributes:
+      id:
+        identifier: true
     slots:
       - typeOfDataSet
       - referenceToLCAMethodDetails
-      - otherMAA # 'other' referencing the same pattern used in processInformation
+      - otherMAA
 
   DataSourcesTreatmentAndRepresentativeness:
     description: "Holds references to data sources, usage advice, and other extras."
+    attributes:
+      id:
+        identifier: true
     slots:
       - referenceToDataSource
       - useAdviceForDataSet
       - otherDSTAR
 
-  # "Validation" is a reserved word in some contexts, so let's rename it to "ValidationInfo"
   ValidationInfo:
-    description: "Represents the validation object containing review info."
+    description: "Represents the validation information, including review entries."
+    attributes:
+      id:
+        identifier: true
     slots:
       - review
 
   ReviewEntry:
-    description: "A single review entry with name of reviewer, institution, etc."
+    description: "A single review entry containing reviewer/institution details."
+    attributes:
+      id:
+        identifier: true
     slots:
       - referenceToNameOfReviewerAndInstitution
       - type
 
   ComplianceDeclarations:
     description: "Container for compliance-related declarations."
+    attributes:
+      id:
+        identifier: true
     slots:
       - compliance
 
   ComplianceEntry:
     description: "Holds a reference to a specific compliance system."
+    attributes:
+      id:
+        identifier: true
     slots:
       - referenceToComplianceSystem
+
+  MAVOtherContent:
+    description: "Local sub-class for 'other' content in modellingAndValidation (for MAA)."
+    is_a: OtherContent
+    attributes:
+      id:
+        identifier: true
+    slot_usage:
+      anies:
+        range: AniesNameTypedReference
+
+  DSTAROtherRoot:
+    description: "Self-contained container for the otherDSTAR section."
+    attributes:
+      id:
+        identifier: true
+    slots:
+      - aniesDSTAR
+
+  DSTAREntry:
+    description: "One entry in the otherDSTAR array. Has a 'name' and a typed 'value'."
+    attributes:
+      id:
+        identifier: true
+    slots:
+      - name
+      - valueDSTAR
+
+  DSTARReference:
+    description: "The typed structure that appears under 'value' in each otherDSTAR entry."
+    attributes:
+      id:
+        identifier: true
+    slots:
+      - shortDescriptionExtended
+      - versionDict
+      - type
+      - uuidDict
+      - refObjectId
+      - versionAsString
+      - resourceURLs
+
+  ExtendedMultiLangString:
+    description: "Extended multi-language string with a default value and additional language strings."
+    attributes:
+      id:
+        identifier: true
+    slots:
+      - value
+      - defaultValue
+      - lstrings
+
+  VersionDict:
+    description: "Structured version information."
+    attributes:
+      id:
+        identifier: true
+    slots:
+      - versionInt
+      - majorVersion
+      - minorVersion
+      - subMinorVersion
+      - zero
+      - versionString
+
+  UUIDDict:
+    description: "A wrapper for a UUID value provided as a dictionary."
+    attributes:
+      id:
+        identifier: true
+    slots:
+      - uuidValue
+
+  MAAOtherContent:
+    description: "Local sub-class for 'other' with specialized 'anies'."
+    is_a: OtherContent
+    attributes:
+      id:
+        identifier: true
+    slot_usage:
+      anies:
+        range: AniesNameValue
 
 ########################################
 # Slots
 ########################################
 slots:
-  # --- ModellingAndValidation
+  # --- ModellingAndValidation (top-level)
   LCIMethodAndAllocation:
     range: LCIMethodAndAllocation
+    inlined: true
+    description: "LCI method and allocation information."
 
   dataSourcesTreatmentAndRepresentativeness:
     range: DataSourcesTreatmentAndRepresentativeness
+    inlined: true
+    description: "Data sources treatment and representativeness information."
 
   validationInfo:
     range: ValidationInfo
+    inlined: true
+    description: "Validation information."
 
   complianceDeclarations:
     range: ComplianceDeclarations
+    inlined: true
+    description: "Compliance declarations."
 
   otherMAV:
-    range: OtherContent
-    description: "Equivalent to 'other' in JSON, reuses 'OtherContent' from processInformation."
+    range: MAVOtherContent
+    inlined: true
+    description: "Other modelling and validation content."
 
   # --- LCIMethodAndAllocation
   typeOfDataSet:
@@ -88,46 +198,130 @@ slots:
   referenceToLCAMethodDetails:
     range: ShortDescripTypeRefVersion
     multivalued: true
+    inlined_as_list: true
     description: "List of references to LCA method details."
 
   otherMAA:
-    range: OtherContent
-    description: "An 'other' object with 'anies', reusing the pattern from processInformation."
+    range: MAAOtherContent
+    inlined: true
+    description: "Additional LCI method and allocation content."
 
   # --- DataSourcesTreatmentAndRepresentativeness
   referenceToDataSource:
     range: ShortDescripTypeRefVersion
     multivalued: true
-    description: "A list of data sources each with shortDescription, type, refObjectId, version."
+    inlined_as_list: true
+    description: "List of references to data sources."
 
   useAdviceForDataSet:
     range: MultiLangString
     multivalued: true
-    description: "Guidance on data set usage, typically multi-language."
+    inlined_as_list: true
+    description: "Guidance on data set usage."
 
+  # --- otherDSTAR
   otherDSTAR:
-    range: OtherContent
-    description: "A specialized 'other' object supporting dictionary-based values."
+    range: DSTAROtherRoot
+    inlined: true
+    description: "Typed local object for 'other' data in dataSourcesTreatmentAndRepresentativeness."
+
+  aniesDSTAR:
+    range: DSTAREntry
+    multivalued: true
+    inlined_as_list: true
+    description: "A list of DSTAR items, each containing name + typed value."
+
+  valueDSTAR:
+    range: DSTARReference
+    inlined: true
+    description: "Typed DSTAR reference structure."
+
+  shortDescriptionExtended:
+    range: ExtendedMultiLangString
+    inlined: true
+    description: "Reusable advanced multi-language string (from shared definitions)."
+
+  versionDict:
+    range: VersionDict
+    inlined: true
+    description: "Structured version info (from shared definitions)."
+
+  versionAsString:
+    range: string
+    description: "Simple version string."
+
+  resourceURLs:
+    range: ResourceURL
+    multivalued: true
+    inlined_as_list: true
+    description: "List of URLs for the resource."
+
+  defaultValue:
+    range: string
+    description: "Default value for shortDescriptionExtended"
+
+  lstrings:
+    range: MultiLangString
+    multivalued: true
+    inlined_as_list: true
+    description: "Short description as multi-lang list."
+
+  versionInt:
+    range: integer
+    description: "Version as an integer."
+
+  majorVersion:
+    range: integer
+    description: "Major version component."
+
+  minorVersion:
+    range: integer
+    description: "Minor version component."
+
+  subMinorVersion:
+    range: integer
+    description: "Sub-minor version component."
+
+  zero:
+    range: boolean
+    description: "Flag indicating a zero or special version."
+
+  versionString:
+    range: string
+    description: "Version as a formatted string (e.g., '00.00.001')."
+
+  uuidValue:
+    range: UUIDType
+    description: "The actual UUID value extracted from a UUID dictionary."
+
+  uuidDict:
+    range: UUIDDict
+    inlined: true
+    description: "Wrapper for a UUID value provided as a dictionary."
 
   # --- ValidationInfo
   review:
     range: ReviewEntry
     multivalued: true
-    description: "A list of reviews for the validation."
+    inlined_as_list: true
+    description: "List of review entries."
 
-  # --- ReviewEntry
   referenceToNameOfReviewerAndInstitution:
     range: ShortDescripAndType
     multivalued: true
+    inlined_as_list: true
     description: "Multi-language short descriptions for reviewer and institution."
 
   # --- ComplianceDeclarations
   compliance:
     range: ComplianceEntry
     multivalued: true
-    description: "Compliance array."
+    inlined_as_list: true
+    description: "List of compliance entries."
 
   # --- ComplianceEntry
   referenceToComplianceSystem:
     range: ShortDescripTypeRefVersion
+    multivalued: true
+    inlined_as_list: true
     description: "Details referencing the compliance system."

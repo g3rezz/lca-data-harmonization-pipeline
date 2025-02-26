@@ -1,11 +1,18 @@
 {
   "modellingAndValidation": {
+    "id": "ILCDmav:ModellingAndValidation",
     "LCIMethodAndAllocation": {
+      "id": "ILCDmav:LCIMethodAndAllocation",
       "typeOfDataSet": "EPD",
       "referenceToLCAMethodDetails": [
         {
+          "id": "ILCDmav:LCIMethodAndAllocationreferenceToLCAMethodDetails0",
           "shortDescription": [
-            { "value": "Construction products (EN 15804A2)", "lang": "en" }
+            {
+              "id": "ILCDmav:LCIMethodAndAllocationreferenceToLCAMethodDetails0shortDescriptionEN",
+              "value": "Construction products (EN 15804A2)",
+              "lang": "en"
+            }
           ],
           "type": "source data set",
           "refObjectId": "45538f2e-17c0-49fd-a543-b1a02ac27658",
@@ -13,21 +20,39 @@
         }
       ],
       "otherMAA": {
-        "anies": [{ "name": "subType", "value": "specific dataset" }]
+        "id": "ILCDmav:LCIMethodAndAllocationotherMAA",
+        "anies": [
+          {
+            "id": "ILCDmav:LCIMethodAndAllocationotherMAAanies",
+            "name": "subType",
+            "value": "specific dataset"
+          }
+        ]
       }
     },
     "dataSourcesTreatmentAndRepresentativeness": {
+      "id": "ILCDmav:DataSourcesTreatmentAndRepresentativeness",
       "referenceToDataSource": [
         {
+          "id": "ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource0",
           "shortDescription": [
-            { "value": "ecoinvent database (general)", "lang": "en" }
+            {
+              "id": "ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource0shortDescriptionEN",
+              "value": "ecoinvent database (general)",
+              "lang": "en"
+            }
           ],
           "type": "source data set",
           "refObjectId": "b497a91f-e14b-4b69-8f28-f50eb1576766"
         },
         {
+          "id": "ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource1",
           "shortDescription": [
-            { "value": "ecoinvent 3.5 database", "lang": "en" }
+            {
+              "id": "ILCDmav:DataSourcesTreatmentAndRepresentativenessreferenceToDataSource1shortDescriptionEN",
+              "value": "ecoinvent 3.5 database",
+              "lang": "en"
+            }
           ],
           "type": "source data set",
           "refObjectId": "ca0da4f4-c837-4005-9c17-e77b9bd09d8b"
@@ -35,27 +60,34 @@
       ],
       "useAdviceForDataSet": [
         {
+          "id": "ILCDmav:DataSourcesTreatmentAndRepresentativenessuseAdviceForDataSetEN",
           "value": "\"Cradle to gate with options\" UNI EN 15804:2021 (EN 15804:2012+A2:2019 and EN 15804:2012+A2:2019+AC:2021).  \nIncluded: A1, A2, A3, B1, B2, B3, B4, B5, B6, B7, C1, C2, C3, C4, D.\nNot declared: A4, A5.",
           "lang": "en"
         }
       ],
       "otherDSTAR": {
-        "anies": [
+        "id": "ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTAR",
+        "aniesDSTAR": [
           {
+            "id": "ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTAR",
             "name": "referenceToOriginalEPD",
-            "value": {
-              "shortDescription": {
+            "valueDSTAR": {
+              "id": "ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTAR",
+              "shortDescriptionExtended": {
+                "id": "ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTARshortDescriptionExtended",
                 "value": "EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20",
                 "defaultValue": "EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20",
                 "lstrings": [
                   {
+                    "id": "ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTARshortDescriptionExtendedlstringsEN",
                     "lang": "en",
                     "value": "EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20"
                   }
                 ]
               },
-              "version": {
-                "version": 1,
+              "versionDict": {
+                "id": "ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARvalueDSTARversionDict",
+                "versionInt": 1,
                 "majorVersion": 0,
                 "minorVersion": 0,
                 "subMinorVersion": 1,
@@ -63,7 +95,10 @@
                 "versionString": "00.00.001"
               },
               "type": "source data set",
-              "uuid": { "uuid": "c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca" },
+              "uuidDict": {
+                "id": "ILCDmav:DSTAR_DataSourcesTreatmentAndRepresentativenessotherDSTARaniesDSTARuuidDict",
+                "uuidValue": "c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca"
+              },
               "refObjectId": "c055cc22-6ccd-4dd1-de08-08dc6fc9d4ca",
               "versionAsString": "00.00.001",
               "resourceURLs": [
@@ -75,11 +110,20 @@
       }
     },
     "validationInfo": {
+      "id": "ILCDmav:ValidationInfo",
       "review": [
         {
+          "id": "ILCDmav:ValidationInforeview0",
           "referenceToNameOfReviewerAndInstitution": [
             {
-              "shortDescription": [{ "value": ", ", "lang": "en" }],
+              "id": "ILCDmav:ValidationInforeview0referenceToNameOfReviewerAndInstitution",
+              "shortDescription": [
+                {
+                  "id": "ILCDmav:ValidationInforeview0referenceToNameOfReviewerAndInstitutionshortDescription",
+                  "value": ", ",
+                  "lang": "en"
+                }
+              ],
               "type": "source data set"
             }
           ],
@@ -88,11 +132,18 @@
       ]
     },
     "complianceDeclarations": {
+      "id": "ILCDmav:ComplianceDeclarations",
       "compliance": [
         {
+          "id": "ILCDmav:ComplianceDeclarationscompliance0",
           "referenceToComplianceSystem": {
+            "id": "ILCDmav:ComplianceDeclarationscompliance0referenceToComplianceSystem",
             "shortDescription": [
-              { "value": "EN 15804+A2 (EF 3.0)", "lang": "en" }
+              {
+                "id": "ILCDmav:ComplianceDeclarationscompliance0referenceToComplianceSystemshortDescription",
+                "value": "EN 15804+A2 (EF 3.0)",
+                "lang": "en"
+              }
             ],
             "type": "source data set",
             "refObjectId": "c0016b33-8cf7-415c-ac6e-deba0d21440d",
@@ -100,8 +151,16 @@
           }
         },
         {
+          "id": "ILCDmav:ComplianceDeclarationscompliance1",
           "referenceToComplianceSystem": {
-            "shortDescription": [{ "value": "ISO 14025", "lang": "en" }],
+            "id": "ILCDmav:ComplianceDeclarationscompliance1referenceToComplianceSystem",
+            "shortDescription": [
+              {
+                "id": "ILCDmav:ComplianceDeclarationscompliance1referenceToComplianceSystemshortDescription",
+                "value": "ISO 14025",
+                "lang": "en"
+              }
+            ],
             "type": "source data set",
             "refObjectId": "4f2eb655-6e44-4874-a95a-e28f5442cd4d",
             "version": "00.00.004"
@@ -110,12 +169,16 @@
       ]
     },
     "otherMAV": {
+      "id": "ILCDmav:OtherMAV",
       "anies": [
         {
+          "id": "ILCDmav:OtherMAVanies",
           "name": "referenceToOriginalEPD",
-          "value": {
+          "objectValue": {
+            "id": "ILCDmav:OtherMAVaniesobjectValue",
             "shortDescription": [
               {
+                "id": "ILCDmav:OtherMAVaniesobjectValueshortDescription",
                 "value": "EPD-IES-0013906:001 (S-P-13906)  beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20",
                 "lang": "en"
               }

@@ -1,10 +1,17 @@
 {
   "administrativeInformation": {
+    "id": "ILCDadmin:AdministrativeInformation",
     "dataGenerator": {
+      "id": "ILCDadmin:DataGenerator",
       "referenceToPersonOrEntityGeneratingTheDataSet": [
         {
+          "id": "ILCDadmin:DataGeneratorreferenceToPersonOrEntityGeneratingTheDataSet",
           "shortDescription": [
-            { "value": ", gm.nardelli@financo.it", "lang": "en" }
+            {
+              "id": "ILCDadmin:DataGeneratorreferenceToPersonOrEntityGeneratingTheDataSetshortDescriptionEN",
+              "value": ", gm.nardelli@financo.it",
+              "lang": "en"
+            }
           ],
           "type": "contact data set",
           "version": "00.00.001"
@@ -12,18 +19,31 @@
       ]
     },
     "dataEntryBy": {
+      "id": "ILCDadmin:DataEntryBy",
       "timeStamp": 1715937801610,
       "referenceToDataSetFormat": [
         {
+          "id": "ILCDadmin:DataEntryByreferenceToDataSetFormat0",
           "shortDescription": [
-            { "value": "EPD Data Format Extension", "lang": "en" }
+            {
+              "id": "ILCDadmin:DataEntryByreferenceToDataSetFormat0shortDescriptionEN",
+              "value": "EPD Data Format Extension",
+              "lang": "en"
+            }
           ],
           "type": "source data set",
           "refObjectId": "cba73800-7874-11e3-981f-0800200c9a66",
           "version": "00.01.000"
         },
         {
-          "shortDescription": [{ "value": "ILCD format", "lang": "en" }],
+          "id": "ILCDadmin:DataEntryByreferenceToDataSetFormat1",
+          "shortDescription": [
+            {
+              "id": "ILCDadmin:DataEntryByreferenceToDataSetFormat1shortDescriptionEN",
+              "value": "ILCD format",
+              "lang": "en"
+            }
+          ],
           "type": "source data set",
           "refObjectId": "a97a0155-0234-4b87-b4ce-a45da52f2a40",
           "version": "01.00.000",
@@ -32,10 +52,18 @@
       ]
     },
     "publicationAndOwnership": {
+      "id": "ILCDadmin:PublicationAndOwnership",
       "dataSetVersion": "07.01.004",
       "registrationNumber": "EPD-IES-0013906:001 (S-P-13906)",
       "referenceToOwnershipOfDataSet": {
-        "shortDescription": [{ "value": "Colabeton S.p.A. ", "lang": "en" }],
+        "id": "ILCDadmin:PublicationAndOwnershipreferenceToOwnershipOfDataSet",
+        "shortDescription": [
+          {
+            "id": "ILCDadmin:PublicationAndOwnershipreferenceToOwnershipOfDataSetshortDescriptionEN",
+            "value": "Colabeton S.p.A. ",
+            "lang": "en"
+          }
+        ],
         "type": "contact data set",
         "refObjectId": "56d6d18a-8f7f-4966-500f-08dac88134dd",
         "version": "00.00.001"
@@ -43,6 +71,7 @@
       "copyright": true,
       "accessRestrictions": [
         {
+          "id": "ILCDadmin:PublicationAndOwnershipaccessRestrictionsEN",
           "value": "Your use of this material is subject to the General Terms of Use published on by EPD International AB:s homepage at https://www.environdec.com/contact/General-terms-of-use/. If you have not accepted EPD International AB:s the General Terms of Use, you are not authorized to exploit this work in any manner.",
           "lang": "en"
         }

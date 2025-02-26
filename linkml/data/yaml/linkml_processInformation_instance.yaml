@@ -1,39 +1,56 @@
 processInformation:
+  id: ILCDpi:ProcessInformation
   dataSetInformation:
+    id: ILCDpi:DataSetInformation
     UUID: 63a79af1-1ab0-4677-45a8-08dc6fc9d4ca
     dataSetName:
+      id: ILCDpi:DataSetName
       baseName:
-      - value: ' beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20'
+      - id: ILCDpi:DataSetNamebaseName
+        value: ' beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20'
         lang: en
     classificationInformation:
+      id: ILCDpi:ClassificationInformation
       classification:
-      - classEntries:
-        - value: Construction products, Infrastructure & buildings
+      - id: ILCDpi:Classification
+        classEntries:
+        - id: ILCDpi:ClassEntry
+          value: Construction products, Infrastructure & buildings
           level: 0
           classId: '0'
         name: The International EPD System
   quantitativeReference:
+    id: ILCDpi:QuantitativeReference
     referenceToReferenceFlow:
     - 0
     type: Reference flow(s)
   timeInformation:
+    id: ILCDpi:TimeInformation
     referenceYear: 2024
     dataSetValidUntil: 2029
     timeRepresentativenessDescription:
-    - lang: en
+    - id: ILCDpi:TimeInformationtimeRepresentativenessDescription
+      lang: en
     otherTime:
+      id: ILCDpi:TimeInformationotherTime
       anies:
-      - name: publicationDateOfEPD
+      - id: ILCDpi:publicationDateOfEPD
+        name: publicationDateOfEPD
         timestampValue: 1715904000000
   geography:
+    id: ILCDpi:Geography
     locationOfOperationSupplyOrProduction:
+      id: ILCDpi:LocationOfOperationSupplyOrProduction
       descriptionOfRestrictions:
-      - value: 'Costituents, production and use in Italy. '
+      - id: ILCDpi:LocationOfOperationSupplyOrProductiondescriptionOfRestrictions
+        value: 'Costituents, production and use in Italy. '
         lang: en
       location: IT
   technology:
+    id: ILCDpi:Technology
     technologyDescriptionAndIncludedProcesses:
-    - value: Concrete is produced by mixing cement, aggregates (sand, crushed stone
+    - id: ILCDpi:TechnologytechnologyDescriptionAndIncludedProcesses
+      value: Concrete is produced by mixing cement, aggregates (sand, crushed stone
         and gravel), water and additives. The cement section is  consists  of storage
         silos connected to a weighbridge, the extraction and loading of the cement
         into the truck mixer takes place via closed augers. The suction system and
@@ -50,11 +67,14 @@ processInformation:
         the requirements of the REACH regulation.
       lang: en
     technologicalApplicability:
-    - value: Structural concrete for civil buildings and constructions.
+    - id: ILCDpi:TechnologytechnologicalApplicability
+      value: Structural concrete for civil buildings and constructions.
       lang: en
     referenceToTechnologyFlowDiagrammOrPicture:
-    - shortDescription:
-      - value: Process flow
+    - id: ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPicture
+      shortDescription:
+      - id: ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPictureshortDescription
+        value: Process flow
         lang: en
       type: source data set
       refObjectId: 785a09be-82f3-461a-ba60-c49b80204481
