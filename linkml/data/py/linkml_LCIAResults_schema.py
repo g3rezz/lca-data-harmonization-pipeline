@@ -1,8 +1,8 @@
 # Auto generated from linkml_LCIAResults_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-26T10:09:03
-# Schema: ILCDLCIAResults
+# Generation date: 2025-02-28T18:46:14
+# Schema: ILCDlciaResults
 #
-# id: https://example.org/ILCDLCIAResults
+# id: https://example.org/ILCDlciaResults
 # description:
 # license: CC-BY-4.0
 
@@ -67,7 +67,7 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
-ILCDLCIA = CurieNamespace('ILCDlcia', 'https://example.org/ILCDLCIAResults/')
+ILCDLCIA = CurieNamespace('ILCDlcia', 'https://example.org/ILCDlciaResults/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 DEFAULT_ = ILCDLCIA
 
@@ -214,20 +214,5 @@ slots.LCIAResult = Slot(uri=ILCDLCIA.LCIAResult, name="LCIAResult", curie=ILCDLC
 slots.referenceToLCIAMethodDataSet = Slot(uri=ILCDLCIA.referenceToLCIAMethodDataSet, name="referenceToLCIAMethodDataSet", curie=ILCDLCIA.curie('referenceToLCIAMethodDataSet'),
                    model_uri=ILCDLCIA.referenceToLCIAMethodDataSet, domain=None, range=Optional[Union[dict, ReferenceToLCIAMethodDataSetEntry]])
 
-slots.meanAmount = Slot(uri=ILCDLCIA.meanAmount, name="meanAmount", curie=ILCDLCIA.curie('meanAmount'),
-                   model_uri=ILCDLCIA.meanAmount, domain=None, range=Optional[float])
-
 slots.otherLCIA = Slot(uri=ILCDLCIA.otherLCIA, name="otherLCIA", curie=ILCDLCIA.curie('otherLCIA'),
                    model_uri=ILCDLCIA.otherLCIA, domain=None, range=Optional[Union[dict, LCIAOtherContent]])
-
-slots.lCIAResults__id = Slot(uri=ILCDLCIA.id, name="lCIAResults__id", curie=ILCDLCIA.curie('id'),
-                   model_uri=ILCDLCIA.lCIAResults__id, domain=None, range=URIRef)
-
-slots.lCIAResultEntry__id = Slot(uri=ILCDLCIA.id, name="lCIAResultEntry__id", curie=ILCDLCIA.curie('id'),
-                   model_uri=ILCDLCIA.lCIAResultEntry__id, domain=None, range=URIRef)
-
-slots.referenceToLCIAMethodDataSetEntry__id = Slot(uri=ILCDLCIA.id, name="referenceToLCIAMethodDataSetEntry__id", curie=ILCDLCIA.curie('id'),
-                   model_uri=ILCDLCIA.referenceToLCIAMethodDataSetEntry__id, domain=None, range=URIRef)
-
-slots.lCIAOtherContent__id = Slot(uri=ILCDLCIA.id, name="lCIAOtherContent__id", curie=ILCDLCIA.curie('id'),
-                   model_uri=ILCDLCIA.lCIAOtherContent__id, domain=None, range=URIRef)

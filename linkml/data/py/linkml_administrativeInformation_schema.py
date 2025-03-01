@@ -1,5 +1,5 @@
 # Auto generated from linkml_administrativeInformation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-26T13:13:52
+# Generation date: 2025-02-27T11:03:11
 # Schema: ILCDadministrativeInformation
 #
 # id: https://example.org/ILCDadministrativeInformation

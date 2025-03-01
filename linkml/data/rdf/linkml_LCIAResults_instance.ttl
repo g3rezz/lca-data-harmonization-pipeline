@@ -1,129 +1,129 @@
-@prefix ILCDlcia: <https://example.org/ILCDLCIAResults/> .
+@prefix ILCDlcia: <https://example.org/ILCDlciaResults/> .
 @prefix linkml: <https://w3id.org/linkml/> .
 @prefix ns1: <ILCDsd:> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ILCDlcia:LCIAResult a ILCDlcia:LCIAResultEntry ;
-    ILCDlcia:meanAmount "0.0"^^xsd:float ;
-    ILCDlcia:otherLCIA ILCDlcia:otherLCIAEntry0 ;
-    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:LCIAResultreferenceToLCIAMethodDataSetEntry0 .
+ILCDlcia:LCIAResult0 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:otherLCIA0 ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0 .
 
-ILCDlcia:LCIAResultreferenceToLCIAMethodDataSetEntry0 a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0 a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
     ns1:refObjectId "5f635281-343e-44fb-83df-1971b155e6b6"^^linkml:UUIDType ;
-    ns1:shortDescription ILCDlcia:LCIAResultreferenceToLCIAMethodDataSetEntry0shortDescription ;
-    ns1:type "LCIA method data set" ;
-    ns1:uri "../lciamethods/5f635281-343e-44fb-83df-1971b155e6b6" .
+    ns1:refObjectUri "../lciamethods/5f635281-343e-44fb-83df-1971b155e6b6" ;
+    ns1:shortDescription ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0shortDescriptionEN ;
+    ns1:type "LCIA method data set" .
 
-ILCDlcia:LCIAResultreferenceToLCIAMethodDataSetEntry0shortDescription a ns1:MultiLangString ;
+ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0shortDescriptionEN a ns1:MultiLangString ;
     ns1:lang "en" ;
     ns1:value "Global Warming Potential - fossil fuels (GWP-fossil)" .
 
 ILCDlcia:LCIAResults a ILCDlcia:LCIAResults ;
-    ILCDlcia:LCIAResult ILCDlcia:LCIAResult .
-
-ILCDlcia:moduleA1 a ns1:AniesNameValueObjectValueModule ;
-    ns1:module "A1" ;
-    ns1:value "376.846524413267" .
-
-ILCDlcia:moduleA1A3 a ns1:AniesNameValueObjectValueModule ;
-    ns1:module "A1-A3" ;
-    ns1:value "388.707120265804" .
-
-ILCDlcia:moduleA2 a ns1:AniesNameValueObjectValueModule ;
-    ns1:module "A2" ;
-    ns1:value "10.658975130637" .
-
-ILCDlcia:moduleA3 a ns1:AniesNameValueObjectValueModule ;
-    ns1:module "A3" ;
-    ns1:value "1.20162072189971" .
-
-ILCDlcia:moduleA4 a ns1:AniesNameValueObjectValueModule ;
-    ns1:module "A4" ;
-    ns1:value "ND" .
-
-ILCDlcia:moduleA5 a ns1:AniesNameValueObjectValueModule ;
-    ns1:module "A5" ;
-    ns1:value "ND" .
+    ILCDlcia:LCIAResult ILCDlcia:LCIAResult0 .
 
 ILCDlcia:moduleB1 a ns1:AniesNameValueObjectValueModule ;
     ns1:module "B1" ;
     ns1:value "-4.12301904146275" .
 
-ILCDlcia:moduleB2 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0 a ILCDlcia:LCIAOtherContent ;
+    ns1:anies ILCDlcia:moduleB1,
+        ILCDlcia:otherLCIA0moduleA1,
+        ILCDlcia:otherLCIA0moduleA1A3,
+        ILCDlcia:otherLCIA0moduleA2,
+        ILCDlcia:otherLCIA0moduleA3,
+        ILCDlcia:otherLCIA0moduleA4,
+        ILCDlcia:otherLCIA0moduleA5,
+        ILCDlcia:otherLCIA0moduleB2,
+        ILCDlcia:otherLCIA0moduleB3,
+        ILCDlcia:otherLCIA0moduleB4,
+        ILCDlcia:otherLCIA0moduleB5,
+        ILCDlcia:otherLCIA0moduleB6,
+        ILCDlcia:otherLCIA0moduleB7,
+        ILCDlcia:otherLCIA0moduleC1,
+        ILCDlcia:otherLCIA0moduleC2,
+        ILCDlcia:otherLCIA0moduleC3,
+        ILCDlcia:otherLCIA0moduleC4,
+        ILCDlcia:otherLCIA0moduleD,
+        ILCDlcia:otherLCIA0referenceToUnitGroupDataSet .
+
+ILCDlcia:otherLCIA0moduleA1 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A1" ;
+    ns1:value "376.846524413267" .
+
+ILCDlcia:otherLCIA0moduleA1A3 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A1-A3" ;
+    ns1:value "388.707120265804" .
+
+ILCDlcia:otherLCIA0moduleA2 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A2" ;
+    ns1:value "10.658975130637" .
+
+ILCDlcia:otherLCIA0moduleA3 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A3" ;
+    ns1:value "1.20162072189971" .
+
+ILCDlcia:otherLCIA0moduleA4 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:otherLCIA0moduleA5 a ns1:AniesNameValueObjectValueModule ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:otherLCIA0moduleB2 a ns1:AniesNameValueObjectValueModule ;
     ns1:module "B2" ;
     ns1:value "0" .
 
-ILCDlcia:moduleB3 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleB3 a ns1:AniesNameValueObjectValueModule ;
     ns1:module "B3" ;
     ns1:value "0" .
 
-ILCDlcia:moduleB4 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleB4 a ns1:AniesNameValueObjectValueModule ;
     ns1:module "B4" ;
     ns1:value "0" .
 
-ILCDlcia:moduleB5 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleB5 a ns1:AniesNameValueObjectValueModule ;
     ns1:module "B5" ;
     ns1:value "0" .
 
-ILCDlcia:moduleB6 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleB6 a ns1:AniesNameValueObjectValueModule ;
     ns1:module "B6" ;
     ns1:value "0" .
 
-ILCDlcia:moduleB7 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleB7 a ns1:AniesNameValueObjectValueModule ;
     ns1:module "B7" ;
     ns1:value "0" .
 
-ILCDlcia:moduleC1 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleC1 a ns1:AniesNameValueObjectValueModule ;
     ns1:module "C1" ;
     ns1:value "8.991347753066" .
 
-ILCDlcia:moduleC2 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleC2 a ns1:AniesNameValueObjectValueModule ;
     ns1:module "C2" ;
     ns1:value "9.2273105665125" .
 
-ILCDlcia:moduleC3 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleC3 a ns1:AniesNameValueObjectValueModule ;
     ns1:module "C3" ;
     ns1:value "3.51999580619816" .
 
-ILCDlcia:moduleC4 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleC4 a ns1:AniesNameValueObjectValueModule ;
     ns1:module "C4" ;
     ns1:value "-4.05759050692558" .
 
-ILCDlcia:moduleD a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleD a ns1:AniesNameValueObjectValueModule ;
     ns1:module "D" ;
     ns1:value "-15.07571924265" .
 
-ILCDlcia:otherLCIAEntry0 a ILCDlcia:LCIAOtherContent ;
-    ns1:anies ILCDlcia:moduleA1,
-        ILCDlcia:moduleA1A3,
-        ILCDlcia:moduleA2,
-        ILCDlcia:moduleA3,
-        ILCDlcia:moduleA4,
-        ILCDlcia:moduleA5,
-        ILCDlcia:moduleB1,
-        ILCDlcia:moduleB2,
-        ILCDlcia:moduleB3,
-        ILCDlcia:moduleB4,
-        ILCDlcia:moduleB5,
-        ILCDlcia:moduleB6,
-        ILCDlcia:moduleB7,
-        ILCDlcia:moduleC1,
-        ILCDlcia:moduleC2,
-        ILCDlcia:moduleC3,
-        ILCDlcia:moduleC4,
-        ILCDlcia:moduleD,
-        ILCDlcia:referenceToUnitGroupDataSet .
-
-ILCDlcia:otherLCIAEntry0objectValue a ns1:ShortDescripTypeRefVersion ;
-    ns1:refObjectId "1ebf3012-d0db-4de2-aefd-ef30cedb0be1"^^linkml:UUIDType ;
-    ns1:shortDescription ILCDlcia:otherLCIAEntry0objectValueshortDescription ;
-    ns1:type "unit group data set" ;
-    ns1:uri "../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1" .
-
-ILCDlcia:otherLCIAEntry0objectValueshortDescription a ns1:MultiLangString ;
-    ns1:value "kg CO2 eq." .
-
-ILCDlcia:referenceToUnitGroupDataSet a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0referenceToUnitGroupDataSet a ns1:AniesNameValueObjectValueModule ;
     ns1:name "referenceToUnitGroupDataSet" ;
-    ns1:objectValue ILCDlcia:otherLCIAEntry0objectValue .
+    ns1:objectValue ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValue .
+
+ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValue a ns1:ShortDescripTypeRefVersion ;
+    ns1:refObjectId "1ebf3012-d0db-4de2-aefd-ef30cedb0be1"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1" ;
+    ns1:shortDescription ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValueshortDescription ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValueshortDescription a ns1:MultiLangString ;
+    ns1:value "kg CO2 eq." .
 

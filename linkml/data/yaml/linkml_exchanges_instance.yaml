@@ -1,12 +1,12 @@
 exchanges:
-  id: ILCDex:exchanges
+  id: ILCDex:exchanges_1
   exchange:
-  - id: ILCDex:exchangeEntry0
+  - id: ILCDex:exchanges_1_exchange_1
     dataSetInternalID: 0
     referenceToFlowDataSet:
-      id: ILCDex:exchangeEntry0referenceToFlowDataSet
+      id: ILCDex:exchanges_1_exchange_1_referenceToFlowDataSet_1
       shortDescription:
-      - id: ILCDex:exchangeEntry0referenceToFlowDataSetshortDescription
+      - id: ILCDex:exchanges_1_exchange_1_referenceToFlowDataSet_1_shortDescription_1
         value: ' beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20'
         lang: en
       type: flow data set
@@ -16,9 +16,9 @@ exchanges:
     referenceFlow: true
     resultingflowAmount: 1.0
     flowProperties:
-    - id: ILCDex:exchangeEntry0flowPropertyEntry0
+    - id: ILCDex:exchanges_1_exchange_1_flowProperties_1
       nameFP:
-      - id: ILCDex:exchangeEntry0flowPropertyEntry0nameFP
+      - id: ILCDex:exchanges_1_exchange_1_flowProperties_1_nameFP_1
         lang: en
         value: Volume
       uuidFP: 93a60a56-a3c8-22da-a746-0800200c9a66
@@ -27,23 +27,23 @@ exchanges:
       referenceUnit: m3
       unitGroupUUID: 93a60a57-a3c8-12da-a746-0800200c9a66
     materialProperties:
-    - id: ILCDex:materialPropertyEntry0
+    - id: ILCDex:exchanges_1_exchange_1_materialProperties_1
       name: bulk density (kg/m^3)
       value: '2475.0'
       unit: bulk density (kg/m^3)
       unitDescription: bulk density (kg/m^3)
-    - id: ILCDex:materialPropertyEntry1
+    - id: ILCDex:exchanges_1_exchange_1_materialProperties_2
       name: compressive strength (mpa)
       value: '50.0'
       unit: Compressive strength (MPa)
       unitDescription: Compressive strength (MPa)
     typeOfFlow: Product flow
-  - id: ILCDex:exchangeEntry1
+  - id: ILCDex:exchanges_1_exchange_2
     dataSetInternalID: 1
     referenceToFlowDataSet:
-      id: ILCDex:exchangeEntry1referenceToFlowDataSet
+      id: ILCDex:exchanges_1_exchange_2_referenceToFlowDataSet_1
       shortDescription:
-      - id: ILCDex:exchangeEntry1referenceToFlowDataSetshortDescription
+      - id: ILCDex:exchanges_1_exchange_2_referenceToFlowDataSet_1_shortDescription_1
         value: Use of renewable primary energy as energy carrier (PERE)
         lang: en
       type: flow data set
@@ -51,76 +51,76 @@ exchanges:
     exchangeDirection: INPUT
     meanAmount: 0.0
     otherEx:
-      id: ILCDex:otherExEntry1
+      id: ILCDex:exchanges_1_exchange_2_otherEx_1
       anies:
-      - id: ILCDex:moduleA1
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleA1
         value: '200.331850129794'
         module: A1
-      - id: ILCDex:moduleA2
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleA2
         value: '2.48154315611149'
         module: A2
-      - id: ILCDex:moduleA3
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleA3
         value: '1.10198021926091'
         module: A3
-      - id: ILCDex:moduleA1A3
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleA1A3
         value: '203.915373505166'
         module: A1-A3
-      - id: ILCDex:moduleA4
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleA4
         value: ND
         module: A4
-      - id: ILCDex:moduleA5
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleA5
         value: ND
         module: A5
-      - id: ILCDex:moduleB1
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleB1
         value: '0'
         module: B1
-      - id: ILCDex:moduleB2
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleB2
         value: '0'
         module: B2
-      - id: ILCDex:moduleB3
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleB3
         value: '0'
         module: B3
-      - id: ILCDex:moduleB4
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleB4
         value: '0'
         module: B4
-      - id: ILCDex:moduleB5
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleB5
         value: '0'
         module: B5
-      - id: ILCDex:moduleB6
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleB6
         value: '0'
         module: B6
-      - id: ILCDex:moduleB7
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleB7
         value: '0'
         module: B7
-      - id: ILCDex:moduleC1
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleC1
         value: '0.758557945488'
         module: C1
-      - id: ILCDex:moduleC2
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleC2
         value: '3.542532703875'
         module: C2
-      - id: ILCDex:moduleC3
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleC3
         value: '8.991775066725'
         module: C3
-      - id: ILCDex:moduleC4
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleC4
         value: '1.953996895125'
         module: C4
-      - id: ILCDex:moduleD
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_moduleD
         value: '-14.21955172935'
         module: D
-      - id: ILCDex:referenceToUnitGroupDataSet
+      - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_19
         name: referenceToUnitGroupDataSet
         objectValue:
-          id: ILCDex:referenceToUnitGroupDataSetobjectValue
+          id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_19_objectValue_1
           shortDescription:
-          - id: ILCDex:referenceToUnitGroupDataSetobjectValueshortDescription
+          - id: ILCDex:exchanges_1_exchange_2_otherEx_1_anies_19_objectValue_1_shortDescription_1
             value: MJ
           type: unit group data set
           refObjectId: 93a60a57-a3c8-11da-a746-0800200c9a66
-          uri: ../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66
+          refObjectUri: ../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66
     resolvedFlowVersion: 35.00.000
     flowProperties: []
     typeOfFlow: Other flow
     classificationEx:
-      id: ILCDex:classificationEx
+      id: ILCDex:exchanges_1_exchange_2_classificationEx_1
       classHierarchy: Quantities
       nameClass: GaBiCategories

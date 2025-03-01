@@ -15,10 +15,8 @@ default_prefix: ILCDpi
 classes:
   ProcessInformation:
     description: "Container for the process information section."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - dataSetInformation
       - quantitativeReference
       - timeInformation
@@ -27,64 +25,50 @@ classes:
 
   DataSetInformation:
     description: "Data set information details."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - UUID
       - dataSetName
       - classificationInformation
 
   DataSetName:
     description: "Container for the data set name."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - baseName
 
   ClassificationInformation:
     description: "Classification information for the data set."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - classification
 
   Classification:
     description: "Classification object."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - name
       - classEntries
 
   ClassificationEntry:
     description: "Classification entry."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - value
       - level
       - classId
 
   QuantitativeReference:
     description: "Quantitative reference details."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - referenceToReferenceFlow
       - type
 
   TimeInformation:
     description: "Time-related information for the data set."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - referenceYear
       - dataSetValidUntil
       - timeRepresentativenessDescription
@@ -92,37 +76,30 @@ classes:
 
   GeographyInformation:
     description: "Geographical information details."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - locationOfOperationSupplyOrProduction
 
   LocationInfo:
     description: "Location details."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - descriptionOfRestrictions
       - location
 
   TechnologyInformation:
     description: "Technology information for the data set."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - technologyDescriptionAndIncludedProcesses
       - technologicalApplicability
       - referenceToTechnologyFlowDiagrammOrPicture
 
   TimeOtherContent:
-    attributes:
-      id:
-        identifier: true
-    is_a: OtherContent
     description: "Local subclass for time-related 'other' content."
+    is_a: OtherContent
+    slots:
+      - id
     slot_usage:
       anies:
         range: AniesNameTimestamp

@@ -1,11 +1,9 @@
 name: ILCDexchanges
 id: https://example.org/ILCDexchanges
 license: CC-BY-4.0
-
 imports:
   - linkml:types
   - linkml_shared_definitions # Reuse classes from SharedDefinitions
-
 prefixes:
   linkml: https://w3id.org/linkml/
   ILCDex: https://example.org/ILCDexchanges/
@@ -16,20 +14,16 @@ default_prefix: ILCDex
 ########################################
 classes:
   Exchanges:
-    attributes:
-      id:
-        identifier: true
     description: "Top-level container for the 'exchanges' section."
     slots:
+      - id
       - exchange
 
   # Each item in 'exchange' array
   ExchangeEntry:
-    attributes:
-      id:
-        identifier: true
     description: "A single exchange entry with flow data, amounts, and properties."
     slots:
+      - id
       - dataSetInternalID
       - referenceToFlowDataSet
       - meanAmount
@@ -46,22 +40,19 @@ classes:
   # Define a local sub-class to override the shared 'OtherContent'
   # so that we can override 'anies' to reference a specialized Anies
   ExchangeOtherContent:
-    attributes:
-      id:
-        identifier: true
-    is_a: OtherContent
     description: "Local sub-class that enforces 'module' is required."
+    is_a: OtherContent
+    slots:
+      - id
     slot_usage:
       anies:
         range: AniesNameValueObjectValueModule
 
   # For arrays in 'flowProperties'
   FlowPropertyEntry:
-    attributes:
-      id:
-        identifier: true
     description: "One flow property with name, uuid, referenceFlowProperty, meanValue, referenceUnit, unitGroupUUID."
     slots:
+      - id
       - nameFP
       - uuidFP
       - referenceFlowProperty
@@ -70,20 +61,16 @@ classes:
       - unitGroupUUID
 
   ExchangeClassification:
-    attributes:
-      id:
-        identifier: true
     description: "Simple object for classification with 'classHierarchy' and 'name'."
     slots:
+      - id
       - classHierarchy
       - nameClass
 
   MaterialPropEntry:
-    attributes:
-      id:
-        identifier: true
     description: "Material property list with name, value, unit, unitDescription."
     slots:
+      - id
       - name
       - value
       - unit
@@ -109,10 +96,6 @@ slots:
     range: ShortDescripTypeRefVersion
     inlined: true
     description: "Reference to flow dataset with shortDescription, type, refObjectId, version."
-
-  meanAmount:
-    range: float
-    description: "Mean quantity for the exchange."
 
   referenceFlow:
     range: boolean

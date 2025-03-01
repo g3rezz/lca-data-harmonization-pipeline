@@ -1,81 +1,81 @@
 LCIAResults:
   id: ILCDlcia:LCIAResults
   LCIAResult:
-  - id: ILCDlcia:LCIAResult
+  - id: ILCDlcia:LCIAResult0
     referenceToLCIAMethodDataSet:
-      id: ILCDlcia:LCIAResultreferenceToLCIAMethodDataSetEntry0
+      id: ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0
       shortDescription:
-      - id: ILCDlcia:LCIAResultreferenceToLCIAMethodDataSetEntry0shortDescription
+      - id: ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0shortDescriptionEN
         value: Global Warming Potential - fossil fuels (GWP-fossil)
         lang: en
       type: LCIA method data set
       refObjectId: 5f635281-343e-44fb-83df-1971b155e6b6
-      uri: ../lciamethods/5f635281-343e-44fb-83df-1971b155e6b6
+      refObjectUri: ../lciamethods/5f635281-343e-44fb-83df-1971b155e6b6
     meanAmount: 0.0
     otherLCIA:
-      id: ILCDlcia:otherLCIAEntry0
+      id: ILCDlcia:otherLCIA0
       anies:
-      - id: ILCDlcia:moduleA1
+      - id: ILCDlcia:otherLCIA0moduleA1
         value: '376.846524413267'
         module: A1
-      - id: ILCDlcia:moduleA2
+      - id: ILCDlcia:otherLCIA0moduleA2
         value: '10.658975130637'
         module: A2
-      - id: ILCDlcia:moduleA3
+      - id: ILCDlcia:otherLCIA0moduleA3
         value: '1.20162072189971'
         module: A3
-      - id: ILCDlcia:moduleA1A3
+      - id: ILCDlcia:otherLCIA0moduleA1A3
         value: '388.707120265804'
         module: A1-A3
-      - id: ILCDlcia:moduleA4
+      - id: ILCDlcia:otherLCIA0moduleA4
         value: ND
         module: A4
-      - id: ILCDlcia:moduleA5
+      - id: ILCDlcia:otherLCIA0moduleA5
         value: ND
         module: A5
       - id: ILCDlcia:moduleB1
         value: '-4.12301904146275'
         module: B1
-      - id: ILCDlcia:moduleB2
+      - id: ILCDlcia:otherLCIA0moduleB2
         value: '0'
         module: B2
-      - id: ILCDlcia:moduleB3
+      - id: ILCDlcia:otherLCIA0moduleB3
         value: '0'
         module: B3
-      - id: ILCDlcia:moduleB4
+      - id: ILCDlcia:otherLCIA0moduleB4
         value: '0'
         module: B4
-      - id: ILCDlcia:moduleB5
+      - id: ILCDlcia:otherLCIA0moduleB5
         value: '0'
         module: B5
-      - id: ILCDlcia:moduleB6
+      - id: ILCDlcia:otherLCIA0moduleB6
         value: '0'
         module: B6
-      - id: ILCDlcia:moduleB7
+      - id: ILCDlcia:otherLCIA0moduleB7
         value: '0'
         module: B7
-      - id: ILCDlcia:moduleC1
+      - id: ILCDlcia:otherLCIA0moduleC1
         value: '8.991347753066'
         module: C1
-      - id: ILCDlcia:moduleC2
+      - id: ILCDlcia:otherLCIA0moduleC2
         value: '9.2273105665125'
         module: C2
-      - id: ILCDlcia:moduleC3
+      - id: ILCDlcia:otherLCIA0moduleC3
         value: '3.51999580619816'
         module: C3
-      - id: ILCDlcia:moduleC4
+      - id: ILCDlcia:otherLCIA0moduleC4
         value: '-4.05759050692558'
         module: C4
-      - id: ILCDlcia:moduleD
+      - id: ILCDlcia:otherLCIA0moduleD
         value: '-15.07571924265'
         module: D
-      - id: ILCDlcia:referenceToUnitGroupDataSet
+      - id: ILCDlcia:otherLCIA0referenceToUnitGroupDataSet
         name: referenceToUnitGroupDataSet
         objectValue:
-          id: ILCDlcia:otherLCIAEntry0objectValue
+          id: ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValue
           shortDescription:
-          - id: ILCDlcia:otherLCIAEntry0objectValueshortDescription
+          - id: ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValueshortDescription
             value: kg CO2 eq.
           type: unit group data set
           refObjectId: 1ebf3012-d0db-4de2-aefd-ef30cedb0be1
-          uri: ../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1
+          refObjectUri: ../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1

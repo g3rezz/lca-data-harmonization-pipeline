@@ -1,5 +1,5 @@
 # Auto generated from linkml_processInformation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-26T11:17:42
+# Generation date: 2025-02-28T19:17:49
 # Schema: ILCDprocessInformation
 #
 # id: https://example.org/ILCDprocessInformation
@@ -584,39 +584,3 @@ slots.technologicalApplicability = Slot(uri=ILCDPI.technologicalApplicability, n
 
 slots.referenceToTechnologyFlowDiagrammOrPicture = Slot(uri=ILCDPI.referenceToTechnologyFlowDiagrammOrPicture, name="referenceToTechnologyFlowDiagrammOrPicture", curie=ILCDPI.curie('referenceToTechnologyFlowDiagrammOrPicture'),
                    model_uri=ILCDPI.referenceToTechnologyFlowDiagrammOrPicture, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefId], Union[dict, ShortDescripTypeRef]], List[Union[dict, ShortDescripTypeRef]]]])
-
-slots.processInformation__id = Slot(uri=ILCDPI.id, name="processInformation__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.processInformation__id, domain=None, range=URIRef)
-
-slots.dataSetInformation__id = Slot(uri=ILCDPI.id, name="dataSetInformation__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.dataSetInformation__id, domain=None, range=URIRef)
-
-slots.dataSetName__id = Slot(uri=ILCDPI.id, name="dataSetName__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.dataSetName__id, domain=None, range=URIRef)
-
-slots.classificationInformation__id = Slot(uri=ILCDPI.id, name="classificationInformation__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.classificationInformation__id, domain=None, range=URIRef)
-
-slots.classification__id = Slot(uri=ILCDPI.id, name="classification__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.classification__id, domain=None, range=URIRef)
-
-slots.classificationEntry__id = Slot(uri=ILCDPI.id, name="classificationEntry__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.classificationEntry__id, domain=None, range=URIRef)
-
-slots.quantitativeReference__id = Slot(uri=ILCDPI.id, name="quantitativeReference__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.quantitativeReference__id, domain=None, range=URIRef)
-
-slots.timeInformation__id = Slot(uri=ILCDPI.id, name="timeInformation__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.timeInformation__id, domain=None, range=URIRef)
-
-slots.geographyInformation__id = Slot(uri=ILCDPI.id, name="geographyInformation__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.geographyInformation__id, domain=None, range=URIRef)
-
-slots.locationInfo__id = Slot(uri=ILCDPI.id, name="locationInfo__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.locationInfo__id, domain=None, range=URIRef)
-
-slots.technologyInformation__id = Slot(uri=ILCDPI.id, name="technologyInformation__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.technologyInformation__id, domain=None, range=URIRef)
-
-slots.timeOtherContent__id = Slot(uri=ILCDPI.id, name="timeOtherContent__id", curie=ILCDPI.curie('id'),
-                   model_uri=ILCDPI.timeOtherContent__id, domain=None, range=URIRef)

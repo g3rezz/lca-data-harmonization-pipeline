@@ -15,102 +15,81 @@ default_prefix: ILCDmav
 classes:
   ModellingAndValidation:
     description: "Top-level container for the modellingAndValidation section."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - LCIMethodAndAllocation
       - dataSourcesTreatmentAndRepresentativeness
       - validationInfo
       - complianceDeclarations
       - otherMAV
 
-  LCIMethodAndAllocation:
+  LCIMethodAndAllocationEntry:
     description: "Holds LCI method, allocation info, references, and other content."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - typeOfDataSet
       - referenceToLCAMethodDetails
       - otherMAA
 
   DataSourcesTreatmentAndRepresentativeness:
     description: "Holds references to data sources, usage advice, and other extras."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - referenceToDataSource
       - useAdviceForDataSet
       - otherDSTAR
 
   ValidationInfo:
     description: "Represents the validation information, including review entries."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - review
 
   ReviewEntry:
     description: "A single review entry containing reviewer/institution details."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - referenceToNameOfReviewerAndInstitution
       - type
 
   ComplianceDeclarations:
     description: "Container for compliance-related declarations."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - compliance
 
   ComplianceEntry:
     description: "Holds a reference to a specific compliance system."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - referenceToComplianceSystem
 
   MAVOtherContent:
     description: "Local sub-class for 'other' content in modellingAndValidation (for MAA)."
     is_a: OtherContent
-    attributes:
-      id:
-        identifier: true
+    slots:
+      - id
     slot_usage:
       anies:
         range: AniesNameTypedReference
 
   DSTAROtherRoot:
     description: "Self-contained container for the otherDSTAR section."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - aniesDSTAR
 
   DSTAREntry:
     description: "One entry in the otherDSTAR array. Has a 'name' and a typed 'value'."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - name
       - valueDSTAR
 
   DSTARReference:
     description: "The typed structure that appears under 'value' in each otherDSTAR entry."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - shortDescriptionExtended
       - versionDict
       - type
@@ -121,20 +100,16 @@ classes:
 
   ExtendedMultiLangString:
     description: "Extended multi-language string with a default value and additional language strings."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - value
       - defaultValue
       - lstrings
 
   VersionDict:
     description: "Structured version information."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - versionInt
       - majorVersion
       - minorVersion
@@ -144,18 +119,15 @@ classes:
 
   UUIDDict:
     description: "A wrapper for a UUID value provided as a dictionary."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - uuidValue
 
   MAAOtherContent:
     description: "Local sub-class for 'other' with specialized 'anies'."
     is_a: OtherContent
-    attributes:
-      id:
-        identifier: true
+    slots:
+      - id
     slot_usage:
       anies:
         range: AniesNameValue
@@ -166,7 +138,7 @@ classes:
 slots:
   # --- ModellingAndValidation (top-level)
   LCIMethodAndAllocation:
-    range: LCIMethodAndAllocation
+    range: LCIMethodAndAllocationEntry
     inlined: true
     description: "LCI method and allocation information."
 
