@@ -43,44 +43,44 @@ classes:
     attributes:
       id:
         identifier: true
-    description: "Master reference pattern with optional shortDesc, type, refObjectId, version, uri."
+    description: "Master reference pattern with optional shortDesc, type, refObjectId, version, refObjectUri."
     slots:
       - shortDescription
       - type
       - refObjectId
       - version
-      - uri
+      - refObjectUri
 
   ShortDescripAndType:
     is_a: ReferenceBase
-    description: "Only shortDescription + type, ignoring refObjectId, version, uri."
+    description: "Only shortDescription + type, ignoring refObjectId, version, refObjectUri."
     slot_usage:
       refObjectId:
         recommended: false
       version:
         recommended: false
-      uri:
+      refObjectUri:
         recommended: false
 
   ShortDescripTypeRef:
     is_a: ReferenceBase
-    description: "shortDescription, type, refObjectId only, ignoring version, uri."
+    description: "shortDescription, type, refObjectId only, ignoring version, refObjectUri."
     slot_usage:
       version:
         recommended: false
-      uri:
+      refObjectUri:
         recommended: false
 
   ShortDescripTypeRefVersion:
     is_a: ReferenceBase
-    description: "shortDescription, type, refObjectId, version; ignoring uri."
+    description: "shortDescription, type, refObjectId, version; ignoring refObjectUri."
     slot_usage:
-      uri:
+      refObjectUri:
         recommended: false
 
   ShortDescripTypeRefVersionUri:
     is_a: ReferenceBase
-    description: "Full pattern with shortDescription, type, refObjectId, version, uri."
+    description: "Full pattern with shortDescription, type, refObjectId, version, refObjectUri."
 
   OtherContent:
     description: "A container holding 'anies': a list of anies objects"
@@ -175,67 +175,71 @@ classes:
 
 slots:
   id:
+    description: "Unique ID for building URIs, e.g. 'ex:admininfo/123'."
     range: string
     identifier: true
     required: true
-    description: "Unique ID for building URIs, e.g. 'ex:admininfo/123'."
 
   shortDescription:
+    description: "Short description as multi-lang list."
     range: MultiLangString
     multivalued: true
     inlined_as_list: true
-    description: "Short description as multi-lang list."
 
   type:
-    range: string
     description: "Type indicator."
+    range: string
 
   refObjectId:
-    range: UUIDType
     description: "Reference object ID."
+    range: UUIDType
 
   version:
-    range: string
     description: "Version string (e.g., '00.00.001')."
+    range: string
 
   name:
-    range: string
     description: "Key name in anies entries."
+    range: string
 
   value:
-    range: string
     description: "Generic value field for simple strings."
+    range: string
 
   timestampValue:
-    range: UnixTimestamp
     description: "Stores numeric Unix timestamp."
+    range: UnixTimestamp
 
   objectValue:
+    description: "Dictionary-like object stored as JSON."
     range: ShortDescripTypeRefVersion
     inlined: true
-    description: "Dictionary-like object stored as JSON."
 
   anies:
+    description: "List of arbitrary name-value pairs."
     range: AniesBase
     multivalued: true
     inlined_as_list: true
-    description: "List of arbitrary name-value pairs."
 
   lang:
-    range: string
     description: "Language code (e.g. 'en', 'de')."
-
-  uri:
     range: string
+
+  refObjectUri:
     description: "Optional URI for the data set format."
+    range: string
 
   UUID:
+    description: "Unique Universal Identifier, 16-byte hex number."
     range: UUIDType
     required: true
     minimum_cardinality: 1
     maximum_cardinality: 1
-    description: "Unique Universal Identifier, 16-byte hex number."
 
   module:
-    range: string
     description: "Module name for environmental indicatores."
+    range: string
+
+  meanAmount:
+    description: "Mean numeric value for the exchange and LCIA indicator."
+    range: float

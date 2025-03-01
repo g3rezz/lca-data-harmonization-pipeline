@@ -1,11 +1,9 @@
 name: ILCDadministrativeInformation
 id: https://example.org/ILCDadministrativeInformation
 license: CC-BY-4.0
-
 imports:
   - linkml:types
   - linkml_shared_definitions # Import shared definitions between ILCD YAML schemas
-
 prefixes:
   linkml: https://w3id.org/linkml/
   ILCDadmin: https://example.org/ILCDadministrativeInformation/
@@ -17,37 +15,29 @@ default_prefix: ILCDadmin
 classes:
   AdministrativeInformation:
     description: "Container for the administrativeInformation section."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - dataGenerator
       - dataEntryBy
       - publicationAndOwnership
 
   DataGenerator:
     description: "Holds the reference to the person or entity generating the dataset."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - referenceToPersonOrEntityGeneratingTheDataSet
 
   DataEntryBy:
     description: "Holds timestamp and references to data set formats."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - timeStamp
       - referenceToDataSetFormat
 
   PublicationAndOwnership:
     description: "Contains dataset version, ownership references, etc."
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - dataSetVersion
       - registrationNumber
       - referenceToOwnershipOfDataSet

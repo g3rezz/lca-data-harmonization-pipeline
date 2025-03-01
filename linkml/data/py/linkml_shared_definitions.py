@@ -1,5 +1,5 @@
 # Auto generated from linkml_shared_definitions.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-26T13:13:51
+# Generation date: 2025-02-28T19:46:52
 # Schema: SharedDefinitions
 #
 # id: https://example.org/SharedDefinitions
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from linkml_runtime.linkml_model.types import String
+from linkml_runtime.linkml_model.types import Float, String
 
 metamodel_version = "1.7.0"
 version = None
@@ -160,7 +160,7 @@ class MultiLangStringId(extended_str):
 @dataclass(repr=False)
 class ReferenceBase(YAMLRoot):
     """
-    Master reference pattern with optional shortDesc, type, refObjectId, version, uri.
+    Master reference pattern with optional shortDesc, type, refObjectId, version, refObjectUri.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -174,7 +174,7 @@ class ReferenceBase(YAMLRoot):
     type: Optional[str] = None
     refObjectId: Optional[str] = None
     version: Optional[str] = None
-    uri: Optional[str] = None
+    refObjectUri: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -193,8 +193,8 @@ class ReferenceBase(YAMLRoot):
         if self.version is not None and not isinstance(self.version, str):
             self.version = str(self.version)
 
-        if self.uri is not None and not isinstance(self.uri, str):
-            self.uri = str(self.uri)
+        if self.refObjectUri is not None and not isinstance(self.refObjectUri, str):
+            self.refObjectUri = str(self.refObjectUri)
 
         super().__post_init__(**kwargs)
 
@@ -202,7 +202,7 @@ class ReferenceBase(YAMLRoot):
 @dataclass(repr=False)
 class ShortDescripAndType(ReferenceBase):
     """
-    Only shortDescription + type, ignoring refObjectId, version, uri.
+    Only shortDescription + type, ignoring refObjectId, version, refObjectUri.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -214,7 +214,7 @@ class ShortDescripAndType(ReferenceBase):
     id: Union[str, ShortDescripAndTypeId] = None
     refObjectId: Optional[str] = None
     version: Optional[str] = None
-    uri: Optional[str] = None
+    refObjectUri: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -228,8 +228,8 @@ class ShortDescripAndType(ReferenceBase):
         if self.version is not None and not isinstance(self.version, str):
             self.version = str(self.version)
 
-        if self.uri is not None and not isinstance(self.uri, str):
-            self.uri = str(self.uri)
+        if self.refObjectUri is not None and not isinstance(self.refObjectUri, str):
+            self.refObjectUri = str(self.refObjectUri)
 
         super().__post_init__(**kwargs)
 
@@ -237,7 +237,7 @@ class ShortDescripAndType(ReferenceBase):
 @dataclass(repr=False)
 class ShortDescripTypeRef(ReferenceBase):
     """
-    shortDescription, type, refObjectId only, ignoring version, uri.
+    shortDescription, type, refObjectId only, ignoring version, refObjectUri.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -248,7 +248,7 @@ class ShortDescripTypeRef(ReferenceBase):
 
     id: Union[str, ShortDescripTypeRefId] = None
     version: Optional[str] = None
-    uri: Optional[str] = None
+    refObjectUri: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -259,8 +259,8 @@ class ShortDescripTypeRef(ReferenceBase):
         if self.version is not None and not isinstance(self.version, str):
             self.version = str(self.version)
 
-        if self.uri is not None and not isinstance(self.uri, str):
-            self.uri = str(self.uri)
+        if self.refObjectUri is not None and not isinstance(self.refObjectUri, str):
+            self.refObjectUri = str(self.refObjectUri)
 
         super().__post_init__(**kwargs)
 
@@ -268,7 +268,7 @@ class ShortDescripTypeRef(ReferenceBase):
 @dataclass(repr=False)
 class ShortDescripTypeRefVersion(ReferenceBase):
     """
-    shortDescription, type, refObjectId, version; ignoring uri.
+    shortDescription, type, refObjectId, version; ignoring refObjectUri.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -278,7 +278,7 @@ class ShortDescripTypeRefVersion(ReferenceBase):
     class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripTypeRefVersion
 
     id: Union[str, ShortDescripTypeRefVersionId] = None
-    uri: Optional[str] = None
+    refObjectUri: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -286,8 +286,8 @@ class ShortDescripTypeRefVersion(ReferenceBase):
         if not isinstance(self.id, ShortDescripTypeRefVersionId):
             self.id = ShortDescripTypeRefVersionId(self.id)
 
-        if self.uri is not None and not isinstance(self.uri, str):
-            self.uri = str(self.uri)
+        if self.refObjectUri is not None and not isinstance(self.refObjectUri, str):
+            self.refObjectUri = str(self.refObjectUri)
 
         super().__post_init__(**kwargs)
 
@@ -295,7 +295,7 @@ class ShortDescripTypeRefVersion(ReferenceBase):
 @dataclass(repr=False)
 class ShortDescripTypeRefVersionUri(ReferenceBase):
     """
-    Full pattern with shortDescription, type, refObjectId, version, uri.
+    Full pattern with shortDescription, type, refObjectId, version, refObjectUri.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -650,20 +650,17 @@ slots.anies = Slot(uri=ILCDSD.anies, name="anies", curie=ILCDSD.curie('anies'),
 slots.lang = Slot(uri=ILCDSD.lang, name="lang", curie=ILCDSD.curie('lang'),
                    model_uri=ILCDSD.lang, domain=None, range=Optional[str])
 
-slots.uri = Slot(uri=ILCDSD.uri, name="uri", curie=ILCDSD.curie('uri'),
-                   model_uri=ILCDSD.uri, domain=None, range=Optional[str])
-
-slots.unit = Slot(uri=ILCDSD.unit, name="unit", curie=ILCDSD.curie('unit'),
-                   model_uri=ILCDSD.unit, domain=None, range=Optional[str])
-
-slots.unitDescription = Slot(uri=ILCDSD.unitDescription, name="unitDescription", curie=ILCDSD.curie('unitDescription'),
-                   model_uri=ILCDSD.unitDescription, domain=None, range=Optional[str])
+slots.refObjectUri = Slot(uri=ILCDSD.refObjectUri, name="refObjectUri", curie=ILCDSD.curie('refObjectUri'),
+                   model_uri=ILCDSD.refObjectUri, domain=None, range=Optional[str])
 
 slots.UUID = Slot(uri=ILCDSD.UUID, name="UUID", curie=ILCDSD.curie('UUID'),
                    model_uri=ILCDSD.UUID, domain=None, range=str)
 
 slots.module = Slot(uri=ILCDSD.module, name="module", curie=ILCDSD.curie('module'),
                    model_uri=ILCDSD.module, domain=None, range=Optional[str])
+
+slots.meanAmount = Slot(uri=ILCDSD.meanAmount, name="meanAmount", curie=ILCDSD.curie('meanAmount'),
+                   model_uri=ILCDSD.meanAmount, domain=None, range=Optional[float])
 
 slots.referenceBase__id = Slot(uri=ILCDSD.id, name="referenceBase__id", curie=ILCDSD.curie('id'),
                    model_uri=ILCDSD.referenceBase__id, domain=None, range=URIRef)
@@ -680,17 +677,17 @@ slots.ShortDescripAndType_refObjectId = Slot(uri=ILCDSD.refObjectId, name="Short
 slots.ShortDescripAndType_version = Slot(uri=ILCDSD.version, name="ShortDescripAndType_version", curie=ILCDSD.curie('version'),
                    model_uri=ILCDSD.ShortDescripAndType_version, domain=ShortDescripAndType, range=Optional[str])
 
-slots.ShortDescripAndType_uri = Slot(uri=ILCDSD.uri, name="ShortDescripAndType_uri", curie=ILCDSD.curie('uri'),
-                   model_uri=ILCDSD.ShortDescripAndType_uri, domain=ShortDescripAndType, range=Optional[str])
+slots.ShortDescripAndType_refObjectUri = Slot(uri=ILCDSD.refObjectUri, name="ShortDescripAndType_refObjectUri", curie=ILCDSD.curie('refObjectUri'),
+                   model_uri=ILCDSD.ShortDescripAndType_refObjectUri, domain=ShortDescripAndType, range=Optional[str])
 
 slots.ShortDescripTypeRef_version = Slot(uri=ILCDSD.version, name="ShortDescripTypeRef_version", curie=ILCDSD.curie('version'),
                    model_uri=ILCDSD.ShortDescripTypeRef_version, domain=ShortDescripTypeRef, range=Optional[str])
 
-slots.ShortDescripTypeRef_uri = Slot(uri=ILCDSD.uri, name="ShortDescripTypeRef_uri", curie=ILCDSD.curie('uri'),
-                   model_uri=ILCDSD.ShortDescripTypeRef_uri, domain=ShortDescripTypeRef, range=Optional[str])
+slots.ShortDescripTypeRef_refObjectUri = Slot(uri=ILCDSD.refObjectUri, name="ShortDescripTypeRef_refObjectUri", curie=ILCDSD.curie('refObjectUri'),
+                   model_uri=ILCDSD.ShortDescripTypeRef_refObjectUri, domain=ShortDescripTypeRef, range=Optional[str])
 
-slots.ShortDescripTypeRefVersion_uri = Slot(uri=ILCDSD.uri, name="ShortDescripTypeRefVersion_uri", curie=ILCDSD.curie('uri'),
-                   model_uri=ILCDSD.ShortDescripTypeRefVersion_uri, domain=ShortDescripTypeRefVersion, range=Optional[str])
+slots.ShortDescripTypeRefVersion_refObjectUri = Slot(uri=ILCDSD.refObjectUri, name="ShortDescripTypeRefVersion_refObjectUri", curie=ILCDSD.curie('refObjectUri'),
+                   model_uri=ILCDSD.ShortDescripTypeRefVersion_refObjectUri, domain=ShortDescripTypeRefVersion, range=Optional[str])
 
 slots.AniesNameValue_timestampValue = Slot(uri=ILCDSD.timestampValue, name="AniesNameValue_timestampValue", curie=ILCDSD.curie('timestampValue'),
                    model_uri=ILCDSD.AniesNameValue_timestampValue, domain=AniesNameValue, range=Optional[int])

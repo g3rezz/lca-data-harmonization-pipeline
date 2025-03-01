@@ -1,5 +1,5 @@
 # Auto generated from linkml_modellingAndValidation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-26T12:41:18
+# Generation date: 2025-02-28T19:43:26
 # Schema: ILCDmodellingAndValidation
 #
 # id: https://example.org/ILCDmodellingAndValidation
@@ -80,7 +80,7 @@ class ModellingAndValidationId(extended_str):
     pass
 
 
-class LCIMethodAndAllocationId(extended_str):
+class LCIMethodAndAllocationEntryId(extended_str):
     pass
 
 
@@ -149,7 +149,7 @@ class ModellingAndValidation(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ILCDMAV.ModellingAndValidation
 
     id: Union[str, ModellingAndValidationId] = None
-    LCIMethodAndAllocation: Optional[Union[dict, "LCIMethodAndAllocation"]] = None
+    LCIMethodAndAllocation: Optional[Union[dict, "LCIMethodAndAllocationEntry"]] = None
     dataSourcesTreatmentAndRepresentativeness: Optional[Union[dict, "DataSourcesTreatmentAndRepresentativeness"]] = None
     validationInfo: Optional[Union[dict, "ValidationInfo"]] = None
     complianceDeclarations: Optional[Union[dict, "ComplianceDeclarations"]] = None
@@ -161,8 +161,8 @@ class ModellingAndValidation(YAMLRoot):
         if not isinstance(self.id, ModellingAndValidationId):
             self.id = ModellingAndValidationId(self.id)
 
-        if self.LCIMethodAndAllocation is not None and not isinstance(self.LCIMethodAndAllocation, LCIMethodAndAllocation):
-            self.LCIMethodAndAllocation = LCIMethodAndAllocation(**as_dict(self.LCIMethodAndAllocation))
+        if self.LCIMethodAndAllocation is not None and not isinstance(self.LCIMethodAndAllocation, LCIMethodAndAllocationEntry):
+            self.LCIMethodAndAllocation = LCIMethodAndAllocationEntry(**as_dict(self.LCIMethodAndAllocation))
 
         if self.dataSourcesTreatmentAndRepresentativeness is not None and not isinstance(self.dataSourcesTreatmentAndRepresentativeness, DataSourcesTreatmentAndRepresentativeness):
             self.dataSourcesTreatmentAndRepresentativeness = DataSourcesTreatmentAndRepresentativeness(**as_dict(self.dataSourcesTreatmentAndRepresentativeness))
@@ -180,18 +180,18 @@ class ModellingAndValidation(YAMLRoot):
 
 
 @dataclass(repr=False)
-class LCIMethodAndAllocation(YAMLRoot):
+class LCIMethodAndAllocationEntry(YAMLRoot):
     """
     Holds LCI method, allocation info, references, and other content.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = ILCDMAV["LCIMethodAndAllocation"]
-    class_class_curie: ClassVar[str] = "ILCDmav:LCIMethodAndAllocation"
-    class_name: ClassVar[str] = "LCIMethodAndAllocation"
-    class_model_uri: ClassVar[URIRef] = ILCDMAV.LCIMethodAndAllocation
+    class_class_uri: ClassVar[URIRef] = ILCDMAV["LCIMethodAndAllocationEntry"]
+    class_class_curie: ClassVar[str] = "ILCDmav:LCIMethodAndAllocationEntry"
+    class_name: ClassVar[str] = "LCIMethodAndAllocationEntry"
+    class_model_uri: ClassVar[URIRef] = ILCDMAV.LCIMethodAndAllocationEntry
 
-    id: Union[str, LCIMethodAndAllocationId] = None
+    id: Union[str, LCIMethodAndAllocationEntryId] = None
     typeOfDataSet: Optional[str] = None
     referenceToLCAMethodDetails: Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]] = empty_dict()
     otherMAA: Optional[Union[dict, "MAAOtherContent"]] = None
@@ -199,8 +199,8 @@ class LCIMethodAndAllocation(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, LCIMethodAndAllocationId):
-            self.id = LCIMethodAndAllocationId(self.id)
+        if not isinstance(self.id, LCIMethodAndAllocationEntryId):
+            self.id = LCIMethodAndAllocationEntryId(self.id)
 
         if self.typeOfDataSet is not None and not isinstance(self.typeOfDataSet, str):
             self.typeOfDataSet = str(self.typeOfDataSet)
@@ -631,7 +631,7 @@ class slots:
     pass
 
 slots.LCIMethodAndAllocation = Slot(uri=ILCDMAV.LCIMethodAndAllocation, name="LCIMethodAndAllocation", curie=ILCDMAV.curie('LCIMethodAndAllocation'),
-                   model_uri=ILCDMAV.LCIMethodAndAllocation, domain=None, range=Optional[Union[dict, LCIMethodAndAllocation]])
+                   model_uri=ILCDMAV.LCIMethodAndAllocation, domain=None, range=Optional[Union[dict, LCIMethodAndAllocationEntry]])
 
 slots.dataSourcesTreatmentAndRepresentativeness = Slot(uri=ILCDMAV.dataSourcesTreatmentAndRepresentativeness, name="dataSourcesTreatmentAndRepresentativeness", curie=ILCDMAV.curie('dataSourcesTreatmentAndRepresentativeness'),
                    model_uri=ILCDMAV.dataSourcesTreatmentAndRepresentativeness, domain=None, range=Optional[Union[dict, DataSourcesTreatmentAndRepresentativeness]])
@@ -722,48 +722,3 @@ slots.compliance = Slot(uri=ILCDMAV.compliance, name="compliance", curie=ILCDMAV
 
 slots.referenceToComplianceSystem = Slot(uri=ILCDMAV.referenceToComplianceSystem, name="referenceToComplianceSystem", curie=ILCDMAV.curie('referenceToComplianceSystem'),
                    model_uri=ILCDMAV.referenceToComplianceSystem, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]])
-
-slots.modellingAndValidation__id = Slot(uri=ILCDMAV.id, name="modellingAndValidation__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.modellingAndValidation__id, domain=None, range=URIRef)
-
-slots.lCIMethodAndAllocation__id = Slot(uri=ILCDMAV.id, name="lCIMethodAndAllocation__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.lCIMethodAndAllocation__id, domain=None, range=URIRef)
-
-slots.dataSourcesTreatmentAndRepresentativeness__id = Slot(uri=ILCDMAV.id, name="dataSourcesTreatmentAndRepresentativeness__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.dataSourcesTreatmentAndRepresentativeness__id, domain=None, range=URIRef)
-
-slots.validationInfo__id = Slot(uri=ILCDMAV.id, name="validationInfo__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.validationInfo__id, domain=None, range=URIRef)
-
-slots.reviewEntry__id = Slot(uri=ILCDMAV.id, name="reviewEntry__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.reviewEntry__id, domain=None, range=URIRef)
-
-slots.complianceDeclarations__id = Slot(uri=ILCDMAV.id, name="complianceDeclarations__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.complianceDeclarations__id, domain=None, range=URIRef)
-
-slots.complianceEntry__id = Slot(uri=ILCDMAV.id, name="complianceEntry__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.complianceEntry__id, domain=None, range=URIRef)
-
-slots.mAVOtherContent__id = Slot(uri=ILCDMAV.id, name="mAVOtherContent__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.mAVOtherContent__id, domain=None, range=URIRef)
-
-slots.dSTAROtherRoot__id = Slot(uri=ILCDMAV.id, name="dSTAROtherRoot__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.dSTAROtherRoot__id, domain=None, range=URIRef)
-
-slots.dSTAREntry__id = Slot(uri=ILCDMAV.id, name="dSTAREntry__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.dSTAREntry__id, domain=None, range=URIRef)
-
-slots.dSTARReference__id = Slot(uri=ILCDMAV.id, name="dSTARReference__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.dSTARReference__id, domain=None, range=URIRef)
-
-slots.extendedMultiLangString__id = Slot(uri=ILCDMAV.id, name="extendedMultiLangString__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.extendedMultiLangString__id, domain=None, range=URIRef)
-
-slots.versionDict__id = Slot(uri=ILCDMAV.id, name="versionDict__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.versionDict__id, domain=None, range=URIRef)
-
-slots.uUIDDict__id = Slot(uri=ILCDMAV.id, name="uUIDDict__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.uUIDDict__id, domain=None, range=URIRef)
-
-slots.mAAOtherContent__id = Slot(uri=ILCDMAV.id, name="mAAOtherContent__id", curie=ILCDMAV.curie('id'),
-                   model_uri=ILCDMAV.mAAOtherContent__id, domain=None, range=URIRef)

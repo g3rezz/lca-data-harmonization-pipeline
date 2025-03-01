@@ -1,14 +1,12 @@
-name: ILCDLCIAResults
-id: https://example.org/ILCDLCIAResults
+name: ILCDlciaResults
+id: https://example.org/ILCDlciaResults
 license: CC-BY-4.0
-
 imports:
   - linkml:types
   - linkml_shared_definitions # Reuse classes/slots from SharedDefinitions
-
 prefixes:
   linkml: https://w3id.org/linkml/
-  ILCDlcia: https://example.org/ILCDLCIAResults/
+  ILCDlcia: https://example.org/ILCDlciaResults/
 default_prefix: ILCDlcia
 
 ########################################
@@ -16,37 +14,31 @@ default_prefix: ILCDlcia
 ########################################
 classes:
   LCIAResults:
-    attributes:
-      id:
-        identifier: true
     description: "Top-level container for the LCIAResults section."
     slots:
+      - id
       - LCIAResult
 
   # Each entry in the LCIAResult array
   LCIAResultEntry:
-    attributes:
-      id:
-        identifier: true
     description: "Represents a single LCIA result object."
     slots:
+      - id
       - referenceToLCIAMethodDataSet
       - meanAmount
       - otherLCIA # renamed from 'other' to avoid collisions
 
   referenceToLCIAMethodDataSetEntry:
-    is_a: ShortDescripTypeRefVersionUri
-    attributes:
-      id:
-        identifier: true
     description: "Local sub-class for referenceToLCIAMethodDataSet, inheriting from ShortDescripTypeRefVersionUri"
+    is_a: ShortDescripTypeRefVersionUri
+    slots:
+      - id
 
   LCIAOtherContent:
-    attributes:
-      id:
-        identifier: true
-    is_a: OtherContent
     description: "Custom class for LCIA 'other'."
+    is_a: OtherContent
+    slots:
+      - id
     slot_usage:
       anies:
         range: AniesNameValueObjectValueModule
@@ -67,10 +59,6 @@ slots:
     range: referenceToLCIAMethodDataSetEntry
     inlined: true
     description: "Reference to the LCIA method data set (includes shortDescription, type, refObjectId, version, uri)."
-
-  meanAmount:
-    range: float
-    description: "Mean numeric value for the LCIA indicator."
 
   otherLCIA:
     range: LCIAOtherContent

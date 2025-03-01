@@ -1,5 +1,5 @@
 # Auto generated from linkml_exchanges_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-26T09:22:28
+# Generation date: 2025-02-28T19:46:52
 # Schema: ILCDexchanges
 #
 # id: https://example.org/ILCDexchanges
@@ -353,9 +353,6 @@ slots.dataSetInternalID = Slot(uri=ILCDEX.dataSetInternalID, name="dataSetIntern
 slots.referenceToFlowDataSet = Slot(uri=ILCDEX.referenceToFlowDataSet, name="referenceToFlowDataSet", curie=ILCDEX.curie('referenceToFlowDataSet'),
                    model_uri=ILCDEX.referenceToFlowDataSet, domain=None, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
 
-slots.meanAmount = Slot(uri=ILCDEX.meanAmount, name="meanAmount", curie=ILCDEX.curie('meanAmount'),
-                   model_uri=ILCDEX.meanAmount, domain=None, range=Optional[float])
-
 slots.referenceFlow = Slot(uri=ILCDEX.referenceFlow, name="referenceFlow", curie=ILCDEX.curie('referenceFlow'),
                    model_uri=ILCDEX.referenceFlow, domain=None, range=Optional[Union[bool, Bool]])
 
@@ -407,20 +404,8 @@ slots.nameClass = Slot(uri=ILCDEX.nameClass, name="nameClass", curie=ILCDEX.curi
 slots.nameFP = Slot(uri=ILCDEX.nameFP, name="nameFP", curie=ILCDEX.curie('nameFP'),
                    model_uri=ILCDEX.nameFP, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
-slots.exchanges__id = Slot(uri=ILCDEX.id, name="exchanges__id", curie=ILCDEX.curie('id'),
-                   model_uri=ILCDEX.exchanges__id, domain=None, range=URIRef)
+slots.unit = Slot(uri=ILCDEX.unit, name="unit", curie=ILCDEX.curie('unit'),
+                   model_uri=ILCDEX.unit, domain=None, range=Optional[str])
 
-slots.exchangeEntry__id = Slot(uri=ILCDEX.id, name="exchangeEntry__id", curie=ILCDEX.curie('id'),
-                   model_uri=ILCDEX.exchangeEntry__id, domain=None, range=URIRef)
-
-slots.exchangeOtherContent__id = Slot(uri=ILCDEX.id, name="exchangeOtherContent__id", curie=ILCDEX.curie('id'),
-                   model_uri=ILCDEX.exchangeOtherContent__id, domain=None, range=URIRef)
-
-slots.flowPropertyEntry__id = Slot(uri=ILCDEX.id, name="flowPropertyEntry__id", curie=ILCDEX.curie('id'),
-                   model_uri=ILCDEX.flowPropertyEntry__id, domain=None, range=URIRef)
-
-slots.exchangeClassification__id = Slot(uri=ILCDEX.id, name="exchangeClassification__id", curie=ILCDEX.curie('id'),
-                   model_uri=ILCDEX.exchangeClassification__id, domain=None, range=URIRef)
-
-slots.materialPropEntry__id = Slot(uri=ILCDEX.id, name="materialPropEntry__id", curie=ILCDEX.curie('id'),
-                   model_uri=ILCDEX.materialPropEntry__id, domain=None, range=URIRef)
+slots.unitDescription = Slot(uri=ILCDEX.unitDescription, name="unitDescription", curie=ILCDEX.curie('unitDescription'),
+                   model_uri=ILCDEX.unitDescription, domain=None, range=Optional[str])
