@@ -26,6 +26,7 @@ classes:
       - id
       - referenceToLCIAMethodDataSet
       - meanAmount
+      - uncertaintyDistributionType
       - otherLCIA # renamed from 'other' to avoid collisions
 
   referenceToLCIAMethodDataSetEntry:

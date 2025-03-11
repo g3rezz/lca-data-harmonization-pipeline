@@ -23,19 +23,25 @@ classes:
       - geography
       - technology
 
+  # --- dataSetInformation
   DataSetInformation:
     description: "Data set information details."
     slots:
       - id
       - UUID
       - dataSetName
+      - synonyms
       - classificationInformation
+      - generalComment
+      - referenceToExternalDocumentation
+      - otherDSI
 
   DataSetName:
     description: "Container for the data set name."
     slots:
       - id
       - baseName
+      - functionalUnitFlowProperties
 
   ClassificationInformation:
     description: "Classification information for the data set."
@@ -58,6 +64,16 @@ classes:
       - level
       - classId
 
+  DSIOtherContent:
+    description: "Local sub-class for 'other' content in DataSetInformation."
+    is_a: OtherContent
+    slots:
+      - id
+    slot_usage:
+      anies:
+        range: AniesWithScenario
+
+  # --- quantitativeReference
   QuantitativeReference:
     description: "Quantitative reference details."
     slots:
@@ -94,6 +110,7 @@ classes:
       - technologyDescriptionAndIncludedProcesses
       - technologicalApplicability
       - referenceToTechnologyFlowDiagrammOrPicture
+      - referenceToTechnologyPictogramme
 
   TimeOtherContent:
     description: "Local subclass for time-related 'other' content."
@@ -111,10 +128,10 @@ slots:
   # -- ProcessInformation top-level
   dataSetInformation:
     range: DataSetInformation
+    inlined: true
     required: true
     minimum_cardinality: 1
     maximum_cardinality: 1
-    inlined: true
 
   quantitativeReference:
     range: QuantitativeReference
@@ -138,8 +155,50 @@ slots:
     inlined: true
     description: "Container for baseName (multi-lang)."
 
+  synonyms:
+    range: MultiLangString
+    multivalued: true
+    inlined_as_list: true
+    required: false
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Synonyms / alternative names / brands of the good, service, or process. 
+      Separated by semicolon.
+
   classificationInformation:
     range: ClassificationInformation
+    inlined: true
+
+  generalComment:
+    range: MultiLangString
+    multivalued: true
+    inlined_as_list: true
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      General information about the data set, including e.g. general 
+      (internal, not reviewed) quality statements as well as information 
+      sources used. (Note: Please also check the more specific fields e.g. 
+      on "Advice on data set use" to avoid overlapping entries.)
+
+  referenceToExternalDocumentation:
+    range: ShortDescripTypeRefVersionUri
+    multivalued: true
+    inlined_as_list: true
+    required: false
+    description: >
+      "Source data set(s)" of detailed LCA study on the process or product 
+      represented by this data set, as well as documents / files with 
+      overarching documentative information on technology, geographical 
+      and / or time aspects etc. (e.g. basic engineering studies, process 
+      simulation results, patents, plant documentation, model behind the 
+      parameterisation of the "Mathematical model" section, etc.) 
+      (Note: can indirectly reference to digital file.)
+
+  otherDSI:
+    range: DSIOtherContent
     inlined: true
 
   # -- DataSetName
@@ -151,6 +210,20 @@ slots:
     minimum_cardinality: 1
     maximum_cardinality: 1
     description: "Base name as a list of {value, lang}."
+
+  functionalUnitFlowProperties:
+    range: MultiLangString
+    multivalued: true
+    inlined_as_list: true
+    required: false
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Further, quantitative specifying information on the good, service or 
+      process in technical term(s): qualifying constituent(s)-content and / or 
+      energy-content per unit etc. as appropriate. Separated by commata. 
+      (Note: non-qualifying flow properties, CAS No, Synonyms, Chemical 
+      formulas etc. are documented exclusively in the "Flow data set".)
 
   # -- ClassificationInformation
   classification:
@@ -232,7 +305,19 @@ slots:
     description: "List of multi-language strings for technology applicability."
 
   referenceToTechnologyFlowDiagrammOrPicture:
-    range: ShortDescripTypeRef
+    range: ShortDescripTypeRefVersionUri
     multivalued: true
     inlined_as_list: true
     description: "List of references to diagrams/pictures."
+
+  referenceToTechnologyPictogramme:
+    range: ShortDescripTypeRefVersionUri
+    multivalued: true
+    inlined_as_list: true
+    required: false
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      "Source data set" of the pictogramme of the good, service, technogy, 
+      plant etc. represented by this data set. For use in graphical 
+      user interfaces of LCA software.

@@ -1,5 +1,5 @@
 # Auto generated from linkml_shared_definitions.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-28T19:46:52
+# Generation date: 2025-03-11T14:54:43
 # Schema: SharedDefinitions
 #
 # id: https://example.org/SharedDefinitions
@@ -57,7 +57,8 @@ from rdflib import (
     URIRef
 )
 
-from linkml_runtime.linkml_model.types import Float, String
+from linkml_runtime.linkml_model.types import Boolean, Float, String
+from linkml_runtime.utils.metamodelcore import Bool
 
 metamodel_version = "1.7.0"
 version = None
@@ -150,6 +151,14 @@ class AniesNameValueObjectValueModuleId(AniesBaseId):
 
 
 class AniesNameTypedReferenceId(AniesBaseId):
+    pass
+
+
+class AniesWithScenarioId(AniesBaseId):
+    pass
+
+
+class ScenarioId(extended_str):
     pass
 
 
@@ -318,7 +327,7 @@ class ShortDescripTypeRefVersionUri(ReferenceBase):
 @dataclass(repr=False)
 class OtherContent(YAMLRoot):
     """
-    A container holding 'anies': a list of anies objects
+    A container holding 'anies' a list of anies objects
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -353,6 +362,10 @@ class AniesBase(YAMLRoot):
     timestampValue: Optional[int] = None
     objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
     module: Optional[str] = None
+    scenario: Optional[str] = None
+    margins: Optional[float] = None
+    description: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, "MultiLangString"]], List[Union[dict, "MultiLangString"]]]] = empty_dict()
+    objectScenario: Optional[Union[Dict[Union[str, ScenarioId], Union[dict, "Scenario"]], List[Union[dict, "Scenario"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -374,6 +387,16 @@ class AniesBase(YAMLRoot):
 
         if self.module is not None and not isinstance(self.module, str):
             self.module = str(self.module)
+
+        if self.scenario is not None and not isinstance(self.scenario, str):
+            self.scenario = str(self.scenario)
+
+        if self.margins is not None and not isinstance(self.margins, float):
+            self.margins = float(self.margins)
+
+        self._normalize_inlined_as_list(slot_name="description", slot_type=MultiLangString, key_name="id", keyed=True)
+
+        self._normalize_inlined_as_list(slot_name="objectScenario", slot_type=Scenario, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -583,6 +606,83 @@ class AniesNameTypedReference(AniesBase):
 
 
 @dataclass(repr=False)
+class AniesWithScenario(AniesBase):
+    """
+    Anies object that allows scenarios.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["AniesWithScenario"]
+    class_class_curie: ClassVar[str] = "ILCDsd:AniesWithScenario"
+    class_name: ClassVar[str] = "AniesWithScenario"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.AniesWithScenario
+
+    id: Union[str, AniesWithScenarioId] = None
+    name: Optional[str] = None
+    value: Optional[str] = None
+    timestampValue: Optional[int] = None
+    objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    module: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AniesWithScenarioId):
+            self.id = AniesWithScenarioId(self.id)
+
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self.value is not None and not isinstance(self.value, str):
+            self.value = str(self.value)
+
+        if self.timestampValue is not None and not isinstance(self.timestampValue, int):
+            self.timestampValue = int(self.timestampValue)
+
+        if self.objectValue is not None and not isinstance(self.objectValue, ShortDescripTypeRefVersion):
+            self.objectValue = ShortDescripTypeRefVersion(**as_dict(self.objectValue))
+
+        if self.module is not None and not isinstance(self.module, str):
+            self.module = str(self.module)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class Scenario(YAMLRoot):
+    """
+    A list of scenarios stored inside 'anies'.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = ILCDSD["Scenario"]
+    class_class_curie: ClassVar[str] = "ILCDsd:Scenario"
+    class_name: ClassVar[str] = "Scenario"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.Scenario
+
+    id: Union[str, ScenarioId] = None
+    description: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, "MultiLangString"]], List[Union[dict, "MultiLangString"]]]] = empty_dict()
+    name: Optional[str] = None
+    default: Optional[Union[bool, Bool]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ScenarioId):
+            self.id = ScenarioId(self.id)
+
+        self._normalize_inlined_as_list(slot_name="description", slot_type=MultiLangString, key_name="id", keyed=True)
+
+        if self.name is not None and not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self.default is not None and not isinstance(self.default, Bool):
+            self.default = Bool(self.default)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class MultiLangString(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -623,6 +723,9 @@ slots.id = Slot(uri=ILCDSD.id, name="id", curie=ILCDSD.curie('id'),
 slots.shortDescription = Slot(uri=ILCDSD.shortDescription, name="shortDescription", curie=ILCDSD.curie('shortDescription'),
                    model_uri=ILCDSD.shortDescription, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
+slots.description = Slot(uri=ILCDSD.description, name="description", curie=ILCDSD.curie('description'),
+                   model_uri=ILCDSD.description, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
+
 slots.type = Slot(uri=ILCDSD.type, name="type", curie=ILCDSD.curie('type'),
                    model_uri=ILCDSD.type, domain=None, range=Optional[str])
 
@@ -661,6 +764,21 @@ slots.module = Slot(uri=ILCDSD.module, name="module", curie=ILCDSD.curie('module
 
 slots.meanAmount = Slot(uri=ILCDSD.meanAmount, name="meanAmount", curie=ILCDSD.curie('meanAmount'),
                    model_uri=ILCDSD.meanAmount, domain=None, range=Optional[float])
+
+slots.objectScenario = Slot(uri=ILCDSD.objectScenario, name="objectScenario", curie=ILCDSD.curie('objectScenario'),
+                   model_uri=ILCDSD.objectScenario, domain=None, range=Optional[Union[Dict[Union[str, ScenarioId], Union[dict, Scenario]], List[Union[dict, Scenario]]]])
+
+slots.default = Slot(uri=ILCDSD.default, name="default", curie=ILCDSD.curie('default'),
+                   model_uri=ILCDSD.default, domain=None, range=Optional[Union[bool, Bool]])
+
+slots.margins = Slot(uri=ILCDSD.margins, name="margins", curie=ILCDSD.curie('margins'),
+                   model_uri=ILCDSD.margins, domain=None, range=Optional[float])
+
+slots.scenario = Slot(uri=ILCDSD.scenario, name="scenario", curie=ILCDSD.curie('scenario'),
+                   model_uri=ILCDSD.scenario, domain=None, range=Optional[str])
+
+slots.uncertaintyDistributionType = Slot(uri=ILCDSD.uncertaintyDistributionType, name="uncertaintyDistributionType", curie=ILCDSD.curie('uncertaintyDistributionType'),
+                   model_uri=ILCDSD.uncertaintyDistributionType, domain=None, range=Optional[str])
 
 slots.referenceBase__id = Slot(uri=ILCDSD.id, name="referenceBase__id", curie=ILCDSD.curie('id'),
                    model_uri=ILCDSD.referenceBase__id, domain=None, range=URIRef)
@@ -736,3 +854,18 @@ slots.AniesNameTypedReference_timestampValue = Slot(uri=ILCDSD.timestampValue, n
 
 slots.AniesNameTypedReference_module = Slot(uri=ILCDSD.module, name="AniesNameTypedReference_module", curie=ILCDSD.curie('module'),
                    model_uri=ILCDSD.AniesNameTypedReference_module, domain=AniesNameTypedReference, range=Optional[str])
+
+slots.AniesWithScenario_name = Slot(uri=ILCDSD.name, name="AniesWithScenario_name", curie=ILCDSD.curie('name'),
+                   model_uri=ILCDSD.AniesWithScenario_name, domain=AniesWithScenario, range=Optional[str])
+
+slots.AniesWithScenario_value = Slot(uri=ILCDSD.value, name="AniesWithScenario_value", curie=ILCDSD.curie('value'),
+                   model_uri=ILCDSD.AniesWithScenario_value, domain=AniesWithScenario, range=Optional[str])
+
+slots.AniesWithScenario_timestampValue = Slot(uri=ILCDSD.timestampValue, name="AniesWithScenario_timestampValue", curie=ILCDSD.curie('timestampValue'),
+                   model_uri=ILCDSD.AniesWithScenario_timestampValue, domain=AniesWithScenario, range=Optional[int])
+
+slots.AniesWithScenario_objectValue = Slot(uri=ILCDSD.objectValue, name="AniesWithScenario_objectValue", curie=ILCDSD.curie('objectValue'),
+                   model_uri=ILCDSD.AniesWithScenario_objectValue, domain=AniesWithScenario, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+
+slots.AniesWithScenario_module = Slot(uri=ILCDSD.module, name="AniesWithScenario_module", curie=ILCDSD.curie('module'),
+                   model_uri=ILCDSD.AniesWithScenario_module, domain=AniesWithScenario, range=Optional[str])

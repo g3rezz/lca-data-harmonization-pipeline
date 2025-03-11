@@ -49,7 +49,9 @@ classes:
     description: "A single review entry containing reviewer/institution details."
     slots:
       - id
+      - reviewDetails
       - referenceToNameOfReviewerAndInstitution
+      - referenceToCompleteReviewReport
       - type
 
   ComplianceDeclarations:
@@ -63,6 +65,12 @@ classes:
     slots:
       - id
       - referenceToComplianceSystem
+      - approvalOfOverallCompliance
+      - nomenclatureCompliance
+      - methodologicalCompliance
+      - reviewCompliance
+      - documentationCompliance
+      - qualityCompliance
 
   MAVOtherContent:
     description: "Local sub-class for 'other' content in modellingAndValidation (for MAA)."
@@ -140,22 +148,43 @@ slots:
   LCIMethodAndAllocation:
     range: LCIMethodAndAllocationEntry
     inlined: true
-    description: "LCI method and allocation information."
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      LCI methodological modelling aspects including allocation / substitution 
+      information.
 
   dataSourcesTreatmentAndRepresentativeness:
     range: DataSourcesTreatmentAndRepresentativeness
     inlined: true
-    description: "Data sources treatment and representativeness information."
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Data selection, completeness, and treatment principles and procedures, 
+      data sources and market coverage information.
 
   validationInfo:
     range: ValidationInfo
     inlined: true
-    description: "Validation information."
+    required: false
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Review information on LCIA method.
 
   complianceDeclarations:
     range: ComplianceDeclarations
     inlined: true
-    description: "Compliance declarations."
+    required: false
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Statements on compliance of several data set aspects with compliance 
+      requirements as defined by the referenced compliance system 
+      (e.g. an EPD scheme, handbook of a national or international data 
+      network such as the ILCD, etc.).
 
   otherMAV:
     range: MAVOtherContent
@@ -165,12 +194,19 @@ slots:
   # --- LCIMethodAndAllocation
   typeOfDataSet:
     range: string
-    description: "Indicates type of data set (e.g., EPD)."
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Type of the data set regarding systematic inclusion/exclusion of upstream 
+      or downstream processes, transparency and internal (hidden) 
+      multi-functionality, and the completeness of modelling.
 
   referenceToLCAMethodDetails:
     range: ShortDescripTypeRefVersion
     multivalued: true
     inlined_as_list: true
+    required: false
     description: "List of references to LCA method details."
 
   otherMAA:
@@ -183,13 +219,24 @@ slots:
     range: ShortDescripTypeRefVersion
     multivalued: true
     inlined_as_list: true
-    description: "List of references to data sources."
+    recommended: true
+    description: >
+      "Source data set(s)" of the data source(s) used for the data set e.g. 
+      paper, questionnaire, monography etc. The main data sources e.g. for 
+      underlying substance properties are named, too.
 
   useAdviceForDataSet:
     range: MultiLangString
     multivalued: true
     inlined_as_list: true
-    description: "Guidance on data set usage."
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Methodological advice for the use and application of this data set, 
+      such as limits in applicability or representativeness as well as 
+      recommendations to use it together with others from the same LCIA 
+      methodology to ensure consistency.
 
   # --- otherDSTAR
   otherDSTAR:
@@ -276,24 +323,125 @@ slots:
     range: ReviewEntry
     multivalued: true
     inlined_as_list: true
-    description: "List of review entries."
+    recommended: true
+    description: "Review information on data set."
+
+  referenceToCompleteReviewReport:
+    range: ShortDescripAndType
+    multivalued: true
+    inlined_as_list: true
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      "Source data set" of the complete review report.
 
   referenceToNameOfReviewerAndInstitution:
     range: ShortDescripAndType
     multivalued: true
     inlined_as_list: true
-    description: "Multi-language short descriptions for reviewer and institution."
+    recommended: true
+    description: >
+      "Contact data set" of reviewer. The full name of reviewer(s) and 
+      institution(s) as well as a contact address and/or email should be 
+      provided in that contact data set.
+
+  reviewDetails:
+    range: MultiLangString
+    multivalued: true
+    inlined_as_list: true
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Summary of the review. All the following items should be explicitly 
+      addressed: Representativeness, completeness, and precision of Inputs and 
+      Outputs for the process in its documented location, technology and time 
+      i.e. both completeness of technical model (product, waste, and elementary 
+      flows) and completeness of coverage of the relevant problem fields 
+      (environmental, human health, resource use) for this specific good, 
+      service, or process. Plausibility of data. Correctness and appropriateness 
+      of the data set documentation. Appropriateness of system boundaries, 
+      cut-off rules, LCI modelling choices such as e.g. allocation, consistency 
+      of included processes and of LCI methodology. If the data set comprises 
+      pre-calculated LCIA results, the correspondence of the Input and Output 
+      elementary flows (including their geographical validity) with the applied 
+      LCIA method(s) should be addressed by the reviewer. An overall quality 
+      statement on the data set may be included here.
 
   # --- ComplianceDeclarations
   compliance:
     range: ComplianceEntry
     multivalued: true
     inlined_as_list: true
-    description: "List of compliance entries."
+    required: false
+    minimum_cardinality: 1
+    description: ""
 
   # --- ComplianceEntry
   referenceToComplianceSystem:
     range: ShortDescripTypeRefVersion
     multivalued: true
     inlined_as_list: true
-    description: "Details referencing the compliance system."
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      "Source data set" of the "Compliance system" that is declared 
+      to be met by the data set.
+
+  approvalOfOverallCompliance:
+    range: string
+    required: false
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Official approval whether or not and in how far the data set meets all 
+      the requirements of the "Compliance system" refered to. This approval 
+      should be issued/confirmed by the owner of that compliance system, 
+      who is identified via the respective "Contact data set".
+
+  nomenclatureCompliance:
+    range: string
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Nomenclature compliance of this data set with the respective requirements
+      set by the 'compliance system' referred to.
+
+  methodologicalCompliance:
+    range: string
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Methodological compliance of this data set with the respective
+      requirements set by the 'compliance system' referred to.
+
+  reviewCompliance:
+    range: string
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Review/Verification compliance of this data set with the respective
+      requirements set by the 'compliance system' referred to.
+
+  documentationCompliance:
+    range: string
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Documentation/Reporting compliance of this data set with the respective
+      requirements set by the 'compliance system' referred to.
+
+  qualityCompliance:
+    range: string
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Quality compliance of this data set with the respective requirements set
+      by the 'compliance system' referred to.
