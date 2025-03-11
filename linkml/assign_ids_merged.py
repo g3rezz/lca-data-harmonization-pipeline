@@ -6,12 +6,12 @@ import re
 SCHEMA_PATH = (
     "linkml/data/yaml/linkml_ILCDmergedSchemas_schema.yaml"  # Consolidated YAML schema
 )
-JSON_FILE_PATH = "linkml/data/json/5b6b44e0-f5e4-451f-54a3-08dcec2f0f89_renamedScript.json"  # Input JSON instance for the EPD
+JSON_FILE_PATH = "data/pipeline2/json/epds/0db12903-1403-4c9a-817e-b48299d17aba_RN.json"  # Input JSON instance for the EPD
 OUTPUT_JSON_PATH = (
-    "linkml/data/json/5b6b44e0-f5e4-451f-54a3-08dcec2f0f89_renamedScript_newID02.json"
+    "data/pipeline2/json/epds/0db12903-1403-4c9a-817e-b48299d17aba_RN_ID.json"
 )
 
-# === Utility Functions ===
+# --- Schema Utilities (kept for future extension) ---
 
 
 def load_yaml_schema(file_path):
@@ -36,7 +36,7 @@ def build_slot_to_range_mapping(schema):
 def class_requires_id(class_name, classes_map, visited=None):
     """
     Determines if a given class (or one of its ancestors) requires an ID.
-    Checks for an explicit attribute or inherited 'id: identifier: true'.
+    (This function is available if you want to consult the schema.)
     """
     if visited is None:
         visited = set()
@@ -56,49 +56,37 @@ def class_requires_id(class_name, classes_map, visited=None):
     return False
 
 
-def generate_id(parent_id, slot_name, index_or_key=None, prefix="ilcd", in_list=False):
-    """
-    Generates a new ID using the pattern:
-       {prefix}:{ParentBase}_{SlotName}_{StableKeyOrIndex}  (if in_list is True)
-    For non-list objects (in_list is False), the ID is based solely on the key.
-    """
-    if parent_id is None:
-        # Top-level: use only the key (and index if in a list)
-        if in_list:
-            key = index_or_key if index_or_key is not None else "1"
-            return f"{prefix}:{slot_name}_{key}"
-        else:
-            return f"{prefix}:{slot_name}"
-    else:
-        parent_base = parent_id.replace(f"{prefix}:", "")
-        if in_list:
-            key = index_or_key if index_or_key is not None else "1"
-            return f"{prefix}:{parent_base}_{slot_name}_{key}"
-        else:
-            return f"{prefix}:{parent_base}_{slot_name}"
+# --- ID Generation and Helper Functions ---
 
 
-def get_stable_key(obj, index):
+def generate_id_from_path(acc_path, prefix="ilcd"):
     """
-    Checks for a 'module' field in the object.
-    If not found, returns a 1-based index as a string.
+    Given an accumulated path, returns the full ID as: prefix:acc_path
     """
-    if isinstance(obj, dict) and "module" in obj:
-        return f"module{obj['module'].replace("-", "")}"
+    return f"{prefix}:{acc_path}"
+
+
+def get_suffix(item, index):
+    """
+    If the list element (item) is a dict and has a 'module' field, return "module" + its value (dashes removed);
+    otherwise, return the 1-based index as a string.
+    """
+    if isinstance(item, dict) and "module" in item:
+        return f"module{item['module'].replace('-', '')}"
     return str(index + 1)
 
 
 def reorder_dict_keys(d):
     """
     Reorders a dictionary so that if 'id' exists, it appears as the first key.
-    (For human readability only.)
+    (For human readability.)
     """
     if "id" in d:
         id_value = d.pop("id")
-        new_dict = {"id": id_value}
-        new_dict.update(d)
+        new_d = {"id": id_value}
+        new_d.update(d)
         d.clear()
-        d.update(new_dict)
+        d.update(new_d)
 
 
 def clean_epd_name(name):
@@ -107,148 +95,132 @@ def clean_epd_name(name):
     collapsing multiple underscores, and stripping leading/trailing underscores.
     """
     cleaned = re.sub(r"[^A-Za-z0-9]", "_", name)
-    cleaned = re.sub(r"_+", "_", cleaned).strip("_")
-    return cleaned
+    return re.sub(r"_+", "_", cleaned).strip("_")
 
 
-# === ID Assignment: Recursive Traversal ===
+# --- Recursive ID Assignment Based on Full Parent Path Only for List Elements ---
 
 
-def assign_ids(
-    obj,
-    current_class,
-    parent_id=None,
-    slot_name=None,
-    index=None,
-    classes_map=None,
-    slot_to_range=None,
-    prefix="ilcd",
-):
+def assign_ids_by_path(obj, epd_uuid, acc_path, parent_is_list, prefix="ilcd"):
     """
-    Recursively traverses the JSON structure.
-    If the expected class (or its ancestors) requires an ID,
-    generates a new ID based on the parent's context and slot name.
-    The in_list flag is True when processing an element from a list (i.e. index is not None).
+    Recursively assigns IDs based on the accumulated path.
+
+    Parameters:
+      - obj: the current object.
+      - epd_uuid: the UUID string (without dashes) from the top level.
+      - acc_path: the accumulated path.
+      - parent_is_list: boolean indicating whether the immediate container was a list.
+      - prefix: default prefix (e.g. "ilcd").
+
+    Rule:
+      * If the current container is a dictionary and parent_is_list is False, then the new accumulated path is reset to the property key.
+      * If parent_is_list is True, then the new accumulated path becomes: acc_path + "_" + property key.
+      * For list elements, the suffix (from module or index) is appended.
     """
-    in_list = index is not None
-    # Only generate an ID if the object's expected class requires one.
-    if (
-        isinstance(obj, dict)
-        and current_class is not None
-        and class_requires_id(current_class, classes_map)
-    ):
-        stable_key = get_stable_key(obj, index) if in_list else None
-        new_id = generate_id(
-            parent_id,
-            slot_name if slot_name else current_class,
-            stable_key,
-            prefix=prefix,
-            in_list=in_list,
-        )
-        obj["id"] = new_id
-        parent_id = new_id  # For nested items, use this as the parent's id.
+    # If this object is a dictionary and does not yet have an id, assign one:
+    if isinstance(obj, dict) and "id" not in obj:
+        # The top-level id is built as: prefix:epd_uuid + "_" + acc_path
+        obj["id"] = generate_id_from_path(f"{epd_uuid}_{acc_path}", prefix)
+        reorder_dict_keys(obj)
 
     if isinstance(obj, dict):
         for key, value in obj.items():
-            child_class = slot_to_range.get(key, None)
-            if isinstance(value, list):
-                for i, item in enumerate(value):
-                    assign_ids(
-                        item,
-                        current_class=child_class,
-                        parent_id=parent_id,
-                        slot_name=key,
-                        index=i,
-                        classes_map=classes_map,
-                        slot_to_range=slot_to_range,
-                        prefix=prefix,
-                    )
-            elif isinstance(value, dict):
-                assign_ids(
-                    value,
-                    current_class=child_class,
-                    parent_id=parent_id,
-                    slot_name=key,
-                    classes_map=classes_map,
-                    slot_to_range=slot_to_range,
-                    prefix=prefix,
+            if key == "id":
+                continue
+            # Determine new accumulated path:
+            if isinstance(value, dict):
+                # For a dictionary value, if the parent is a list, we keep parent's acc_path and append the key.
+                # Otherwise, we reset to just the key.
+                new_acc = f"{acc_path}_{key}" if parent_is_list else key
+                assign_ids_by_path(
+                    value, epd_uuid, new_acc, parent_is_list=False, prefix=prefix
                 )
-        reorder_dict_keys(obj)
+            elif isinstance(value, list):
+                # For a list value, we always want to append the property key to the parent's accumulated path.
+                new_acc = f"{acc_path}_{key}"
+                for i, item in enumerate(value):
+                    suffix = get_suffix(item, i)
+                    # For each list element, the new accumulated path is: new_acc + "_" + suffix.
+                    element_acc = f"{new_acc}_{suffix}"
+                    assign_ids_by_path(
+                        item, epd_uuid, element_acc, parent_is_list=True, prefix=prefix
+                    )
+            # If value is primitive, nothing to do.
     elif isinstance(obj, list):
         for i, item in enumerate(obj):
-            assign_ids(
-                item,
-                current_class=current_class,
-                parent_id=parent_id,
-                slot_name=slot_name,
-                index=i,
-                classes_map=classes_map,
-                slot_to_range=slot_to_range,
-                prefix=prefix,
+            suffix = get_suffix(item, i)
+            new_acc = f"{acc_path}_{suffix}"
+            assign_ids_by_path(
+                item, epd_uuid, new_acc, parent_is_list=True, prefix=prefix
             )
 
 
-# === Main Processing ===
+# --- Main Processing ---
 
 
 def main():
-    # --- Load the consolidated YAML schema ---
+    # Load the consolidated YAML schema.
     schema = load_yaml_schema(SCHEMA_PATH)
-
-    # Dynamically extract the default prefix from the YAML schema.
     default_prefix = schema.get("default_prefix")
     if not default_prefix:
         raise ValueError("No default_prefix found in the YAML schema.")
 
-    # Build classes mapping and slot-to-range mapping.
+    # (Schema-based mappings are still available if needed.)
     classes_map = build_classes_mapping(schema)
     slot_to_range = build_slot_to_range_mapping(schema)
 
     print("Default prefix (dynamically loaded):", default_prefix)
-    print("Classes Mapping:", list(classes_map.keys()))
-    print("Slot-to-range mapping:", slot_to_range)
 
-    # --- Load the JSON instance ---
+    # Load the JSON instance.
     with open(JSON_FILE_PATH, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # Automatically generate the top-level EPD id from the cleaned EPD name.
-    if "id" not in data:
-        try:
-            # baseName is a list; take the first element.
-            epd_name = data["processInformation"]["dataSetInformation"]["dataSetName"][
-                "baseName"
-            ][0]["value"]
-        except (KeyError, IndexError) as e:
-            raise KeyError(
-                "Missing required field: processInformation.dataSetInformation.dataSetName.baseName[0].value"
-            ) from e
-        cleaned_name = clean_epd_name(epd_name)
-        top_epd_id = f"{default_prefix.lower()}:{cleaned_name}"
-        data["id"] = top_epd_id
-        print("Generated top-level EPD id:", top_epd_id)
+    # Extract the UUID from the JSON and remove dashes.
+    try:
+        raw_uuid = data["processInformation"]["dataSetInformation"]["UUID"]
+    except KeyError as e:
+        raise KeyError(
+            "Missing required field: processInformation.dataSetInformation.UUID"
+        ) from e
+    epd_uuid = raw_uuid.replace("-", "")
 
-    # Process each top-level section except 'id' and 'version'.
-    # For top-level sections, do not append any number (they're not in a list).
+    # Set the top-level ID to the UUID (only the UUID; no extra keys).
+    top_id = f"{default_prefix.lower()}:{epd_uuid}"
+    data["id"] = top_id
+    print("Top-level ID set to:", top_id)
+
+    # Process each top-level section (except 'id' and 'version'):
     for top_key, top_obj in data.items():
         if top_key in ["id", "version"]:
             continue
-        if isinstance(top_obj, dict) and "id" not in top_obj:
-            top_obj["id"] = generate_id(
-                None, top_key, prefix=default_prefix.lower(), in_list=False
+        if isinstance(top_obj, dict):
+            # For top-level sections (which are dictionary values), the new accumulated path is just the property key.
+            section_acc = top_key
+            # Set the section's ID as: prefix:epd_uuid + "_" + section_acc
+            top_obj["id"] = f"{default_prefix.lower()}:{epd_uuid}_{section_acc}"
+            reorder_dict_keys(top_obj)
+            # Recurse into the section with parent_is_list = False.
+            assign_ids_by_path(
+                top_obj,
+                epd_uuid,
+                section_acc,
+                parent_is_list=False,
+                prefix=default_prefix.lower(),
             )
-        # Now propagate IDs to nested objects. For nested objects that are not in a list, no number is appended.
-        assign_ids(
-            top_obj,
-            current_class=top_key,
-            parent_id=top_obj["id"],
-            slot_name=top_key,
-            classes_map=classes_map,
-            slot_to_range=slot_to_range,
-            prefix=default_prefix.lower(),
-        )
+        elif isinstance(top_obj, list):
+            # For a top-level list, each element gets a suffix.
+            for i, item in enumerate(top_obj):
+                suffix = get_suffix(item, i)
+                section_acc = f"{top_key}_{suffix}"
+                assign_ids_by_path(
+                    item,
+                    epd_uuid,
+                    section_acc,
+                    parent_is_list=True,
+                    prefix=default_prefix.lower(),
+                )
 
-    # --- Save the updated JSON ---
+    # Save the updated JSON.
     with open(OUTPUT_JSON_PATH, "w", encoding="utf-8") as out_f:
         json.dump(data, out_f, indent=2, ensure_ascii=False)
 
