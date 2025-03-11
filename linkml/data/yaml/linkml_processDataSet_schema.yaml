@@ -43,17 +43,45 @@ classes:
 # Define top-level slots used by ProcessDataSet
 slots:
   processInformation:
-    description: "Process information details"
     inlined: true
+    required: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+    description: >
+      Corresponds to the ISO/TS 14048 section "Process description". 
+      It comprises the following six sub-sections: 
+        1) "Data set information" for data set identification and 
+        overarching information items, 
+        2) "Quantitative reference", 
+        3) "Time", 
+        4) "Geography", 
+        5) "Technology" and 
+        6) "Mathematical relations".
+
   modellingAndValidation:
-    description: "Modelling and validation details"
     inlined: true
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Covers the five sub-sections: 
+        1) LCI method and allocation, 
+        2) Data sources, treatment and representativeness, 
+        3) Completeness, 
+        4) Validation, and 
+        5) Compliance. 
+      (Section refers to LCI modelling and data treatment aspects etc., 
+      NOT the modeling of e.g. the input/output-relationships of a 
+      parameterised data set.)
+
   administrativeInformation:
     description: "Administrative information details"
     inlined: true
+
   exchanges:
     description: "Exchange information details"
     inlined: true
+
   lciaResults:
     description: "LCIA results details"
     inlined: true

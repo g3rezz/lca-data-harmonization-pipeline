@@ -1,5 +1,5 @@
-# Auto generated from linkml_LCIAResults_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-28T18:46:14
+# Auto generated from linkml_lciaResults_schema.yaml by pythongen.py version: 0.0.1
+# Generation date: 2025-03-11T14:54:43
 # Schema: ILCDlciaResults
 #
 # id: https://example.org/ILCDlciaResults
@@ -132,6 +132,7 @@ class LCIAResultEntry(YAMLRoot):
     id: Union[str, LCIAResultEntryId] = None
     referenceToLCIAMethodDataSet: Optional[Union[dict, "ReferenceToLCIAMethodDataSetEntry"]] = None
     meanAmount: Optional[float] = None
+    uncertaintyDistributionType: Optional[str] = None
     otherLCIA: Optional[Union[dict, "LCIAOtherContent"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -145,6 +146,9 @@ class LCIAResultEntry(YAMLRoot):
 
         if self.meanAmount is not None and not isinstance(self.meanAmount, float):
             self.meanAmount = float(self.meanAmount)
+
+        if self.uncertaintyDistributionType is not None and not isinstance(self.uncertaintyDistributionType, str):
+            self.uncertaintyDistributionType = str(self.uncertaintyDistributionType)
 
         if self.otherLCIA is not None and not isinstance(self.otherLCIA, LCIAOtherContent):
             self.otherLCIA = LCIAOtherContent(**as_dict(self.otherLCIA))

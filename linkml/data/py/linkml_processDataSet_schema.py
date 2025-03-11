@@ -1,5 +1,5 @@
 # Auto generated from linkml_processDataSet_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-01T10:22:47
+# Generation date: 2025-03-11T14:34:25
 # Schema: ilcd
 #
 # id: https://example.org/ilcd
@@ -96,7 +96,7 @@ class ProcessDataSet(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ILCD.ProcessDataSet
 
     id: Union[str, ProcessDataSetId] = None
-    processInformation: Optional[Union[dict, ProcessInformation]] = None
+    processInformation: Union[dict, ProcessInformation] = None
     modellingAndValidation: Optional[Union[dict, ModellingAndValidation]] = None
     administrativeInformation: Optional[Union[dict, AdministrativeInformation]] = None
     exchanges: Optional[Union[dict, Exchanges]] = None
@@ -109,7 +109,9 @@ class ProcessDataSet(YAMLRoot):
         if not isinstance(self.id, ProcessDataSetId):
             self.id = ProcessDataSetId(self.id)
 
-        if self.processInformation is not None and not isinstance(self.processInformation, ProcessInformation):
+        if self._is_empty(self.processInformation):
+            self.MissingRequiredField("processInformation")
+        if not isinstance(self.processInformation, ProcessInformation):
             self.processInformation = ProcessInformation(**as_dict(self.processInformation))
 
         if self.modellingAndValidation is not None and not isinstance(self.modellingAndValidation, ModellingAndValidation):
@@ -138,7 +140,7 @@ class slots:
     pass
 
 slots.processInformation = Slot(uri=ILCD.processInformation, name="processInformation", curie=ILCD.curie('processInformation'),
-                   model_uri=ILCD.processInformation, domain=None, range=Optional[str])
+                   model_uri=ILCD.processInformation, domain=None, range=str)
 
 slots.modellingAndValidation = Slot(uri=ILCD.modellingAndValidation, name="modellingAndValidation", curie=ILCD.curie('modellingAndValidation'),
                    model_uri=ILCD.modellingAndValidation, domain=None, range=Optional[str])
@@ -153,7 +155,7 @@ slots.lciaResults = Slot(uri=ILCD.lciaResults, name="lciaResults", curie=ILCD.cu
                    model_uri=ILCD.lciaResults, domain=None, range=Optional[str])
 
 slots.ProcessDataSet_processInformation = Slot(uri=ILCD.processInformation, name="ProcessDataSet_processInformation", curie=ILCD.curie('processInformation'),
-                   model_uri=ILCD.ProcessDataSet_processInformation, domain=ProcessDataSet, range=Optional[Union[dict, ProcessInformation]])
+                   model_uri=ILCD.ProcessDataSet_processInformation, domain=ProcessDataSet, range=Union[dict, ProcessInformation])
 
 slots.ProcessDataSet_modellingAndValidation = Slot(uri=ILCD.modellingAndValidation, name="ProcessDataSet_modellingAndValidation", curie=ILCD.curie('modellingAndValidation'),
                    model_uri=ILCD.ProcessDataSet_modellingAndValidation, domain=ProcessDataSet, range=Optional[Union[dict, ModellingAndValidation]])

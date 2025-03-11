@@ -1,5 +1,5 @@
 # Auto generated from linkml_exchanges_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-28T19:46:52
+# Generation date: 2025-03-11T14:52:59
 # Schema: ILCDexchanges
 #
 # id: https://example.org/ILCDexchanges
@@ -142,6 +142,14 @@ class ExchangeEntry(YAMLRoot):
     dataSetInternalID: Optional[int] = None
     referenceToFlowDataSet: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
     meanAmount: Optional[float] = None
+    referencesToDataSource: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    resultingAmount: Optional[float] = None
+    minimumAmount: Optional[float] = None
+    maximumAmount: Optional[float] = None
+    uncertaintyDistributionType: Optional[str] = None
+    relativeStandardDeviation95In: Optional[str] = None
+    dataSourceType: Optional[str] = None
+    dataDerivationTypeStatus: Optional[str] = None
     referenceFlow: Optional[Union[bool, Bool]] = None
     resultingflowAmount: Optional[float] = None
     flowProperties: Optional[Union[Dict[Union[str, FlowPropertyEntryId], Union[dict, "FlowPropertyEntry"]], List[Union[dict, "FlowPropertyEntry"]]]] = empty_dict()
@@ -166,6 +174,30 @@ class ExchangeEntry(YAMLRoot):
 
         if self.meanAmount is not None and not isinstance(self.meanAmount, float):
             self.meanAmount = float(self.meanAmount)
+
+        if self.referencesToDataSource is not None and not isinstance(self.referencesToDataSource, ShortDescripTypeRefVersion):
+            self.referencesToDataSource = ShortDescripTypeRefVersion(**as_dict(self.referencesToDataSource))
+
+        if self.resultingAmount is not None and not isinstance(self.resultingAmount, float):
+            self.resultingAmount = float(self.resultingAmount)
+
+        if self.minimumAmount is not None and not isinstance(self.minimumAmount, float):
+            self.minimumAmount = float(self.minimumAmount)
+
+        if self.maximumAmount is not None and not isinstance(self.maximumAmount, float):
+            self.maximumAmount = float(self.maximumAmount)
+
+        if self.uncertaintyDistributionType is not None and not isinstance(self.uncertaintyDistributionType, str):
+            self.uncertaintyDistributionType = str(self.uncertaintyDistributionType)
+
+        if self.relativeStandardDeviation95In is not None and not isinstance(self.relativeStandardDeviation95In, str):
+            self.relativeStandardDeviation95In = str(self.relativeStandardDeviation95In)
+
+        if self.dataSourceType is not None and not isinstance(self.dataSourceType, str):
+            self.dataSourceType = str(self.dataSourceType)
+
+        if self.dataDerivationTypeStatus is not None and not isinstance(self.dataDerivationTypeStatus, str):
+            self.dataDerivationTypeStatus = str(self.dataDerivationTypeStatus)
 
         if self.referenceFlow is not None and not isinstance(self.referenceFlow, Bool):
             self.referenceFlow = Bool(self.referenceFlow)
@@ -355,6 +387,27 @@ slots.referenceToFlowDataSet = Slot(uri=ILCDEX.referenceToFlowDataSet, name="ref
 
 slots.referenceFlow = Slot(uri=ILCDEX.referenceFlow, name="referenceFlow", curie=ILCDEX.curie('referenceFlow'),
                    model_uri=ILCDEX.referenceFlow, domain=None, range=Optional[Union[bool, Bool]])
+
+slots.referencesToDataSource = Slot(uri=ILCDEX.referencesToDataSource, name="referencesToDataSource", curie=ILCDEX.curie('referencesToDataSource'),
+                   model_uri=ILCDEX.referencesToDataSource, domain=None, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+
+slots.resultingAmount = Slot(uri=ILCDEX.resultingAmount, name="resultingAmount", curie=ILCDEX.curie('resultingAmount'),
+                   model_uri=ILCDEX.resultingAmount, domain=None, range=Optional[float])
+
+slots.minimumAmount = Slot(uri=ILCDEX.minimumAmount, name="minimumAmount", curie=ILCDEX.curie('minimumAmount'),
+                   model_uri=ILCDEX.minimumAmount, domain=None, range=Optional[float])
+
+slots.maximumAmount = Slot(uri=ILCDEX.maximumAmount, name="maximumAmount", curie=ILCDEX.curie('maximumAmount'),
+                   model_uri=ILCDEX.maximumAmount, domain=None, range=Optional[float])
+
+slots.relativeStandardDeviation95In = Slot(uri=ILCDEX.relativeStandardDeviation95In, name="relativeStandardDeviation95In", curie=ILCDEX.curie('relativeStandardDeviation95In'),
+                   model_uri=ILCDEX.relativeStandardDeviation95In, domain=None, range=Optional[str])
+
+slots.dataSourceType = Slot(uri=ILCDEX.dataSourceType, name="dataSourceType", curie=ILCDEX.curie('dataSourceType'),
+                   model_uri=ILCDEX.dataSourceType, domain=None, range=Optional[str])
+
+slots.dataDerivationTypeStatus = Slot(uri=ILCDEX.dataDerivationTypeStatus, name="dataDerivationTypeStatus", curie=ILCDEX.curie('dataDerivationTypeStatus'),
+                   model_uri=ILCDEX.dataDerivationTypeStatus, domain=None, range=Optional[str])
 
 slots.resultingflowAmount = Slot(uri=ILCDEX.resultingflowAmount, name="resultingflowAmount", curie=ILCDEX.curie('resultingflowAmount'),
                    model_uri=ILCDEX.resultingflowAmount, domain=None, range=Optional[float])

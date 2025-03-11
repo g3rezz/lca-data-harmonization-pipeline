@@ -1,5 +1,5 @@
 # Auto generated from linkml_modellingAndValidation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-28T19:43:26
+# Generation date: 2025-03-09T15:17:34
 # Schema: ILCDmodellingAndValidation
 #
 # id: https://example.org/ILCDmodellingAndValidation
@@ -285,7 +285,9 @@ class ReviewEntry(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ILCDMAV.ReviewEntry
 
     id: Union[str, ReviewEntryId] = None
+    reviewDetails: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
     referenceToNameOfReviewerAndInstitution: Optional[Union[Dict[Union[str, ShortDescripAndTypeId], Union[dict, ShortDescripAndType]], List[Union[dict, ShortDescripAndType]]]] = empty_dict()
+    referenceToCompleteReviewReport: Optional[Union[Dict[Union[str, ShortDescripAndTypeId], Union[dict, ShortDescripAndType]], List[Union[dict, ShortDescripAndType]]]] = empty_dict()
     type: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -294,7 +296,11 @@ class ReviewEntry(YAMLRoot):
         if not isinstance(self.id, ReviewEntryId):
             self.id = ReviewEntryId(self.id)
 
+        self._normalize_inlined_as_list(slot_name="reviewDetails", slot_type=MultiLangString, key_name="id", keyed=True)
+
         self._normalize_inlined_as_list(slot_name="referenceToNameOfReviewerAndInstitution", slot_type=ShortDescripAndType, key_name="id", keyed=True)
+
+        self._normalize_inlined_as_list(slot_name="referenceToCompleteReviewReport", slot_type=ShortDescripAndType, key_name="id", keyed=True)
 
         if self.type is not None and not isinstance(self.type, str):
             self.type = str(self.type)
@@ -342,6 +348,12 @@ class ComplianceEntry(YAMLRoot):
 
     id: Union[str, ComplianceEntryId] = None
     referenceToComplianceSystem: Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]] = empty_dict()
+    approvalOfOverallCompliance: Optional[str] = None
+    nomenclatureCompliance: Optional[str] = None
+    methodologicalCompliance: Optional[str] = None
+    reviewCompliance: Optional[str] = None
+    documentationCompliance: Optional[str] = None
+    qualityCompliance: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -350,6 +362,24 @@ class ComplianceEntry(YAMLRoot):
             self.id = ComplianceEntryId(self.id)
 
         self._normalize_inlined_as_list(slot_name="referenceToComplianceSystem", slot_type=ShortDescripTypeRefVersion, key_name="id", keyed=True)
+
+        if self.approvalOfOverallCompliance is not None and not isinstance(self.approvalOfOverallCompliance, str):
+            self.approvalOfOverallCompliance = str(self.approvalOfOverallCompliance)
+
+        if self.nomenclatureCompliance is not None and not isinstance(self.nomenclatureCompliance, str):
+            self.nomenclatureCompliance = str(self.nomenclatureCompliance)
+
+        if self.methodologicalCompliance is not None and not isinstance(self.methodologicalCompliance, str):
+            self.methodologicalCompliance = str(self.methodologicalCompliance)
+
+        if self.reviewCompliance is not None and not isinstance(self.reviewCompliance, str):
+            self.reviewCompliance = str(self.reviewCompliance)
+
+        if self.documentationCompliance is not None and not isinstance(self.documentationCompliance, str):
+            self.documentationCompliance = str(self.documentationCompliance)
+
+        if self.qualityCompliance is not None and not isinstance(self.qualityCompliance, str):
+            self.qualityCompliance = str(self.qualityCompliance)
 
         super().__post_init__(**kwargs)
 
@@ -714,11 +744,35 @@ slots.uuidDict = Slot(uri=ILCDMAV.uuidDict, name="uuidDict", curie=ILCDMAV.curie
 slots.review = Slot(uri=ILCDMAV.review, name="review", curie=ILCDMAV.curie('review'),
                    model_uri=ILCDMAV.review, domain=None, range=Optional[Union[Dict[Union[str, ReviewEntryId], Union[dict, ReviewEntry]], List[Union[dict, ReviewEntry]]]])
 
+slots.referenceToCompleteReviewReport = Slot(uri=ILCDMAV.referenceToCompleteReviewReport, name="referenceToCompleteReviewReport", curie=ILCDMAV.curie('referenceToCompleteReviewReport'),
+                   model_uri=ILCDMAV.referenceToCompleteReviewReport, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripAndTypeId], Union[dict, ShortDescripAndType]], List[Union[dict, ShortDescripAndType]]]])
+
 slots.referenceToNameOfReviewerAndInstitution = Slot(uri=ILCDMAV.referenceToNameOfReviewerAndInstitution, name="referenceToNameOfReviewerAndInstitution", curie=ILCDMAV.curie('referenceToNameOfReviewerAndInstitution'),
                    model_uri=ILCDMAV.referenceToNameOfReviewerAndInstitution, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripAndTypeId], Union[dict, ShortDescripAndType]], List[Union[dict, ShortDescripAndType]]]])
+
+slots.reviewDetails = Slot(uri=ILCDMAV.reviewDetails, name="reviewDetails", curie=ILCDMAV.curie('reviewDetails'),
+                   model_uri=ILCDMAV.reviewDetails, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
 slots.compliance = Slot(uri=ILCDMAV.compliance, name="compliance", curie=ILCDMAV.curie('compliance'),
                    model_uri=ILCDMAV.compliance, domain=None, range=Optional[Union[Dict[Union[str, ComplianceEntryId], Union[dict, ComplianceEntry]], List[Union[dict, ComplianceEntry]]]])
 
 slots.referenceToComplianceSystem = Slot(uri=ILCDMAV.referenceToComplianceSystem, name="referenceToComplianceSystem", curie=ILCDMAV.curie('referenceToComplianceSystem'),
                    model_uri=ILCDMAV.referenceToComplianceSystem, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]])
+
+slots.approvalOfOverallCompliance = Slot(uri=ILCDMAV.approvalOfOverallCompliance, name="approvalOfOverallCompliance", curie=ILCDMAV.curie('approvalOfOverallCompliance'),
+                   model_uri=ILCDMAV.approvalOfOverallCompliance, domain=None, range=Optional[str])
+
+slots.nomenclatureCompliance = Slot(uri=ILCDMAV.nomenclatureCompliance, name="nomenclatureCompliance", curie=ILCDMAV.curie('nomenclatureCompliance'),
+                   model_uri=ILCDMAV.nomenclatureCompliance, domain=None, range=Optional[str])
+
+slots.methodologicalCompliance = Slot(uri=ILCDMAV.methodologicalCompliance, name="methodologicalCompliance", curie=ILCDMAV.curie('methodologicalCompliance'),
+                   model_uri=ILCDMAV.methodologicalCompliance, domain=None, range=Optional[str])
+
+slots.reviewCompliance = Slot(uri=ILCDMAV.reviewCompliance, name="reviewCompliance", curie=ILCDMAV.curie('reviewCompliance'),
+                   model_uri=ILCDMAV.reviewCompliance, domain=None, range=Optional[str])
+
+slots.documentationCompliance = Slot(uri=ILCDMAV.documentationCompliance, name="documentationCompliance", curie=ILCDMAV.curie('documentationCompliance'),
+                   model_uri=ILCDMAV.documentationCompliance, domain=None, range=Optional[str])
+
+slots.qualityCompliance = Slot(uri=ILCDMAV.qualityCompliance, name="qualityCompliance", curie=ILCDMAV.curie('qualityCompliance'),
+                   model_uri=ILCDMAV.qualityCompliance, domain=None, range=Optional[str])
