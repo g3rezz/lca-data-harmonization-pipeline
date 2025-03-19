@@ -7,7 +7,7 @@ def create_network(results_json, query_name, height):
     Create a pyvis network graph based on query results.
     Sets the font color dynamically based on the active theme.
     """
-    # Retrieve active theme, fallback to light if None.
+    # Retrieve active theme, fallback to light if None
     theme = st_theme() or {"base": "light"}
     base_theme = theme.get("base", "light").lower()
 
@@ -81,6 +81,7 @@ def create_network(results_json, query_name, height):
             if subject and object_:
                 net.add_edge(subject, object_)
 
+    print(net.num_nodes(), net.num_edges())
     # Generate HTML output.
     html_content = net.generate_html()
     with open("graph.html", "w", encoding="utf-8") as f:
@@ -88,7 +89,7 @@ def create_network(results_json, query_name, height):
     with open("graph.html", "r", encoding="utf-8") as f:
         html_content = f.read()
 
-    # Remove unwanted CSS and center the graph.
+    # Remove unwanted CSS and center the graph
     html_content = html_content.replace("border: 1px solid lightgray;", "")
     # html_content = html_content.replace("float: left;", "")
     # html_content = html_content.replace("#mynetwork {", "#mynetwork { margin: 0 auto; ")
@@ -96,6 +97,31 @@ def create_network(results_json, query_name, height):
     # Inject a call to network.fit() right after the graph is drawn.
     # This assumes the template contains "drawGraph();"
     # html_content = html_content.replace("drawGraph();", "drawGraph(); network.fit();")
+
+    # Inject JavaScript to hide the loading bar and disable physics after stabilization
+    html_content = html_content.replace(
+        'network.once("stabilizationIterationsDone", function() {',
+        """
+        network.once("stabilizationIterationsDone", function() {
+        // Hide the loading bar if present
+        var lb = document.getElementById('loadingBar');
+        if (lb) lb.style.display = 'none';
+        
+        // Disable physics after initial layout
+        network.setOptions({ physics: false });
+    """,
+    )
+
+    # injection = """
+    #     // Hide the loading bar if present
+    #     var lb = document.getElementById('loadingBar');
+    #     if (lb) lb.style.display = 'none';
+    #     // Now disable physics
+    #     network.setOptions({ physics: false });
+    # """
+    # target_str = 'network.once("stabilizationIterationsDone", function() {'
+    # replacement_str = target_str + injection
+    # html_content = html_content.replace(target_str, replacement_str)
 
     # Inject JavaScript to reload the iframe when it becomes visible.
     # Inject an IntersectionObserver to call network.fit() when #mynetwork becomes visible.
@@ -140,7 +166,7 @@ def create_network(results_json, query_name, height):
     """
     html_content = html_content.replace("<head>", f"<head>{injection}")
 
-    # Also call network.fit() after drawing the graph.
+    # Also call network.fit() after drawing the graph
     html_content = html_content.replace("drawGraph();", "drawGraph(); network.fit();")
 
     return html_content
