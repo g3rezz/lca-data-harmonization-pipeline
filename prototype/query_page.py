@@ -90,6 +90,8 @@ penrt_threshold = st.sidebar.slider("PENRT", min_value=0, max_value=5000, value=
 # -- Scenario Toggle (Recycled)
 scenario_recycled = st.sidebar.checkbox("Recycled")
 
+# -- Query Mode Toggle
+mode = st.sidebar.toggle("Average EPD")
 
 # -- Button to run the dynamic query
 if st.sidebar.button("Run Query"):
@@ -105,7 +107,11 @@ if st.sidebar.button("Run Query"):
         penrt_thr=penrt_threshold,
         scenario_recycled=scenario_recycled,
         strict_din=strict_din,
+        query_mode=mode,
     )
+
+    # Store the mode used for this App run
+    st.session_state["query_mode_used"] = mode
 
     # Uncomment to show the query for troubleshooting
     # st.write("**SPARQL Query**:")
@@ -133,6 +139,9 @@ if "results" not in st.session_state:
     st.info("Adjust filters in the sidebar and click 'Run Query'.")
 else:
     with tabs[0]:
+        # Use the query_mode that was used to produce these results
+        mode_for_display = st.session_state.get("query_mode_used", False)
+
         # Read existing highlight states or use defaults
         current_gwp = st.session_state.get("highlight_gwp", False)
         current_penrt = st.session_state.get("highlight_penrt", False)
@@ -143,10 +152,11 @@ else:
                 st.session_state["results"],
                 highlight_gwp=current_gwp,
                 highlight_penrt=current_penrt,
+                query_mode=mode_for_display,
             )
 
-        # If table is empty do not show checkboxes
-        if display_table:
+        # If table is empty and mode is semantic do not show checkboxes
+        if display_table and mode_for_display == False:
             new_gwp = st.checkbox("Highlight closest GWP rows?", value=current_gwp)
             new_penrt = st.checkbox(
                 "Highlight closest PENRT rows?", value=current_penrt
