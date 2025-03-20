@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from SPARQLWrapper import SPARQLWrapper, JSON
 from typing import List, Optional, Union
+import re
 
 # Your Fuseki endpoint:
 ENDPOINT_URL = "http://localhost:3030/EPD_RDF/sparql"
@@ -16,7 +17,9 @@ def run_query(query: str):
     return results
 
 
-def display_results(results_json, highlight_gwp=False, highlight_penrt=False):
+def display_results(
+    results_json, highlight_gwp=False, highlight_penrt=False, query_mode=False
+):
     """
     Displays the results in a dataframe:
     - We invert-minmax normalize GWP and PENRT, sort descending by the combined score.
@@ -30,8 +33,10 @@ def display_results(results_json, highlight_gwp=False, highlight_penrt=False):
     - If only highlight_penrt=True, we highlight the PENRT set.
     """
     display_table = True
+    avg_gwp = None
+    avg_penrt = None
 
-    # 1) Convert SPARQL JSON "bindings" into a DataFrame
+    # Convert SPARQL JSON "bindings" into a DataFrame
     bindings = results_json["results"]["bindings"]
     if not bindings:
         st.warning(
@@ -52,32 +57,7 @@ def display_results(results_json, highlight_gwp=False, highlight_penrt=False):
 
     df = pd.DataFrame(table_rows, columns=var_names)
 
-    # 2) If GWP & PENRT exist, do the normalization & sort
-    if "GWP" in df.columns and "PENRT" in df.columns:
-        df["GWP_float"] = pd.to_numeric(df["GWP"], errors="coerce")
-        df["PENRT_float"] = pd.to_numeric(df["PENRT"], errors="coerce")
-
-        # Inverted min-max => lower => better => higher normalized
-        min_gwp, max_gwp = df["GWP_float"].min(), df["GWP_float"].max()
-        if max_gwp != min_gwp:
-            df["GWP_norm"] = (max_gwp - df["GWP_float"]) / (max_gwp - min_gwp)
-        else:
-            df["GWP_norm"] = 1.0
-
-        min_penrt, max_penrt = df["PENRT_float"].min(), df["PENRT_float"].max()
-        if max_penrt != min_penrt:
-            df["PENRT_norm"] = (max_penrt - df["PENRT_float"]) / (max_penrt - min_penrt)
-        else:
-            df["PENRT_norm"] = 1.0
-
-        df["NormalizedSum"] = ((df["GWP_norm"] + df["PENRT_norm"]) / 2).round(2)
-        # Sort by normalized score (descending => best is top)
-        df.sort_values("NormalizedSum", ascending=False, inplace=True)
-
-    # 3) Reset to final arrangement with 0-based indices
-    df.reset_index(drop=True, inplace=True)
-
-    # 4) Create a "Rank" column from the normalized score
+    # Create a "Rank" column from the normalized score
     def icon_from_score(score):
         if pd.isna(score):
             return ""
@@ -92,88 +72,159 @@ def display_results(results_json, highlight_gwp=False, highlight_penrt=False):
         else:
             return "🟢"
 
-    if "NormalizedSum" in df.columns:
-        df["Rank"] = df["NormalizedSum"].apply(icon_from_score)
+    if not query_mode:
+        # If GWP & PENRT exist, do the normalization & sort
+        if "GWP" in df.columns and "PENRT" in df.columns:
+            df["GWP_float"] = pd.to_numeric(df["GWP"], errors="coerce")
+            df["PENRT_float"] = pd.to_numeric(df["PENRT"], errors="coerce")
 
-    # 5) Compute average GWP, PENRT and find the top-3 closest
-    #    using the final arrangement (0-based).
-    closest_gwp_indices = []
-    closest_penrt_indices = []
-    closest_euclid_indices = []
-    if "GWP_float" in df.columns and "PENRT_float" in df.columns:
-        avg_gwp = df["GWP_float"].mean()
-        avg_penrt = df["PENRT_float"].mean()
+            # Inverted min-max => lower => better => higher normalized
+            min_gwp, max_gwp = df["GWP_float"].min(), df["GWP_float"].max()
+            if max_gwp != min_gwp:
+                df["GWP_norm"] = (max_gwp - df["GWP_float"]) / (max_gwp - min_gwp)
+            else:
+                df["GWP_norm"] = 1.0
 
-        # Closest by GWP => sort by abs(GWP_float - avg_gwp)
-        temp_gwp = df.assign(DistGWP=(df["GWP_float"] - avg_gwp).abs())
-        temp_gwp.sort_values("DistGWP", inplace=True)
-        closest_gwp_indices = temp_gwp.head(3).index.tolist()
+            min_penrt, max_penrt = df["PENRT_float"].min(), df["PENRT_float"].max()
+            if max_penrt != min_penrt:
+                df["PENRT_norm"] = (max_penrt - df["PENRT_float"]) / (
+                    max_penrt - min_penrt
+                )
+            else:
+                df["PENRT_norm"] = 1.0
 
-        # Closest by PENRT => sort by abs(PENRT_float - avg_penrt)
-        temp_pen = df.assign(DistPENRT=(df["PENRT_float"] - avg_penrt).abs())
-        temp_pen.sort_values("DistPENRT", inplace=True)
-        closest_penrt_indices = temp_pen.head(3).index.tolist()
+            df["NormalizedSum"] = ((df["GWP_norm"] + df["PENRT_norm"]) / 2).round(2)
+            # Sort by normalized score (descending => best is top)
+            df.sort_values("NormalizedSum", ascending=False, inplace=True)
 
-        # Closest by Euclidian => sqrt((GWP - avg_gwp)^2 + (PENRT - avg_penrt)^2)
-        temp_euc = df.assign(
-            DistEuclid=np.sqrt(
-                (df["GWP_float"] - avg_gwp) ** 2 + (df["PENRT_float"] - avg_penrt) ** 2
+        # Reset to final arrangement with 0-based indices
+        df.reset_index(drop=True, inplace=True)
+
+        if "NormalizedSum" in df.columns:
+            df["Rank"] = df["NormalizedSum"].apply(icon_from_score)
+
+        # Compute average GWP, PENRT and find the top-3 closest
+        # using the final arrangement (0-based).
+        closest_gwp_indices = []
+        closest_penrt_indices = []
+        closest_euclid_indices = []
+        if "GWP_float" in df.columns and "PENRT_float" in df.columns:
+            avg_gwp = df["GWP_float"].mean()
+            avg_penrt = df["PENRT_float"].mean()
+
+            # Closest by GWP => sort by abs(GWP_float - avg_gwp)
+            temp_gwp = df.assign(DistGWP=(df["GWP_float"] - avg_gwp).abs())
+            temp_gwp.sort_values("DistGWP", inplace=True)
+            closest_gwp_indices = temp_gwp.head(3).index.tolist()
+
+            # Closest by PENRT => sort by abs(PENRT_float - avg_penrt)
+            temp_pen = df.assign(DistPENRT=(df["PENRT_float"] - avg_penrt).abs())
+            temp_pen.sort_values("DistPENRT", inplace=True)
+            closest_penrt_indices = temp_pen.head(3).index.tolist()
+
+            # Closest by Euclidian => sqrt((GWP - avg_gwp)^2 + (PENRT - avg_penrt)^2)
+            temp_euc = df.assign(
+                DistEuclid=np.sqrt(
+                    (df["GWP_float"] - avg_gwp) ** 2
+                    + (df["PENRT_float"] - avg_penrt) ** 2
+                )
             )
-        )
-        temp_euc.sort_values("DistEuclid", inplace=True)
-        closest_euclid_indices = temp_euc.head(3).index.tolist()
+            temp_euc.sort_values("DistEuclid", inplace=True)
+            closest_euclid_indices = temp_euc.head(3).index.tolist()
 
-    # 6) Decide which set of rows to highlight
-    #    If both toggles => Euclidian. If only GWP => GWP. If only PENRT => PENRT.
-    highlight_indices = set()
-    if highlight_gwp and highlight_penrt:
-        highlight_indices = set(closest_euclid_indices)
-    elif highlight_gwp:
-        highlight_indices = set(closest_gwp_indices)
-    elif highlight_penrt:
-        highlight_indices = set(closest_penrt_indices)
-    # else => no highlight
+        # Decide which set of rows to highlight
+        # If both toggles => Euclidian. If only GWP => GWP. If only PENRT => PENRT.
+        highlight_indices = set()
+        if highlight_gwp and highlight_penrt:
+            highlight_indices = set(closest_euclid_indices)
+        elif highlight_gwp:
+            highlight_indices = set(closest_gwp_indices)
+        elif highlight_penrt:
+            highlight_indices = set(closest_penrt_indices)
+        # else => no highlight
 
-    # 7) Drop columns we no longer want to show
-    for col_drop in [
-        "GWP_float",
-        "PENRT_float",
-        "GWP_norm",
-        "PENRT_norm",
-        "NormalizedSum",
-        # no Dist* columns in final; we used .assign(...) for them
-    ]:
-        if col_drop in df.columns:
-            df.drop(columns=[col_drop], inplace=True)
+        # Drop columns we no longer want to show
+        for col_drop in [
+            "GWP_float",
+            "PENRT_float",
+            "GWP_norm",
+            "PENRT_norm",
+            "NormalizedSum",
+            # no Dist* columns in final; we used .assign(...) for them
+        ]:
+            if col_drop in df.columns:
+                df.drop(columns=[col_drop], inplace=True)
 
-    # 8) Convert final 0-based index to 1-based for display
-    df.index = df.index + 1
+        # Convert final 0-based index to 1-based for display
+        df.index = df.index + 1
 
-    # 9) Build a row-based style function that checks if (row.name - 1) is in highlight_indices
-    def highlight_rows(row):
-        zero_based_idx = row.name - 1
-        if zero_based_idx in highlight_indices:
-            # #007acc with white text is fairly visible in both modes
-            return ["background-color: #007acc; color: white"] * len(row)
+        # Build a row-based style function that checks if (row.name - 1) is in highlight_indices
+        def highlight_rows(row):
+            zero_based_idx = row.name - 1
+            if zero_based_idx in highlight_indices:
+                # #007acc with white text is fairly visible in both modes
+                return ["background-color: #007acc; color: white"] * len(row)
+            else:
+                return [""] * len(row)
+
+        # Show the table with or without highlighting
+        if highlight_indices:
+            styler = df.style.apply(highlight_rows, axis=1)
+            st.dataframe(
+                styler,
+                use_container_width=True,
+                height=600,
+                column_config={
+                    "Name": st.column_config.TextColumn("Name"),
+                    "DIN276CostGroupList": st.column_config.TextColumn("DIN 276 (CG)"),
+                    "GWP": st.column_config.NumberColumn("GWP", format="%.1f"),
+                    "PENRT": st.column_config.NumberColumn("PENRT", format="%.1f"),
+                    "Rank": st.column_config.TextColumn("Rank"),
+                },
+            )
         else:
-            return [""] * len(row)
+            st.dataframe(
+                df,
+                use_container_width=True,
+                height=600,
+                column_config={
+                    "Name": st.column_config.TextColumn("Name"),
+                    "DIN276CostGroupList": st.column_config.TextColumn("DIN 276 (CG)"),
+                    "GWP": st.column_config.NumberColumn("GWP-total", format="%.1f"),
+                    "PENRT": st.column_config.NumberColumn("PENRT", format="%.1f"),
+                    "Rank": st.column_config.TextColumn("Rank"),
+                },
+            )
 
-    # 10) Show the table with or without highlighting
-    if highlight_indices:
-        styler = df.style.apply(highlight_rows, axis=1)
-        st.dataframe(
-            styler,
-            use_container_width=True,
-            height=600,
-            column_config={
-                "Name": st.column_config.TextColumn("Name"),
-                "DIN276CostGroupList": st.column_config.TextColumn("DIN 276 (CG)"),
-                "GWP": st.column_config.NumberColumn("GWP", format="%.1f"),
-                "PENRT": st.column_config.NumberColumn("PENRT", format="%.1f"),
-                "Rank": st.column_config.TextColumn("Rank"),
-            },
-        )
     else:
+        df["avgGWP_float"] = pd.to_numeric(df["avgGWP"], errors="coerce")
+        df["avgPENRT_float"] = pd.to_numeric(df["avgPENRT"], errors="coerce")
+        avg_gwp = df["avgGWP_float"].mean()
+        avg_penrt = df["avgPENRT_float"].mean()
+
+        # Convert final 0-based index to 1-based for display
+        df.index = df.index + 1
+
+        df["distSquared_float"] = pd.to_numeric(df["distSquared"], errors="coerce")
+        if "distSquared" in df.columns:
+            df["Rank"] = df["distSquared_float"].apply(icon_from_score)
+
+        # Drop columns we no longer want to show
+        for col_drop in [
+            "avgGWP",
+            "avgPENRT",
+            "distSquared",
+            "avgGWP_float",
+            "avgPENRT_float",
+            "distSquared_float",
+            "GWP_norm",
+            "PENRT_norm",
+            "NormalizedSum",
+            # no Dist* columns in final; we used .assign(...) for them
+        ]:
+            if col_drop in df.columns:
+                df.drop(columns=[col_drop], inplace=True)
+
         st.dataframe(
             df,
             use_container_width=True,
@@ -181,16 +232,17 @@ def display_results(results_json, highlight_gwp=False, highlight_penrt=False):
             column_config={
                 "Name": st.column_config.TextColumn("Name"),
                 "DIN276CostGroupList": st.column_config.TextColumn("DIN 276 (CG)"),
-                "GWP": st.column_config.NumberColumn("GWP-total", format="%.1f"),
-                "PENRT": st.column_config.NumberColumn("PENRT", format="%.1f"),
+                "SumGWP": st.column_config.NumberColumn("GWP-total", format="%.1f"),
+                "SumPENRT": st.column_config.NumberColumn("PENRT", format="%.1f"),
                 "Rank": st.column_config.TextColumn("Rank"),
             },
         )
 
-    # 7) Show averages in an info message below the table
-    st.info(
-        f"**Average GWP**: {avg_gwp:.1f}  |  **Average PENRT**: {avg_penrt:.1f}\n\n"
-    )
+    # Show averages in an info message below the table
+    if avg_gwp != None and avg_penrt != None:
+        st.info(
+            f"**Average GWP**: {avg_gwp:.1f}  |  **Average PENRT**: {avg_penrt:.1f}\n\n"
+        )
 
     return display_table
 
@@ -206,6 +258,7 @@ def build_dynamic_query(
     penrt_thr: int = 1000,
     scenario_recycled: bool = False,
     strict_din: bool = False,
+    query_mode: bool = False,
 ) -> str:
     """
     Build a SPARQL query string based on the provided user inputs.
@@ -252,94 +305,35 @@ def build_dynamic_query(
     country_filter = ""
     if countries:
         joined = '","'.join(countries)
-        country_filter = f'FILTER(?country IN ("{joined}"))'
+        country_filter = f"""
+  # Filter Country
+  ?pInfo ilcd:geography ?geo .
+  ?geo ilcd:locationOfOperationSupplyOrProduction ?loc .
+  ?loc ilcd:location ?country .
+  FILTER(?country IN ("{joined}"))
+  """
 
     # Dataset Type Filter
     subtype_filter = ""
     if subtypes:
         joined_subtypes = '","'.join([f"{s} dataset" for s in subtypes])
-        subtype_filter = f'FILTER(?subType IN ("{joined_subtypes}"))'
-
-    # Concrete Strength Filter (e.g. compressive strength)
-    str_filter = ""
-    if str_groups:
-        joined_str_groups = '","'.join([f"{s} Strength Concrete" for s in str_groups])
-        str_filter = f'FILTER(?strengthGroup IN ("{joined_str_groups}"))'
-
-    # Concrete Weight Filter (e.g. bulk/gross density)
-    density_filter = ""
-    if density_groups:
-        joined_density_groups = '","'.join(
-            [f"{s} Weight Concrete" for s in density_groups]
-        )
-        density_filter = f'FILTER(?densityGroup IN ("{joined_density_groups}"))'
-
-    # DIN 276 Cost Group Filter
-    din_filter = ""
-    din_strict_count = ""
-    if din_groups:
-        joined = '","'.join(din_groups)
-        din_filter = f'FILTER(?notation IN ("{joined}"))'
-        if strict_din:
-            din_groups_number = len(din_groups)
-            din_strict_count = (
-                f"&&\n  (COUNT(DISTINCT ?notation) = {din_groups_number})"
-            )
-
-    # Scenario Filter (Recycled)
-    scenario_filter = ""
-    if scenario_recycled:
-        scenario_filter = """
-    FILTER EXISTS {
-      ?epd (ilcd:lciaResults|ilcd:exchanges) ?z1 .
-      ?z1 (ilcd:LCIAResult|ilcd:exchange)   ?z2 .
-      ?z2 (ilcd:otherLCIA|ilcd:otherEx)     ?z3 .
-      ?z3 ilcd:anies ?z4 .
-      ?z4 ilcd:scenario "Recycled" .
-    }
-    """
-
-    # Final Query
-    query = f"""
-PREFIX ilcd: <https://example.org/ilcd/>
-PREFIX din:  <https://example.org/din276/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
-
-SELECT
-  ?Name
-  (GROUP_CONCAT(DISTINCT ?notation ; separator=", ") AS ?DIN276CostGroupList)
-  (COALESCE(?SumGWP_, 0.0)   AS ?GWP)
-  (COALESCE(?SumPENRT_, 0.0) AS ?PENRT)
-WHERE {{
-  ##############################################################################
-  # (1) EPD basic info & cost groups
-  ##############################################################################
-  ?epd a ilcd:ProcessDataSet ;
-       ilcd:processInformation ?pInfo .
-  
-  ?pInfo ilcd:dataSetInformation ?dsi .
-  ?dsi ilcd:dataSetName ?dsName .
-  ?dsName ilcd:baseName ?baseName .
-  ?baseName ilcd:value ?Name ;
-            ilcd:lang "en" .
-
-  # Country Filter
-  ?pInfo ilcd:geography ?geo .
-  ?geo ilcd:locationOfOperationSupplyOrProduction ?loc .
-  ?loc ilcd:location ?country .
-  {country_filter}
-
-  # subType Filter
+        subtype_filter = f"""
+  # Filter dataset type (subType)
   ?epd ilcd:modellingAndValidation ?mVal .
   ?mVal ilcd:LCIMethodAndAllocation ?lciaMa .
   ?lciaMa ilcd:otherMAA ?maa .
   ?maa ilcd:anies ?subTypeNode .
   ?subTypeNode ilcd:name "subType" ;
                ilcd:value ?subType .
-  {subtype_filter}
+  FILTER(?subType IN ("{joined_subtypes}"))
+  """
 
-  # Compressive Strength & Grouping
+    # Concrete Strength Filter (e.g. compressive strength)
+    str_filter = ""
+    if str_groups:
+        joined_str_groups = '","'.join([f"{s} Strength Concrete" for s in str_groups])
+        str_filter = f"""
+  # Filter Compressive Strength & Grouping
   ?epd ilcd:exchanges ?exForStrength .
   ?exForStrength ilcd:exchange ?exchS .
   ?exchS ilcd:materialProperties ?mpS .
@@ -352,9 +346,17 @@ WHERE {{
     )
     AS ?strengthGroup
   )
-  {str_filter}
+  FILTER(?strengthGroup IN ("{joined_str_groups}"))
+  """
 
-  # Bulk Density & Grouping
+    # Concrete Weight Filter (e.g. bulk/gross density)
+    density_filter = ""
+    if density_groups:
+        joined_density_groups = '","'.join(
+            [f"{s} Weight Concrete" for s in density_groups]
+        )
+        density_filter = f"""
+  # Filter Bulk Density & Grouping
   ?epd ilcd:exchanges ?exForDensity .
   ?exForDensity ilcd:exchange ?exchD .
   ?exchD ilcd:materialProperties ?mpD .
@@ -367,21 +369,106 @@ WHERE {{
     )
     AS ?densityGroup
   )
-  {density_filter}
+  FILTER(?densityGroup IN ("{joined_density_groups}"))
+  """
 
-  # DIN 276 cost groups
+    # DIN 276 Cost Group Filter
+    din_filter = ""
+    din_strict_count = ""
+    din_strict_count_having = ""
+    din_strict_exists = ""
+    if din_groups:
+        din_groups_number = len(din_groups)
+        joined = '","'.join(din_groups)
+        din_filter = f"""
+  # Filter DIN 276 cost groups
   ?epd din:hasDIN276CostGroup ?cg .
   ?cg skos:notation ?notation .
+  FILTER(?notation IN ("{joined}"))
+  """
+        if not query_mode:
+            if strict_din:
+                din_strict_count = (
+                    f"&&\n  (COUNT(DISTINCT ?notation) = {din_groups_number})"
+                )
+        else:
+            if strict_din:
+                din_strict_count = (
+                    f"&&\n  (COUNT(DISTINCT ?notation) = {din_groups_number})"
+                )
+                din_strict_count_having = f"""HAVING (COUNT(DISTINCT ?notation) = {din_groups_number})
+              """
+                din_strict_exists = f"""
+                FILTER NOT EXISTS {{
+                ?epd din:hasDIN276CostGroup ?cg2 .
+                ?cg2 skos:notation ?otherNotation .
+                FILTER(?otherNotation NOT IN ("{joined}"))
+                }}
+                """
+
+    # Scenario Filter (Recycled)
+    scenario_filter = ""
+    if scenario_recycled:
+        scenario_filter = """
+    # Filter scenario "Recycled" 
+    FILTER EXISTS {
+      ?epd (ilcd:lciaResults|ilcd:exchanges) ?z1 .
+      ?z1 (ilcd:LCIAResult|ilcd:exchange)   ?z2 .
+      ?z2 (ilcd:otherLCIA|ilcd:otherEx)     ?z3 .
+      ?z3 ilcd:anies ?z4 .
+      ?z4 ilcd:scenario "Recycled" .
+    }
+    """
+
+    # Build a list of filters
+    filters = [
+        country_filter.strip(),
+        subtype_filter.strip(),
+        str_filter.strip(),
+        density_filter.strip(),
+        scenario_filter.strip(),
+    ]
+
+    # Filter out any empty strings
+    filters = [f for f in filters if f]
+
+    # Join the filters with a newline
+    filters_section = "\n\n  ".join(filters)
+
+    if not query_mode:
+
+        # SPARQL + Python logic query
+        query = f"""
+PREFIX ilcd: <https://example.org/ilcd/>
+PREFIX din:  <https://example.org/din276/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+SELECT
+  ?Name
+  (GROUP_CONCAT(DISTINCT ?notation ; separator=", ") AS ?DIN276CostGroupList)
+  (COALESCE(?SumGWP_, 0.0)   AS ?GWP)
+  (COALESCE(?SumPENRT_, 0.0) AS ?PENRT)
+WHERE {{
+  ##############################################################################
+  # (1) EPD basic info and filters
+  ##############################################################################
+  ?epd a ilcd:ProcessDataSet ;
+       ilcd:processInformation ?pInfo .
+  ?pInfo ilcd:dataSetInformation ?dsi .
+  ?dsi ilcd:dataSetName ?dsName .
+  ?dsName ilcd:baseName ?baseName .
+  ?baseName ilcd:value ?Name ;
+            ilcd:lang "en" .
+  {filters_section}
   {din_filter}
- 
+    
   ##############################################################################
   # (2) Sub-SELECT for GWP
   ##############################################################################
   OPTIONAL {{
     {{
-        SELECT
-        ?epdGw
-        (SUM(?valGwp) AS ?SumGWP)
+        SELECT ?epdGw (SUM(?valGwp) AS ?SumGWP)
         WHERE 
         {{
             ?epdGw a ilcd:ProcessDataSet ;
@@ -398,10 +485,7 @@ WHERE {{
                     ilcd:value ?valGwpStr .
 
             # Convert "ND" -> 0.0
-            BIND(
-                IF(?valGwpStr = "ND", 0.0, xsd:float(?valGwpStr))
-                AS ?valGwp
-            )
+            BIND(IF(?valGwpStr = "ND", 0.0, xsd:float(?valGwpStr)) AS ?valGwp)
 
             {module_filter_gwp}
         }}
@@ -447,12 +531,6 @@ WHERE {{
     FILTER(?epdPen = ?epd)
     BIND(?SumPENRT AS ?SumPENRT_)
   }}
-  
-
-  ##############################################################################
-  # (4) Scenario Filter (Recycled)
-  ##############################################################################
-  {scenario_filter}
 }}
 GROUP BY ?Name ?SumGWP_ ?SumPENRT_
 HAVING (
@@ -462,4 +540,157 @@ HAVING (
   {din_strict_count}
 )
 """
+    else:
+        # Semantic query
+        query = f"""
+PREFIX ilcd: <https://example.org/ilcd/>
+PREFIX din:  <https://example.org/din276/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?Name ?DIN276CostGroupList ?SumGWP ?SumPENRT ?avgGWP ?avgPENRT ?distSquared
+WHERE {{
+  # Step 1: Get the filtered EPD set (core filters: language "en" and country "DE")
+  {{
+    SELECT DISTINCT ?epd (SAMPLE(?nameLit) AS ?Name)
+    WHERE {{
+      ?epd a ilcd:ProcessDataSet ;
+           ilcd:processInformation ?pInfo .
+      ?pInfo ilcd:dataSetInformation ?dsi .
+      ?dsi ilcd:dataSetName ?dsName .
+      ?dsName ilcd:baseName ?base .
+      ?base ilcd:value ?nameLit ;
+            ilcd:lang "en" .
+      {filters_section}
+      {din_filter}
+    }}
+    GROUP BY ?epd
+    {din_strict_count_having}
+  }}
+
+  # (Optional) sub-select for gathering cost groups
+  OPTIONAL {{
+    SELECT ?epd (GROUP_CONCAT(DISTINCT ?notation; separator=", ") AS ?DIN276CostGroupList)
+    WHERE {{
+      {din_filter}
+    }}
+    GROUP BY ?epd
+  }}
+  
+  # Step 2: Compute GWP per filtered EPD
+  OPTIONAL {{
+    SELECT ?epd (SUM(?valGwp) AS ?SumGWP)
+    WHERE {{
+      ?epd ilcd:lciaResults ?lr .
+      ?lr ilcd:LCIAResult ?lciaRes .
+      ?lciaRes ilcd:referenceToLCIAMethodDataSet ?methodDs .
+      ?methodDs ilcd:shortDescription ?methodName .
+      ?methodName ilcd:value "Global Warming Potential - total (GWP-total)" .
+      ?lciaRes ilcd:otherLCIA ?oLCIA .
+      ?oLCIA ilcd:anies ?mValG .
+      ?mValG ilcd:module ?modGwp ;
+             ilcd:value ?valGwpStr .    
+      BIND(IF(?valGwpStr = "ND", 0.0, xsd:float(?valGwpStr)) AS ?valGwp)
+
+      {module_filter_gwp}
+    }}
+    GROUP BY ?epd
+    HAVING (COALESCE(?SumGWP, 0.0) < {gwp_thr})
+  }}
+  
+  # Step 3: Compute PENRT per filtered EPD
+  OPTIONAL {{
+    SELECT ?epd (SUM(?valPen) AS ?SumPENRT)
+    WHERE {{
+      ?epd ilcd:exchanges ?ex .
+      ?ex ilcd:exchange ?exEntry .
+      ?exEntry ilcd:referenceToFlowDataSet ?flowDs .
+      ?flowDs ilcd:shortDescription ?flowName .
+      ?flowName ilcd:value ?flowReg .
+      FILTER(regex(?flowReg, "PENRT", "i"))
+      ?exEntry ilcd:otherEx ?oEx .
+      ?oEx ilcd:anies ?mValPen .
+      ?mValPen ilcd:module ?modPen ;
+               ilcd:value ?valPenStr .
+      BIND(IF(?valPenStr = "ND", 0.0, xsd:float(?valPenStr)) AS ?valPen)
+
+      {module_filter_penrt}
+    }}
+    GROUP BY ?epd
+    HAVING (COALESCE(?SumPENRT, 0.0) < {penrt_thr})
+  }}
+  
+  # Step 5: Compute overall averages over the filtered set.
+  {{
+    SELECT (AVG(?aggGWP) AS ?avgGWP) (AVG(?aggPENRT) AS ?avgPENRT)
+    WHERE {{
+     {{
+        SELECT ?epd (SUM(?valGwp) AS ?aggGWP)
+        WHERE {{
+          ?epd a ilcd:ProcessDataSet ;
+               ilcd:processInformation ?pInfo .
+          ?pInfo ilcd:dataSetInformation ?dsi .
+          ?dsi ilcd:dataSetName ?dsName .
+          ?dsName ilcd:baseName ?base .
+          ?base ilcd:lang "en" .       
+          
+          ?epd ilcd:lciaResults ?lr .
+          ?lr ilcd:LCIAResult ?lciaRes .
+          ?lciaRes ilcd:referenceToLCIAMethodDataSet ?methodDs .
+          ?methodDs ilcd:shortDescription ?methodName .
+          ?methodName ilcd:value "Global Warming Potential - total (GWP-total)" .
+          ?lciaRes ilcd:otherLCIA ?oLCIA .
+          ?oLCIA ilcd:anies ?mValG .
+          ?mValG ilcd:module ?modGwp ;
+                 ilcd:value ?valGwpStr .
+          BIND(IF(?valGwpStr = "ND", 0.0, xsd:float(?valGwpStr)) AS ?valGwp)
+          {filters_section}
+          {module_filter_gwp}
+        }}
+        GROUP BY ?epd
+        HAVING (COALESCE(?aggGWP, 0.0) < {gwp_thr})
+      }}
+      {{
+        SELECT ?epd (SUM(?valPen) AS ?aggPENRT)
+        WHERE {{
+          ?epd a ilcd:ProcessDataSet ;
+               ilcd:processInformation ?pInfo .
+          ?pInfo ilcd:dataSetInformation ?dsi .
+          ?dsi ilcd:dataSetName ?dsName .
+          ?dsName ilcd:baseName ?base .
+          ?base ilcd:lang "en" .
+          
+          ?epd ilcd:exchanges ?ex .
+          ?ex ilcd:exchange ?exEntry .
+          ?exEntry ilcd:referenceToFlowDataSet ?flowDs .
+          ?flowDs ilcd:shortDescription ?flowName .
+          ?flowName ilcd:value ?flowReg .
+          FILTER(regex(?flowReg, "PENRT", "i"))
+          ?exEntry ilcd:otherEx ?oEx .
+          ?oEx ilcd:anies ?mValPen .
+          ?mValPen ilcd:module ?modPen ;
+                   ilcd:value ?valPenStr .
+          BIND(IF(?valPenStr = "ND", 0.0, xsd:float(?valPenStr)) AS ?valPen)
+          {filters_section}
+          {module_filter_penrt}
+        }}
+        GROUP BY ?epd
+        HAVING (COALESCE(?aggPENRT, 0.0) < {penrt_thr})
+      }}
+    }}
+  }}
+  
+  # Step 6: Calculate squared Euclidean distance from overall averages.
+  BIND(
+    (
+      (COALESCE(?SumGWP, 0.0) - ?avgGWP) * (COALESCE(?SumGWP, 0.0) - ?avgGWP) +
+      (COALESCE(?SumPENRT, 0.0) - ?avgPENRT) * (COALESCE(?SumPENRT, 0.0) - ?avgPENRT)
+    )
+    AS ?distSquared
+  )
+}}
+ORDER BY ?distSquared
+LIMIT 3
+"""
+    query = re.sub(r"\n\s*\n", "\n", query)
     return query
