@@ -32,7 +32,7 @@ def display_results(
     - If only highlight_gwp=True, we highlight the GWP set.
     - If only highlight_penrt=True, we highlight the PENRT set.
     """
-    display_table = True
+    display_table_bool = True
     avg_gwp = None
     avg_penrt = None
 
@@ -43,8 +43,8 @@ def display_results(
             "No table data. Please adjust filters in the sidebar and click 'Run Query'."
         )
         # Set to false when no results are available to hide checkboxes
-        display_table = False
-        return display_table
+        display_table_bool = False
+        return display_table_bool
     var_names = results_json["head"]["vars"]
 
     table_rows = []
@@ -244,7 +244,7 @@ def display_results(
             f"**Average GWP**: {avg_gwp:.1f}  |  **Average PENRT**: {avg_penrt:.1f}\n\n"
         )
 
-    return display_table
+    return display_table_bool
 
 
 def build_dynamic_query(
@@ -694,3 +694,150 @@ LIMIT 3
 """
     query = re.sub(r"\n\s*\n", "\n", query)
     return query
+
+
+def run_cost_group_query(results_json: dict):
+    """
+    Extracts DIN276 cost groups from the provided JSON, builds a SPARQL query
+    using those cost groups in a FILTER clause, and returns the query results.
+
+    Parameters:
+      results_json (dict): JSON dictionary containing the DIN276CostGroupList.
+                           Expected format:
+                           {
+                             "DIN276CostGroupList": {
+                               "type": "literal",
+                               "value": "322, 330, 331"
+                             }
+                           }
+
+    Returns:
+      dict: The results of the SPARQL query in JSON format.
+    """
+
+    def extract_cost_groups(results_json: dict) -> list:
+        """
+        Extract unique DIN276 cost groups from all SPARQL result bindings.
+
+        This function splits any comma-separated cost groups, builds a set of unique values,
+        and returns a sorted list.
+
+        Returns:
+        list: A list of unique cost group strings.
+        """
+        cost_group_set = set()
+        bindings = results_json.get("results", {}).get("bindings", [])
+        for binding in bindings:
+            if "DIN276CostGroupList" in binding:
+                cost_groups_raw = binding["DIN276CostGroupList"].get("value", "")
+                # Split by comma and add each trimmed value to the set.
+                for group in cost_groups_raw.split(","):
+                    group = group.strip()
+                    if group:
+                        cost_group_set.add(group)
+        return sorted(cost_group_set)
+
+    cost_groups = extract_cost_groups(results_json)
+
+    # Build the FILTER clause if cost groups are provided.
+    if cost_groups:
+        # Create a comma-separated list of values enclosed in double quotes.
+        joined = '","'.join(cost_groups)
+        din_filter = f'FILTER(?notation IN ("{joined}"))'
+    else:
+        din_filter = ""
+
+    # Build the SPARQL query string.
+    bki_query = f"""
+PREFIX bki: <https://example.org/bki#>
+PREFIX din: <https://example.org/din276/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?notation ?name ?description ?layerName ?layerSize ?layerLife
+WHERE {{
+  ?element a bki:BKIElement ;
+           bki:name ?name ;
+           bki:description ?description ;
+           din:hasDIN276CostGroup ?cg ;
+           bki:hasLayer ?layer .
+           
+  ?cg skos:notation ?notation .
+  
+  ?layer a bki:Layer ;
+         bki:processConfigName ?layerName .
+  
+  OPTIONAL {{ ?layer bki:lifeTime ?layerLife. }}
+  OPTIONAL {{ ?layer bki:layerSize ?layerSize. }}
+
+  {din_filter}
+}}
+ORDER BY ?name ?notation
+"""
+    # Run the query using the existing run_query() function.
+    bki_query = re.sub(r"\n\s*\n", "\n", bki_query)
+    return bki_query
+
+
+def sparql_results_to_dataframe(results_json: dict) -> pd.DataFrame:
+    """
+    Convert SPARQL query JSON results to a pandas DataFrame with columns:
+    element name, element description, layer name, layer size, layer lifetime, and cost group.
+
+    Then, group the results by the element’s unique fields (name, description, notation)
+    so that each element appears only once. The layer fields are aggregated into newline‐separated
+    strings.
+
+    Parameters:
+      results_json (dict): SPARQL query JSON results.
+
+    Returns:
+      pd.DataFrame: A grouped DataFrame with one row per BKI element.
+    """
+    bindings = results_json.get("results", {}).get("bindings", [])
+    if not bindings:
+        st.warning(
+            "No BKI data available for the selected DIN 276 cost group(s). Please adjust filters and try again."
+        )
+        return pd.DataFrame()
+
+    var_names = results_json["head"]["vars"]
+    table_rows = []
+    for row in bindings:
+        row_data = {}
+        for var in var_names:
+            row_data[var] = row[var]["value"] if var in row else ""
+        table_rows.append(row_data)
+    df = pd.DataFrame(table_rows)
+
+    # Group the rows so each element (identified by name, description, notation) appears once.
+    # The layer columns are aggregated (unique values joined by newline).
+    if not df.empty:
+        grouped_df = df.groupby(
+            ["notation", "name", "description"], as_index=False
+        ).agg(
+            {
+                "layerName": lambda x: ", ".join(sorted(set(x))),
+                "layerSize": lambda x: ", ".join(sorted(set(x))),
+                "layerLife": lambda x: ", ".join(sorted(set(x))),
+            }
+        )
+    else:
+        grouped_df = df
+
+    # Display the grouped DataFrame using Streamlit's st.dataframe with custom column configuration.
+    st.dataframe(
+        grouped_df,
+        use_container_width=True,
+        height=300,
+        column_config={
+            "notation": st.column_config.TextColumn("DIN 276 (CG)"),
+            "name": st.column_config.TextColumn("Name"),
+            "description": st.column_config.TextColumn("Description"),
+            "layerName": st.column_config.TextColumn("Layer Name(s)"),
+            "layerSize": st.column_config.TextColumn("Layer Size(s)"),
+            "layerLife": st.column_config.TextColumn("Layer Life(s)"),
+        },
+        hide_index=True,
+    )
+
+    return grouped_df

@@ -1,6 +1,12 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from utils import run_query, display_results, build_dynamic_query
+from utils import (
+    run_query,
+    display_results,
+    build_dynamic_query,
+    run_cost_group_query,
+    sparql_results_to_dataframe,
+)
 from streamlit_agraph import agraph, Node, Edge, Config, ConfigBuilder
 
 ##############################################################################
@@ -10,6 +16,15 @@ from streamlit_agraph import agraph, Node, Edge, Config, ConfigBuilder
 st.sidebar.title(
     "Filters",
     help="Select one or more filters. \n\nIf none are selected, all results will be displayed.",
+)
+
+
+# -- Category Filter (multi-select)
+selected_category = st.sidebar.multiselect(
+    "Material Category",
+    options=["ready-mixed concrete"],
+    placeholder="ready-mixed concrete",
+    disabled=True,
 )
 
 
@@ -30,12 +45,9 @@ din_options = [
     "370",
     "371",
 ]
-selected_din = st.sidebar.multiselect("DIN 276 (CG)", options=din_options)
-
-# -- Strict DIN 276 Cost Group Filtering Toggle
-strict_din = st.sidebar.checkbox(
-    "Strict cost group",
-    help="Show EPDs that include every specified cost group. Otherwise, EPDs with any of these groups are shown.",
+selected_din = st.sidebar.multiselect(
+    "DIN 276 (CG)",
+    options=din_options,
 )
 
 # -- Module Filter (multi-select)
@@ -87,11 +99,17 @@ gwp_threshold = st.sidebar.slider("GWP", min_value=0, max_value=1000, value=250)
 # -- PENRT Threshold Filter
 penrt_threshold = st.sidebar.slider("PENRT", min_value=0, max_value=5000, value=2000)
 
+# -- Strict DIN 276 Cost Group Filtering Toggle
+strict_din = st.sidebar.checkbox(
+    "Strict cost group",
+    help="Show EPDs that include every specified cost group. Otherwise, EPDs with any of these groups are shown.",
+)
+
 # -- Scenario Toggle (Recycled)
 scenario_recycled = st.sidebar.checkbox("Recycled")
 
 # -- Query Mode Toggle
-mode = st.sidebar.toggle("Average EPD")
+mode = st.sidebar.toggle("Average EPD Mode")
 
 # -- Button to run the dynamic query
 if st.sidebar.button("Run Query"):
@@ -168,6 +186,22 @@ else:
                 st.session_state["highlight_penrt"] = new_penrt
                 st.rerun()
 
+        # print(st.session_state["results"])
+        # print("-" * 50)
+
+        if display_table:
+            results_json = st.session_state["results"]
+            bindings = results_json.get("results", {}).get("bindings", [])
+            if bindings:
+                first_binding = bindings[0]
+                if first_binding.get("DIN276CostGroupList"):
+                    with st.expander("**BKI Elements Details**"):
+                        cost_group_results_query = run_cost_group_query(results_json)
+                        st.session_state.cost_group_results = cost_group_results_query
+                        cost_group_results = run_query(cost_group_results_query)
+                        if cost_group_results:
+                            sparql_results_to_dataframe(cost_group_results)
+
     with tabs[1]:
         # (Optional) Graph placeholder
         st.info("No graph visualization is implemented for the dynamic query.")
@@ -177,4 +211,12 @@ else:
 
     with tabs[2]:
         # Show the generated SPARQL
+        st.write("EPD Query:")
         st.code(st.session_state["query_string"], language="sparql")
+        results_json = st.session_state["results"]
+        bindings = results_json.get("results", {}).get("bindings", [])
+        if bindings:
+            first_binding = bindings[0]
+            if first_binding.get("DIN276CostGroupList"):
+                st.write("BKI Query:")
+                st.code(st.session_state["cost_group_results"], language="sparql")
