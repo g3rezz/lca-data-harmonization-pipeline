@@ -296,17 +296,21 @@ def build_dynamic_query(
     # Modules Filter
     module_filter_gwp = ""
     module_filter_penrt = ""
+    module_filter_gwp2 = ""
+    module_filter_penrt2 = ""
     if modules:
         joined_modules = '","'.join(modules)
         module_filter_gwp = f'FILTER(?modGwp IN ("{joined_modules}"))'
         module_filter_penrt = f'FILTER(?modPen IN ("{joined_modules}"))'
+        module_filter_gwp2 = f'FILTER(?modGwp2 IN ("{joined_modules}"))'
+        module_filter_penrt2 = f'FILTER(?modPen2 IN ("{joined_modules}"))'
 
     # Country Filter
     country_filter = ""
     if countries:
         joined = '","'.join(countries)
         country_filter = f"""
-  # Filter Country
+  # -- Filter Country
   ?pInfo ilcd:geography ?geo .
   ?geo ilcd:locationOfOperationSupplyOrProduction ?loc .
   ?loc ilcd:location ?country .
@@ -318,7 +322,7 @@ def build_dynamic_query(
     if subtypes:
         joined_subtypes = '","'.join([f"{s} dataset" for s in subtypes])
         subtype_filter = f"""
-  # Filter dataset type (subType)
+  # -- Filter dataset type (subType)
   ?epd ilcd:modellingAndValidation ?mVal .
   ?mVal ilcd:LCIMethodAndAllocation ?lciaMa .
   ?lciaMa ilcd:otherMAA ?maa .
@@ -333,7 +337,7 @@ def build_dynamic_query(
     if str_groups:
         joined_str_groups = '","'.join([f"{s} Strength Concrete" for s in str_groups])
         str_filter = f"""
-  # Filter Compressive Strength & Grouping
+  # -- Filter Compressive Strength & Grouping
   ?epd ilcd:exchanges ?exForStrength .
   ?exForStrength ilcd:exchange ?exchS .
   ?exchS ilcd:materialProperties ?mpS .
@@ -356,7 +360,7 @@ def build_dynamic_query(
             [f"{s} Weight Concrete" for s in density_groups]
         )
         density_filter = f"""
-  # Filter Bulk Density & Grouping
+  # -- Filter Bulk Density & Grouping
   ?epd ilcd:exchanges ?exForDensity .
   ?exForDensity ilcd:exchange ?exchD .
   ?exchD ilcd:materialProperties ?mpD .
@@ -375,13 +379,11 @@ def build_dynamic_query(
     # DIN 276 Cost Group Filter
     din_filter = ""
     din_strict_count = ""
-    din_strict_count_having = ""
-    din_strict_exists = ""
     if din_groups:
         din_groups_number = len(din_groups)
         joined = '","'.join(din_groups)
         din_filter = f"""
-  # Filter DIN 276 cost groups
+  # -- Filter DIN 276 cost groups
   ?epd din:hasDIN276CostGroup ?cg .
   ?cg skos:notation ?notation .
   FILTER(?notation IN ("{joined}"))
@@ -396,21 +398,12 @@ def build_dynamic_query(
                 din_strict_count = (
                     f"&&\n  (COUNT(DISTINCT ?notation) = {din_groups_number})"
                 )
-                din_strict_count_having = f"""HAVING (COUNT(DISTINCT ?notation) = {din_groups_number})
-              """
-                din_strict_exists = f"""
-                FILTER NOT EXISTS {{
-                ?epd din:hasDIN276CostGroup ?cg2 .
-                ?cg2 skos:notation ?otherNotation .
-                FILTER(?otherNotation NOT IN ("{joined}"))
-                }}
-                """
 
     # Scenario Filter (Recycled)
     scenario_filter = ""
     if scenario_recycled:
         scenario_filter = """
-    # Filter scenario "Recycled" 
+    # -- Filter scenario "Recycled" 
     FILTER EXISTS {
       ?epd (ilcd:lciaResults|ilcd:exchanges) ?z1 .
       ?z1 (ilcd:LCIAResult|ilcd:exchange)   ?z2 .
@@ -427,6 +420,7 @@ def build_dynamic_query(
         str_filter.strip(),
         density_filter.strip(),
         scenario_filter.strip(),
+        din_filter.strip(),
     ]
 
     # Filter out any empty strings
@@ -450,9 +444,7 @@ SELECT
   (COALESCE(?SumGWP_, 0.0)   AS ?GWP)
   (COALESCE(?SumPENRT_, 0.0) AS ?PENRT)
 WHERE {{
-  ##############################################################################
-  # (1) EPD basic info and filters
-  ##############################################################################
+  # (1) Get the filtered EPD set
   ?epd a ilcd:ProcessDataSet ;
        ilcd:processInformation ?pInfo .
   ?pInfo ilcd:dataSetInformation ?dsi .
@@ -461,72 +453,54 @@ WHERE {{
   ?baseName ilcd:value ?Name ;
             ilcd:lang "en" .
   {filters_section}
-  {din_filter}
     
-  ##############################################################################
-  # (2) Sub-SELECT for GWP
-  ##############################################################################
+  # (2) Compute GWP per filtered EPD
   OPTIONAL {{
     {{
-        SELECT ?epdGw (SUM(?valGwp) AS ?SumGWP)
-        WHERE 
-        {{
-            ?epdGw a ilcd:ProcessDataSet ;
-                    ilcd:lciaResults ?lr .
-            ?lr ilcd:LCIAResult ?lciaRes .
-            
-            ?lciaRes ilcd:referenceToLCIAMethodDataSet ?methodDs .
-            ?methodDs ilcd:shortDescription ?methodName .
-            ?methodName ilcd:value "Global Warming Potential - total (GWP-total)" .
-            
-            ?lciaRes ilcd:otherLCIA ?oLCIA .
-            ?oLCIA ilcd:anies ?mValG .
-            ?mValG ilcd:module ?modGwp ;
-                    ilcd:value ?valGwpStr .
-
-            # Convert "ND" -> 0.0
-            BIND(IF(?valGwpStr = "ND", 0.0, xsd:float(?valGwpStr)) AS ?valGwp)
-
-            {module_filter_gwp}
-        }}
-        GROUP BY ?epdGw
+      SELECT ?epdGw (SUM(DISTINCT ?valGwp) AS ?SumGWP)
+      WHERE 
+      {{
+      ?epdGw a ilcd:ProcessDataSet ;
+              ilcd:lciaResults ?lr .
+      ?lr ilcd:LCIAResult ?lciaRes .
+      ?lciaRes ilcd:referenceToLCIAMethodDataSet ?methodDs .
+      ?methodDs ilcd:shortDescription ?methodName .
+      ?methodName ilcd:value ?methodReg .
+      FILTER(regex(?methodReg, "(GWP-total)", "i"))
+      ?lciaRes ilcd:otherLCIA ?oLCIA .
+      ?oLCIA ilcd:anies ?mValG .
+      ?mValG ilcd:module ?modGwp ;
+              ilcd:value ?valGwpStr .
+      BIND(IF(?valGwpStr = "ND", 0.0, xsd:float(?valGwpStr)) AS ?valGwp)
+      {module_filter_gwp}
+      }}
+      GROUP BY ?epdGw
     }}
     FILTER(?epdGw = ?epd)
     BIND(?SumGWP AS ?SumGWP_)
   }}
 
-  ##############################################################################
-  # (3) Sub-SELECT for PENRT
-  ##############################################################################
+  # (3) Compute PENRT per filtered EPD
   OPTIONAL {{
     {{
-        SELECT
-        ?epdPen
-        (SUM(?valPen) AS ?SumPENRT)
-        WHERE 
-        {{
-            ?epdPen a ilcd:ProcessDataSet ;
-                    ilcd:exchanges ?ex .
-            ?ex ilcd:exchange ?exEntry .
-
-            ?exEntry ilcd:referenceToFlowDataSet ?flowDs .
-            ?flowDs ilcd:shortDescription ?flowName .
-            ?flowName ilcd:value ?flowReg .
-            FILTER(regex(?flowReg, "PENRT", "i"))
-
-            ?exEntry ilcd:otherEx ?oEx .
-            ?oEx ilcd:anies ?mValPen .
-            ?mValPen ilcd:module ?modPen ;
-                    ilcd:value ?valPenStr .
-
-            BIND(
-                IF(?valPenStr = "ND", 0.0, xsd:float(?valPenStr))
-                AS ?valPen
-            )
-
-            {module_filter_penrt}
-        }}
-        GROUP BY ?epdPen
+      SELECT ?epdPen (SUM(DISTINCT ?valPen) AS ?SumPENRT)
+      WHERE 
+      {{
+        ?epdPen a ilcd:ProcessDataSet ;
+                ilcd:exchanges ?ex .
+        ?ex ilcd:exchange ?exEntry .
+        ?exEntry ilcd:referenceToFlowDataSet ?flowDs .
+        ?flowDs ilcd:shortDescription ?flowName .
+        ?flowName ilcd:value ?flowReg .
+        FILTER(regex(?flowReg, "(PENRT)", "i"))
+        ?exEntry ilcd:otherEx ?oEx .
+        ?oEx ilcd:anies ?mValPen .
+        ?mValPen ilcd:module ?modPen ;
+                ilcd:value ?valPenStr .
+        BIND(IF(?valPenStr = "ND", 0.0, xsd:float(?valPenStr)) AS ?valPen)
+        {module_filter_penrt}
+      }}
+      GROUP BY ?epdPen
     }}
     FILTER(?epdPen = ?epd)
     BIND(?SumPENRT AS ?SumPENRT_)
@@ -548,12 +522,24 @@ PREFIX din:  <https://example.org/din276/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?Name ?DIN276CostGroupList ?SumGWP ?SumPENRT ?avgGWP ?avgPENRT ?distSquared
+SELECT
+  ?Name
+  ?DIN276CostGroupList
+  ?SumGWP
+  ?SumPENRT
+  ?avgGWP
+  ?avgPENRT
+  ?distSquared
 WHERE {{
-  # Step 1: Get the filtered EPD set (core filters: language "en" and country "DE")
+  # (1) Get the filtered EPD set with correct sums
   {{
-    SELECT DISTINCT ?epd (SAMPLE(?nameLit) AS ?Name)
+    SELECT ?epd 
+           (SAMPLE(?nameLit) AS ?Name)
+           (GROUP_CONCAT(DISTINCT ?notation; separator=", ") AS ?DIN276CostGroupList)
+           (SUM(DISTINCT ?valGwp) AS ?SumGWP)
+           (SUM(DISTINCT ?valPen) AS ?SumPENRT)
     WHERE {{
+      # -- Get EPD name (English)
       ?epd a ilcd:ProcessDataSet ;
            ilcd:processInformation ?pInfo .
       ?pInfo ilcd:dataSetInformation ?dsi .
@@ -561,130 +547,118 @@ WHERE {{
       ?dsName ilcd:baseName ?base .
       ?base ilcd:value ?nameLit ;
             ilcd:lang "en" .
+
       {filters_section}
-      {din_filter}
+
+      # -- GWP pattern
+      OPTIONAL {{
+        ?epd ilcd:lciaResults ?lr .
+        ?lr ilcd:LCIAResult ?lciaRes .
+        ?lciaRes ilcd:referenceToLCIAMethodDataSet ?methodDs .
+        ?methodDs ilcd:shortDescription ?methodName .
+        ?methodName ilcd:value ?methodReg .
+        FILTER(regex(?methodReg, "(GWP-total)", "i"))
+        ?lciaRes ilcd:otherLCIA ?oLCIA .
+        ?oLCIA ilcd:anies ?mValG .
+        ?mValG ilcd:module ?modGwp ;
+              ilcd:value ?valGwpStr .
+        BIND( IF(?valGwpStr = "ND", 0.0, xsd:float(?valGwpStr)) AS ?valGwp )
+        {module_filter_gwp}
+      }}
+
+      # -- PENRT pattern
+      OPTIONAL {{
+        ?epd ilcd:exchanges ?ex .
+        ?ex ilcd:exchange ?exEntry .
+        ?exEntry ilcd:referenceToFlowDataSet ?flowDs .
+        ?flowDs ilcd:shortDescription ?flowName .
+        ?flowName ilcd:value ?flowReg .
+        FILTER(regex(?flowReg, "(PENRT)", "i"))
+        ?exEntry ilcd:otherEx ?oEx .
+        ?oEx ilcd:anies ?mValPen .
+        ?mValPen ilcd:module ?modPen ;
+                ilcd:value ?valPenStr .
+        BIND( IF(?valPenStr = "ND", 0.0, xsd:float(?valPenStr)) AS ?valPen )
+        {module_filter_penrt}
+      }}
     }}
     GROUP BY ?epd
-    {din_strict_count_having}
+    HAVING (
+      COALESCE(SUM(DISTINCT ?valGwp), 0.0) < {gwp_thr} 
+      &&
+      COALESCE(SUM(DISTINCT ?valPen), 0.0) < {penrt_thr}
+      {din_strict_count}
+    )
   }}
 
-  # (Optional) sub-select for gathering cost groups
-  OPTIONAL {{
-    SELECT ?epd (GROUP_CONCAT(DISTINCT ?notation; separator=", ") AS ?DIN276CostGroupList)
-    WHERE {{
-      {din_filter}
-    }}
-    GROUP BY ?epd
-  }}
-  
-  # Step 2: Compute GWP per filtered EPD
-  OPTIONAL {{
-    SELECT ?epd (SUM(?valGwp) AS ?SumGWP)
-    WHERE {{
-      ?epd ilcd:lciaResults ?lr .
-      ?lr ilcd:LCIAResult ?lciaRes .
-      ?lciaRes ilcd:referenceToLCIAMethodDataSet ?methodDs .
-      ?methodDs ilcd:shortDescription ?methodName .
-      ?methodName ilcd:value "Global Warming Potential - total (GWP-total)" .
-      ?lciaRes ilcd:otherLCIA ?oLCIA .
-      ?oLCIA ilcd:anies ?mValG .
-      ?mValG ilcd:module ?modGwp ;
-             ilcd:value ?valGwpStr .    
-      BIND(IF(?valGwpStr = "ND", 0.0, xsd:float(?valGwpStr)) AS ?valGwp)
-
-      {module_filter_gwp}
-    }}
-    GROUP BY ?epd
-    HAVING (COALESCE(?SumGWP, 0.0) < {gwp_thr})
-  }}
-  
-  # Step 3: Compute PENRT per filtered EPD
-  OPTIONAL {{
-    SELECT ?epd (SUM(?valPen) AS ?SumPENRT)
-    WHERE {{
-      ?epd ilcd:exchanges ?ex .
-      ?ex ilcd:exchange ?exEntry .
-      ?exEntry ilcd:referenceToFlowDataSet ?flowDs .
-      ?flowDs ilcd:shortDescription ?flowName .
-      ?flowName ilcd:value ?flowReg .
-      FILTER(regex(?flowReg, "PENRT", "i"))
-      ?exEntry ilcd:otherEx ?oEx .
-      ?oEx ilcd:anies ?mValPen .
-      ?mValPen ilcd:module ?modPen ;
-               ilcd:value ?valPenStr .
-      BIND(IF(?valPenStr = "ND", 0.0, xsd:float(?valPenStr)) AS ?valPen)
-
-      {module_filter_penrt}
-    }}
-    GROUP BY ?epd
-    HAVING (COALESCE(?SumPENRT, 0.0) < {penrt_thr})
-  }}
-  
-  # Step 5: Compute overall averages over the filtered set.
+  # (2) Compute overall average values over the SAME filtered set (by reusing  the identical filtering logic)
   {{
-    SELECT (AVG(?aggGWP) AS ?avgGWP) (AVG(?aggPENRT) AS ?avgPENRT)
+    SELECT
+      (AVG(?sumGwp)  AS ?avgGWP)
+      (AVG(?sumPen)  AS ?avgPENRT)
     WHERE {{
-     {{
-        SELECT ?epd (SUM(?valGwp) AS ?aggGWP)
-        WHERE {{
-          ?epd a ilcd:ProcessDataSet ;
-               ilcd:processInformation ?pInfo .
-          ?pInfo ilcd:dataSetInformation ?dsi .
-          ?dsi ilcd:dataSetName ?dsName .
-          ?dsName ilcd:baseName ?base .
-          ?base ilcd:lang "en" .       
-          
-          ?epd ilcd:lciaResults ?lr .
-          ?lr ilcd:LCIAResult ?lciaRes .
-          ?lciaRes ilcd:referenceToLCIAMethodDataSet ?methodDs .
-          ?methodDs ilcd:shortDescription ?methodName .
-          ?methodName ilcd:value "Global Warming Potential - total (GWP-total)" .
-          ?lciaRes ilcd:otherLCIA ?oLCIA .
-          ?oLCIA ilcd:anies ?mValG .
-          ?mValG ilcd:module ?modGwp ;
-                 ilcd:value ?valGwpStr .
-          BIND(IF(?valGwpStr = "ND", 0.0, xsd:float(?valGwpStr)) AS ?valGwp)
-          {filters_section}
-          {module_filter_gwp}
-        }}
-        GROUP BY ?epd
-        HAVING (COALESCE(?aggGWP, 0.0) < {gwp_thr})
-      }}
       {{
-        SELECT ?epd (SUM(?valPen) AS ?aggPENRT)
+        SELECT ?epd (SUM(DISTINCT ?valGwp) AS ?sumGwp) (SUM(DISTINCT ?valPen) AS ?sumPen)
         WHERE {{
+          # -- EPD name (English) again to ensure we match the same set
           ?epd a ilcd:ProcessDataSet ;
-               ilcd:processInformation ?pInfo .
-          ?pInfo ilcd:dataSetInformation ?dsi .
-          ?dsi ilcd:dataSetName ?dsName .
-          ?dsName ilcd:baseName ?base .
-          ?base ilcd:lang "en" .
-          
-          ?epd ilcd:exchanges ?ex .
-          ?ex ilcd:exchange ?exEntry .
-          ?exEntry ilcd:referenceToFlowDataSet ?flowDs .
-          ?flowDs ilcd:shortDescription ?flowName .
-          ?flowName ilcd:value ?flowReg .
-          FILTER(regex(?flowReg, "PENRT", "i"))
-          ?exEntry ilcd:otherEx ?oEx .
-          ?oEx ilcd:anies ?mValPen .
-          ?mValPen ilcd:module ?modPen ;
-                   ilcd:value ?valPenStr .
-          BIND(IF(?valPenStr = "ND", 0.0, xsd:float(?valPenStr)) AS ?valPen)
+               ilcd:processInformation ?pInfo2 .
+          ?pInfo2 ilcd:dataSetInformation ?dsi2 .
+          ?dsi2 ilcd:dataSetName ?dsName2 .
+          ?dsName2 ilcd:baseName ?base2 .
+          ?base2 ilcd:value ?nameLit2 ;
+                 ilcd:lang "en" .
+
           {filters_section}
-          {module_filter_penrt}
+
+          # -- GWP pattern
+          OPTIONAL {{
+            ?epd ilcd:lciaResults ?lr2 .
+            ?lr2 ilcd:LCIAResult ?lciaRes2 .
+            ?lciaRes2 ilcd:referenceToLCIAMethodDataSet ?methodDs2 .
+            ?methodDs2 ilcd:shortDescription ?methodName2 .
+            ?methodName2 ilcd:value ?methodReg2 .
+            FILTER(regex(?methodReg2, "(GWP-total)", "i"))
+            ?lciaRes2 ilcd:otherLCIA ?oLCIA2 .
+            ?oLCIA2 ilcd:anies ?mValG2 .
+            ?mValG2 ilcd:module ?modGwp2 ;
+              ilcd:value ?valGwpStr2 .
+            BIND( IF(?valGwpStr2 = "ND", 0.0, xsd:float(?valGwpStr2)) AS ?valGwp )
+            {module_filter_gwp2}
+          }}
+
+          # -- PENRT pattern
+          OPTIONAL {{
+            ?epd ilcd:exchanges ?ex2 .
+            ?ex2 ilcd:exchange ?exEntry2 .
+            ?exEntry2 ilcd:referenceToFlowDataSet ?flowDs2 .
+            ?flowDs2 ilcd:shortDescription ?flowName2 .
+            ?flowName2 ilcd:value ?flowReg2 .
+            FILTER(regex(?flowReg2, "(PENRT)", "i"))
+            ?exEntry2 ilcd:otherEx ?oEx2 .
+            ?oEx2 ilcd:anies ?mValPen2 .
+            ?mValPen2 ilcd:module ?modPen2 ;
+                ilcd:value ?valPenStr2 .
+            BIND( IF(?valPenStr2 = "ND", 0.0, xsd:float(?valPenStr2)) AS ?valPen )
+            {module_filter_penrt2}
+          }}
         }}
         GROUP BY ?epd
-        HAVING (COALESCE(?aggPENRT, 0.0) < {penrt_thr})
+        HAVING (
+          COALESCE(SUM(DISTINCT ?valGwp), 0.0) < {gwp_thr} 
+          &&
+          COALESCE(SUM(DISTINCT ?valPen), 0.0) < {penrt_thr}
+          {din_strict_count}
+        )
       }}
     }}
   }}
-  
-  # Step 6: Calculate squared Euclidean distance from overall averages.
+
+  # (3) Compute the squared Euclidean distance using the overall averages
   BIND(
     (
-      (COALESCE(?SumGWP, 0.0) - ?avgGWP) * (COALESCE(?SumGWP, 0.0) - ?avgGWP) +
-      (COALESCE(?SumPENRT, 0.0) - ?avgPENRT) * (COALESCE(?SumPENRT, 0.0) - ?avgPENRT)
+      (COALESCE(?SumGWP, 0.0) - ?avgGWP) * (COALESCE(?SumGWP, 0.0) - ?avgGWP)
+    + (COALESCE(?SumPENRT, 0.0) - ?avgPENRT) * (COALESCE(?SumPENRT, 0.0) - ?avgPENRT)
     )
     AS ?distSquared
   )
