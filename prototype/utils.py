@@ -18,23 +18,28 @@ def run_query(query: str):
 
 
 def display_results(
-    results_json, highlight_gwp=False, highlight_penrt=False, query_mode=False
+    results_json,
+    highlight_gwp=False,
+    highlight_penrt=False,
+    query_mode=False,
+    selected_env="GWP-total",
+    selected_lc="PENRT",
 ):
     """
     Displays the results in a dataframe:
-    - We invert-minmax normalize GWP and PENRT, sort descending by the combined score.
+    - We invert-minmax normalize ENV and LC, sort descending by the combined score.
     - We then reset the index to have final positions 0..N-1 in that sorted order.
     - Then we compute:
-      * 3 rows closest to avg GWP (abs diff).
-      * 3 rows closest to avg PENRT (abs diff).
-      * 3 rows closest in Euclidean distance to (avg GWP, avg PENRT).
+      * 3 rows closest to avg ENV (abs diff).
+      * 3 rows closest to avg LC (abs diff).
+      * 3 rows closest in Euclidean distance to (avg ENV, avg LC).
     - If highlight_gwp=True and highlight_penrt=True, we highlight the Euclidean set.
-    - If only highlight_gwp=True, we highlight the GWP set.
-    - If only highlight_penrt=True, we highlight the PENRT set.
+    - If only highlight_gwp=True, we highlight the ENV set.
+    - If only highlight_penrt=True, we highlight the LC set.
     """
     display_table_bool = True
-    avg_gwp = None
-    avg_penrt = None
+    avg_env = None
+    avg_lc = None
 
     # Convert SPARQL JSON "bindings" into a DataFrame
     bindings = results_json["results"]["bindings"]
@@ -74,27 +79,25 @@ def display_results(
             return "🟢"
 
     if not query_mode:
-        # If GWP & PENRT exist, do the normalization & sort
-        if "GWP" in df.columns and "PENRT" in df.columns:
-            df["GWP_float"] = pd.to_numeric(df["GWP"], errors="coerce")
-            df["PENRT_float"] = pd.to_numeric(df["PENRT"], errors="coerce")
+        # If ENV & LC exist, do the normalization & sort
+        if "ENV" in df.columns and "LC" in df.columns:
+            df["ENV_float"] = pd.to_numeric(df["ENV"], errors="coerce")
+            df["LC_float"] = pd.to_numeric(df["LC"], errors="coerce")
 
             # Inverted min-max => lower => better => higher normalized
-            min_gwp, max_gwp = df["GWP_float"].min(), df["GWP_float"].max()
+            min_gwp, max_gwp = df["ENV_float"].min(), df["ENV_float"].max()
             if max_gwp != min_gwp:
-                df["GWP_norm"] = (max_gwp - df["GWP_float"]) / (max_gwp - min_gwp)
+                df["ENV_norm"] = (max_gwp - df["ENV_float"]) / (max_gwp - min_gwp)
             else:
-                df["GWP_norm"] = 1.0
+                df["ENV_norm"] = 1.0
 
-            min_penrt, max_penrt = df["PENRT_float"].min(), df["PENRT_float"].max()
+            min_penrt, max_penrt = df["LC_float"].min(), df["LC_float"].max()
             if max_penrt != min_penrt:
-                df["PENRT_norm"] = (max_penrt - df["PENRT_float"]) / (
-                    max_penrt - min_penrt
-                )
+                df["LC_norm"] = (max_penrt - df["LC_float"]) / (max_penrt - min_penrt)
             else:
-                df["PENRT_norm"] = 1.0
+                df["LC_norm"] = 1.0
 
-            df["NormalizedSum"] = ((df["GWP_norm"] + df["PENRT_norm"]) / 2).round(2)
+            df["NormalizedSum"] = ((df["ENV_norm"] + df["LC_norm"]) / 2).round(2)
             # Sort by normalized score (descending => best is top)
             df.sort_values("NormalizedSum", ascending=False, inplace=True)
 
@@ -104,37 +107,36 @@ def display_results(
         if "NormalizedSum" in df.columns:
             df["Rank"] = df["NormalizedSum"].apply(icon_from_score)
 
-        # Compute average GWP, PENRT and find the top-3 closest
+        # Compute average ENV, LC and find the top-3 closest
         # using the final arrangement (0-based).
         closest_gwp_indices = []
         closest_penrt_indices = []
         closest_euclid_indices = []
-        if "GWP_float" in df.columns and "PENRT_float" in df.columns:
-            avg_gwp = df["GWP_float"].mean()
-            avg_penrt = df["PENRT_float"].mean()
+        if "ENV_float" in df.columns and "LC_float" in df.columns:
+            avg_env = df["ENV_float"].mean()
+            avg_lc = df["LC_float"].mean()
 
-            # Closest by GWP => sort by abs(GWP_float - avg_gwp)
-            temp_gwp = df.assign(DistGWP=(df["GWP_float"] - avg_gwp).abs())
-            temp_gwp.sort_values("DistGWP", inplace=True)
+            # Closest by ENV => sort by abs(ENV_float - avg_env)
+            temp_gwp = df.assign(DistENV=(df["ENV_float"] - avg_env).abs())
+            temp_gwp.sort_values("DistENV", inplace=True)
             closest_gwp_indices = temp_gwp.head(3).index.tolist()
 
-            # Closest by PENRT => sort by abs(PENRT_float - avg_penrt)
-            temp_pen = df.assign(DistPENRT=(df["PENRT_float"] - avg_penrt).abs())
-            temp_pen.sort_values("DistPENRT", inplace=True)
+            # Closest by LC => sort by abs(LC_float - avg_lc)
+            temp_pen = df.assign(DistLC=(df["LC_float"] - avg_lc).abs())
+            temp_pen.sort_values("DistLC", inplace=True)
             closest_penrt_indices = temp_pen.head(3).index.tolist()
 
-            # Closest by Euclidian => sqrt((GWP - avg_gwp)^2 + (PENRT - avg_penrt)^2)
+            # Closest by Euclidian => sqrt((ENV - avg_env)^2 + (LC - avg_lc)^2)
             temp_euc = df.assign(
                 DistEuclid=np.sqrt(
-                    (df["GWP_float"] - avg_gwp) ** 2
-                    + (df["PENRT_float"] - avg_penrt) ** 2
+                    (df["ENV_float"] - avg_env) ** 2 + (df["LC_float"] - avg_lc) ** 2
                 )
             )
             temp_euc.sort_values("DistEuclid", inplace=True)
             closest_euclid_indices = temp_euc.head(3).index.tolist()
 
         # Decide which set of rows to highlight
-        # If both toggles => Euclidian. If only GWP => GWP. If only PENRT => PENRT.
+        # If both toggles => Euclidian. If only ENV => ENV. If only LC => LC.
         highlight_indices = set()
         if highlight_gwp and highlight_penrt:
             highlight_indices = set(closest_euclid_indices)
@@ -146,10 +148,10 @@ def display_results(
 
         # Drop columns we no longer want to show
         for col_drop in [
-            "GWP_float",
-            "PENRT_float",
-            "GWP_norm",
-            "PENRT_norm",
+            "ENV_float",
+            "LC_float",
+            "ENV_norm",
+            "LC_norm",
             "NormalizedSum",
             # no Dist* columns in final; we used .assign(...) for them
         ]:
@@ -178,8 +180,12 @@ def display_results(
                 column_config={
                     "Name": st.column_config.TextColumn("Name"),
                     "DIN276CostGroupList": st.column_config.TextColumn("DIN 276 (CG)"),
-                    "GWP": st.column_config.NumberColumn("GWP", format="%.1f"),
-                    "PENRT": st.column_config.NumberColumn("PENRT", format="%.1f"),
+                    "ENV": st.column_config.NumberColumn(
+                        f"{selected_env}", format="%.1f"
+                    ),
+                    "LC": st.column_config.NumberColumn(
+                        f"{selected_lc}", format="%.1f"
+                    ),
                     "Rank": st.column_config.TextColumn("Rank"),
                 },
             )
@@ -191,17 +197,21 @@ def display_results(
                 column_config={
                     "Name": st.column_config.TextColumn("Name"),
                     "DIN276CostGroupList": st.column_config.TextColumn("DIN 276 (CG)"),
-                    "GWP": st.column_config.NumberColumn("GWP-total", format="%.1f"),
-                    "PENRT": st.column_config.NumberColumn("PENRT", format="%.1f"),
+                    "ENV": st.column_config.NumberColumn(
+                        f"{selected_env}", format="%.1f"
+                    ),
+                    "LC": st.column_config.NumberColumn(
+                        f"{selected_lc}", format="%.1f"
+                    ),
                     "Rank": st.column_config.TextColumn("Rank"),
                 },
             )
 
     else:
-        df["avgGWP_float"] = pd.to_numeric(df["avgGWP"], errors="coerce")
-        df["avgPENRT_float"] = pd.to_numeric(df["avgPENRT"], errors="coerce")
-        avg_gwp = df["avgGWP_float"].mean()
-        avg_penrt = df["avgPENRT_float"].mean()
+        df["avgENV_float"] = pd.to_numeric(df["avgENV"], errors="coerce")
+        df["avgLC_float"] = pd.to_numeric(df["avgLC"], errors="coerce")
+        avg_env = df["avgENV_float"].mean()
+        avg_lc = df["avgLC_float"].mean()
 
         # Convert final 0-based index to 1-based for display
         df.index = df.index + 1
@@ -212,14 +222,14 @@ def display_results(
 
         # Drop columns we no longer want to show
         for col_drop in [
-            "avgGWP",
-            "avgPENRT",
+            "avgENV",
+            "avgLC",
             "distSquared",
-            "avgGWP_float",
-            "avgPENRT_float",
+            "avgENV_float",
+            "avgLC_float",
             "distSquared_float",
-            "GWP_norm",
-            "PENRT_norm",
+            "ENV_norm",
+            "LC_norm",
             "NormalizedSum",
             # no Dist* columns in final; we used .assign(...) for them
         ]:
@@ -233,16 +243,18 @@ def display_results(
             column_config={
                 "Name": st.column_config.TextColumn("Name"),
                 "DIN276CostGroupList": st.column_config.TextColumn("DIN 276 (CG)"),
-                "SumGWP": st.column_config.NumberColumn("GWP-total", format="%.1f"),
-                "SumPENRT": st.column_config.NumberColumn("PENRT", format="%.1f"),
+                "SumENV": st.column_config.NumberColumn(
+                    f"{selected_env}", format="%.1f"
+                ),
+                "SumLC": st.column_config.NumberColumn(f"{selected_lc}", format="%.1f"),
                 "Rank": st.column_config.TextColumn("Rank"),
             },
         )
 
     # Show averages in an info message below the table
-    if avg_gwp != None and avg_penrt != None:
+    if avg_env != None and avg_lc != None:
         st.info(
-            f"**Average GWP**: {avg_gwp:.1f}  |  **Average PENRT**: {avg_penrt:.1f}\n\n"
+            f"**Average {selected_env}**: {avg_env:.1f}  |  **Average {selected_lc}**: {avg_lc:.1f}\n\n"
         )
 
     return display_table_bool
@@ -256,11 +268,13 @@ def build_dynamic_query(
     str_groups: Optional[Union[List[str], str]] = None,
     density_groups: Optional[Union[List[str], str]] = None,
     din_groups: Optional[List[str]] = None,
-    gwp_thr: int = 250,
-    penrt_thr: int = 1000,
+    environ_thr: int = 250,
+    lifecycle_thr: int = 1000,
     scenario_recycled: bool = False,
     strict_din: bool = False,
     query_mode: bool = False,
+    environmental_indicator: str = None,
+    lifecycle_indicator: str = None,
 ) -> str:
     """
     Build a SPARQL query string based on the provided user inputs.
@@ -272,7 +286,7 @@ def build_dynamic_query(
     Parameters:
       modules (Optional[List[str]]):
           A list of module names used to filter the query. The filter is applied to both
-          ?modGwp and ?modPen.
+          ?modEnv and ?modLc.
       countries (Optional[List[str]]):
           A list of country names used to filter the query, applied to ?country.
       subtypes (Optional[Union[List[str], str]]):
@@ -283,9 +297,9 @@ def build_dynamic_query(
           each value will have " Strength Concrete" appended to it and will be used to filter ?strengthGroup.
       din_groups (Optional[List[str]]):
           A list of DIN 276 cost group notations used to filter the query, applied to ?notation.
-      gwp_thr (int):
+      environ_thr (int):
           Threshold for Global Warming Potential (currently not integrated in filtering logic).
-      penrt_thr (int):
+      lifecycle_thr (int):
           Threshold for PEN-related results (currently not integrated in filtering logic).
       scenario_recycled (bool):
           If True, adds an additional filter to only include scenarios where the value is "Recycled".
@@ -319,10 +333,10 @@ def build_dynamic_query(
     module_filter_penrt2 = ""
     if modules:
         joined_modules = '","'.join(modules)
-        module_filter_gwp = f'FILTER(?modGwp IN ("{joined_modules}"))'
-        module_filter_penrt = f'FILTER(?modPen IN ("{joined_modules}"))'
-        module_filter_gwp2 = f'FILTER(?modGwp2 IN ("{joined_modules}"))'
-        module_filter_penrt2 = f'FILTER(?modPen2 IN ("{joined_modules}"))'
+        module_filter_gwp = f'FILTER(?modEnv IN ("{joined_modules}"))'
+        module_filter_penrt = f'FILTER(?modLc IN ("{joined_modules}"))'
+        module_filter_gwp2 = f'FILTER(?modEnv2 IN ("{joined_modules}"))'
+        module_filter_penrt2 = f'FILTER(?modLc2 IN ("{joined_modules}"))'
 
     # Country Filter
     country_filter = ""
@@ -462,8 +476,8 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 SELECT
   ?Name
   (GROUP_CONCAT(DISTINCT ?notation ; separator=", ") AS ?DIN276CostGroupList)
-  (COALESCE(?SumGWP_, 0.0)   AS ?GWP)
-  (COALESCE(?SumPENRT_, 0.0) AS ?PENRT)
+  (COALESCE(?SumENV_, 0.0)   AS ?ENV)
+  (COALESCE(?SumLC_, 0.0) AS ?LC)
 WHERE {{
   # (1) Get the filtered EPD set
   ?epd a ilcd:ProcessDataSet ;
@@ -475,10 +489,10 @@ WHERE {{
             ilcd:lang "en" .
   {filters_section}
     
-  # (2) Compute GWP per filtered EPD
+  # (2) Compute ENV per filtered EPD
   OPTIONAL {{
     {{
-      SELECT ?epdGw (SUM(DISTINCT ?valGwp) AS ?SumGWP)
+      SELECT ?epdGw (SUM(DISTINCT ?valEnv) AS ?SumENV)
       WHERE 
       {{
       ?epdGw a ilcd:ProcessDataSet ;
@@ -487,51 +501,51 @@ WHERE {{
       ?lciaRes ilcd:referenceToLCIAMethodDataSet ?methodDs .
       ?methodDs ilcd:shortDescription ?methodName .
       ?methodName ilcd:value ?methodReg .
-      FILTER(regex(?methodReg, "(GWP-total)", "i"))
+      FILTER(regex(?methodReg, "({environmental_indicator})", "i"))
       ?lciaRes ilcd:otherLCIA ?oLCIA .
       ?oLCIA ilcd:anies ?mValG .
-      ?mValG ilcd:module ?modGwp ;
-              ilcd:value ?valGwpStr .
-      BIND(IF(?valGwpStr = "ND", 0.0, xsd:float(?valGwpStr)) AS ?valGwp)
+      ?mValG ilcd:module ?modEnv ;
+              ilcd:value ?valEnvStr .
+      BIND(IF(?valEnvStr = "ND", 0.0, xsd:float(?valEnvStr)) AS ?valEnv)
       {module_filter_gwp}
       }}
       GROUP BY ?epdGw
     }}
     FILTER(?epdGw = ?epd)
-    BIND(?SumGWP AS ?SumGWP_)
+    BIND(?SumENV AS ?SumENV_)
   }}
 
-  # (3) Compute PENRT per filtered EPD
+  # (3) Compute LC per filtered EPD
   OPTIONAL {{
     {{
-      SELECT ?epdPen (SUM(DISTINCT ?valPen) AS ?SumPENRT)
+      SELECT ?epdLc (SUM(DISTINCT ?valLc) AS ?SumLC)
       WHERE 
       {{
-        ?epdPen a ilcd:ProcessDataSet ;
+        ?epdLc a ilcd:ProcessDataSet ;
                 ilcd:exchanges ?ex .
         ?ex ilcd:exchange ?exEntry .
         ?exEntry ilcd:referenceToFlowDataSet ?flowDs .
         ?flowDs ilcd:shortDescription ?flowName .
         ?flowName ilcd:value ?flowReg .
-        FILTER(regex(?flowReg, "(PENRT)", "i"))
+        FILTER(regex(?flowReg, "({lifecycle_indicator})", "i"))
         ?exEntry ilcd:otherEx ?oEx .
-        ?oEx ilcd:anies ?mValPen .
-        ?mValPen ilcd:module ?modPen ;
-                ilcd:value ?valPenStr .
-        BIND(IF(?valPenStr = "ND", 0.0, xsd:float(?valPenStr)) AS ?valPen)
+        ?oEx ilcd:anies ?mValLc .
+        ?mValLc ilcd:module ?modLc ;
+                ilcd:value ?valLcStr .
+        BIND(IF(?valLcStr = "ND", 0.0, xsd:float(?valLcStr)) AS ?valLc)
         {module_filter_penrt}
       }}
-      GROUP BY ?epdPen
+      GROUP BY ?epdLc
     }}
-    FILTER(?epdPen = ?epd)
-    BIND(?SumPENRT AS ?SumPENRT_)
+    FILTER(?epdLc = ?epd)
+    BIND(?SumLC AS ?SumLC_)
   }}
 }}
-GROUP BY ?Name ?SumGWP_ ?SumPENRT_
+GROUP BY ?Name ?SumENV_ ?SumLC_
 HAVING (
-  COALESCE(?SumGWP_, 0.0) < {gwp_thr}
+  COALESCE(?SumENV_, 0.0) < {environ_thr}
   &&
-  COALESCE(?SumPENRT_, 0.0) < {penrt_thr}
+  COALESCE(?SumLC_, 0.0) < {lifecycle_thr}
   {din_strict_count}
 )
 """
@@ -547,10 +561,10 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 SELECT
   ?Name
   ?DIN276CostGroupList
-  ?SumGWP
-  ?SumPENRT
-  ?avgGWP
-  ?avgPENRT
+  ?SumENV
+  ?SumLC
+  ?avgENV
+  ?avgLC
   ?distSquared
 WHERE {{
   # (1) Get the filtered EPD set with correct sums
@@ -558,8 +572,8 @@ WHERE {{
     SELECT ?epd 
            (SAMPLE(?nameLit) AS ?Name)
            (GROUP_CONCAT(DISTINCT ?notation; separator=", ") AS ?DIN276CostGroupList)
-           (SUM(DISTINCT ?valGwp) AS ?SumGWP)
-           (SUM(DISTINCT ?valPen) AS ?SumPENRT)
+           (SUM(DISTINCT ?valEnv) AS ?SumENV)
+           (SUM(DISTINCT ?valLc) AS ?SumLC)
     WHERE {{
       # -- Get EPD name (English)
       ?epd a ilcd:ProcessDataSet ;
@@ -572,43 +586,43 @@ WHERE {{
 
       {filters_section}
 
-      # -- GWP pattern
+      # -- ENV pattern
       OPTIONAL {{
         ?epd ilcd:lciaResults ?lr .
         ?lr ilcd:LCIAResult ?lciaRes .
         ?lciaRes ilcd:referenceToLCIAMethodDataSet ?methodDs .
         ?methodDs ilcd:shortDescription ?methodName .
         ?methodName ilcd:value ?methodReg .
-        FILTER(regex(?methodReg, "(GWP-total)", "i"))
+        FILTER(regex(?methodReg, "({environmental_indicator})", "i"))
         ?lciaRes ilcd:otherLCIA ?oLCIA .
         ?oLCIA ilcd:anies ?mValG .
-        ?mValG ilcd:module ?modGwp ;
-              ilcd:value ?valGwpStr .
-        BIND( IF(?valGwpStr = "ND", 0.0, xsd:float(?valGwpStr)) AS ?valGwp )
+        ?mValG ilcd:module ?modEnv ;
+              ilcd:value ?valEnvStr .
+        BIND( IF(?valEnvStr = "ND", 0.0, xsd:float(?valEnvStr)) AS ?valEnv )
         {module_filter_gwp}
       }}
 
-      # -- PENRT pattern
+      # -- LC pattern
       OPTIONAL {{
         ?epd ilcd:exchanges ?ex .
         ?ex ilcd:exchange ?exEntry .
         ?exEntry ilcd:referenceToFlowDataSet ?flowDs .
         ?flowDs ilcd:shortDescription ?flowName .
         ?flowName ilcd:value ?flowReg .
-        FILTER(regex(?flowReg, "(PENRT)", "i"))
+        FILTER(regex(?flowReg, "({lifecycle_indicator})", "i"))
         ?exEntry ilcd:otherEx ?oEx .
-        ?oEx ilcd:anies ?mValPen .
-        ?mValPen ilcd:module ?modPen ;
-                ilcd:value ?valPenStr .
-        BIND( IF(?valPenStr = "ND", 0.0, xsd:float(?valPenStr)) AS ?valPen )
+        ?oEx ilcd:anies ?mValLc .
+        ?mValLc ilcd:module ?modLc ;
+                ilcd:value ?valLcStr .
+        BIND( IF(?valLcStr = "ND", 0.0, xsd:float(?valLcStr)) AS ?valLc )
         {module_filter_penrt}
       }}
     }}
     GROUP BY ?epd
     HAVING (
-      COALESCE(SUM(DISTINCT ?valGwp), 0.0) < {gwp_thr} 
+      COALESCE(SUM(DISTINCT ?valEnv), 0.0) < {environ_thr} 
       &&
-      COALESCE(SUM(DISTINCT ?valPen), 0.0) < {penrt_thr}
+      COALESCE(SUM(DISTINCT ?valLc), 0.0) < {lifecycle_thr}
       {din_strict_count}
     )
   }}
@@ -616,11 +630,11 @@ WHERE {{
   # (2) Compute overall average values over the SAME filtered set (by reusing  the identical filtering logic)
   {{
     SELECT
-      (AVG(?sumGwp)  AS ?avgGWP)
-      (AVG(?sumPen)  AS ?avgPENRT)
+      (AVG(?sumEnv)  AS ?avgENV)
+      (AVG(?sumLc)  AS ?avgLC)
     WHERE {{
       {{
-        SELECT ?epd (SUM(DISTINCT ?valGwp) AS ?sumGwp) (SUM(DISTINCT ?valPen) AS ?sumPen)
+        SELECT ?epd (SUM(DISTINCT ?valEnv) AS ?sumEnv) (SUM(DISTINCT ?valLc) AS ?sumLc)
         WHERE {{
           # -- EPD name (English) again to ensure we match the same set
           ?epd a ilcd:ProcessDataSet ;
@@ -633,43 +647,43 @@ WHERE {{
 
           {filters_section}
 
-          # -- GWP pattern
+          # -- ENV pattern
           OPTIONAL {{
             ?epd ilcd:lciaResults ?lr2 .
             ?lr2 ilcd:LCIAResult ?lciaRes2 .
             ?lciaRes2 ilcd:referenceToLCIAMethodDataSet ?methodDs2 .
             ?methodDs2 ilcd:shortDescription ?methodName2 .
             ?methodName2 ilcd:value ?methodReg2 .
-            FILTER(regex(?methodReg2, "(GWP-total)", "i"))
+            FILTER(regex(?methodReg2, "({environmental_indicator})", "i"))
             ?lciaRes2 ilcd:otherLCIA ?oLCIA2 .
             ?oLCIA2 ilcd:anies ?mValG2 .
-            ?mValG2 ilcd:module ?modGwp2 ;
-              ilcd:value ?valGwpStr2 .
-            BIND( IF(?valGwpStr2 = "ND", 0.0, xsd:float(?valGwpStr2)) AS ?valGwp )
+            ?mValG2 ilcd:module ?modEnv2 ;
+              ilcd:value ?valEnvStr2 .
+            BIND( IF(?valEnvStr2 = "ND", 0.0, xsd:float(?valEnvStr2)) AS ?valEnv )
             {module_filter_gwp2}
           }}
 
-          # -- PENRT pattern
+          # -- LC pattern
           OPTIONAL {{
             ?epd ilcd:exchanges ?ex2 .
             ?ex2 ilcd:exchange ?exEntry2 .
             ?exEntry2 ilcd:referenceToFlowDataSet ?flowDs2 .
             ?flowDs2 ilcd:shortDescription ?flowName2 .
             ?flowName2 ilcd:value ?flowReg2 .
-            FILTER(regex(?flowReg2, "(PENRT)", "i"))
+            FILTER(regex(?flowReg2, "({lifecycle_indicator})", "i"))
             ?exEntry2 ilcd:otherEx ?oEx2 .
-            ?oEx2 ilcd:anies ?mValPen2 .
-            ?mValPen2 ilcd:module ?modPen2 ;
-                ilcd:value ?valPenStr2 .
-            BIND( IF(?valPenStr2 = "ND", 0.0, xsd:float(?valPenStr2)) AS ?valPen )
+            ?oEx2 ilcd:anies ?mValLc2 .
+            ?mValLc2 ilcd:module ?modLc2 ;
+                ilcd:value ?valLcStr2 .
+            BIND( IF(?valLcStr2 = "ND", 0.0, xsd:float(?valLcStr2)) AS ?valLc )
             {module_filter_penrt2}
           }}
         }}
         GROUP BY ?epd
         HAVING (
-          COALESCE(SUM(DISTINCT ?valGwp), 0.0) < {gwp_thr} 
+          COALESCE(SUM(DISTINCT ?valEnv), 0.0) < {environ_thr} 
           &&
-          COALESCE(SUM(DISTINCT ?valPen), 0.0) < {penrt_thr}
+          COALESCE(SUM(DISTINCT ?valLc), 0.0) < {lifecycle_thr}
           {din_strict_count}
         )
       }}
@@ -679,8 +693,8 @@ WHERE {{
   # (3) Compute the squared Euclidean distance using the overall averages
   BIND(
     (
-      (COALESCE(?SumGWP, 0.0) - ?avgGWP) * (COALESCE(?SumGWP, 0.0) - ?avgGWP)
-    + (COALESCE(?SumPENRT, 0.0) - ?avgPENRT) * (COALESCE(?SumPENRT, 0.0) - ?avgPENRT)
+      (COALESCE(?SumENV, 0.0) - ?avgENV) * (COALESCE(?SumENV, 0.0) - ?avgENV)
+    + (COALESCE(?SumLC, 0.0) - ?avgLC) * (COALESCE(?SumLC, 0.0) - ?avgLC)
     )
     AS ?distSquared
   )

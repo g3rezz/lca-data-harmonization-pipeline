@@ -58,6 +58,57 @@ selected_modules = st.sidebar.multiselect(
     default=["A1-A3"],
 )
 
+# -- Environmental Filter (selectbox)
+environmental_options = [
+    "AP",
+    "GWP-total",
+    "GWP-biogenic",
+    "GWP-fossil",
+    "GWP-luluc",
+    "ETP-fw",
+    "PM",
+    "EP-marine",
+    "EP-freshwater",
+    "EP-terrestrial",
+    "HTP-c",
+    "HTP-nc",
+    "IRP",
+    "SQP",
+    "ODP",
+    "POCP",
+    "ADPF",
+    "ADPE",
+    "WDP",
+]
+selected_environmental = st.sidebar.selectbox(
+    "Environmental Indicator", options=environmental_options, index=1
+)
+
+# -- Life Cycle Filter (selectbox)
+lifecycle_options = [
+    "PERE",
+    "PERM",
+    "PERT",
+    "PENRE",
+    "PENRM",
+    "PENRT",
+    "SM",
+    "RSF",
+    "NRSF",
+    "FW",
+    "HWD",
+    "NHWD",
+    "RWD",
+    "CRU",
+    "MFR",
+    "MER",
+    "EEE",
+    "EET",
+]
+selected_lifecycle = st.sidebar.selectbox(
+    "Life Cycle Indicator", options=lifecycle_options, index=5
+)
+
 # -- Country Filter (multi-select)
 country_options = ["DE", "IT"]
 selected_countries = st.sidebar.multiselect(
@@ -94,10 +145,14 @@ selected_density = st.sidebar.multiselect(
 
 
 # -- GWP Threshold Filter
-gwp_threshold = st.sidebar.slider("GWP", min_value=0, max_value=1000, value=250)
+environmental_indicator_threshold = st.sidebar.slider(
+    f"{selected_environmental}", min_value=0, max_value=1000, value=250
+)
 
 # -- PENRT Threshold Filter
-penrt_threshold = st.sidebar.slider("PENRT", min_value=0, max_value=5000, value=2000)
+lifecycle_indicator_threshold = st.sidebar.slider(
+    f"{selected_lifecycle}", min_value=0, max_value=5000, value=2000
+)
 
 # -- Strict DIN 276 Cost Group Filtering Toggle
 strict_din = st.sidebar.checkbox(
@@ -122,11 +177,13 @@ if st.sidebar.button("Run Query"):
         str_groups=selected_strength,
         density_groups=selected_density,
         din_groups=selected_din,
-        gwp_thr=gwp_threshold,
-        penrt_thr=penrt_threshold,
+        environ_thr=environmental_indicator_threshold,
+        lifecycle_thr=lifecycle_indicator_threshold,
         scenario_recycled=scenario_recycled,
         strict_din=strict_din,
         query_mode=mode,
+        environmental_indicator=selected_environmental,
+        lifecycle_indicator=selected_lifecycle,
     )
 
     # Store the mode used for this App run
@@ -172,6 +229,8 @@ else:
                 highlight_gwp=current_gwp,
                 highlight_penrt=current_penrt,
                 query_mode=mode_for_display,
+                selected_env=selected_environmental,
+                selected_lc=selected_lifecycle,
             )
 
         # If table is empty and mode is semantic do not show checkboxes
