@@ -56,6 +56,7 @@ def display_results(
         table_rows.append(row_data)
 
     df = pd.DataFrame(table_rows, columns=var_names)
+    df["Name"] = df["Name"].str.strip()
 
     # Create a "Rank" column from the normalized score
     def icon_from_score(score):
@@ -248,6 +249,7 @@ def display_results(
 
 
 def build_dynamic_query(
+    category: Optional[str] = None,
     modules: Optional[List[str]] = None,
     countries: Optional[List[str]] = None,
     subtypes: Optional[Union[List[str], str]] = None,
@@ -292,6 +294,23 @@ def build_dynamic_query(
       str:
           A SPARQL query string that incorporates the provided filters.
     """
+
+    # Category Filter
+    category_filter = ""
+    if category:
+        category = category.replace("-", " ")
+        category_filter = f"""
+  # -- Get the classification information.
+  ?dsi ilcd:classificationInformation ?ci .
+  ?ci ilcd:classification ?class .
+  ?class ilcd:classEntries ?entry .
+  ?entry a ilcd:ClassificationEntry ;
+          ilcd:value ?entryValue ;
+          obd:hasCanonicalCategory ?canon .  
+  # --- Get the canonical category label.
+  ?canon skos:prefLabel ?canonLabel .
+  FILTER(lcase(str(?canonLabel)) = "{category}")
+  """
 
     # Modules Filter
     module_filter_gwp = ""
@@ -403,18 +422,19 @@ def build_dynamic_query(
     scenario_filter = ""
     if scenario_recycled:
         scenario_filter = """
-    # -- Filter scenario "Recycled" 
-    FILTER EXISTS {
-      ?epd (ilcd:lciaResults|ilcd:exchanges) ?z1 .
-      ?z1 (ilcd:LCIAResult|ilcd:exchange)   ?z2 .
-      ?z2 (ilcd:otherLCIA|ilcd:otherEx)     ?z3 .
-      ?z3 ilcd:anies ?z4 .
-      ?z4 ilcd:scenario "Recycled" .
-    }
-    """
+  # -- Filter scenario "Recycled" 
+  FILTER EXISTS {
+    ?epd (ilcd:lciaResults|ilcd:exchanges) ?z1 .
+    ?z1 (ilcd:LCIAResult|ilcd:exchange)   ?z2 .
+    ?z2 (ilcd:otherLCIA|ilcd:otherEx)     ?z3 .
+    ?z3 ilcd:anies ?z4 .
+    ?z4 ilcd:scenario "Recycled" .
+  }
+  """
 
     # Build a list of filters
     filters = [
+        category_filter.strip(),
         country_filter.strip(),
         subtype_filter.strip(),
         str_filter.strip(),
@@ -434,6 +454,7 @@ def build_dynamic_query(
         # SPARQL + Python logic query
         query = f"""
 PREFIX ilcd: <https://example.org/ilcd/>
+PREFIX obd: <https://example.org/obd/>
 PREFIX din:  <https://example.org/din276/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
@@ -518,6 +539,7 @@ HAVING (
         # Semantic query
         query = f"""
 PREFIX ilcd: <https://example.org/ilcd/>
+PREFIX obd: <https://example.org/obd/>
 PREFIX din:  <https://example.org/din276/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>

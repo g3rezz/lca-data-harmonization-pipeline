@@ -19,8 +19,8 @@ st.sidebar.title(
 )
 
 
-# -- Category Filter (multi-select)
-selected_category = st.sidebar.multiselect(
+# -- Category Filter (selectbox)
+selected_category = st.sidebar.selectbox(
     "Material Category",
     options=["ready-mixed concrete"],
     placeholder="ready-mixed concrete",
@@ -115,6 +115,7 @@ mode = st.sidebar.toggle("Average EPD Mode")
 if st.sidebar.button("Run Query"):
     # Build the query
     dynamic_query = build_dynamic_query(
+        category=selected_category,
         modules=selected_modules,
         countries=selected_countries,
         subtypes=selected_subtypes,
