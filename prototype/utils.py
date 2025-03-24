@@ -17,6 +17,17 @@ def run_query(query: str):
     return results
 
 
+def clean_url(url):
+    # Split on "https://"
+    parts = url.split("https://")
+    # If there are at least two occurrences, parts[0] is empty (if the URL starts with it)
+    # and parts[1] is the part we want to keep.
+    if len(parts) >= 3:
+        return "https://" + parts[1]
+    else:
+        return url
+
+
 def display_results(
     results_json,
     highlight_gwp=False,
@@ -62,6 +73,7 @@ def display_results(
 
     df = pd.DataFrame(table_rows, columns=var_names)
     df["Name"] = df["Name"].str.strip()
+    df["resourceURL"] = df["resourceURL"].apply(clean_url)
 
     # Create a "Rank" column from the normalized score
     def icon_from_score(score):
@@ -106,6 +118,18 @@ def display_results(
 
         if "NormalizedSum" in df.columns:
             df["Rank"] = df["NormalizedSum"].apply(icon_from_score)
+
+        # Put Rank before URL
+        cols = list(df.columns)
+        if "Rank" in cols and "resourceURL" in cols:
+            # Remove 'Rank' from its current position
+            cols.remove("Rank")
+            # Find the index of 'resourceURL'
+            resource_index = cols.index("resourceURL")
+            # Insert 'Rank' before 'resourceURL'
+            cols.insert(resource_index, "Rank")
+            # Reassign the DataFrame with the new column order
+            df = df[cols]
 
         # Compute average ENV, LC and find the top-3 closest
         # using the final arrangement (0-based).
@@ -186,7 +210,8 @@ def display_results(
                     "LC": st.column_config.NumberColumn(
                         f"{selected_lc}", format="%.1f"
                     ),
-                    "Rank": st.column_config.TextColumn("Rank"),
+                    "Rank": st.column_config.TextColumn("Rank", width="small"),
+                    "resourceURL": st.column_config.TextColumn("URL", width="small"),
                 },
             )
         else:
@@ -203,7 +228,8 @@ def display_results(
                     "LC": st.column_config.NumberColumn(
                         f"{selected_lc}", format="%.1f"
                     ),
-                    "Rank": st.column_config.TextColumn("Rank"),
+                    "Rank": st.column_config.TextColumn("Rank", width="small"),
+                    "resourceURL": st.column_config.TextColumn("URL", width="small"),
                 },
             )
 
@@ -216,9 +242,9 @@ def display_results(
         # Convert final 0-based index to 1-based for display
         df.index = df.index + 1
 
-        df["distSquared_float"] = pd.to_numeric(df["distSquared"], errors="coerce")
-        if "distSquared" in df.columns:
-            df["Rank"] = df["distSquared_float"].apply(icon_from_score)
+        # df["distSquared_float"] = pd.to_numeric(df["distSquared"], errors="coerce")
+        # if "distSquared" in df.columns:
+        #     df["Rank"] = df["distSquared_float"].apply(icon_from_score)
 
         # Drop columns we no longer want to show
         for col_drop in [
@@ -247,7 +273,7 @@ def display_results(
                     f"{selected_env}", format="%.1f"
                 ),
                 "SumLC": st.column_config.NumberColumn(f"{selected_lc}", format="%.1f"),
-                "Rank": st.column_config.TextColumn("Rank"),
+                "resourceURL": st.column_config.TextColumn("URL", width="small"),
             },
         )
 
@@ -314,14 +340,14 @@ def build_dynamic_query(
     if category:
         category = category.replace("-", " ")
         category_filter = f"""
-  # -- Get the classification information.
+  # -- Get classification information
   ?dsi ilcd:classificationInformation ?ci .
   ?ci ilcd:classification ?class .
   ?class ilcd:classEntries ?entry .
   ?entry a ilcd:ClassificationEntry ;
           ilcd:value ?entryValue ;
           obd:hasCanonicalCategory ?canon .  
-  # --- Get the canonical category label.
+  # --- Get canonical category label
   ?canon skos:prefLabel ?canonLabel .
   FILTER(lcase(str(?canonLabel)) = "{category}")
   """
@@ -476,17 +502,28 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 SELECT
   ?Name
   (GROUP_CONCAT(DISTINCT ?notation ; separator=", ") AS ?DIN276CostGroupList)
-  (COALESCE(?SumENV_, 0.0)   AS ?ENV)
+  (COALESCE(?SumENV_, 0.0) AS ?ENV)
   (COALESCE(?SumLC_, 0.0) AS ?LC)
+  ?resourceURL
 WHERE {{
   # (1) Get the filtered EPD set
   ?epd a ilcd:ProcessDataSet ;
-       ilcd:processInformation ?pInfo .
+       ilcd:processInformation ?pInfo ;
+       ilcd:modellingAndValidation ?modVal .
+  # -- Get Name
   ?pInfo ilcd:dataSetInformation ?dsi .
   ?dsi ilcd:dataSetName ?dsName .
   ?dsName ilcd:baseName ?baseName .
   ?baseName ilcd:value ?Name ;
             ilcd:lang "en" .
+  # -- Get resourceURL     
+  ?modVal ilcd:dataSourcesTreatmentAndRepresentativeness ?dst .
+  ?dst ilcd:otherDSTAR ?dstarRoot .
+  ?dstarRoot ilcd:aniesDSTAR ?dstarEntry .
+  ?dstarEntry ilcd:name "referenceToOriginalEPD" ;
+              ilcd:valueDSTAR ?dstarRef .
+  ?dstarRef a ilcd:DSTARReference ;
+             ilcd:resourceURLs ?resourceURL .
   {filters_section}
     
   # (2) Compute ENV per filtered EPD
@@ -541,7 +578,7 @@ WHERE {{
     BIND(?SumLC AS ?SumLC_)
   }}
 }}
-GROUP BY ?Name ?SumENV_ ?SumLC_
+GROUP BY ?Name ?SumENV_ ?SumLC_ ?resourceURL
 HAVING (
   COALESCE(?SumENV_, 0.0) < {environ_thr}
   &&
@@ -566,23 +603,35 @@ SELECT
   ?avgENV
   ?avgLC
   ?distSquared
+  ?resourceURL
 WHERE {{
-  # (1) Get the filtered EPD set with correct sums
+  # (1) Get the filtered EPD set with sums
   {{
     SELECT ?epd 
            (SAMPLE(?nameLit) AS ?Name)
            (GROUP_CONCAT(DISTINCT ?notation; separator=", ") AS ?DIN276CostGroupList)
            (SUM(DISTINCT ?valEnv) AS ?SumENV)
            (SUM(DISTINCT ?valLc) AS ?SumLC)
+           (SAMPLE(?resourceURLs) AS ?resourceURL)
     WHERE {{
       # -- Get EPD name (English)
       ?epd a ilcd:ProcessDataSet ;
-           ilcd:processInformation ?pInfo .
+           ilcd:processInformation ?pInfo ;
+           ilcd:modellingAndValidation ?modVal .
+      # -- Get Name
       ?pInfo ilcd:dataSetInformation ?dsi .
       ?dsi ilcd:dataSetName ?dsName .
-      ?dsName ilcd:baseName ?base .
-      ?base ilcd:value ?nameLit ;
-            ilcd:lang "en" .
+      ?dsName ilcd:baseName ?baseName .
+      ?baseName ilcd:value ?nameLit ;
+                ilcd:lang "en" .
+      # -- Get resourceURL     
+      ?modVal ilcd:dataSourcesTreatmentAndRepresentativeness ?dst .
+      ?dst ilcd:otherDSTAR ?dstarRoot .
+      ?dstarRoot ilcd:aniesDSTAR ?dstarEntry .
+      ?dstarEntry ilcd:name "referenceToOriginalEPD" ;
+                  ilcd:valueDSTAR ?dstarRef .
+      ?dstarRef a ilcd:DSTARReference ;
+                ilcd:resourceURLs ?resourceURLs .
 
       {filters_section}
 
@@ -627,7 +676,7 @@ WHERE {{
     )
   }}
 
-  # (2) Compute overall average values over the SAME filtered set (by reusing  the identical filtering logic)
+  # (2) Compute overall average values over the SAME filtered set (by reusing the filtering logic from (1))
   {{
     SELECT
       (AVG(?sumEnv)  AS ?avgENV)
@@ -636,14 +685,15 @@ WHERE {{
       {{
         SELECT ?epd (SUM(DISTINCT ?valEnv) AS ?sumEnv) (SUM(DISTINCT ?valLc) AS ?sumLc)
         WHERE {{
-          # -- EPD name (English) again to ensure we match the same set
+          # -- EPD name (English) again to ensure we match the same set          
           ?epd a ilcd:ProcessDataSet ;
-               ilcd:processInformation ?pInfo2 .
+              ilcd:processInformation ?pInfo2 .
+          # -- Get Name
           ?pInfo2 ilcd:dataSetInformation ?dsi2 .
           ?dsi2 ilcd:dataSetName ?dsName2 .
-          ?dsName2 ilcd:baseName ?base2 .
-          ?base2 ilcd:value ?nameLit2 ;
-                 ilcd:lang "en" .
+          ?dsName2 ilcd:baseName ?baseName2 .
+          ?baseName2 ilcd:value ?nameLit2 ;
+                    ilcd:lang "en" .
 
           {filters_section}
 
@@ -759,7 +809,7 @@ def run_cost_group_query(results_json: dict):
 
     # Build the SPARQL query string.
     bki_query = f"""
-PREFIX bki: <https://example.org/bki#>
+PREFIX bki: <https://example.org/bki/>
 PREFIX din: <https://example.org/din276/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
