@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Only set page config here, as the first command
-st.set_page_config(page_title="Prototype", page_icon="⚪", layout="wide")
+st.set_page_config(page_title="EPD.finder", page_icon="⚪", layout="wide")
 
 # Create page objects:
 # Use a single-character emoji or remove `icon` if you don't want icons.
