@@ -4,17 +4,37 @@ import numpy as np
 from SPARQLWrapper import SPARQLWrapper, JSON
 from typing import List, Optional, Union
 import re
+import urllib.error
 
 # Your Fuseki endpoint:
 ENDPOINT_URL = "http://localhost:3030/EPD_RDF/sparql"
 
 
 def run_query(query: str):
-    sparql = SPARQLWrapper(ENDPOINT_URL)
-    sparql.setQuery(query)
-    sparql.setReturnFormat(JSON)
-    results = sparql.query().convert()
-    return results
+    try:
+        sparql = SPARQLWrapper(ENDPOINT_URL)
+        sparql.setQuery(query)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+        return results
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            error_msg = (
+                "Error: The SPARQL endpoint was not found. "
+                "Please verify the endpoint URL and your network connection."
+            )
+            print(error_msg)
+            # Optionally, raise a custom exception if you want to stop further processing:
+            raise RuntimeError(error_msg) from e
+        else:
+            raise
+    except Exception as e:
+        error_msg = (
+            "An error occurred while querying the SPARQL endpoint. "
+            "Please try again later."
+        )
+        print(error_msg)
+        raise RuntimeError(error_msg) from e
 
 
 def clean_url(url):
@@ -56,7 +76,8 @@ def display_results(
     bindings = results_json["results"]["bindings"]
     if not bindings:
         st.warning(
-            "No table data. Please adjust filters in the sidebar and click 'Run Query'."
+            "No table data. Please adjust filters in the sidebar and click 'Run Query'.",
+            icon="⚠️",
         )
         # Set to false when no results are available to hide checkboxes
         display_table_bool = False
@@ -856,7 +877,8 @@ def sparql_results_to_dataframe(results_json: dict) -> pd.DataFrame:
     bindings = results_json.get("results", {}).get("bindings", [])
     if not bindings:
         st.warning(
-            "No BKI data available for the selected DIN 276 cost group(s). Please adjust filters and try again."
+            "No BKI data available for the selected DIN 276 cost group(s). Please adjust filters and try again.",
+            icon="⚠️",
         )
         return pd.DataFrame()
 
