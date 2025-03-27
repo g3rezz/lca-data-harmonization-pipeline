@@ -1,12 +1,11 @@
 import streamlit as st
 from utils import (
     display_results,
-    build_dynamic_query,
-    run_cost_group_query,
     sparql_results_to_dataframe,
 )
 
 from sparql_utils import run_query
+from sparql_query_building import build_dynamic_query, run_cost_group_query
 
 
 # (1) SIDEBAR CONTROLS
