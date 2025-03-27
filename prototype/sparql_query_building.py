@@ -2,7 +2,7 @@ from typing import List, Optional, Union
 import re
 
 
-def build_dynamic_query(
+def build_main_query(
     category: Optional[str] = None,
     modules: Optional[List[str]] = None,
     countries: Optional[List[str]] = None,
@@ -620,7 +620,7 @@ LIMIT 3
     return query
 
 
-def run_cost_group_query(results_json: dict):
+def build_bki_query(results_json: dict):
     """
     Extracts DIN276 cost groups from the provided JSON, builds a SPARQL query
     using those cost groups in a FILTER clause, and returns the query results.
