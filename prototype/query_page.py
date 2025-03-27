@@ -1,13 +1,11 @@
 import streamlit as st
-import streamlit.components.v1 as components
-from utils import (
-    run_query,
-    display_results,
-    build_dynamic_query,
-    run_cost_group_query,
-    sparql_results_to_dataframe,
+from display_utils import (
+    display_main_results,
+    display_bki_results,
 )
-from streamlit_agraph import agraph, Node, Edge, Config, ConfigBuilder
+
+from sparql_utils import run_query
+from sparql_query_building import build_main_query, build_bki_query
 
 
 # (1) SIDEBAR CONTROLS
@@ -338,7 +336,7 @@ if st.sidebar.button(
     type="primary",
 ):
     # Build the query
-    dynamic_query = build_dynamic_query(
+    dynamic_query = build_main_query(
         category=selected_category,
         modules=selected_modules,
         countries=selected_countries,
@@ -387,7 +385,7 @@ else:
 
     # Render the table using the *current* states
     if "results" in st.session_state and st.session_state["results"]:
-        display_table = display_results(
+        display_table = display_main_results(
             st.session_state["results"],
             highlight_env=current_env,
             highlight_lc=current_lc,
@@ -421,18 +419,15 @@ else:
             first_binding = bindings[0]
             if first_binding.get("DIN276CostGroupList"):
                 with st.expander("**BKI Elements Details**", expanded=True):
-                    cost_group_results_query = run_cost_group_query(results_json)
+                    cost_group_results_query = build_bki_query(results_json)
                     st.session_state.cost_group_results = cost_group_results_query
                     cost_group_results = run_query(cost_group_results_query)
                     if cost_group_results:
-                        sparql_results_to_dataframe(cost_group_results)
+                        display_bki_results(cost_group_results)
 
 # with tabs[1]:
 #     # (Optional) Graph placeholder
 #     st.info("No graph visualization is implemented for the dynamic query.")
-#     # If you want a graph, integrate your PyVis or similar approach here:
-#     # html_graph = create_network(st.session_state["results"], "dynamic", height=height)
-#     # components.html(html_graph, height=height + 10)
 
 # with tabs[2]:
 #     # Show the generated SPARQL
