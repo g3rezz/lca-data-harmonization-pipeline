@@ -1,51 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from SPARQLWrapper import SPARQLWrapper, JSON
 from typing import List, Optional, Union
 import re
-import urllib.error
-
-# Your Fuseki endpoint:
-ENDPOINT_URL = "http://localhost:3030/EPD_RDF/sparql"
-
-
-def run_query(query: str):
-    try:
-        sparql = SPARQLWrapper(ENDPOINT_URL)
-        sparql.setQuery(query)
-        sparql.setReturnFormat(JSON)
-        results = sparql.query().convert()
-        return results
-    except urllib.error.HTTPError as e:
-        if e.code == 404:
-            error_msg = (
-                "Error: The SPARQL endpoint was not found. "
-                "Please verify the endpoint URL and your network connection."
-            )
-            print(error_msg)
-            # Optionally, raise a custom exception if you want to stop further processing:
-            raise RuntimeError(error_msg) from e
-        else:
-            raise
-    except Exception as e:
-        error_msg = (
-            "An error occurred while querying the SPARQL endpoint. "
-            "Please try again later."
-        )
-        print(error_msg)
-        raise RuntimeError(error_msg) from e
-
-
-def clean_url(url):
-    # Split on "https://"
-    parts = url.split("https://")
-    # If there are at least two occurrences, parts[0] is empty (if the URL starts with it)
-    # and parts[1] is the part we want to keep.
-    if len(parts) >= 3:
-        return "https://" + parts[1]
-    else:
-        return url
 
 
 def display_results(
@@ -91,6 +48,16 @@ def display_results(
             cell_value = row[var]["value"] if var in row else ""
             row_data.append(cell_value)
         table_rows.append(row_data)
+
+    def clean_url(url):
+        # Split on "https://"
+        parts = url.split("https://")
+        # If there are at least two occurrences, parts[0] is empty (if the URL starts with it)
+        # and parts[1] is the part we want to keep.
+        if len(parts) >= 3:
+            return "https://" + parts[1]
+        else:
+            return url
 
     df = pd.DataFrame(table_rows, columns=var_names)
     df["Name"] = df["Name"].str.strip()

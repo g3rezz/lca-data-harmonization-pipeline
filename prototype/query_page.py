@@ -1,13 +1,12 @@
 import streamlit as st
-import streamlit.components.v1 as components
 from utils import (
-    run_query,
     display_results,
     build_dynamic_query,
     run_cost_group_query,
     sparql_results_to_dataframe,
 )
-from streamlit_agraph import agraph, Node, Edge, Config, ConfigBuilder
+
+from sparql_utils import run_query
 
 
 # (1) SIDEBAR CONTROLS
@@ -430,9 +429,6 @@ else:
 # with tabs[1]:
 #     # (Optional) Graph placeholder
 #     st.info("No graph visualization is implemented for the dynamic query.")
-#     # If you want a graph, integrate your PyVis or similar approach here:
-#     # html_graph = create_network(st.session_state["results"], "dynamic", height=height)
-#     # components.html(html_graph, height=height + 10)
 
 # with tabs[2]:
 #     # Show the generated SPARQL
