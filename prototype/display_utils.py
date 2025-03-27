@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 
-def display_results(
+def display_main_results(
     results_json,
     highlight_env=False,
     highlight_lc=False,
@@ -272,7 +272,7 @@ def display_results(
     return display_table_bool
 
 
-def sparql_results_to_dataframe(results_json: dict) -> pd.DataFrame:
+def display_bki_results(results_json: dict) -> pd.DataFrame:
     """
     Convert SPARQL query JSON results to a pandas DataFrame with columns:
     element name, element description, layer name, layer size, layer lifetime, and cost group.
