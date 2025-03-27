@@ -188,7 +188,7 @@ with st.sidebar.expander("**Main Filters**", expanded=False):
 
     # -- Environmental Impact Indicator Threshold Filter
     environmental_indicator_threshold = st.slider(
-        f"{selected_environmental}", min_value=0, max_value=1000, value=250
+        f"{selected_environmental}", min_value=0, max_value=1000, value=1000
     )
 
     # -- Life Cycle Filter (selectbox)
@@ -242,7 +242,7 @@ with st.sidebar.expander("**Main Filters**", expanded=False):
 
     # -- Life Cycle Indicator Threshold Filter
     lifecycle_indicator_threshold = st.slider(
-        f"{selected_lifecycle}", min_value=0, max_value=5000, value=2000
+        f"{selected_lifecycle}", min_value=0, max_value=5000, value=5000
     )
 
     # -- Scenario Toggle (Recycled)
@@ -285,7 +285,7 @@ with st.sidebar.expander("**Concrete Filters**", expanded=False):
 
 with st.sidebar.expander("**Dataset Filters**", expanded=False):
     # -- Country Filter (multi-select)
-    country_options = ["DE", "IT"]
+    country_options = ["DE", "IT", "NO", "DK", "GB"]
     selected_countries = st.multiselect(
         "Country",
         options=country_options,
@@ -382,15 +382,15 @@ else:
     mode_for_display = st.session_state.get("query_mode_used", False)
 
     # Read existing highlight states or use defaults
-    current_gwp = st.session_state.get("highlight_gwp", False)
-    current_penrt = st.session_state.get("highlight_penrt", False)
+    current_env = st.session_state.get("highlight_env", False)
+    current_lc = st.session_state.get("highlight_lc", False)
 
     # Render the table using the *current* states
     if "results" in st.session_state and st.session_state["results"]:
         display_table = display_results(
             st.session_state["results"],
-            highlight_gwp=current_gwp,
-            highlight_penrt=current_penrt,
+            highlight_env=current_env,
+            highlight_lc=current_lc,
             query_mode=mode_for_display,
             selected_env=selected_environmental,
             selected_lc=selected_lifecycle,
@@ -398,17 +398,17 @@ else:
 
     # If table is empty and mode is semantic do not show checkboxes
     if display_table and mode_for_display == False:
-        new_gwp = st.checkbox(
-            f"Highlight top 3 average {selected_environmental} EPDs", value=current_gwp
+        new_env = st.checkbox(
+            f"Highlight top 3 average {selected_environmental} EPDs", value=current_env
         )
-        new_penrt = st.checkbox(
-            f"Highlight top 3 average {selected_lifecycle} EPDs", value=current_penrt
+        new_lc = st.checkbox(
+            f"Highlight top 3 average {selected_lifecycle} EPDs", value=current_lc
         )
 
         # If user changed something, update session_state and rerun
-        if (new_gwp != current_gwp) or (new_penrt != current_penrt):
-            st.session_state["highlight_gwp"] = new_gwp
-            st.session_state["highlight_penrt"] = new_penrt
+        if (new_env != current_env) or (new_lc != current_lc):
+            st.session_state["highlight_env"] = new_env
+            st.session_state["highlight_lc"] = new_lc
             st.rerun()
 
     # print(st.session_state["results"])
@@ -445,3 +445,6 @@ else:
 #         if first_binding.get("DIN276CostGroupList"):
 #             st.write("BKI Query:")
 #             st.code(st.session_state["cost_group_results"], language="sparql")
+
+# st.write("**SPARQL Query**:")
+# st.code(dynamic_query, language="sparql")
