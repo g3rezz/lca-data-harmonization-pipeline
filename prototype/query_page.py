@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import (
+from display_utils import (
     display_results,
     sparql_results_to_dataframe,
 )
