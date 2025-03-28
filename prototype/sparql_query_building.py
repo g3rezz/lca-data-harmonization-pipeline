@@ -360,8 +360,8 @@ PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 SELECT
   (SAMPLE(?nameLit) AS ?Name)
   (GROUP_CONCAT(DISTINCT ?notation ; separator=", ") AS ?DIN276CostGroupList)
-  (COALESCE(?SumENV_, 0.0) AS ?ENV)
-  (COALESCE(?SumLC_, 0.0) AS ?LC)
+  (COALESCE(?SumENV_) AS ?ENV)
+  (COALESCE(?SumLC_) AS ?LC)
   (SAMPLE(?resourceURLValue) AS ?resourceURL)
 WHERE {{
   # (1) Get the filtered EPD set
@@ -386,36 +386,38 @@ WHERE {{
   # (2) Compute ENV per filtered EPD
   OPTIONAL {{
     {{
-      SELECT ?epdEnv (SUM(DISTINCT ?valEnv) AS ?SumENV)
+      SELECT ?epd (SUM(DISTINCT ?valEnv) AS ?SumENV)
       WHERE 
       {{
-      ?epdEnv a ilcd:ProcessDataSet ;
-              ilcd:lciaResults ?lr .
-      ?lr ilcd:LCIAResult ?lciaRes .
-      ?lciaRes ilcd:referenceToLCIAMethodDataSet ?methodDs .
-      ?methodDs ilcd:shortDescription ?methodName .
-      ?methodName ilcd:value ?methodReg .
-      FILTER(regex(?methodReg, "({environmental_indicator})", "i"))
-      ?lciaRes ilcd:otherLCIA ?oLCIA .
-      ?oLCIA ilcd:anies ?mValG .
-      ?mValG ilcd:module ?modEnv ;
-              ilcd:value ?valEnvStr .
-      BIND(IF(?valEnvStr = "ND", 0.0, xsd:float(?valEnvStr)) AS ?valEnv)
-      {module_filter_env}
-      }}
-      GROUP BY ?epdEnv
+      OPTIONAL {{
+        ?epd a ilcd:ProcessDataSet ;
+                ilcd:lciaResults ?lr .
+        ?lr ilcd:LCIAResult ?lciaRes .
+        ?lciaRes ilcd:referenceToLCIAMethodDataSet ?methodDs .
+        ?methodDs ilcd:shortDescription ?methodName .
+        ?methodName ilcd:value ?methodReg .
+        FILTER(regex(?methodReg, "({environmental_indicator})", "i"))
+        ?lciaRes ilcd:otherLCIA ?oLCIA .
+        ?oLCIA ilcd:anies ?mValG .
+        ?mValG ilcd:module ?modEnv ;
+                ilcd:value ?valEnvStr .
+        FILTER(?valEnvStr != "ND")
+        BIND(xsd:float(?valEnvStr) AS ?valEnv)
+        {module_filter_env}}}
+        }}
+      GROUP BY ?epd
     }}
-    FILTER(?epdEnv = ?epd)
     BIND(?SumENV AS ?SumENV_)
   }}
 
   # (3) Compute LC per filtered EPD
   OPTIONAL {{
     {{
-      SELECT ?epdLc (SUM(DISTINCT ?valLc) AS ?SumLC)
+      SELECT ?epd (SUM(DISTINCT ?valLc) AS ?SumLC)
       WHERE 
       {{
-        ?epdLc a ilcd:ProcessDataSet ;
+      OPTIONAL{{
+        ?epd a ilcd:ProcessDataSet ;
                 ilcd:exchanges ?ex .
         ?ex ilcd:exchange ?exEntry .
         ?exEntry ilcd:referenceToFlowDataSet ?flowDs .
@@ -426,20 +428,21 @@ WHERE {{
         ?oEx ilcd:anies ?mValLc .
         ?mValLc ilcd:module ?modLc ;
                 ilcd:value ?valLcStr .
-        BIND(IF(?valLcStr = "ND", 0.0, xsd:float(?valLcStr)) AS ?valLc)
+        FILTER(?valLcStr != "ND")
+        BIND(xsd:float(?valLcStr) AS ?valLc)
         {module_filter_lc}
+        }}
       }}
-      GROUP BY ?epdLc
+      GROUP BY ?epd
     }}
-    FILTER(?epdLc = ?epd)
     BIND(?SumLC AS ?SumLC_)
   }}
 }}
-GROUP BY ?Name ?SumENV_ ?SumLC_
+GROUP BY ?epd ?SumENV_ ?SumLC_
 HAVING (
-  COALESCE(?SumENV_, 0.0) < {environ_thr}
+  COALESCE(?SumENV_) < {environ_thr}
   &&
-  COALESCE(?SumLC_, 0.0) < {lifecycle_thr}
+  COALESCE(?SumLC_) < {lifecycle_thr}
   {din_strict_count}
 )
 """
@@ -503,7 +506,8 @@ WHERE {{
         ?oLCIA ilcd:anies ?mValG .
         ?mValG ilcd:module ?modEnv ;
               ilcd:value ?valEnvStr .
-        BIND( IF(?valEnvStr = "ND", 0.0, xsd:float(?valEnvStr)) AS ?valEnv )
+        FILTER(?valEnvStr != "ND")
+        BIND(xsd:float(?valEnvStr) AS ?valEnv)
         {module_filter_env}
       }}
 
@@ -519,15 +523,16 @@ WHERE {{
         ?oEx ilcd:anies ?mValLc .
         ?mValLc ilcd:module ?modLc ;
                 ilcd:value ?valLcStr .
-        BIND( IF(?valLcStr = "ND", 0.0, xsd:float(?valLcStr)) AS ?valLc )
+        FILTER(?valLcStr != "ND")
+        BIND(xsd:float(?valLcStr) AS ?valLc)
         {module_filter_lc}
       }}
     }}
     GROUP BY ?epd
     HAVING (
-      COALESCE(SUM(DISTINCT ?valEnv), 0.0) < {environ_thr} 
+      COALESCE(SUM(DISTINCT ?valEnv)) < {environ_thr} 
       &&
-      COALESCE(SUM(DISTINCT ?valLc), 0.0) < {lifecycle_thr}
+      COALESCE(SUM(DISTINCT ?valLc)) < {lifecycle_thr}
       {din_strict_count}
     )
   }}
@@ -572,8 +577,9 @@ WHERE {{
             ?lciaRes2 ilcd:otherLCIA ?oLCIA2 .
             ?oLCIA2 ilcd:anies ?mValG2 .
             ?mValG2 ilcd:module ?modEnv2 ;
-              ilcd:value ?valEnvStr2 .
-            BIND( IF(?valEnvStr2 = "ND", 0.0, xsd:float(?valEnvStr2)) AS ?valEnv )
+                    ilcd:value ?valEnvStr2 .
+            FILTER(?valEnvStr2 != "ND")
+            BIND(xsd:float(?valEnvStr2) AS ?valEnv)
             {module_filter_env_2}
           }}
 
@@ -589,15 +595,16 @@ WHERE {{
             ?oEx2 ilcd:anies ?mValLc2 .
             ?mValLc2 ilcd:module ?modLc2 ;
                 ilcd:value ?valLcStr2 .
-            BIND( IF(?valLcStr2 = "ND", 0.0, xsd:float(?valLcStr2)) AS ?valLc )
+            FILTER(?valLcStr2 != "ND")
+            BIND(xsd:float(?valLcStr2) AS ?valLc)
             {module_filter_lc_2}
           }}
         }}
         GROUP BY ?epd
         HAVING (
-          COALESCE(SUM(DISTINCT ?valEnv), 0.0) < {environ_thr} 
+          COALESCE(SUM(DISTINCT ?valEnv)) < {environ_thr} 
           &&
-          COALESCE(SUM(DISTINCT ?valLc), 0.0) < {lifecycle_thr}
+          COALESCE(SUM(DISTINCT ?valLc)) < {lifecycle_thr}
           {din_strict_count_2}
         )
       }}
@@ -607,8 +614,8 @@ WHERE {{
   # (3) Compute the squared Euclidean distance using the overall averages
   BIND(
     (
-      (COALESCE(?SumENV, 0.0) - ?avgENV) * (COALESCE(?SumENV, 0.0) - ?avgENV)
-    + (COALESCE(?SumLC, 0.0) - ?avgLC) * (COALESCE(?SumLC, 0.0) - ?avgLC)
+      (COALESCE(?SumENV) - ?avgENV) * (COALESCE(?SumENV) - ?avgENV)
+    + (COALESCE(?SumLC) - ?avgLC) * (COALESCE(?SumLC) - ?avgLC)
     )
     AS ?distSquared
   )

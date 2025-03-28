@@ -441,5 +441,5 @@ else:
 #             st.write("BKI Query:")
 #             st.code(st.session_state["cost_group_results"], language="sparql")
 
-# st.write("**SPARQL Query**:")
-# st.code(dynamic_query, language="sparql")
+st.write("**SPARQL Query**:")
+st.code(dynamic_query, language="sparql")
