@@ -45,17 +45,6 @@ classes:
       - otherEx # second exchange has 'other' with anies
       - classificationEx # for 'classification' { classHierarchy, name }
 
-  # Define a local sub-class to override the shared 'OtherContent'
-  # so that we can override 'anies' to reference a specialized Anies
-  ExchangeOtherContent:
-    description: "Local sub-class that enforces 'module' is required."
-    is_a: OtherContent
-    slots:
-      - id
-    slot_usage:
-      anies:
-        range: AniesNameValueObjectValueModule
-
   # For arrays in 'flowProperties'
   FlowPropertyEntry:
     description: "One flow property with name, uuid, referenceFlowProperty, meanValue, referenceUnit, unitGroupUUID."
@@ -199,7 +188,7 @@ slots:
     description: "Renamed from 'exchange direction'; indicates flow direction (INPUT/OUTPUT)."
 
   otherEx:
-    range: ExchangeOtherContent
+    range: OtherContent
     inlined: true
     description: "Equivalent to 'other' in JSON, storing anies with modules or references."
 

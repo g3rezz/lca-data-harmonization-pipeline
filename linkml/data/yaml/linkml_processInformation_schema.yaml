@@ -64,15 +64,6 @@ classes:
       - level
       - classId
 
-  DSIOtherContent:
-    description: "Local sub-class for 'other' content in DataSetInformation."
-    is_a: OtherContent
-    slots:
-      - id
-    slot_usage:
-      anies:
-        range: AniesWithScenario
-
   # --- quantitativeReference
   QuantitativeReference:
     description: "Quantitative reference details."
@@ -111,15 +102,6 @@ classes:
       - technologicalApplicability
       - referenceToTechnologyFlowDiagrammOrPicture
       - referenceToTechnologyPictogramme
-
-  TimeOtherContent:
-    description: "Local subclass for time-related 'other' content."
-    is_a: OtherContent
-    slots:
-      - id
-    slot_usage:
-      anies:
-        range: AniesNameTimestamp
 
 ########################################
 # Slots
@@ -198,7 +180,7 @@ slots:
       (Note: can indirectly reference to digital file.)
 
   otherDSI:
-    range: DSIOtherContent
+    range: OtherContent
     inlined: true
 
   # -- DataSetName
@@ -270,7 +252,7 @@ slots:
     description: "Time representativeness as list of {value, lang}."
 
   otherTime:
-    range: TimeOtherContent
+    range: OtherContent
     inlined: true
     description: "Additional time-related dictionary data."
 

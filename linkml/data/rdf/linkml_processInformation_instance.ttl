@@ -52,13 +52,13 @@ ILCDpi:TechnologytechnologyDescriptionAndIncludedProcesses a ns1:MultiLangString
     ns1:lang "en" ;
     ns1:value "Concrete is produced by mixing cement, aggregates (sand, crushed stone and gravel), water and additives. The cement section is  consists  of storage silos connected to a weighbridge, the extraction and loading of the cement into the truck mixer takes place via closed augers. The suction system and filters guarantee the abatement of dust during  loading of the truck mixers.  The coarse aggregate (“Gravel” or commercially “Cobblestone”) is unloaded directly into a hopper from the tipper trucks owned by the supplier and is then transferred by means of belts from the hopper on the ground to the loading ones. The same applies  for sand. The additives are dosed separately using volumetric dosers, whereas the mixing water is dosed with electromechanical meters. All the components described above are conveyed into the concrete mixer barrel where the homogenization and mixing phases take  place; the energy required for the production of concrete is given by electricity. The shipment of the final product is carried out using special truck mixers. The concretes subject to analysis comply with the requirements of the REACH regulation." .
 
-ILCDpi:TimeInformationotherTime a ILCDpi:TimeOtherContent ;
+ILCDpi:TimeInformationotherTime a ns1:OtherContent ;
     ns1:anies ILCDpi:publicationDateOfEPD .
 
 ILCDpi:TimeInformationtimeRepresentativenessDescription a ns1:MultiLangString ;
     ns1:lang "en" .
 
-ILCDpi:publicationDateOfEPD a ns1:AniesNameTimestamp ;
+ILCDpi:publicationDateOfEPD a ns1:AniesType ;
     ns1:name "publicationDateOfEPD" ;
     ns1:timestampValue "1715904000000"^^linkml:UnixTimestamp .
 

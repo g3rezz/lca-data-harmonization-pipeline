@@ -1,5 +1,5 @@
 # Auto generated from linkml_processInformation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-29T14:50:58
+# Generation date: 2025-03-29T15:53:15
 # Schema: ILCDprocessInformation
 #
 # id: https://example.org/ILCDprocessInformation
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import AniesNameTimestamp, AniesNameTimestampId, AniesWithScenario, AniesWithScenarioId, GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, UUIDType, Year
+from . linkml_shared_definitions import GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, OtherContentId, UUIDType, Year
 from linkml_runtime.linkml_model.types import Integer, String
 
 metamodel_version = "1.7.0"
@@ -116,14 +116,6 @@ class LocationInfoId(extended_str):
 
 
 class TechnologyInformationId(extended_str):
-    pass
-
-
-class DSIOtherContentId(extended_str):
-    pass
-
-
-class TimeOtherContentId(extended_str):
     pass
 
 
@@ -191,7 +183,7 @@ class DataSetInformation(YAMLRoot):
     classificationInformation: Optional[Union[dict, "ClassificationInformation"]] = None
     generalComment: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
     referenceToExternalDocumentation: Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]] = empty_dict()
-    otherDSI: Optional[Union[dict, "DSIOtherContent"]] = None
+    otherDSI: Optional[Union[dict, OtherContent]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -216,8 +208,8 @@ class DataSetInformation(YAMLRoot):
 
         self._normalize_inlined_as_list(slot_name="referenceToExternalDocumentation", slot_type=GlobalReferenceType, key_name="id", keyed=True)
 
-        if self.otherDSI is not None and not isinstance(self.otherDSI, DSIOtherContent):
-            self.otherDSI = DSIOtherContent(**as_dict(self.otherDSI))
+        if self.otherDSI is not None and not isinstance(self.otherDSI, OtherContent):
+            self.otherDSI = OtherContent(**as_dict(self.otherDSI))
 
         super().__post_init__(**kwargs)
 
@@ -392,7 +384,7 @@ class TimeInformation(YAMLRoot):
     referenceYear: Optional[int] = None
     dataSetValidUntil: Optional[int] = None
     timeRepresentativenessDescription: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
-    otherTime: Optional[Union[dict, "TimeOtherContent"]] = None
+    otherTime: Optional[Union[dict, OtherContent]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -408,8 +400,8 @@ class TimeInformation(YAMLRoot):
 
         self._normalize_inlined_as_list(slot_name="timeRepresentativenessDescription", slot_type=MultiLangString, key_name="id", keyed=True)
 
-        if self.otherTime is not None and not isinstance(self.otherTime, TimeOtherContent):
-            self.otherTime = TimeOtherContent(**as_dict(self.otherTime))
+        if self.otherTime is not None and not isinstance(self.otherTime, OtherContent):
+            self.otherTime = OtherContent(**as_dict(self.otherTime))
 
         super().__post_init__(**kwargs)
 
@@ -506,58 +498,6 @@ class TechnologyInformation(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
-class DSIOtherContent(OtherContent):
-    """
-    Local sub-class for 'other' content in DataSetInformation.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDPI["DSIOtherContent"]
-    class_class_curie: ClassVar[str] = "ILCDpi:DSIOtherContent"
-    class_name: ClassVar[str] = "DSIOtherContent"
-    class_model_uri: ClassVar[URIRef] = ILCDPI.DSIOtherContent
-
-    id: Union[str, DSIOtherContentId] = None
-    anies: Optional[Union[Dict[Union[str, AniesWithScenarioId], Union[dict, AniesWithScenario]], List[Union[dict, AniesWithScenario]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, DSIOtherContentId):
-            self.id = DSIOtherContentId(self.id)
-
-        self._normalize_inlined_as_list(slot_name="anies", slot_type=AniesWithScenario, key_name="id", keyed=True)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class TimeOtherContent(OtherContent):
-    """
-    Local subclass for time-related 'other' content.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDPI["TimeOtherContent"]
-    class_class_curie: ClassVar[str] = "ILCDpi:TimeOtherContent"
-    class_name: ClassVar[str] = "TimeOtherContent"
-    class_model_uri: ClassVar[URIRef] = ILCDPI.TimeOtherContent
-
-    id: Union[str, TimeOtherContentId] = None
-    anies: Optional[Union[Dict[Union[str, AniesNameTimestampId], Union[dict, AniesNameTimestamp]], List[Union[dict, AniesNameTimestamp]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, TimeOtherContentId):
-            self.id = TimeOtherContentId(self.id)
-
-        self._normalize_inlined_as_list(slot_name="anies", slot_type=AniesNameTimestamp, key_name="id", keyed=True)
-
-        super().__post_init__(**kwargs)
-
-
 # Enumerations
 
 
@@ -596,7 +536,7 @@ slots.referenceToExternalDocumentation = Slot(uri=ILCDPI.referenceToExternalDocu
                    model_uri=ILCDPI.referenceToExternalDocumentation, domain=None, range=Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]])
 
 slots.otherDSI = Slot(uri=ILCDPI.otherDSI, name="otherDSI", curie=ILCDPI.curie('otherDSI'),
-                   model_uri=ILCDPI.otherDSI, domain=None, range=Optional[Union[dict, DSIOtherContent]])
+                   model_uri=ILCDPI.otherDSI, domain=None, range=Optional[Union[dict, OtherContent]])
 
 slots.baseName = Slot(uri=ILCDPI.baseName, name="baseName", curie=ILCDPI.curie('baseName'),
                    model_uri=ILCDPI.baseName, domain=None, range=Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]])
@@ -629,7 +569,7 @@ slots.timeRepresentativenessDescription = Slot(uri=ILCDPI.timeRepresentativeness
                    model_uri=ILCDPI.timeRepresentativenessDescription, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
 slots.otherTime = Slot(uri=ILCDPI.otherTime, name="otherTime", curie=ILCDPI.curie('otherTime'),
-                   model_uri=ILCDPI.otherTime, domain=None, range=Optional[Union[dict, TimeOtherContent]])
+                   model_uri=ILCDPI.otherTime, domain=None, range=Optional[Union[dict, OtherContent]])
 
 slots.locationOfOperationSupplyOrProduction = Slot(uri=ILCDPI.locationOfOperationSupplyOrProduction, name="locationOfOperationSupplyOrProduction", curie=ILCDPI.curie('locationOfOperationSupplyOrProduction'),
                    model_uri=ILCDPI.locationOfOperationSupplyOrProduction, domain=None, range=Optional[Union[dict, LocationInfo]])

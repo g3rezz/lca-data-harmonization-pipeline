@@ -57,15 +57,6 @@ classes:
       - accessRestrictions
       - otherPAO
 
-  AdministrativeOtherContent:
-    description: "Other content in administrative information."
-    is_a: OtherContent
-    slots:
-      - id
-    slot_usage:
-      anies:
-        range: AniesNameTypedReference
-
 ########################################
 # Slots
 ########################################
@@ -262,7 +253,7 @@ slots:
       "None" is entered.
 
   otherPAO:
-    range: AdministrativeOtherContent
+    range: OtherContent
     inlined: true
     required: false
     minimum_cardinality: 0

@@ -1,5 +1,5 @@
 # Auto generated from linkml_administrativeInformation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-29T14:49:24
+# Generation date: 2025-03-29T16:33:25
 # Schema: ILCDadministrativeInformation
 #
 # id: https://example.org/ILCDadministrativeInformation
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import AniesNameTypedReference, AniesNameTypedReferenceId, GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, UnixTimestamp
+from . linkml_shared_definitions import GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, OtherContentId, UnixTimestamp
 from linkml_runtime.linkml_model.types import Boolean, String
 from linkml_runtime.utils.metamodelcore import Bool
 
@@ -93,10 +93,6 @@ class DataEntryById(extended_str):
 
 
 class PublicationAndOwnershipId(extended_str):
-    pass
-
-
-class AdministrativeOtherContentId(extended_str):
     pass
 
 
@@ -246,7 +242,7 @@ class PublicationAndOwnership(YAMLRoot):
     copyright: Optional[Union[bool, Bool]] = None
     licenseType: Optional[str] = None
     accessRestrictions: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
-    otherPAO: Optional[Union[dict, "AdministrativeOtherContent"]] = None
+    otherPAO: Optional[Union[dict, OtherContent]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -281,34 +277,8 @@ class PublicationAndOwnership(YAMLRoot):
 
         self._normalize_inlined_as_list(slot_name="accessRestrictions", slot_type=MultiLangString, key_name="id", keyed=True)
 
-        if self.otherPAO is not None and not isinstance(self.otherPAO, AdministrativeOtherContent):
-            self.otherPAO = AdministrativeOtherContent(**as_dict(self.otherPAO))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class AdministrativeOtherContent(OtherContent):
-    """
-    Other content in administrative information.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDADMIN["AdministrativeOtherContent"]
-    class_class_curie: ClassVar[str] = "ILCDadmin:AdministrativeOtherContent"
-    class_name: ClassVar[str] = "AdministrativeOtherContent"
-    class_model_uri: ClassVar[URIRef] = ILCDADMIN.AdministrativeOtherContent
-
-    id: Union[str, AdministrativeOtherContentId] = None
-    anies: Optional[Union[Dict[Union[str, AniesNameTypedReferenceId], Union[dict, AniesNameTypedReference]], List[Union[dict, AniesNameTypedReference]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, AdministrativeOtherContentId):
-            self.id = AdministrativeOtherContentId(self.id)
-
-        self._normalize_inlined_as_list(slot_name="anies", slot_type=AniesNameTypedReference, key_name="id", keyed=True)
+        if self.otherPAO is not None and not isinstance(self.otherPAO, OtherContent):
+            self.otherPAO = OtherContent(**as_dict(self.otherPAO))
 
         super().__post_init__(**kwargs)
 
@@ -375,4 +345,4 @@ slots.accessRestrictions = Slot(uri=ILCDADMIN.accessRestrictions, name="accessRe
                    model_uri=ILCDADMIN.accessRestrictions, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
 slots.otherPAO = Slot(uri=ILCDADMIN.otherPAO, name="otherPAO", curie=ILCDADMIN.curie('otherPAO'),
-                   model_uri=ILCDADMIN.otherPAO, domain=None, range=Optional[Union[dict, AdministrativeOtherContent]])
+                   model_uri=ILCDADMIN.otherPAO, domain=None, range=Optional[Union[dict, OtherContent]])

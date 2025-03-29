@@ -21,11 +21,11 @@ ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0shortDescriptionEN a ns1:MultiLa
 ILCDlcia:LCIAResults a ILCDlcia:LCIAResults ;
     ILCDlcia:LCIAResult ILCDlcia:LCIAResult0 .
 
-ILCDlcia:moduleB1 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:moduleB1 a ns1:AniesType ;
     ns1:module "B1" ;
     ns1:value "-4.12301904146275" .
 
-ILCDlcia:otherLCIA0 a ILCDlcia:LCIAOtherContent ;
+ILCDlcia:otherLCIA0 a ns1:OtherContent ;
     ns1:anies ILCDlcia:moduleB1,
         ILCDlcia:otherLCIA0moduleA1,
         ILCDlcia:otherLCIA0moduleA1A3,
@@ -46,75 +46,75 @@ ILCDlcia:otherLCIA0 a ILCDlcia:LCIAOtherContent ;
         ILCDlcia:otherLCIA0moduleD,
         ILCDlcia:otherLCIA0referenceToUnitGroupDataSet .
 
-ILCDlcia:otherLCIA0moduleA1 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleA1 a ns1:AniesType ;
     ns1:module "A1" ;
     ns1:value "376.846524413267" .
 
-ILCDlcia:otherLCIA0moduleA1A3 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleA1A3 a ns1:AniesType ;
     ns1:module "A1-A3" ;
     ns1:value "388.707120265804" .
 
-ILCDlcia:otherLCIA0moduleA2 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleA2 a ns1:AniesType ;
     ns1:module "A2" ;
     ns1:value "10.658975130637" .
 
-ILCDlcia:otherLCIA0moduleA3 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleA3 a ns1:AniesType ;
     ns1:module "A3" ;
     ns1:value "1.20162072189971" .
 
-ILCDlcia:otherLCIA0moduleA4 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleA4 a ns1:AniesType ;
     ns1:module "A4" ;
     ns1:value "ND" .
 
-ILCDlcia:otherLCIA0moduleA5 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleA5 a ns1:AniesType ;
     ns1:module "A5" ;
     ns1:value "ND" .
 
-ILCDlcia:otherLCIA0moduleB2 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleB2 a ns1:AniesType ;
     ns1:module "B2" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleB3 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleB3 a ns1:AniesType ;
     ns1:module "B3" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleB4 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleB4 a ns1:AniesType ;
     ns1:module "B4" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleB5 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleB5 a ns1:AniesType ;
     ns1:module "B5" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleB6 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleB6 a ns1:AniesType ;
     ns1:module "B6" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleB7 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleB7 a ns1:AniesType ;
     ns1:module "B7" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleC1 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleC1 a ns1:AniesType ;
     ns1:module "C1" ;
     ns1:value "8.991347753066" .
 
-ILCDlcia:otherLCIA0moduleC2 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleC2 a ns1:AniesType ;
     ns1:module "C2" ;
     ns1:value "9.2273105665125" .
 
-ILCDlcia:otherLCIA0moduleC3 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleC3 a ns1:AniesType ;
     ns1:module "C3" ;
     ns1:value "3.51999580619816" .
 
-ILCDlcia:otherLCIA0moduleC4 a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleC4 a ns1:AniesType ;
     ns1:module "C4" ;
     ns1:value "-4.05759050692558" .
 
-ILCDlcia:otherLCIA0moduleD a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0moduleD a ns1:AniesType ;
     ns1:module "D" ;
     ns1:value "-15.07571924265" .
 
-ILCDlcia:otherLCIA0referenceToUnitGroupDataSet a ns1:AniesNameValueObjectValueModule ;
+ILCDlcia:otherLCIA0referenceToUnitGroupDataSet a ns1:AniesType ;
     ns1:name "referenceToUnitGroupDataSet" ;
     ns1:objectValue ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValue .
 

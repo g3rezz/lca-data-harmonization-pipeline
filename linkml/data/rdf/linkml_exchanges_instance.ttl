@@ -75,79 +75,79 @@ ILCDex:materialPropertyEntry1 a ILCDex:MaterialPropEntry ;
     ILCDex:unit "Compressive strength (MPa)" ;
     ILCDex:unitDescription "Compressive strength (MPa)" .
 
-ILCDex:moduleA1 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleA1 a ns1:AniesType ;
     ns1:module "A1" ;
     ns1:value "200.331850129794" .
 
-ILCDex:moduleA1A3 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleA1A3 a ns1:AniesType ;
     ns1:module "A1-A3" ;
     ns1:value "203.915373505166" .
 
-ILCDex:moduleA2 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleA2 a ns1:AniesType ;
     ns1:module "A2" ;
     ns1:value "2.48154315611149" .
 
-ILCDex:moduleA3 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleA3 a ns1:AniesType ;
     ns1:module "A3" ;
     ns1:value "1.10198021926091" .
 
-ILCDex:moduleA4 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleA4 a ns1:AniesType ;
     ns1:module "A4" ;
     ns1:value "ND" .
 
-ILCDex:moduleA5 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleA5 a ns1:AniesType ;
     ns1:module "A5" ;
     ns1:value "ND" .
 
-ILCDex:moduleB1 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleB1 a ns1:AniesType ;
     ns1:module "B1" ;
     ns1:value "0" .
 
-ILCDex:moduleB2 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleB2 a ns1:AniesType ;
     ns1:module "B2" ;
     ns1:value "0" .
 
-ILCDex:moduleB3 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleB3 a ns1:AniesType ;
     ns1:module "B3" ;
     ns1:value "0" .
 
-ILCDex:moduleB4 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleB4 a ns1:AniesType ;
     ns1:module "B4" ;
     ns1:value "0" .
 
-ILCDex:moduleB5 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleB5 a ns1:AniesType ;
     ns1:module "B5" ;
     ns1:value "0" .
 
-ILCDex:moduleB6 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleB6 a ns1:AniesType ;
     ns1:module "B6" ;
     ns1:value "0" .
 
-ILCDex:moduleB7 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleB7 a ns1:AniesType ;
     ns1:module "B7" ;
     ns1:value "0" .
 
-ILCDex:moduleC1 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleC1 a ns1:AniesType ;
     ns1:module "C1" ;
     ns1:value "0.758557945488" .
 
-ILCDex:moduleC2 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleC2 a ns1:AniesType ;
     ns1:module "C2" ;
     ns1:value "3.542532703875" .
 
-ILCDex:moduleC3 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleC3 a ns1:AniesType ;
     ns1:module "C3" ;
     ns1:value "8.991775066725" .
 
-ILCDex:moduleC4 a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleC4 a ns1:AniesType ;
     ns1:module "C4" ;
     ns1:value "1.953996895125" .
 
-ILCDex:moduleD a ns1:AniesNameValueObjectValueModule ;
+ILCDex:moduleD a ns1:AniesType ;
     ns1:module "D" ;
     ns1:value "-14.21955172935" .
 
-ILCDex:otherExEntry1 a ILCDex:ExchangeOtherContent ;
+ILCDex:otherExEntry1 a ns1:OtherContent ;
     ns1:anies ILCDex:moduleA1,
         ILCDex:moduleA1A3,
         ILCDex:moduleA2,
@@ -168,7 +168,7 @@ ILCDex:otherExEntry1 a ILCDex:ExchangeOtherContent ;
         ILCDex:moduleD,
         ILCDex:referenceToUnitGroupDataSet .
 
-ILCDex:referenceToUnitGroupDataSet a ns1:AniesNameValueObjectValueModule ;
+ILCDex:referenceToUnitGroupDataSet a ns1:AniesType ;
     ns1:name "referenceToUnitGroupDataSet" ;
     ns1:objectValue ILCDex:referenceToUnitGroupDataSetobjectValue .
 

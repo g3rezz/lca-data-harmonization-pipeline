@@ -94,10 +94,10 @@ ILCDmav:LCIMethodAndAllocation a ILCDmav:LCIMethodAndAllocationEntry ;
     ILCDmav:referenceToLCAMethodDetails ILCDmav:LCIMethodAndAllocationreferenceToLCAMethodDetails0 ;
     ILCDmav:typeOfDataSet "EPD" .
 
-ILCDmav:LCIMethodAndAllocationotherMAA a ILCDmav:MAAOtherContent ;
+ILCDmav:LCIMethodAndAllocationotherMAA a ns1:OtherContent ;
     ns1:anies ILCDmav:LCIMethodAndAllocationotherMAAanies .
 
-ILCDmav:LCIMethodAndAllocationotherMAAanies a ns1:AniesNameValue ;
+ILCDmav:LCIMethodAndAllocationotherMAAanies a ns1:AniesType ;
     ns1:name "subType" ;
     ns1:value "specific dataset" .
 
@@ -118,10 +118,10 @@ ILCDmav:ModellingAndValidation a ILCDmav:ModellingAndValidation ;
     ILCDmav:otherMAV ILCDmav:OtherMAV ;
     ILCDmav:validationInfo ILCDmav:ValidationInfo .
 
-ILCDmav:OtherMAV a ILCDmav:MAVOtherContent ;
+ILCDmav:OtherMAV a ns1:OtherContent ;
     ns1:anies ILCDmav:OtherMAVanies .
 
-ILCDmav:OtherMAVanies a ns1:AniesNameTypedReference ;
+ILCDmav:OtherMAVanies a ns1:AniesType ;
     ns1:name "referenceToOriginalEPD" ;
     ns1:objectValue ILCDmav:OtherMAVaniesobjectValue .
 
