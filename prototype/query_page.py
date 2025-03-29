@@ -8,7 +8,7 @@ from sparql_utils import run_query
 from sparql_query_building import build_main_query, build_bki_query
 
 
-# (1) SIDEBAR CONTROLS
+# SIDEBAR CONTROLS
 
 st.sidebar.title(
     "**EPD.**_finder_",
@@ -16,7 +16,7 @@ st.sidebar.title(
 )
 
 with st.sidebar.expander("**Main Filters**", expanded=False):
-    # -- Category Filter (selectbox)
+    # Category Filter (selectbox)
     selected_category = st.selectbox(
         "EPD Category",
         options=["ready-mixed concrete"],
@@ -24,7 +24,7 @@ with st.sidebar.expander("**Main Filters**", expanded=False):
         disabled=True,
     )
 
-    # -- DIN 276 Cost Group Filter (multi-select)
+    # DIN 276 Cost Group Filter (multi-select)
     din_options = [
         "310",
         "312",
@@ -104,7 +104,7 @@ with st.sidebar.expander("**Main Filters**", expanded=False):
         """,
     )
 
-    # -- Strict DIN 276 Cost Group Filtering Toggle
+    # Strict DIN 276 Cost Group Filtering Toggle
     strict_din = st.checkbox(
         "Strict cost group filtering",
         help="""
@@ -114,7 +114,7 @@ with st.sidebar.expander("**Main Filters**", expanded=False):
         """,
     )
 
-    # -- Module Filter (multi-select)
+    # Module Filter (multi-select)
     module_options = ["A1-A3", "A4", "A5", "B1", "C1", "C2", "C3", "C4", "D"]
     selected_modules = st.multiselect(
         "Module",
@@ -133,7 +133,7 @@ with st.sidebar.expander("**Main Filters**", expanded=False):
         """,
     )
 
-    # -- Environmental Impact Filter (selectbox)
+    # Environmental Impact Filter (selectbox)
     environmental_options = [
         "AP",
         "GWP-total",
@@ -184,12 +184,12 @@ with st.sidebar.expander("**Main Filters**", expanded=False):
         """,
     )
 
-    # -- Environmental Impact Indicator Threshold Filter
+    # Environmental Impact Indicator Threshold Filter
     environmental_indicator_threshold = st.slider(
         f"{selected_environmental}", min_value=0, max_value=1000, value=1000
     )
 
-    # -- Life Cycle Filter (selectbox)
+    # Life Cycle Filter (selectbox)
     lifecycle_options = [
         "PERE",
         "PERM",
@@ -238,12 +238,12 @@ with st.sidebar.expander("**Main Filters**", expanded=False):
         """,
     )
 
-    # -- Life Cycle Indicator Threshold Filter
+    # Life Cycle Indicator Threshold Filter
     lifecycle_indicator_threshold = st.slider(
         f"{selected_lifecycle}", min_value=0, max_value=5000, value=5000
     )
 
-    # -- Scenario Toggle (Recycled)
+    # Scenario Toggle (Recycled)
     scenario_recycled = st.checkbox(
         "Recycled",
         help="""
@@ -255,7 +255,7 @@ with st.sidebar.expander("**Main Filters**", expanded=False):
 
 
 with st.sidebar.expander("**Concrete Filters**", expanded=False):
-    # -- Concrete Strength Filter (multi-select)
+    # Concrete Strength Filter (multi-select)
     strength_options = ["Low", "Medium", "High"]
     selected_strength = st.multiselect(
         "Concrete Strength",
@@ -268,7 +268,7 @@ with st.sidebar.expander("**Concrete Filters**", expanded=False):
         """,
     )
 
-    # -- Bulk Density Filter (multi-select)
+    # Bulk Density Filter (multi-select)
     density_options = ["Light", "Normal", "Heavy"]
     selected_density = st.multiselect(
         "Concrete Weight",
@@ -282,7 +282,7 @@ with st.sidebar.expander("**Concrete Filters**", expanded=False):
     )
 
 with st.sidebar.expander("**Dataset Filters**", expanded=False):
-    # -- Country Filter (multi-select)
+    # Country Filter (multi-select)
     country_options = ["DE", "IT", "NO", "DK", "GB"]
     selected_countries = st.multiselect(
         "Country",
@@ -293,7 +293,7 @@ with st.sidebar.expander("**Dataset Filters**", expanded=False):
             """,
     )
 
-    # -- subType Filter (multi-select)
+    # subType Filter (multi-select)
     subtype_options = [
         "specific",
         "average",
@@ -315,7 +315,7 @@ with st.sidebar.expander("**Dataset Filters**", expanded=False):
     )
 
 
-# -- Query Mode Toggle
+# Query Mode Toggle
 mode = st.sidebar.toggle(
     "Average EPD Mode",
     help="""
@@ -328,7 +328,7 @@ mode = st.sidebar.toggle(
 )
 
 
-# -- Button to run the dynamic query
+# Button to run the dynamic query
 if st.sidebar.button(
     "Run Query",
     # help="Select one or more filters. \n\nIf none are selected, all results will be displayed.",
@@ -336,7 +336,7 @@ if st.sidebar.button(
     type="primary",
 ):
     # Build the query
-    dynamic_query = build_main_query(
+    main_query = build_main_query(
         category=selected_category,
         modules=selected_modules,
         countries=selected_countries,
@@ -356,26 +356,19 @@ if st.sidebar.button(
     # Store the mode used for this App run
     st.session_state["query_mode_used"] = mode
 
-    # Uncomment to show the query for troubleshooting
-    # st.write("**SPARQL Query**:")
-    # st.code(dynamic_query, language="sparql")
-
     # Execute query
     try:
-        st.session_state.results = run_query(dynamic_query)
-        st.session_state.query_string = dynamic_query
+        st.session_state.results = run_query(main_query)
+        st.session_state.query_string = main_query
     except Exception as e:
         st.error(f"**Error**: {e}", icon="🚨")
 
-# 2) DISPLAY RESULTS
 
-# tabs = st.tabs(["Table", "Graph", "SPARQL"])
-height = 600
+# DISPLAY RESULTS
 
 if "results" not in st.session_state:
     st.info("Adjust filters in the sidebar and click 'Run Query'.", icon="ℹ️")
 else:
-    # with tabs[0]:
     # Use the query_mode that was used to produce these results
     mode_for_display = st.session_state.get("query_mode_used", False)
 
@@ -394,7 +387,7 @@ else:
             selected_lc=selected_lifecycle,
         )
 
-    # If table is empty and mode is semantic do not show checkboxes
+    # If table is empty and mode is all-in-one SPARQL query do not show checkboxes
     if display_table and mode_for_display == False:
         new_env = st.checkbox(
             f"Highlight top 3 average {selected_environmental} EPDs", value=current_env
@@ -409,9 +402,6 @@ else:
             st.session_state["highlight_lc"] = new_lc
             st.rerun()
 
-    # print(st.session_state["results"])
-    # print("-" * 50)
-
     if display_table:
         results_json = st.session_state["results"]
         bindings = results_json.get("results", {}).get("bindings", [])
@@ -425,21 +415,7 @@ else:
                     if cost_group_results:
                         display_bki_results(cost_group_results)
 
-# with tabs[1]:
-#     # (Optional) Graph placeholder
-#     st.info("No graph visualization is implemented for the dynamic query.")
 
-# with tabs[2]:
-#     # Show the generated SPARQL
-#     st.write("EPD Query:")
-#     st.code(st.session_state["query_string"], language="sparql")
-#     results_json = st.session_state["results"]
-#     bindings = results_json.get("results", {}).get("bindings", [])
-#     if bindings:
-#         first_binding = bindings[0]
-#         if first_binding.get("DIN276CostGroupList"):
-#             st.write("BKI Query:")
-#             st.code(st.session_state["cost_group_results"], language="sparql")
-
-st.write("**SPARQL Query**:")
-st.code(dynamic_query, language="sparql")
+# Uncomment to troubleshoot
+# st.write("**SPARQL Query**:")
+# st.code(main_query, language="sparql")
