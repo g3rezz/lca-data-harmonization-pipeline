@@ -1,5 +1,5 @@
 # Auto generated from linkml_exchanges_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-11T14:52:59
+# Generation date: 2025-03-29T14:42:49
 # Schema: ILCDexchanges
 #
 # id: https://example.org/ILCDexchanges
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import AniesNameValueObjectValueModule, AniesNameValueObjectValueModuleId, MultiLangString, MultiLangStringId, OtherContent, ShortDescripTypeRefVersion, ShortDescripTypeRefVersionId, UUIDType
+from . linkml_shared_definitions import AniesNameValueObjectValueModule, AniesNameValueObjectValueModuleId, GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, UUIDType
 from linkml_runtime.linkml_model.types import Boolean, Float, Integer, String
 from linkml_runtime.utils.metamodelcore import Bool
 
@@ -140,9 +140,9 @@ class ExchangeEntry(YAMLRoot):
 
     id: Union[str, ExchangeEntryId] = None
     dataSetInternalID: Optional[int] = None
-    referenceToFlowDataSet: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    referenceToFlowDataSet: Optional[Union[dict, GlobalReferenceType]] = None
     meanAmount: Optional[float] = None
-    referencesToDataSource: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    referencesToDataSource: Optional[Union[dict, GlobalReferenceType]] = None
     resultingAmount: Optional[float] = None
     minimumAmount: Optional[float] = None
     maximumAmount: Optional[float] = None
@@ -169,14 +169,14 @@ class ExchangeEntry(YAMLRoot):
         if self.dataSetInternalID is not None and not isinstance(self.dataSetInternalID, int):
             self.dataSetInternalID = int(self.dataSetInternalID)
 
-        if self.referenceToFlowDataSet is not None and not isinstance(self.referenceToFlowDataSet, ShortDescripTypeRefVersion):
-            self.referenceToFlowDataSet = ShortDescripTypeRefVersion(**as_dict(self.referenceToFlowDataSet))
+        if self.referenceToFlowDataSet is not None and not isinstance(self.referenceToFlowDataSet, GlobalReferenceType):
+            self.referenceToFlowDataSet = GlobalReferenceType(**as_dict(self.referenceToFlowDataSet))
 
         if self.meanAmount is not None and not isinstance(self.meanAmount, float):
             self.meanAmount = float(self.meanAmount)
 
-        if self.referencesToDataSource is not None and not isinstance(self.referencesToDataSource, ShortDescripTypeRefVersion):
-            self.referencesToDataSource = ShortDescripTypeRefVersion(**as_dict(self.referencesToDataSource))
+        if self.referencesToDataSource is not None and not isinstance(self.referencesToDataSource, GlobalReferenceType):
+            self.referencesToDataSource = GlobalReferenceType(**as_dict(self.referencesToDataSource))
 
         if self.resultingAmount is not None and not isinstance(self.resultingAmount, float):
             self.resultingAmount = float(self.resultingAmount)
@@ -383,13 +383,13 @@ slots.dataSetInternalID = Slot(uri=ILCDEX.dataSetInternalID, name="dataSetIntern
                    model_uri=ILCDEX.dataSetInternalID, domain=None, range=Optional[int])
 
 slots.referenceToFlowDataSet = Slot(uri=ILCDEX.referenceToFlowDataSet, name="referenceToFlowDataSet", curie=ILCDEX.curie('referenceToFlowDataSet'),
-                   model_uri=ILCDEX.referenceToFlowDataSet, domain=None, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+                   model_uri=ILCDEX.referenceToFlowDataSet, domain=None, range=Optional[Union[dict, GlobalReferenceType]])
 
 slots.referenceFlow = Slot(uri=ILCDEX.referenceFlow, name="referenceFlow", curie=ILCDEX.curie('referenceFlow'),
                    model_uri=ILCDEX.referenceFlow, domain=None, range=Optional[Union[bool, Bool]])
 
 slots.referencesToDataSource = Slot(uri=ILCDEX.referencesToDataSource, name="referencesToDataSource", curie=ILCDEX.curie('referencesToDataSource'),
-                   model_uri=ILCDEX.referencesToDataSource, domain=None, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+                   model_uri=ILCDEX.referencesToDataSource, domain=None, range=Optional[Union[dict, GlobalReferenceType]])
 
 slots.resultingAmount = Slot(uri=ILCDEX.resultingAmount, name="resultingAmount", curie=ILCDEX.curie('resultingAmount'),
                    model_uri=ILCDEX.resultingAmount, domain=None, range=Optional[float])

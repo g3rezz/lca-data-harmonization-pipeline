@@ -101,7 +101,7 @@ slots:
     description: "Integer ID for the dataset within the exchange."
 
   referenceToFlowDataSet:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     inlined: true
     description: "Reference to flow dataset with shortDescription, type, refObjectId, version."
 
@@ -110,7 +110,7 @@ slots:
     description: "If true, indicates this is a reference flow."
 
   referencesToDataSource:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     inlined: true
     required: false
     minimum_cardinality: 0

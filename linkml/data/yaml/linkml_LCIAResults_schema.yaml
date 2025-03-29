@@ -30,8 +30,8 @@ classes:
       - otherLCIA # renamed from 'other' to avoid collisions
 
   referenceToLCIAMethodDataSetEntry:
-    description: "Local sub-class for referenceToLCIAMethodDataSet, inheriting from ShortDescripTypeRefVersionUri"
-    is_a: ShortDescripTypeRefVersionUri
+    description: "Local sub-class for referenceToLCIAMethodDataSet, inheriting from GlobalReferenceType"
+    is_a: GlobalReferenceType
     slots:
       - id
 

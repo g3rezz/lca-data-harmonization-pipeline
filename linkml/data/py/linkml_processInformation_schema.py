@@ -1,5 +1,5 @@
 # Auto generated from linkml_processInformation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-09T16:27:43
+# Generation date: 2025-03-29T14:50:58
 # Schema: ILCDprocessInformation
 #
 # id: https://example.org/ILCDprocessInformation
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import AniesNameTimestamp, AniesNameTimestampId, AniesWithScenario, AniesWithScenarioId, MultiLangString, MultiLangStringId, OtherContent, ShortDescripTypeRefVersionUri, ShortDescripTypeRefVersionUriId, UUIDType, Year
+from . linkml_shared_definitions import AniesNameTimestamp, AniesNameTimestampId, AniesWithScenario, AniesWithScenarioId, GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, UUIDType, Year
 from linkml_runtime.linkml_model.types import Integer, String
 
 metamodel_version = "1.7.0"
@@ -190,7 +190,7 @@ class DataSetInformation(YAMLRoot):
     synonyms: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
     classificationInformation: Optional[Union[dict, "ClassificationInformation"]] = None
     generalComment: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
-    referenceToExternalDocumentation: Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionUriId], Union[dict, ShortDescripTypeRefVersionUri]], List[Union[dict, ShortDescripTypeRefVersionUri]]]] = empty_dict()
+    referenceToExternalDocumentation: Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]] = empty_dict()
     otherDSI: Optional[Union[dict, "DSIOtherContent"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -214,7 +214,7 @@ class DataSetInformation(YAMLRoot):
 
         self._normalize_inlined_as_list(slot_name="generalComment", slot_type=MultiLangString, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="referenceToExternalDocumentation", slot_type=ShortDescripTypeRefVersionUri, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="referenceToExternalDocumentation", slot_type=GlobalReferenceType, key_name="id", keyed=True)
 
         if self.otherDSI is not None and not isinstance(self.otherDSI, DSIOtherContent):
             self.otherDSI = DSIOtherContent(**as_dict(self.otherDSI))
@@ -486,8 +486,8 @@ class TechnologyInformation(YAMLRoot):
     id: Union[str, TechnologyInformationId] = None
     technologyDescriptionAndIncludedProcesses: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
     technologicalApplicability: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
-    referenceToTechnologyFlowDiagrammOrPicture: Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionUriId], Union[dict, ShortDescripTypeRefVersionUri]], List[Union[dict, ShortDescripTypeRefVersionUri]]]] = empty_dict()
-    referenceToTechnologyPictogramme: Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionUriId], Union[dict, ShortDescripTypeRefVersionUri]], List[Union[dict, ShortDescripTypeRefVersionUri]]]] = empty_dict()
+    referenceToTechnologyFlowDiagrammOrPicture: Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]] = empty_dict()
+    referenceToTechnologyPictogramme: Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -499,9 +499,9 @@ class TechnologyInformation(YAMLRoot):
 
         self._normalize_inlined_as_list(slot_name="technologicalApplicability", slot_type=MultiLangString, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="referenceToTechnologyFlowDiagrammOrPicture", slot_type=ShortDescripTypeRefVersionUri, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="referenceToTechnologyFlowDiagrammOrPicture", slot_type=GlobalReferenceType, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="referenceToTechnologyPictogramme", slot_type=ShortDescripTypeRefVersionUri, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="referenceToTechnologyPictogramme", slot_type=GlobalReferenceType, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -593,7 +593,7 @@ slots.generalComment = Slot(uri=ILCDPI.generalComment, name="generalComment", cu
                    model_uri=ILCDPI.generalComment, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
 slots.referenceToExternalDocumentation = Slot(uri=ILCDPI.referenceToExternalDocumentation, name="referenceToExternalDocumentation", curie=ILCDPI.curie('referenceToExternalDocumentation'),
-                   model_uri=ILCDPI.referenceToExternalDocumentation, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionUriId], Union[dict, ShortDescripTypeRefVersionUri]], List[Union[dict, ShortDescripTypeRefVersionUri]]]])
+                   model_uri=ILCDPI.referenceToExternalDocumentation, domain=None, range=Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]])
 
 slots.otherDSI = Slot(uri=ILCDPI.otherDSI, name="otherDSI", curie=ILCDPI.curie('otherDSI'),
                    model_uri=ILCDPI.otherDSI, domain=None, range=Optional[Union[dict, DSIOtherContent]])
@@ -647,7 +647,7 @@ slots.technologicalApplicability = Slot(uri=ILCDPI.technologicalApplicability, n
                    model_uri=ILCDPI.technologicalApplicability, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
 
 slots.referenceToTechnologyFlowDiagrammOrPicture = Slot(uri=ILCDPI.referenceToTechnologyFlowDiagrammOrPicture, name="referenceToTechnologyFlowDiagrammOrPicture", curie=ILCDPI.curie('referenceToTechnologyFlowDiagrammOrPicture'),
-                   model_uri=ILCDPI.referenceToTechnologyFlowDiagrammOrPicture, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionUriId], Union[dict, ShortDescripTypeRefVersionUri]], List[Union[dict, ShortDescripTypeRefVersionUri]]]])
+                   model_uri=ILCDPI.referenceToTechnologyFlowDiagrammOrPicture, domain=None, range=Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]])
 
 slots.referenceToTechnologyPictogramme = Slot(uri=ILCDPI.referenceToTechnologyPictogramme, name="referenceToTechnologyPictogramme", curie=ILCDPI.curie('referenceToTechnologyPictogramme'),
-                   model_uri=ILCDPI.referenceToTechnologyPictogramme, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionUriId], Union[dict, ShortDescripTypeRefVersionUri]], List[Union[dict, ShortDescripTypeRefVersionUri]]]])
+                   model_uri=ILCDPI.referenceToTechnologyPictogramme, domain=None, range=Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]])

@@ -184,7 +184,7 @@ slots:
       on "Advice on data set use" to avoid overlapping entries.)
 
   referenceToExternalDocumentation:
-    range: ShortDescripTypeRefVersionUri
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     required: false
@@ -305,13 +305,13 @@ slots:
     description: "List of multi-language strings for technology applicability."
 
   referenceToTechnologyFlowDiagrammOrPicture:
-    range: ShortDescripTypeRefVersionUri
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     description: "List of references to diagrams/pictures."
 
   referenceToTechnologyPictogramme:
-    range: ShortDescripTypeRefVersionUri
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     required: false
