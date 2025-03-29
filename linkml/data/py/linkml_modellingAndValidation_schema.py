@@ -1,5 +1,5 @@
 # Auto generated from linkml_modellingAndValidation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-09T15:17:34
+# Generation date: 2025-03-29T14:39:48
 # Schema: ILCDmodellingAndValidation
 #
 # id: https://example.org/ILCDmodellingAndValidation
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import AniesNameTypedReference, AniesNameTypedReferenceId, AniesNameValue, AniesNameValueId, MultiLangString, MultiLangStringId, OtherContent, ResourceURL, ShortDescripAndType, ShortDescripAndTypeId, ShortDescripTypeRefVersion, ShortDescripTypeRefVersionId, UUIDType
+from . linkml_shared_definitions import AniesNameTypedReference, AniesNameTypedReferenceId, AniesNameValue, AniesNameValueId, GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, ResourceURL, UUIDType
 from linkml_runtime.linkml_model.types import Boolean, Integer, String
 from linkml_runtime.utils.metamodelcore import Bool
 
@@ -193,7 +193,7 @@ class LCIMethodAndAllocationEntry(YAMLRoot):
 
     id: Union[str, LCIMethodAndAllocationEntryId] = None
     typeOfDataSet: Optional[str] = None
-    referenceToLCAMethodDetails: Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]] = empty_dict()
+    referenceToLCAMethodDetails: Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]] = empty_dict()
     otherMAA: Optional[Union[dict, "MAAOtherContent"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -205,7 +205,7 @@ class LCIMethodAndAllocationEntry(YAMLRoot):
         if self.typeOfDataSet is not None and not isinstance(self.typeOfDataSet, str):
             self.typeOfDataSet = str(self.typeOfDataSet)
 
-        self._normalize_inlined_as_list(slot_name="referenceToLCAMethodDetails", slot_type=ShortDescripTypeRefVersion, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="referenceToLCAMethodDetails", slot_type=GlobalReferenceType, key_name="id", keyed=True)
 
         if self.otherMAA is not None and not isinstance(self.otherMAA, MAAOtherContent):
             self.otherMAA = MAAOtherContent(**as_dict(self.otherMAA))
@@ -226,7 +226,7 @@ class DataSourcesTreatmentAndRepresentativeness(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ILCDMAV.DataSourcesTreatmentAndRepresentativeness
 
     id: Union[str, DataSourcesTreatmentAndRepresentativenessId] = None
-    referenceToDataSource: Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]] = empty_dict()
+    referenceToDataSource: Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]] = empty_dict()
     useAdviceForDataSet: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
     otherDSTAR: Optional[Union[dict, "DSTAROtherRoot"]] = None
 
@@ -236,7 +236,7 @@ class DataSourcesTreatmentAndRepresentativeness(YAMLRoot):
         if not isinstance(self.id, DataSourcesTreatmentAndRepresentativenessId):
             self.id = DataSourcesTreatmentAndRepresentativenessId(self.id)
 
-        self._normalize_inlined_as_list(slot_name="referenceToDataSource", slot_type=ShortDescripTypeRefVersion, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="referenceToDataSource", slot_type=GlobalReferenceType, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="useAdviceForDataSet", slot_type=MultiLangString, key_name="id", keyed=True)
 
@@ -286,8 +286,8 @@ class ReviewEntry(YAMLRoot):
 
     id: Union[str, ReviewEntryId] = None
     reviewDetails: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]] = empty_dict()
-    referenceToNameOfReviewerAndInstitution: Optional[Union[Dict[Union[str, ShortDescripAndTypeId], Union[dict, ShortDescripAndType]], List[Union[dict, ShortDescripAndType]]]] = empty_dict()
-    referenceToCompleteReviewReport: Optional[Union[Dict[Union[str, ShortDescripAndTypeId], Union[dict, ShortDescripAndType]], List[Union[dict, ShortDescripAndType]]]] = empty_dict()
+    referenceToNameOfReviewerAndInstitution: Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]] = empty_dict()
+    referenceToCompleteReviewReport: Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]] = empty_dict()
     type: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -298,9 +298,9 @@ class ReviewEntry(YAMLRoot):
 
         self._normalize_inlined_as_list(slot_name="reviewDetails", slot_type=MultiLangString, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="referenceToNameOfReviewerAndInstitution", slot_type=ShortDescripAndType, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="referenceToNameOfReviewerAndInstitution", slot_type=GlobalReferenceType, key_name="id", keyed=True)
 
-        self._normalize_inlined_as_list(slot_name="referenceToCompleteReviewReport", slot_type=ShortDescripAndType, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="referenceToCompleteReviewReport", slot_type=GlobalReferenceType, key_name="id", keyed=True)
 
         if self.type is not None and not isinstance(self.type, str):
             self.type = str(self.type)
@@ -347,7 +347,7 @@ class ComplianceEntry(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ILCDMAV.ComplianceEntry
 
     id: Union[str, ComplianceEntryId] = None
-    referenceToComplianceSystem: Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]] = empty_dict()
+    referenceToComplianceSystem: Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]] = empty_dict()
     approvalOfOverallCompliance: Optional[str] = None
     nomenclatureCompliance: Optional[str] = None
     methodologicalCompliance: Optional[str] = None
@@ -361,7 +361,7 @@ class ComplianceEntry(YAMLRoot):
         if not isinstance(self.id, ComplianceEntryId):
             self.id = ComplianceEntryId(self.id)
 
-        self._normalize_inlined_as_list(slot_name="referenceToComplianceSystem", slot_type=ShortDescripTypeRefVersion, key_name="id", keyed=True)
+        self._normalize_inlined_as_list(slot_name="referenceToComplianceSystem", slot_type=GlobalReferenceType, key_name="id", keyed=True)
 
         if self.approvalOfOverallCompliance is not None and not isinstance(self.approvalOfOverallCompliance, str):
             self.approvalOfOverallCompliance = str(self.approvalOfOverallCompliance)
@@ -679,13 +679,13 @@ slots.typeOfDataSet = Slot(uri=ILCDMAV.typeOfDataSet, name="typeOfDataSet", curi
                    model_uri=ILCDMAV.typeOfDataSet, domain=None, range=Optional[str])
 
 slots.referenceToLCAMethodDetails = Slot(uri=ILCDMAV.referenceToLCAMethodDetails, name="referenceToLCAMethodDetails", curie=ILCDMAV.curie('referenceToLCAMethodDetails'),
-                   model_uri=ILCDMAV.referenceToLCAMethodDetails, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]])
+                   model_uri=ILCDMAV.referenceToLCAMethodDetails, domain=None, range=Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]])
 
 slots.otherMAA = Slot(uri=ILCDMAV.otherMAA, name="otherMAA", curie=ILCDMAV.curie('otherMAA'),
                    model_uri=ILCDMAV.otherMAA, domain=None, range=Optional[Union[dict, MAAOtherContent]])
 
 slots.referenceToDataSource = Slot(uri=ILCDMAV.referenceToDataSource, name="referenceToDataSource", curie=ILCDMAV.curie('referenceToDataSource'),
-                   model_uri=ILCDMAV.referenceToDataSource, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]])
+                   model_uri=ILCDMAV.referenceToDataSource, domain=None, range=Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]])
 
 slots.useAdviceForDataSet = Slot(uri=ILCDMAV.useAdviceForDataSet, name="useAdviceForDataSet", curie=ILCDMAV.curie('useAdviceForDataSet'),
                    model_uri=ILCDMAV.useAdviceForDataSet, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
@@ -745,10 +745,10 @@ slots.review = Slot(uri=ILCDMAV.review, name="review", curie=ILCDMAV.curie('revi
                    model_uri=ILCDMAV.review, domain=None, range=Optional[Union[Dict[Union[str, ReviewEntryId], Union[dict, ReviewEntry]], List[Union[dict, ReviewEntry]]]])
 
 slots.referenceToCompleteReviewReport = Slot(uri=ILCDMAV.referenceToCompleteReviewReport, name="referenceToCompleteReviewReport", curie=ILCDMAV.curie('referenceToCompleteReviewReport'),
-                   model_uri=ILCDMAV.referenceToCompleteReviewReport, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripAndTypeId], Union[dict, ShortDescripAndType]], List[Union[dict, ShortDescripAndType]]]])
+                   model_uri=ILCDMAV.referenceToCompleteReviewReport, domain=None, range=Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]])
 
 slots.referenceToNameOfReviewerAndInstitution = Slot(uri=ILCDMAV.referenceToNameOfReviewerAndInstitution, name="referenceToNameOfReviewerAndInstitution", curie=ILCDMAV.curie('referenceToNameOfReviewerAndInstitution'),
-                   model_uri=ILCDMAV.referenceToNameOfReviewerAndInstitution, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripAndTypeId], Union[dict, ShortDescripAndType]], List[Union[dict, ShortDescripAndType]]]])
+                   model_uri=ILCDMAV.referenceToNameOfReviewerAndInstitution, domain=None, range=Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]])
 
 slots.reviewDetails = Slot(uri=ILCDMAV.reviewDetails, name="reviewDetails", curie=ILCDMAV.curie('reviewDetails'),
                    model_uri=ILCDMAV.reviewDetails, domain=None, range=Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, MultiLangString]], List[Union[dict, MultiLangString]]]])
@@ -757,7 +757,7 @@ slots.compliance = Slot(uri=ILCDMAV.compliance, name="compliance", curie=ILCDMAV
                    model_uri=ILCDMAV.compliance, domain=None, range=Optional[Union[Dict[Union[str, ComplianceEntryId], Union[dict, ComplianceEntry]], List[Union[dict, ComplianceEntry]]]])
 
 slots.referenceToComplianceSystem = Slot(uri=ILCDMAV.referenceToComplianceSystem, name="referenceToComplianceSystem", curie=ILCDMAV.curie('referenceToComplianceSystem'),
-                   model_uri=ILCDMAV.referenceToComplianceSystem, domain=None, range=Optional[Union[Dict[Union[str, ShortDescripTypeRefVersionId], Union[dict, ShortDescripTypeRefVersion]], List[Union[dict, ShortDescripTypeRefVersion]]]])
+                   model_uri=ILCDMAV.referenceToComplianceSystem, domain=None, range=Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]])
 
 slots.approvalOfOverallCompliance = Slot(uri=ILCDMAV.approvalOfOverallCompliance, name="approvalOfOverallCompliance", curie=ILCDMAV.curie('approvalOfOverallCompliance'),
                    model_uri=ILCDMAV.approvalOfOverallCompliance, domain=None, range=Optional[str])

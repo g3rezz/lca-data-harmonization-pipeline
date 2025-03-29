@@ -118,7 +118,7 @@ ILCDlcia:otherLCIA0referenceToUnitGroupDataSet a ns1:AniesNameValueObjectValueMo
     ns1:name "referenceToUnitGroupDataSet" ;
     ns1:objectValue ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValue .
 
-ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValue a ns1:ShortDescripTypeRefVersion ;
+ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValue a ns1:GlobalReferenceType ;
     ns1:refObjectId "1ebf3012-d0db-4de2-aefd-ef30cedb0be1"^^linkml:UUIDType ;
     ns1:refObjectUri "../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1" ;
     ns1:shortDescription ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValueshortDescription ;

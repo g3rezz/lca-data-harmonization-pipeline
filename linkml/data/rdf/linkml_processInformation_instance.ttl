@@ -3,135 +3,87 @@
 @prefix ns1: <ILCDsd:> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ILCDpi:processInformation_1 a ILCDpi:ProcessInformation ;
-    ILCDpi:dataSetInformation ILCDpi:processInformation_1_dataSetInformation_1 ;
-    ILCDpi:geography ILCDpi:processInformation_1_geography_1 ;
-    ILCDpi:quantitativeReference ILCDpi:processInformation_1_quantitativeReference_1 ;
-    ILCDpi:technology ILCDpi:processInformation_1_technology_1 ;
-    ILCDpi:timeInformation ILCDpi:processInformation_1_timeInformation_1 .
-
-ILCDpi:processInformation_1_dataSetInformation_1 a ILCDpi:DataSetInformation ;
-    ns1:UUID "0db12903-1403-4c9a-817e-b48299d17aba"^^linkml:UUIDType ;
-    ILCDpi:classificationInformation ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1 ;
-    ILCDpi:dataSetName ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1 ;
-    ILCDpi:generalComment ILCDpi:processInformation_1_dataSetInformation_1_generalComment_1 ;
-    ILCDpi:otherDSI ILCDpi:processInformation_1_dataSetInformation_1_otherDSI_1 ;
-    ILCDpi:synonyms ILCDpi:processInformation_1_dataSetInformation_1_synonyms_1 .
-
-ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1 a ILCDpi:ClassificationInformation ;
-    ILCDpi:classification ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1 .
-
-ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1 a ILCDpi:Classification ;
-    ns1:name "OEKOBAU.DAT" ;
-    ILCDpi:classEntries ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1_classEntries_1,
-        ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1_classEntries_2,
-        ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1_classEntries_3 .
-
-ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1_classEntries_1 a ILCDpi:ClassificationEntry ;
-    ns1:value "Komponenten von Fenstern und Vorhangfassaden" ;
-    ILCDpi:classId "7" ;
+ILCDpi:ClassEntry a ILCDpi:ClassificationEntry ;
+    ns1:value "Construction products, Infrastructure & buildings" ;
+    ILCDpi:classId "0" ;
     ILCDpi:level 0 .
 
-ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1_classEntries_2 a ILCDpi:ClassificationEntry ;
-    ns1:value "Rahmen / Profile" ;
-    ILCDpi:classId "7.1" ;
-    ILCDpi:level 1 .
-
-ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1_classEntries_3 a ILCDpi:ClassificationEntry ;
-    ns1:value "Holz thermisch getrennt" ;
-    ILCDpi:classId "7.1.02" ;
-    ILCDpi:level 2 .
-
-ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1 a ILCDpi:DataSetName ;
-    ILCDpi:baseName ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1_baseName_1,
-        ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1_baseName_2 ;
-    ILCDpi:functionalUnitFlowProperties ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1_functionalUnitFlowProperties_1 .
-
-ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1_baseName_1 a ns1:MultiLangString ;
-    ns1:lang "de" ;
-    ns1:value "Plattform Fenster Austria Durchschnitts Holz-Fenster-Rahmen B x H 1230 x 1480-Szenario 1 Glas Deponie" .
-
-ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1_baseName_2 a ns1:MultiLangString ;
+ILCDpi:DataSetNamebaseName a ns1:MultiLangString ;
     ns1:lang "en" ;
-    ns1:value "Plattform Fenster Austria-average timber window frame W x H 1230 x 1480-Scenario 1 Glass landfill" .
+    ns1:value " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20" .
 
-ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1_functionalUnitFlowProperties_1 a ns1:MultiLangString ;
-    ns1:lang "de" ;
-    ns1:value "43,8 kg/m²" .
+ILCDpi:Geography a ILCDpi:GeographyInformation ;
+    ILCDpi:locationOfOperationSupplyOrProduction ILCDpi:LocationOfOperationSupplyOrProduction .
 
-ILCDpi:processInformation_1_dataSetInformation_1_generalComment_1 a ns1:MultiLangString ;
-    ns1:lang "de" ;
-    ns1:value """Holzfenster Rahmen im Format 1,23 x 1,48 m. \r
-Als funktionale Einheit wurde der Rahmen für ein Stück Fenster festgelegt. """ .
+ILCDpi:LocationOfOperationSupplyOrProduction a ILCDpi:LocationInfo ;
+    ILCDpi:descriptionOfRestrictions ILCDpi:LocationOfOperationSupplyOrProductiondescriptionOfRestrictions ;
+    ILCDpi:location "IT" .
 
-ILCDpi:processInformation_1_dataSetInformation_1_otherDSI_1 a ILCDpi:DSIOtherContent ;
-    ns1:anies ILCDpi:processInformation_1_dataSetInformation_1_otherDSI_1_anies_1 .
-
-ILCDpi:processInformation_1_dataSetInformation_1_otherDSI_1_anies_1 a ns1:AniesWithScenario ;
-    ns1:scenario "[{'id': 'ILCDpi:processInformation_1_dataSetInformation_1_otherDSI_1_anies_1_scenario_1', 'description': [{'id': 'ILCDpi:processInformation_1_dataSetInformation_1_otherDSI_1_anies_1_scenario_1_description_1', 'value': 'Rahmen 100% Thermische Verwertung, Glas 100% Deponie'}], 'name': 'Szenario 1 Glas Deponie', 'default': True}]" .
-
-ILCDpi:processInformation_1_dataSetInformation_1_synonyms_1 a ns1:MultiLangString ;
-    ns1:lang "de" ;
-    ns1:value "Fenster, Profil, Rahmen" .
-
-ILCDpi:processInformation_1_geography_1 a ILCDpi:GeographyInformation ;
-    ILCDpi:locationOfOperationSupplyOrProduction ILCDpi:processInformation_1_geography_1_locationOfOperationSupplyOrProduction_1 .
-
-ILCDpi:processInformation_1_geography_1_locationOfOperationSupplyOrProduction_1 a ILCDpi:LocationInfo ;
-    ILCDpi:descriptionOfRestrictions ILCDpi:processInformation_1_geography_1_locationOfOperationSupplyOrProduction_1_descriptionOfRestrictions_1 ;
-    ILCDpi:location "AT" .
-
-ILCDpi:processInformation_1_geography_1_locationOfOperationSupplyOrProduction_1_descriptionOfRestrictions_1 a ns1:MultiLangString ;
-    ns1:lang "de" ;
-    ns1:value "Austria and Neighbour-Countries" .
-
-ILCDpi:processInformation_1_quantitativeReference_1 a ILCDpi:QuantitativeReference ;
-    ns1:type "Reference flow(s)" ;
-    ILCDpi:referenceToReferenceFlow 1 .
-
-ILCDpi:processInformation_1_technology_1 a ILCDpi:TechnologyInformation ;
-    ILCDpi:technologicalApplicability ILCDpi:processInformation_1_technology_1_technologicalApplicability_1,
-        ILCDpi:processInformation_1_technology_1_technologicalApplicability_2 ;
-    ILCDpi:technologyDescriptionAndIncludedProcesses ILCDpi:processInformation_1_technology_1_technologyDescriptionAndIncludedProcesses_1,
-        ILCDpi:processInformation_1_technology_1_technologyDescriptionAndIncludedProcesses_2 .
-
-ILCDpi:processInformation_1_technology_1_technologicalApplicability_1 a ns1:MultiLangString ;
-    ns1:lang "de" ;
-    ns1:value """Die Produkte kommen im ein- und mehrgeschossigen Wohnbau und in Nichtwohngebäuden im Innen- und Außenbereich zur \r
-Anwendung. """ .
-
-ILCDpi:processInformation_1_technology_1_technologicalApplicability_2 a ns1:MultiLangString ;
+ILCDpi:LocationOfOperationSupplyOrProductiondescriptionOfRestrictions a ns1:MultiLangString ;
     ns1:lang "en" ;
-    ns1:value """The products are used in single and multi-storey residential buildings and in non-residential buildings, both indoors and outdoors\r
-use.""" .
+    ns1:value "Costituents, production and use in Italy. " .
 
-ILCDpi:processInformation_1_technology_1_technologyDescriptionAndIncludedProcesses_1 a ns1:MultiLangString ;
-    ns1:lang "de" ;
-    ns1:value """Holzfensterrahmen für ein Fenster Format 1,23 x 1,48. \r
-Als funktionale Einheit wurde ein Stück Rahmen für ein Fenster festgelegt. """ .
+ILCDpi:ProcessInformation a ILCDpi:ProcessInformation ;
+    ILCDpi:dataSetInformation ILCDpi:DataSetInformation ;
+    ILCDpi:geography ILCDpi:Geography ;
+    ILCDpi:quantitativeReference ILCDpi:QuantitativeReference ;
+    ILCDpi:technology ILCDpi:Technology ;
+    ILCDpi:timeInformation ILCDpi:TimeInformation .
 
-ILCDpi:processInformation_1_technology_1_technologyDescriptionAndIncludedProcesses_2 a ns1:MultiLangString ;
+ILCDpi:Technology a ILCDpi:TechnologyInformation ;
+    ILCDpi:referenceToTechnologyFlowDiagrammOrPicture ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPicture ;
+    ILCDpi:technologicalApplicability ILCDpi:TechnologytechnologicalApplicability ;
+    ILCDpi:technologyDescriptionAndIncludedProcesses ILCDpi:TechnologytechnologyDescriptionAndIncludedProcesses .
+
+ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPicture a ns1:GlobalReferenceType ;
+    ns1:refObjectId "785a09be-82f3-461a-ba60-c49b80204481"^^linkml:UUIDType ;
+    ns1:shortDescription ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPictureshortDescription ;
+    ns1:type "source data set" .
+
+ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPictureshortDescription a ns1:MultiLangString ;
     ns1:lang "en" ;
-    ns1:value """Aluminum doors with triple glazing measuring 1.23 x 2.18 m².\r
-A piece of door was defined as a functional unit.\r
-\r
-\r
-""" .
+    ns1:value "Process flow" .
 
-ILCDpi:processInformation_1_timeInformation_1 a ILCDpi:TimeInformation ;
-    ILCDpi:dataSetValidUntil "2027"^^linkml:Year ;
-    ILCDpi:otherTime ILCDpi:processInformation_1_timeInformation_1_otherTime_1 ;
-    ILCDpi:referenceYear "2022"^^linkml:Year ;
-    ILCDpi:timeRepresentativenessDescription ILCDpi:processInformation_1_timeInformation_1_timeRepresentativenessDescription_1 .
+ILCDpi:TechnologytechnologicalApplicability a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Structural concrete for civil buildings and constructions." .
 
-ILCDpi:processInformation_1_timeInformation_1_otherTime_1 a ILCDpi:TimeOtherContent ;
-    ns1:anies ILCDpi:processInformation_1_timeInformation_1_otherTime_1_anies_1 .
+ILCDpi:TechnologytechnologyDescriptionAndIncludedProcesses a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Concrete is produced by mixing cement, aggregates (sand, crushed stone and gravel), water and additives. The cement section is  consists  of storage silos connected to a weighbridge, the extraction and loading of the cement into the truck mixer takes place via closed augers. The suction system and filters guarantee the abatement of dust during  loading of the truck mixers.  The coarse aggregate (“Gravel” or commercially “Cobblestone”) is unloaded directly into a hopper from the tipper trucks owned by the supplier and is then transferred by means of belts from the hopper on the ground to the loading ones. The same applies  for sand. The additives are dosed separately using volumetric dosers, whereas the mixing water is dosed with electromechanical meters. All the components described above are conveyed into the concrete mixer barrel where the homogenization and mixing phases take  place; the energy required for the production of concrete is given by electricity. The shipment of the final product is carried out using special truck mixers. The concretes subject to analysis comply with the requirements of the REACH regulation." .
 
-ILCDpi:processInformation_1_timeInformation_1_otherTime_1_anies_1 a ns1:AniesNameTimestamp ;
+ILCDpi:TimeInformationotherTime a ILCDpi:TimeOtherContent ;
+    ns1:anies ILCDpi:publicationDateOfEPD .
+
+ILCDpi:TimeInformationtimeRepresentativenessDescription a ns1:MultiLangString ;
+    ns1:lang "en" .
+
+ILCDpi:publicationDateOfEPD a ns1:AniesNameTimestamp ;
     ns1:name "publicationDateOfEPD" ;
-    ns1:timestampValue "1667952000000"^^linkml:UnixTimestamp .
+    ns1:timestampValue "1715904000000"^^linkml:UnixTimestamp .
 
-ILCDpi:processInformation_1_timeInformation_1_timeRepresentativenessDescription_1 a ns1:MultiLangString ;
-    ns1:lang "de" ;
-    ns1:value "Die hier publizierten Durchschnittsdaten sind repräsentativ für industriell hergestellte Holzfensterrahmen von 4 Mitgliedbetrieben des Vereins Plattform Fenster Österreich.  Die an der Studie beteiligten Firmen decken ca. 60 % von den in Österreich industriell gefertigten Holzfenstern ab.  Sämtliche von den Herstellern zur Verfügung gestellten spezifischen Daten beziehen sich auf das Jahr 2020." .
+ILCDpi:Classification a ILCDpi:Classification ;
+    ns1:name "The International EPD System" ;
+    ILCDpi:classEntries ILCDpi:ClassEntry .
+
+ILCDpi:ClassificationInformation a ILCDpi:ClassificationInformation ;
+    ILCDpi:classification ILCDpi:Classification .
+
+ILCDpi:DataSetInformation a ILCDpi:DataSetInformation ;
+    ns1:UUID "63a79af1-1ab0-4677-45a8-08dc6fc9d4ca"^^linkml:UUIDType ;
+    ILCDpi:classificationInformation ILCDpi:ClassificationInformation ;
+    ILCDpi:dataSetName ILCDpi:DataSetName .
+
+ILCDpi:DataSetName a ILCDpi:DataSetName ;
+    ILCDpi:baseName ILCDpi:DataSetNamebaseName .
+
+ILCDpi:QuantitativeReference a ILCDpi:QuantitativeReference ;
+    ns1:type "Reference flow(s)" ;
+    ILCDpi:referenceToReferenceFlow 0 .
+
+ILCDpi:TimeInformation a ILCDpi:TimeInformation ;
+    ILCDpi:dataSetValidUntil "2029"^^linkml:Year ;
+    ILCDpi:otherTime ILCDpi:TimeInformationotherTime ;
+    ILCDpi:referenceYear "2024"^^linkml:Year ;
+    ILCDpi:timeRepresentativenessDescription ILCDpi:TimeInformationtimeRepresentativenessDescription .
 

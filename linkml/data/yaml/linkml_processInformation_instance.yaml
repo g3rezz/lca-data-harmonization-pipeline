@@ -1,111 +1,80 @@
 processInformation:
-  id: ILCDpi:processInformation_1
+  id: ILCDpi:ProcessInformation
   dataSetInformation:
-    id: ILCDpi:processInformation_1_dataSetInformation_1
-    UUID: 0db12903-1403-4c9a-817e-b48299d17aba
-    synonyms:
-    - id: ILCDpi:processInformation_1_dataSetInformation_1_synonyms_1
-      value: Fenster, Profil, Rahmen
-      lang: de
-    classificationInformation:
-      id: ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1
-      classification:
-      - id: ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1
-        name: OEKOBAU.DAT
-        classEntries:
-        - id: ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1_classEntries_1
-          value: Komponenten von Fenstern und Vorhangfassaden
-          level: 0
-          classId: '7'
-        - id: ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1_classEntries_2
-          value: Rahmen / Profile
-          level: 1
-          classId: '7.1'
-        - id: ILCDpi:processInformation_1_dataSetInformation_1_classificationInformation_1_classification_1_classEntries_3
-          value: Holz thermisch getrennt
-          level: 2
-          classId: 7.1.02
-    generalComment:
-    - id: ILCDpi:processInformation_1_dataSetInformation_1_generalComment_1
-      value: "Holzfenster Rahmen im Format 1,23 x 1,48 m. \r\nAls funktionale Einheit\
-        \ wurde der Rahmen für ein Stück Fenster festgelegt. "
-      lang: de
-    otherDSI:
-      id: ILCDpi:processInformation_1_dataSetInformation_1_otherDSI_1
-      anies:
-      - id: ILCDpi:processInformation_1_dataSetInformation_1_otherDSI_1_anies_1
-        scenario:
-        - id: ILCDpi:processInformation_1_dataSetInformation_1_otherDSI_1_anies_1_scenario_1
-          description:
-          - id: ILCDpi:processInformation_1_dataSetInformation_1_otherDSI_1_anies_1_scenario_1_description_1
-            value: Rahmen 100% Thermische Verwertung, Glas 100% Deponie
-          name: Szenario 1 Glas Deponie
-          default: true
+    id: ILCDpi:DataSetInformation
+    UUID: 63a79af1-1ab0-4677-45a8-08dc6fc9d4ca
     dataSetName:
-      id: ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1
+      id: ILCDpi:DataSetName
       baseName:
-      - id: ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1_baseName_1
-        value: Plattform Fenster Austria Durchschnitts Holz-Fenster-Rahmen B x H 1230
-          x 1480-Szenario 1 Glas Deponie
-        lang: de
-      - id: ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1_baseName_2
-        value: Plattform Fenster Austria-average timber window frame W x H 1230 x
-          1480-Scenario 1 Glass landfill
+      - id: ILCDpi:DataSetNamebaseName
+        value: ' beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20'
         lang: en
-      functionalUnitFlowProperties:
-      - id: ILCDpi:processInformation_1_dataSetInformation_1_dataSetName_1_functionalUnitFlowProperties_1
-        value: 43,8 kg/m²
-        lang: de
+    classificationInformation:
+      id: ILCDpi:ClassificationInformation
+      classification:
+      - id: ILCDpi:Classification
+        classEntries:
+        - id: ILCDpi:ClassEntry
+          value: Construction products, Infrastructure & buildings
+          level: 0
+          classId: '0'
+        name: The International EPD System
   quantitativeReference:
-    id: ILCDpi:processInformation_1_quantitativeReference_1
+    id: ILCDpi:QuantitativeReference
     referenceToReferenceFlow:
-    - 1
+    - 0
     type: Reference flow(s)
+  timeInformation:
+    id: ILCDpi:TimeInformation
+    referenceYear: 2024
+    dataSetValidUntil: 2029
+    timeRepresentativenessDescription:
+    - id: ILCDpi:TimeInformationtimeRepresentativenessDescription
+      lang: en
+    otherTime:
+      id: ILCDpi:TimeInformationotherTime
+      anies:
+      - id: ILCDpi:publicationDateOfEPD
+        name: publicationDateOfEPD
+        timestampValue: 1715904000000
   geography:
-    id: ILCDpi:processInformation_1_geography_1
+    id: ILCDpi:Geography
     locationOfOperationSupplyOrProduction:
-      id: ILCDpi:processInformation_1_geography_1_locationOfOperationSupplyOrProduction_1
+      id: ILCDpi:LocationOfOperationSupplyOrProduction
       descriptionOfRestrictions:
-      - id: ILCDpi:processInformation_1_geography_1_locationOfOperationSupplyOrProduction_1_descriptionOfRestrictions_1
-        value: Austria and Neighbour-Countries
-        lang: de
-      location: AT
+      - id: ILCDpi:LocationOfOperationSupplyOrProductiondescriptionOfRestrictions
+        value: 'Costituents, production and use in Italy. '
+        lang: en
+      location: IT
   technology:
-    id: ILCDpi:processInformation_1_technology_1
+    id: ILCDpi:Technology
     technologyDescriptionAndIncludedProcesses:
-    - id: ILCDpi:processInformation_1_technology_1_technologyDescriptionAndIncludedProcesses_1
-      value: "Holzfensterrahmen für ein Fenster Format 1,23 x 1,48. \r\nAls funktionale\
-        \ Einheit wurde ein Stück Rahmen für ein Fenster festgelegt. "
-      lang: de
-    - id: ILCDpi:processInformation_1_technology_1_technologyDescriptionAndIncludedProcesses_2
-      value: "Aluminum doors with triple glazing measuring 1.23 x 2.18 m².\r\nA piece\
-        \ of door was defined as a functional unit.\r\n\r\n\r\n"
+    - id: ILCDpi:TechnologytechnologyDescriptionAndIncludedProcesses
+      value: Concrete is produced by mixing cement, aggregates (sand, crushed stone
+        and gravel), water and additives. The cement section is  consists  of storage
+        silos connected to a weighbridge, the extraction and loading of the cement
+        into the truck mixer takes place via closed augers. The suction system and
+        filters guarantee the abatement of dust during  loading of the truck mixers.  The
+        coarse aggregate (“Gravel” or commercially “Cobblestone”) is unloaded directly
+        into a hopper from the tipper trucks owned by the supplier and is then transferred
+        by means of belts from the hopper on the ground to the loading ones. The same
+        applies  for sand. The additives are dosed separately using volumetric dosers,
+        whereas the mixing water is dosed with electromechanical meters. All the components
+        described above are conveyed into the concrete mixer barrel where the homogenization
+        and mixing phases take  place; the energy required for the production of concrete
+        is given by electricity. The shipment of the final product is carried out
+        using special truck mixers. The concretes subject to analysis comply with
+        the requirements of the REACH regulation.
       lang: en
     technologicalApplicability:
-    - id: ILCDpi:processInformation_1_technology_1_technologicalApplicability_1
-      value: "Die Produkte kommen im ein- und mehrgeschossigen Wohnbau und in Nichtwohngebäuden\
-        \ im Innen- und Außenbereich zur \r\nAnwendung. "
-      lang: de
-    - id: ILCDpi:processInformation_1_technology_1_technologicalApplicability_2
-      value: "The products are used in single and multi-storey residential buildings\
-        \ and in non-residential buildings, both indoors and outdoors\r\nuse."
+    - id: ILCDpi:TechnologytechnologicalApplicability
+      value: Structural concrete for civil buildings and constructions.
       lang: en
-  timeInformation:
-    id: ILCDpi:processInformation_1_timeInformation_1
-    referenceYear: 2022
-    dataSetValidUntil: 2027
-    timeRepresentativenessDescription:
-    - id: ILCDpi:processInformation_1_timeInformation_1_timeRepresentativenessDescription_1
-      value: Die hier publizierten Durchschnittsdaten sind repräsentativ für industriell
-        hergestellte Holzfensterrahmen von 4 Mitgliedbetrieben des Vereins Plattform
-        Fenster Österreich.  Die an der Studie beteiligten Firmen decken ca. 60 %
-        von den in Österreich industriell gefertigten Holzfenstern ab.  Sämtliche
-        von den Herstellern zur Verfügung gestellten spezifischen Daten beziehen sich
-        auf das Jahr 2020.
-      lang: de
-    otherTime:
-      id: ILCDpi:processInformation_1_timeInformation_1_otherTime_1
-      anies:
-      - id: ILCDpi:processInformation_1_timeInformation_1_otherTime_1_anies_1
-        name: publicationDateOfEPD
-        timestampValue: 1667952000000
+    referenceToTechnologyFlowDiagrammOrPicture:
+    - id: ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPicture
+      shortDescription:
+      - id: ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPictureshortDescription
+        value: Process flow
+        lang: en
+      type: source data set
+      refObjectId: 785a09be-82f3-461a-ba60-c49b80204481

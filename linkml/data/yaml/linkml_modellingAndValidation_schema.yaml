@@ -203,7 +203,7 @@ slots:
       multi-functionality, and the completeness of modelling.
 
   referenceToLCAMethodDetails:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     required: false
@@ -216,7 +216,7 @@ slots:
 
   # --- DataSourcesTreatmentAndRepresentativeness
   referenceToDataSource:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     recommended: true
@@ -327,7 +327,7 @@ slots:
     description: "Review information on data set."
 
   referenceToCompleteReviewReport:
-    range: ShortDescripAndType
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     recommended: true
@@ -337,7 +337,7 @@ slots:
       "Source data set" of the complete review report.
 
   referenceToNameOfReviewerAndInstitution:
-    range: ShortDescripAndType
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     recommended: true
@@ -380,7 +380,7 @@ slots:
 
   # --- ComplianceEntry
   referenceToComplianceSystem:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     recommended: true

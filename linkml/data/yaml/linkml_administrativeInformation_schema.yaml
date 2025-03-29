@@ -80,7 +80,7 @@ slots:
     description: "Basic information about the goal and scope of the dataset."
 
   referenceToCommissioner:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     recommended: true
@@ -122,7 +122,7 @@ slots:
 
   # -- DataGenerator
   referenceToPersonOrEntityGeneratingTheDataSet:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     recommended: true
@@ -144,7 +144,7 @@ slots:
       entry ("last saved").
 
   referenceToDataSetFormat:
-    range: ShortDescripTypeRefVersionUri
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     recommended: true
@@ -157,7 +157,7 @@ slots:
       or LCA software.
 
   referenceToPersonOrEntityEnteringTheData:
-    range: ShortDescripTypeRefVersionUri
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     required: false # Optional (o) but not recommended
@@ -177,7 +177,7 @@ slots:
     description: "Dataset version string (e.g., '07.01.004')."
 
   referenceToPrecedingDataSetVersion:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     required: false
@@ -187,7 +187,7 @@ slots:
       UUID plus version number is given (or both).
 
   referenceToRegistrationAuthority:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     inlined: true
     recommended: true
     minimum_cardinality: 0
@@ -215,7 +215,7 @@ slots:
       registration authority.
 
   referenceToOwnershipOfDataSet:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     inlined: true
     recommended: true
     minimum_cardinality: 0

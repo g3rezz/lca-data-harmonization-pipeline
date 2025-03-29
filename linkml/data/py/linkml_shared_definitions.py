@@ -1,5 +1,5 @@
 # Auto generated from linkml_shared_definitions.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-11T14:54:43
+# Generation date: 2025-03-29T14:50:57
 # Schema: SharedDefinitions
 #
 # id: https://example.org/SharedDefinitions
@@ -106,23 +106,7 @@ class ResourceURL(str):
 
 
 # Class references
-class ReferenceBaseId(extended_str):
-    pass
-
-
-class ShortDescripAndTypeId(ReferenceBaseId):
-    pass
-
-
-class ShortDescripTypeRefId(ReferenceBaseId):
-    pass
-
-
-class ShortDescripTypeRefVersionId(ReferenceBaseId):
-    pass
-
-
-class ShortDescripTypeRefVersionUriId(ReferenceBaseId):
+class GlobalReferenceTypeId(extended_str):
     pass
 
 
@@ -167,18 +151,18 @@ class MultiLangStringId(extended_str):
 
 
 @dataclass(repr=False)
-class ReferenceBase(YAMLRoot):
+class GlobalReferenceType(YAMLRoot):
     """
     Master reference pattern with optional shortDesc, type, refObjectId, version, refObjectUri.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = ILCDSD["ReferenceBase"]
-    class_class_curie: ClassVar[str] = "ILCDsd:ReferenceBase"
-    class_name: ClassVar[str] = "ReferenceBase"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.ReferenceBase
+    class_class_uri: ClassVar[URIRef] = ILCDSD["GlobalReferenceType"]
+    class_class_curie: ClassVar[str] = "ILCDsd:GlobalReferenceType"
+    class_name: ClassVar[str] = "GlobalReferenceType"
+    class_model_uri: ClassVar[URIRef] = ILCDSD.GlobalReferenceType
 
-    id: Union[str, ReferenceBaseId] = None
+    id: Union[str, GlobalReferenceTypeId] = None
     shortDescription: Optional[Union[Dict[Union[str, MultiLangStringId], Union[dict, "MultiLangString"]], List[Union[dict, "MultiLangString"]]]] = empty_dict()
     type: Optional[str] = None
     refObjectId: Optional[str] = None
@@ -188,8 +172,8 @@ class ReferenceBase(YAMLRoot):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, ReferenceBaseId):
-            self.id = ReferenceBaseId(self.id)
+        if not isinstance(self.id, GlobalReferenceTypeId):
+            self.id = GlobalReferenceTypeId(self.id)
 
         self._normalize_inlined_as_list(slot_name="shortDescription", slot_type=MultiLangString, key_name="id", keyed=True)
 
@@ -204,122 +188,6 @@ class ReferenceBase(YAMLRoot):
 
         if self.refObjectUri is not None and not isinstance(self.refObjectUri, str):
             self.refObjectUri = str(self.refObjectUri)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ShortDescripAndType(ReferenceBase):
-    """
-    Only shortDescription + type, ignoring refObjectId, version, refObjectUri.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripAndType"]
-    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripAndType"
-    class_name: ClassVar[str] = "ShortDescripAndType"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripAndType
-
-    id: Union[str, ShortDescripAndTypeId] = None
-    refObjectId: Optional[str] = None
-    version: Optional[str] = None
-    refObjectUri: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ShortDescripAndTypeId):
-            self.id = ShortDescripAndTypeId(self.id)
-
-        if self.refObjectId is not None and not isinstance(self.refObjectId, str):
-            self.refObjectId = str(self.refObjectId)
-
-        if self.version is not None and not isinstance(self.version, str):
-            self.version = str(self.version)
-
-        if self.refObjectUri is not None and not isinstance(self.refObjectUri, str):
-            self.refObjectUri = str(self.refObjectUri)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ShortDescripTypeRef(ReferenceBase):
-    """
-    shortDescription, type, refObjectId only, ignoring version, refObjectUri.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripTypeRef"]
-    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripTypeRef"
-    class_name: ClassVar[str] = "ShortDescripTypeRef"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripTypeRef
-
-    id: Union[str, ShortDescripTypeRefId] = None
-    version: Optional[str] = None
-    refObjectUri: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ShortDescripTypeRefId):
-            self.id = ShortDescripTypeRefId(self.id)
-
-        if self.version is not None and not isinstance(self.version, str):
-            self.version = str(self.version)
-
-        if self.refObjectUri is not None and not isinstance(self.refObjectUri, str):
-            self.refObjectUri = str(self.refObjectUri)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ShortDescripTypeRefVersion(ReferenceBase):
-    """
-    shortDescription, type, refObjectId, version; ignoring refObjectUri.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripTypeRefVersion"]
-    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripTypeRefVersion"
-    class_name: ClassVar[str] = "ShortDescripTypeRefVersion"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripTypeRefVersion
-
-    id: Union[str, ShortDescripTypeRefVersionId] = None
-    refObjectUri: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ShortDescripTypeRefVersionId):
-            self.id = ShortDescripTypeRefVersionId(self.id)
-
-        if self.refObjectUri is not None and not isinstance(self.refObjectUri, str):
-            self.refObjectUri = str(self.refObjectUri)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ShortDescripTypeRefVersionUri(ReferenceBase):
-    """
-    Full pattern with shortDescription, type, refObjectId, version, refObjectUri.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDSD["ShortDescripTypeRefVersionUri"]
-    class_class_curie: ClassVar[str] = "ILCDsd:ShortDescripTypeRefVersionUri"
-    class_name: ClassVar[str] = "ShortDescripTypeRefVersionUri"
-    class_model_uri: ClassVar[URIRef] = ILCDSD.ShortDescripTypeRefVersionUri
-
-    id: Union[str, ShortDescripTypeRefVersionUriId] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ShortDescripTypeRefVersionUriId):
-            self.id = ShortDescripTypeRefVersionUriId(self.id)
 
         super().__post_init__(**kwargs)
 
@@ -360,7 +228,7 @@ class AniesBase(YAMLRoot):
     name: Optional[str] = None
     value: Optional[str] = None
     timestampValue: Optional[int] = None
-    objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    objectValue: Optional[Union[dict, GlobalReferenceType]] = None
     module: Optional[str] = None
     scenario: Optional[str] = None
     margins: Optional[float] = None
@@ -382,8 +250,8 @@ class AniesBase(YAMLRoot):
         if self.timestampValue is not None and not isinstance(self.timestampValue, int):
             self.timestampValue = int(self.timestampValue)
 
-        if self.objectValue is not None and not isinstance(self.objectValue, ShortDescripTypeRefVersion):
-            self.objectValue = ShortDescripTypeRefVersion(**as_dict(self.objectValue))
+        if self.objectValue is not None and not isinstance(self.objectValue, GlobalReferenceType):
+            self.objectValue = GlobalReferenceType(**as_dict(self.objectValue))
 
         if self.module is not None and not isinstance(self.module, str):
             self.module = str(self.module)
@@ -415,7 +283,7 @@ class AniesNameValue(AniesBase):
 
     id: Union[str, AniesNameValueId] = None
     timestampValue: Optional[int] = None
-    objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    objectValue: Optional[Union[dict, GlobalReferenceType]] = None
     module: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -427,8 +295,8 @@ class AniesNameValue(AniesBase):
         if self.timestampValue is not None and not isinstance(self.timestampValue, int):
             self.timestampValue = int(self.timestampValue)
 
-        if self.objectValue is not None and not isinstance(self.objectValue, ShortDescripTypeRefVersion):
-            self.objectValue = ShortDescripTypeRefVersion(**as_dict(self.objectValue))
+        if self.objectValue is not None and not isinstance(self.objectValue, GlobalReferenceType):
+            self.objectValue = GlobalReferenceType(**as_dict(self.objectValue))
 
         if self.module is not None and not isinstance(self.module, str):
             self.module = str(self.module)
@@ -451,7 +319,7 @@ class AniesNameValueModule(AniesBase):
     id: Union[str, AniesNameValueModuleId] = None
     module: str = None
     timestampValue: Optional[int] = None
-    objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    objectValue: Optional[Union[dict, GlobalReferenceType]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -467,8 +335,8 @@ class AniesNameValueModule(AniesBase):
         if self.timestampValue is not None and not isinstance(self.timestampValue, int):
             self.timestampValue = int(self.timestampValue)
 
-        if self.objectValue is not None and not isinstance(self.objectValue, ShortDescripTypeRefVersion):
-            self.objectValue = ShortDescripTypeRefVersion(**as_dict(self.objectValue))
+        if self.objectValue is not None and not isinstance(self.objectValue, GlobalReferenceType):
+            self.objectValue = GlobalReferenceType(**as_dict(self.objectValue))
 
         super().__post_init__(**kwargs)
 
@@ -487,7 +355,7 @@ class AniesNameTimestamp(AniesBase):
 
     id: Union[str, AniesNameTimestampId] = None
     value: Optional[str] = None
-    objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    objectValue: Optional[Union[dict, GlobalReferenceType]] = None
     module: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -499,8 +367,8 @@ class AniesNameTimestamp(AniesBase):
         if self.value is not None and not isinstance(self.value, str):
             self.value = str(self.value)
 
-        if self.objectValue is not None and not isinstance(self.objectValue, ShortDescripTypeRefVersion):
-            self.objectValue = ShortDescripTypeRefVersion(**as_dict(self.objectValue))
+        if self.objectValue is not None and not isinstance(self.objectValue, GlobalReferenceType):
+            self.objectValue = GlobalReferenceType(**as_dict(self.objectValue))
 
         if self.module is not None and not isinstance(self.module, str):
             self.module = str(self.module)
@@ -621,7 +489,7 @@ class AniesWithScenario(AniesBase):
     name: Optional[str] = None
     value: Optional[str] = None
     timestampValue: Optional[int] = None
-    objectValue: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    objectValue: Optional[Union[dict, GlobalReferenceType]] = None
     module: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -639,8 +507,8 @@ class AniesWithScenario(AniesBase):
         if self.timestampValue is not None and not isinstance(self.timestampValue, int):
             self.timestampValue = int(self.timestampValue)
 
-        if self.objectValue is not None and not isinstance(self.objectValue, ShortDescripTypeRefVersion):
-            self.objectValue = ShortDescripTypeRefVersion(**as_dict(self.objectValue))
+        if self.objectValue is not None and not isinstance(self.objectValue, GlobalReferenceType):
+            self.objectValue = GlobalReferenceType(**as_dict(self.objectValue))
 
         if self.module is not None and not isinstance(self.module, str):
             self.module = str(self.module)
@@ -745,7 +613,7 @@ slots.timestampValue = Slot(uri=ILCDSD.timestampValue, name="timestampValue", cu
                    model_uri=ILCDSD.timestampValue, domain=None, range=Optional[int])
 
 slots.objectValue = Slot(uri=ILCDSD.objectValue, name="objectValue", curie=ILCDSD.curie('objectValue'),
-                   model_uri=ILCDSD.objectValue, domain=None, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+                   model_uri=ILCDSD.objectValue, domain=None, range=Optional[Union[dict, GlobalReferenceType]])
 
 slots.anies = Slot(uri=ILCDSD.anies, name="anies", curie=ILCDSD.curie('anies'),
                    model_uri=ILCDSD.anies, domain=None, range=Optional[Union[Dict[Union[str, AniesBaseId], Union[dict, AniesBase]], List[Union[dict, AniesBase]]]])
@@ -780,38 +648,17 @@ slots.scenario = Slot(uri=ILCDSD.scenario, name="scenario", curie=ILCDSD.curie('
 slots.uncertaintyDistributionType = Slot(uri=ILCDSD.uncertaintyDistributionType, name="uncertaintyDistributionType", curie=ILCDSD.curie('uncertaintyDistributionType'),
                    model_uri=ILCDSD.uncertaintyDistributionType, domain=None, range=Optional[str])
 
-slots.referenceBase__id = Slot(uri=ILCDSD.id, name="referenceBase__id", curie=ILCDSD.curie('id'),
-                   model_uri=ILCDSD.referenceBase__id, domain=None, range=URIRef)
-
 slots.aniesBase__id = Slot(uri=ILCDSD.id, name="aniesBase__id", curie=ILCDSD.curie('id'),
                    model_uri=ILCDSD.aniesBase__id, domain=None, range=URIRef)
 
 slots.multiLangString__id = Slot(uri=ILCDSD.id, name="multiLangString__id", curie=ILCDSD.curie('id'),
                    model_uri=ILCDSD.multiLangString__id, domain=None, range=URIRef)
 
-slots.ShortDescripAndType_refObjectId = Slot(uri=ILCDSD.refObjectId, name="ShortDescripAndType_refObjectId", curie=ILCDSD.curie('refObjectId'),
-                   model_uri=ILCDSD.ShortDescripAndType_refObjectId, domain=ShortDescripAndType, range=Optional[str])
-
-slots.ShortDescripAndType_version = Slot(uri=ILCDSD.version, name="ShortDescripAndType_version", curie=ILCDSD.curie('version'),
-                   model_uri=ILCDSD.ShortDescripAndType_version, domain=ShortDescripAndType, range=Optional[str])
-
-slots.ShortDescripAndType_refObjectUri = Slot(uri=ILCDSD.refObjectUri, name="ShortDescripAndType_refObjectUri", curie=ILCDSD.curie('refObjectUri'),
-                   model_uri=ILCDSD.ShortDescripAndType_refObjectUri, domain=ShortDescripAndType, range=Optional[str])
-
-slots.ShortDescripTypeRef_version = Slot(uri=ILCDSD.version, name="ShortDescripTypeRef_version", curie=ILCDSD.curie('version'),
-                   model_uri=ILCDSD.ShortDescripTypeRef_version, domain=ShortDescripTypeRef, range=Optional[str])
-
-slots.ShortDescripTypeRef_refObjectUri = Slot(uri=ILCDSD.refObjectUri, name="ShortDescripTypeRef_refObjectUri", curie=ILCDSD.curie('refObjectUri'),
-                   model_uri=ILCDSD.ShortDescripTypeRef_refObjectUri, domain=ShortDescripTypeRef, range=Optional[str])
-
-slots.ShortDescripTypeRefVersion_refObjectUri = Slot(uri=ILCDSD.refObjectUri, name="ShortDescripTypeRefVersion_refObjectUri", curie=ILCDSD.curie('refObjectUri'),
-                   model_uri=ILCDSD.ShortDescripTypeRefVersion_refObjectUri, domain=ShortDescripTypeRefVersion, range=Optional[str])
-
 slots.AniesNameValue_timestampValue = Slot(uri=ILCDSD.timestampValue, name="AniesNameValue_timestampValue", curie=ILCDSD.curie('timestampValue'),
                    model_uri=ILCDSD.AniesNameValue_timestampValue, domain=AniesNameValue, range=Optional[int])
 
 slots.AniesNameValue_objectValue = Slot(uri=ILCDSD.objectValue, name="AniesNameValue_objectValue", curie=ILCDSD.curie('objectValue'),
-                   model_uri=ILCDSD.AniesNameValue_objectValue, domain=AniesNameValue, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+                   model_uri=ILCDSD.AniesNameValue_objectValue, domain=AniesNameValue, range=Optional[Union[dict, GlobalReferenceType]])
 
 slots.AniesNameValue_module = Slot(uri=ILCDSD.module, name="AniesNameValue_module", curie=ILCDSD.curie('module'),
                    model_uri=ILCDSD.AniesNameValue_module, domain=AniesNameValue, range=Optional[str])
@@ -820,7 +667,7 @@ slots.AniesNameValueModule_timestampValue = Slot(uri=ILCDSD.timestampValue, name
                    model_uri=ILCDSD.AniesNameValueModule_timestampValue, domain=AniesNameValueModule, range=Optional[int])
 
 slots.AniesNameValueModule_objectValue = Slot(uri=ILCDSD.objectValue, name="AniesNameValueModule_objectValue", curie=ILCDSD.curie('objectValue'),
-                   model_uri=ILCDSD.AniesNameValueModule_objectValue, domain=AniesNameValueModule, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+                   model_uri=ILCDSD.AniesNameValueModule_objectValue, domain=AniesNameValueModule, range=Optional[Union[dict, GlobalReferenceType]])
 
 slots.AniesNameValueModule_module = Slot(uri=ILCDSD.module, name="AniesNameValueModule_module", curie=ILCDSD.curie('module'),
                    model_uri=ILCDSD.AniesNameValueModule_module, domain=AniesNameValueModule, range=str)
@@ -829,7 +676,7 @@ slots.AniesNameTimestamp_value = Slot(uri=ILCDSD.value, name="AniesNameTimestamp
                    model_uri=ILCDSD.AniesNameTimestamp_value, domain=AniesNameTimestamp, range=Optional[str])
 
 slots.AniesNameTimestamp_objectValue = Slot(uri=ILCDSD.objectValue, name="AniesNameTimestamp_objectValue", curie=ILCDSD.curie('objectValue'),
-                   model_uri=ILCDSD.AniesNameTimestamp_objectValue, domain=AniesNameTimestamp, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+                   model_uri=ILCDSD.AniesNameTimestamp_objectValue, domain=AniesNameTimestamp, range=Optional[Union[dict, GlobalReferenceType]])
 
 slots.AniesNameTimestamp_module = Slot(uri=ILCDSD.module, name="AniesNameTimestamp_module", curie=ILCDSD.curie('module'),
                    model_uri=ILCDSD.AniesNameTimestamp_module, domain=AniesNameTimestamp, range=Optional[str])
@@ -865,7 +712,7 @@ slots.AniesWithScenario_timestampValue = Slot(uri=ILCDSD.timestampValue, name="A
                    model_uri=ILCDSD.AniesWithScenario_timestampValue, domain=AniesWithScenario, range=Optional[int])
 
 slots.AniesWithScenario_objectValue = Slot(uri=ILCDSD.objectValue, name="AniesWithScenario_objectValue", curie=ILCDSD.curie('objectValue'),
-                   model_uri=ILCDSD.AniesWithScenario_objectValue, domain=AniesWithScenario, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+                   model_uri=ILCDSD.AniesWithScenario_objectValue, domain=AniesWithScenario, range=Optional[Union[dict, GlobalReferenceType]])
 
 slots.AniesWithScenario_module = Slot(uri=ILCDSD.module, name="AniesWithScenario_module", curie=ILCDSD.curie('module'),
                    model_uri=ILCDSD.AniesWithScenario_module, domain=AniesWithScenario, range=Optional[str])

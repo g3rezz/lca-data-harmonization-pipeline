@@ -39,48 +39,16 @@ types:
 ########################################
 
 classes:
-  ReferenceBase:
-    attributes:
-      id:
-        identifier: true
-    description: Master reference pattern with optional shortDesc, type, refObjectId, version, refObjectUri.
+  GlobalReferenceType:
+    description: >
+      Master reference pattern with optional shortDesc, type, refObjectId, version, refObjectUri.
     slots:
+      - id
       - shortDescription
       - type
       - refObjectId
       - version
       - refObjectUri
-
-  ShortDescripAndType:
-    is_a: ReferenceBase
-    description: Only shortDescription + type, ignoring refObjectId, version, refObjectUri.
-    slot_usage:
-      refObjectId:
-        recommended: false
-      version:
-        recommended: false
-      refObjectUri:
-        recommended: false
-
-  ShortDescripTypeRef:
-    is_a: ReferenceBase
-    description: shortDescription, type, refObjectId only, ignoring version, refObjectUri.
-    slot_usage:
-      version:
-        recommended: false
-      refObjectUri:
-        recommended: false
-
-  ShortDescripTypeRefVersion:
-    is_a: ReferenceBase
-    description: shortDescription, type, refObjectId, version; ignoring refObjectUri.
-    slot_usage:
-      refObjectUri:
-        recommended: false
-
-  ShortDescripTypeRefVersionUri:
-    is_a: ReferenceBase
-    description: Full pattern with shortDescription, type, refObjectId, version, refObjectUri.
 
   OtherContent:
     description: A container holding 'anies' a list of anies objects
@@ -245,7 +213,7 @@ slots:
 
   objectValue:
     description: Dictionary-like object stored as JSON.
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     inlined: true
 
   anies:
