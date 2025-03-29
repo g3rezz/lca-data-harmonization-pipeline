@@ -1,5 +1,5 @@
 # Auto generated from linkml_exchanges_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-29T14:42:49
+# Generation date: 2025-03-29T15:51:20
 # Schema: ILCDexchanges
 #
 # id: https://example.org/ILCDexchanges
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import AniesNameValueObjectValueModule, AniesNameValueObjectValueModuleId, GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, UUIDType
+from . linkml_shared_definitions import GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, OtherContentId, UUIDType
 from linkml_runtime.linkml_model.types import Boolean, Float, Integer, String
 from linkml_runtime.utils.metamodelcore import Bool
 
@@ -93,10 +93,6 @@ class ExchangeClassificationId(extended_str):
 
 
 class MaterialPropEntryId(extended_str):
-    pass
-
-
-class ExchangeOtherContentId(extended_str):
     pass
 
 
@@ -157,7 +153,7 @@ class ExchangeEntry(YAMLRoot):
     materialProperties: Optional[Union[Dict[Union[str, MaterialPropEntryId], Union[dict, "MaterialPropEntry"]], List[Union[dict, "MaterialPropEntry"]]]] = empty_dict()
     typeOfFlow: Optional[str] = None
     exchangeDirection: Optional[str] = None
-    otherEx: Optional[Union[dict, "ExchangeOtherContent"]] = None
+    otherEx: Optional[Union[dict, OtherContent]] = None
     classificationEx: Optional[Union[dict, "ExchangeClassification"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -218,8 +214,8 @@ class ExchangeEntry(YAMLRoot):
         if self.exchangeDirection is not None and not isinstance(self.exchangeDirection, str):
             self.exchangeDirection = str(self.exchangeDirection)
 
-        if self.otherEx is not None and not isinstance(self.otherEx, ExchangeOtherContent):
-            self.otherEx = ExchangeOtherContent(**as_dict(self.otherEx))
+        if self.otherEx is not None and not isinstance(self.otherEx, OtherContent):
+            self.otherEx = OtherContent(**as_dict(self.otherEx))
 
         if self.classificationEx is not None and not isinstance(self.classificationEx, ExchangeClassification):
             self.classificationEx = ExchangeClassification(**as_dict(self.classificationEx))
@@ -343,32 +339,6 @@ class MaterialPropEntry(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
-class ExchangeOtherContent(OtherContent):
-    """
-    Local sub-class that enforces 'module' is required.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDEX["ExchangeOtherContent"]
-    class_class_curie: ClassVar[str] = "ILCDex:ExchangeOtherContent"
-    class_name: ClassVar[str] = "ExchangeOtherContent"
-    class_model_uri: ClassVar[URIRef] = ILCDEX.ExchangeOtherContent
-
-    id: Union[str, ExchangeOtherContentId] = None
-    anies: Optional[Union[Dict[Union[str, AniesNameValueObjectValueModuleId], Union[dict, AniesNameValueObjectValueModule]], List[Union[dict, AniesNameValueObjectValueModule]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ExchangeOtherContentId):
-            self.id = ExchangeOtherContentId(self.id)
-
-        self._normalize_inlined_as_list(slot_name="anies", slot_type=AniesNameValueObjectValueModule, key_name="id", keyed=True)
-
-        super().__post_init__(**kwargs)
-
-
 # Enumerations
 
 
@@ -428,7 +398,7 @@ slots.exchangeDirection = Slot(uri=ILCDEX.exchangeDirection, name="exchangeDirec
                    model_uri=ILCDEX.exchangeDirection, domain=None, range=Optional[str])
 
 slots.otherEx = Slot(uri=ILCDEX.otherEx, name="otherEx", curie=ILCDEX.curie('otherEx'),
-                   model_uri=ILCDEX.otherEx, domain=None, range=Optional[Union[dict, ExchangeOtherContent]])
+                   model_uri=ILCDEX.otherEx, domain=None, range=Optional[Union[dict, OtherContent]])
 
 slots.classificationEx = Slot(uri=ILCDEX.classificationEx, name="classificationEx", curie=ILCDEX.curie('classificationEx'),
                    model_uri=ILCDEX.classificationEx, domain=None, range=Optional[Union[dict, ExchangeClassification]])

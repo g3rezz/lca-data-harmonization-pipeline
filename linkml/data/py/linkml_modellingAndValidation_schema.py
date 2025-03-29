@@ -1,5 +1,5 @@
 # Auto generated from linkml_modellingAndValidation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-29T14:39:48
+# Generation date: 2025-03-29T15:55:36
 # Schema: ILCDmodellingAndValidation
 #
 # id: https://example.org/ILCDmodellingAndValidation
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import AniesNameTypedReference, AniesNameTypedReferenceId, AniesNameValue, AniesNameValueId, GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, ResourceURL, UUIDType
+from . linkml_shared_definitions import GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, OtherContentId, ResourceURL, UUIDType
 from linkml_runtime.linkml_model.types import Boolean, Integer, String
 from linkml_runtime.utils.metamodelcore import Bool
 
@@ -128,14 +128,6 @@ class UUIDDictId(extended_str):
     pass
 
 
-class MAVOtherContentId(extended_str):
-    pass
-
-
-class MAAOtherContentId(extended_str):
-    pass
-
-
 @dataclass(repr=False)
 class ModellingAndValidation(YAMLRoot):
     """
@@ -153,7 +145,7 @@ class ModellingAndValidation(YAMLRoot):
     dataSourcesTreatmentAndRepresentativeness: Optional[Union[dict, "DataSourcesTreatmentAndRepresentativeness"]] = None
     validationInfo: Optional[Union[dict, "ValidationInfo"]] = None
     complianceDeclarations: Optional[Union[dict, "ComplianceDeclarations"]] = None
-    otherMAV: Optional[Union[dict, "MAVOtherContent"]] = None
+    otherMAV: Optional[Union[dict, OtherContent]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -173,8 +165,8 @@ class ModellingAndValidation(YAMLRoot):
         if self.complianceDeclarations is not None and not isinstance(self.complianceDeclarations, ComplianceDeclarations):
             self.complianceDeclarations = ComplianceDeclarations(**as_dict(self.complianceDeclarations))
 
-        if self.otherMAV is not None and not isinstance(self.otherMAV, MAVOtherContent):
-            self.otherMAV = MAVOtherContent(**as_dict(self.otherMAV))
+        if self.otherMAV is not None and not isinstance(self.otherMAV, OtherContent):
+            self.otherMAV = OtherContent(**as_dict(self.otherMAV))
 
         super().__post_init__(**kwargs)
 
@@ -194,7 +186,7 @@ class LCIMethodAndAllocationEntry(YAMLRoot):
     id: Union[str, LCIMethodAndAllocationEntryId] = None
     typeOfDataSet: Optional[str] = None
     referenceToLCAMethodDetails: Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]] = empty_dict()
-    otherMAA: Optional[Union[dict, "MAAOtherContent"]] = None
+    otherMAA: Optional[Union[dict, OtherContent]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -207,8 +199,8 @@ class LCIMethodAndAllocationEntry(YAMLRoot):
 
         self._normalize_inlined_as_list(slot_name="referenceToLCAMethodDetails", slot_type=GlobalReferenceType, key_name="id", keyed=True)
 
-        if self.otherMAA is not None and not isinstance(self.otherMAA, MAAOtherContent):
-            self.otherMAA = MAAOtherContent(**as_dict(self.otherMAA))
+        if self.otherMAA is not None and not isinstance(self.otherMAA, OtherContent):
+            self.otherMAA = OtherContent(**as_dict(self.otherMAA))
 
         super().__post_init__(**kwargs)
 
@@ -601,58 +593,6 @@ class UUIDDict(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
-class MAVOtherContent(OtherContent):
-    """
-    Local sub-class for 'other' content in modellingAndValidation (for MAA).
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDMAV["MAVOtherContent"]
-    class_class_curie: ClassVar[str] = "ILCDmav:MAVOtherContent"
-    class_name: ClassVar[str] = "MAVOtherContent"
-    class_model_uri: ClassVar[URIRef] = ILCDMAV.MAVOtherContent
-
-    id: Union[str, MAVOtherContentId] = None
-    anies: Optional[Union[Dict[Union[str, AniesNameTypedReferenceId], Union[dict, AniesNameTypedReference]], List[Union[dict, AniesNameTypedReference]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, MAVOtherContentId):
-            self.id = MAVOtherContentId(self.id)
-
-        self._normalize_inlined_as_list(slot_name="anies", slot_type=AniesNameTypedReference, key_name="id", keyed=True)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class MAAOtherContent(OtherContent):
-    """
-    Local sub-class for 'other' with specialized 'anies'.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDMAV["MAAOtherContent"]
-    class_class_curie: ClassVar[str] = "ILCDmav:MAAOtherContent"
-    class_name: ClassVar[str] = "MAAOtherContent"
-    class_model_uri: ClassVar[URIRef] = ILCDMAV.MAAOtherContent
-
-    id: Union[str, MAAOtherContentId] = None
-    anies: Optional[Union[Dict[Union[str, AniesNameValueId], Union[dict, AniesNameValue]], List[Union[dict, AniesNameValue]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, MAAOtherContentId):
-            self.id = MAAOtherContentId(self.id)
-
-        self._normalize_inlined_as_list(slot_name="anies", slot_type=AniesNameValue, key_name="id", keyed=True)
-
-        super().__post_init__(**kwargs)
-
-
 # Enumerations
 
 
@@ -673,7 +613,7 @@ slots.complianceDeclarations = Slot(uri=ILCDMAV.complianceDeclarations, name="co
                    model_uri=ILCDMAV.complianceDeclarations, domain=None, range=Optional[Union[dict, ComplianceDeclarations]])
 
 slots.otherMAV = Slot(uri=ILCDMAV.otherMAV, name="otherMAV", curie=ILCDMAV.curie('otherMAV'),
-                   model_uri=ILCDMAV.otherMAV, domain=None, range=Optional[Union[dict, MAVOtherContent]])
+                   model_uri=ILCDMAV.otherMAV, domain=None, range=Optional[Union[dict, OtherContent]])
 
 slots.typeOfDataSet = Slot(uri=ILCDMAV.typeOfDataSet, name="typeOfDataSet", curie=ILCDMAV.curie('typeOfDataSet'),
                    model_uri=ILCDMAV.typeOfDataSet, domain=None, range=Optional[str])
@@ -682,7 +622,7 @@ slots.referenceToLCAMethodDetails = Slot(uri=ILCDMAV.referenceToLCAMethodDetails
                    model_uri=ILCDMAV.referenceToLCAMethodDetails, domain=None, range=Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]])
 
 slots.otherMAA = Slot(uri=ILCDMAV.otherMAA, name="otherMAA", curie=ILCDMAV.curie('otherMAA'),
-                   model_uri=ILCDMAV.otherMAA, domain=None, range=Optional[Union[dict, MAAOtherContent]])
+                   model_uri=ILCDMAV.otherMAA, domain=None, range=Optional[Union[dict, OtherContent]])
 
 slots.referenceToDataSource = Slot(uri=ILCDMAV.referenceToDataSource, name="referenceToDataSource", curie=ILCDMAV.curie('referenceToDataSource'),
                    model_uri=ILCDMAV.referenceToDataSource, domain=None, range=Optional[Union[Dict[Union[str, GlobalReferenceTypeId], Union[dict, GlobalReferenceType]], List[Union[dict, GlobalReferenceType]]]])

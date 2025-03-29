@@ -35,15 +35,6 @@ classes:
     slots:
       - id
 
-  LCIAOtherContent:
-    description: "Custom class for LCIA 'other'."
-    is_a: OtherContent
-    slots:
-      - id
-    slot_usage:
-      anies:
-        range: AniesNameValueObjectValueModule
-
 ########################################
 # Slots
 ########################################
@@ -62,6 +53,6 @@ slots:
     description: "Reference to the LCIA method data set (includes shortDescription, type, refObjectId, version, uri)."
 
   otherLCIA:
-    range: LCIAOtherContent
+    range: OtherContent
     inlined: true
     description: "Renamed from 'other' in JSON. Holds an 'anies' array with modules and possibly referenceToUnitGroupDataSet."

@@ -53,14 +53,15 @@ classes:
   OtherContent:
     description: A container holding 'anies' a list of anies objects
     slots:
+      - id
       - anies
 
-  AniesBase:
-    attributes:
-      id:
-        identifier: true
-    description: Master pattern for anies with optional name, value, timestampValue, objectValue, module.
+  AniesType:
+    description: >
+      A flexible extension pattern that can carry name-value pairs, optional
+      metadata, references, or embedded structures like scenarios or margins.
     slots:
+      - id
       - name
       - value
       - timestampValue
@@ -71,85 +72,8 @@ classes:
       - description
       - objectScenario
 
-  AniesNameValue:
-    is_a: AniesBase
-    description: Only name + value, ignoring timestampValue, objectValue, module.
-    slot_usage:
-      timestampValue:
-        recommended: false
-      objectValue:
-        recommended: false
-      module:
-        recommended: false
-
-  AniesNameValueModule:
-    is_a: AniesBase
-    description: Requires 'module' but discards timestampValue, objectValue.
-    slot_usage:
-      timestampValue:
-        recommended: false
-      objectValue:
-        recommended: false
-      module:
-        required: true
-
-  AniesNameTimestamp:
-    is_a: AniesBase
-    description: Includes name and timestampValue. Ignores value, objectValue, and module.
-    slot_usage:
-      value:
-        recommended: false
-      objectValue:
-        recommended: false
-      module:
-        recommended: false
-
-  AniesNameObjectValue:
-    is_a: AniesBase
-    description: Includes name and objectValue. Ignores value, timestampValue, and module.
-    slot_usage:
-      value:
-        recommended: false
-      timestampValue:
-        recommended: false
-      module:
-        recommended: false
-
-  AniesNameValueObjectValueModule:
-    is_a: AniesBase
-    description: Includes name, value, objectValue and module. Ignores timestampValue.
-    slot_usage:
-      timestampValue:
-        recommended: false
-
-  AniesNameTypedReference:
-    is_a: AniesBase
-    description: An anies pattern where 'name' is required and 'objectValue' is a ShortDescripTypeRefVersion.
-    slot_usage:
-      value:
-        recommended: false
-      timestampValue:
-        recommended: false
-      module:
-        recommended: false
-
-  AniesWithScenario:
-    is_a: AniesBase
-    description: Anies object that allows scenarios.
-    slot_usage:
-      name:
-        recommended: false
-      value:
-        recommended: false
-      timestampValue:
-        recommended: false
-      objectValue:
-        recommended: false
-      module:
-        recommended: false
-
   Scenario:
-    description: A list of scenarios stored inside 'anies'.
+    description: One scenario stored inside 'anies'.
     slots:
       - id
       - description
@@ -157,10 +81,8 @@ classes:
       - default
 
   MultiLangString:
-    attributes:
-      id:
-        identifier: true
     slots:
+      - id
       - value
       - lang
 
@@ -218,7 +140,7 @@ slots:
 
   anies:
     description: List of arbitrary name-value pairs.
-    range: AniesBase
+    range: AniesType
     multivalued: true
     inlined_as_list: true
 
@@ -253,6 +175,7 @@ slots:
 
   default:
     range: boolean
+    required: false
     description: Indicates whether this is the default scenario.
 
   margins:
