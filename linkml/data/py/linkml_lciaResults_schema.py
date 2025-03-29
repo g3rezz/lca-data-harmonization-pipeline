@@ -1,5 +1,5 @@
 # Auto generated from linkml_lciaResults_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-11T14:54:43
+# Generation date: 2025-03-29T14:24:18
 # Schema: ILCDlciaResults
 #
 # id: https://example.org/ILCDlciaResults
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import AniesNameValueObjectValueModule, AniesNameValueObjectValueModuleId, MultiLangString, MultiLangStringId, OtherContent, ShortDescripTypeRefVersionUri, ShortDescripTypeRefVersionUriId, UUIDType
+from . linkml_shared_definitions import AniesNameValueObjectValueModule, AniesNameValueObjectValueModuleId, GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, UUIDType
 from linkml_runtime.linkml_model.types import Float, String
 
 metamodel_version = "1.7.0"
@@ -83,7 +83,7 @@ class LCIAResultEntryId(extended_str):
     pass
 
 
-class ReferenceToLCIAMethodDataSetEntryId(ShortDescripTypeRefVersionUriId):
+class ReferenceToLCIAMethodDataSetEntryId(GlobalReferenceTypeId):
     pass
 
 
@@ -157,9 +157,9 @@ class LCIAResultEntry(YAMLRoot):
 
 
 @dataclass(repr=False)
-class ReferenceToLCIAMethodDataSetEntry(ShortDescripTypeRefVersionUri):
+class ReferenceToLCIAMethodDataSetEntry(GlobalReferenceType):
     """
-    Local sub-class for referenceToLCIAMethodDataSet, inheriting from ShortDescripTypeRefVersionUri
+    Local sub-class for referenceToLCIAMethodDataSet, inheriting from GlobalReferenceType
     """
     _inherited_slots: ClassVar[List[str]] = []
 
