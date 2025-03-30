@@ -14,35 +14,20 @@ default_prefix: ILCDlcia
 ########################################
 classes:
   LCIAResults:
-    description: "Top-level container for the LCIAResults section."
+    description: Top-level container for the LCIAResults section.
     slots:
       - id
       - LCIAResult
 
   # Each entry in the LCIAResult array
   LCIAResultEntry:
-    description: "Represents a single LCIA result object."
+    description: Represents a single LCIA result object.
     slots:
       - id
       - referenceToLCIAMethodDataSet
       - meanAmount
       - uncertaintyDistributionType
       - otherLCIA # renamed from 'other' to avoid collisions
-
-  referenceToLCIAMethodDataSetEntry:
-    description: "Local sub-class for referenceToLCIAMethodDataSet, inheriting from ShortDescripTypeRefVersionUri"
-    is_a: ShortDescripTypeRefVersionUri
-    slots:
-      - id
-
-  LCIAOtherContent:
-    description: "Custom class for LCIA 'other'."
-    is_a: OtherContent
-    slots:
-      - id
-    slot_usage:
-      anies:
-        range: AniesNameValueObjectValueModule
 
 ########################################
 # Slots
@@ -53,15 +38,24 @@ slots:
     range: LCIAResultEntry
     multivalued: true
     inlined_as_list: true
-    description: "List of LCIAResultEntry objects."
+    required: false
+    description: >
+      Single LCIA result represented as a list of LCIAResultEntry objects.
 
   # -- LCIAResultEntry
   referenceToLCIAMethodDataSet:
-    range: referenceToLCIAMethodDataSetEntry
+    range: GlobalReferenceType
     inlined: true
-    description: "Reference to the LCIA method data set (includes shortDescription, type, refObjectId, version, uri)."
+    required: false
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+    description: >
+      "LCIA method data set" applied to calculate the LCIA results.
 
   otherLCIA:
-    range: LCIAOtherContent
+    range: OtherContent
     inlined: true
-    description: "Renamed from 'other' in JSON. Holds an 'anies' array with modules and possibly referenceToUnitGroupDataSet."
+    required: false
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: May contain arbitrary content.

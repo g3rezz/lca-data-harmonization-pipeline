@@ -72,15 +72,6 @@ classes:
       - documentationCompliance
       - qualityCompliance
 
-  MAVOtherContent:
-    description: "Local sub-class for 'other' content in modellingAndValidation (for MAA)."
-    is_a: OtherContent
-    slots:
-      - id
-    slot_usage:
-      anies:
-        range: AniesNameTypedReference
-
   DSTAROtherRoot:
     description: "Self-contained container for the otherDSTAR section."
     slots:
@@ -131,15 +122,6 @@ classes:
       - id
       - uuidValue
 
-  MAAOtherContent:
-    description: "Local sub-class for 'other' with specialized 'anies'."
-    is_a: OtherContent
-    slots:
-      - id
-    slot_usage:
-      anies:
-        range: AniesNameValue
-
 ########################################
 # Slots
 ########################################
@@ -187,7 +169,7 @@ slots:
       network such as the ILCD, etc.).
 
   otherMAV:
-    range: MAVOtherContent
+    range: OtherContent
     inlined: true
     description: "Other modelling and validation content."
 
@@ -203,20 +185,20 @@ slots:
       multi-functionality, and the completeness of modelling.
 
   referenceToLCAMethodDetails:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     required: false
     description: "List of references to LCA method details."
 
   otherMAA:
-    range: MAAOtherContent
+    range: OtherContent
     inlined: true
     description: "Additional LCI method and allocation content."
 
   # --- DataSourcesTreatmentAndRepresentativeness
   referenceToDataSource:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     recommended: true
@@ -327,7 +309,7 @@ slots:
     description: "Review information on data set."
 
   referenceToCompleteReviewReport:
-    range: ShortDescripAndType
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     recommended: true
@@ -337,7 +319,7 @@ slots:
       "Source data set" of the complete review report.
 
   referenceToNameOfReviewerAndInstitution:
-    range: ShortDescripAndType
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     recommended: true
@@ -380,7 +362,7 @@ slots:
 
   # --- ComplianceEntry
   referenceToComplianceSystem:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     multivalued: true
     inlined_as_list: true
     recommended: true
