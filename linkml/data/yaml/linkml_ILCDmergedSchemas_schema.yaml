@@ -575,6 +575,11 @@ slots:
     required: false
   dataSetInformation:
     name: dataSetInformation
+    description: 'General data set information. Section covers all single fields in
+      the  ISO/TS 14048 "Process description", which are not part of the other  sub-sections.
+      In ISO/TS 14048 no own sub-section is  foreseen for these entries.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - ProcessInformation
@@ -585,40 +590,69 @@ slots:
     maximum_cardinality: 1
   quantitativeReference:
     name: quantitativeReference
+    description: This section names the quantitative reference used for this data
+      set, i.e. the reference to which the inputs and outputs quantiatively relate.
     from_schema: https://example.org/ilcd
     domain_of:
     - ProcessInformation
     range: QuantitativeReference
+    recommended: true
     inlined: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   timeInformation:
     name: timeInformation
+    description: 'Provides information about the time representativeness of the data
+      set.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - ProcessInformation
     range: TimeInformation
+    recommended: true
     inlined: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   geography:
     name: geography
+    description: 'Provides information about the geographical representativeness of
+      the  data set.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - ProcessInformation
     range: GeographyInformation
+    recommended: true
     inlined: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   technology:
     name: technology
+    description: 'Provides information about the technological representativeness
+      of the  data set.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - ProcessInformation
     range: TechnologyInformation
+    recommended: true
     inlined: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   dataSetName:
     name: dataSetName
-    description: Container for baseName (multi-lang).
+    description: General descriptive and specifying name of the process.
     from_schema: https://example.org/ilcd
     domain_of:
     - DataSetInformation
     range: DataSetName
+    recommended: true
     inlined: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   synonyms:
     name: synonyms
     description: 'Synonyms / alternative names / brands of the good, service, or process.  Separated
@@ -637,11 +671,19 @@ slots:
     maximum_cardinality: 1
   classificationInformation:
     name: classificationInformation
+    description: 'Hierarchical classification of the good, service, or process.  (Note:
+      This entry is NOT required for the identification of a Process.  It should nevertheless
+      be avoided to use identical names for Processes  in the same category.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - DataSetInformation
     range: ClassificationInformation
+    recommended: true
     inlined: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   generalComment:
     name: generalComment
     description: 'General information about the data set, including e.g. general  (internal,
@@ -680,14 +722,21 @@ slots:
     inlined_as_list: true
   otherDSI:
     name: otherDSI
+    description: May contain arbitrary content.
     from_schema: https://example.org/ilcd
     domain_of:
     - DataSetInformation
     range: OtherContent
+    required: false
     inlined: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   baseName:
     name: baseName
-    description: Base name as a list of {value, lang}.
+    description: 'General descriptive name of the process and/or its main good(s)
+      or  service(s) and/or it''s level of processing.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - DataSetName
@@ -719,11 +768,15 @@ slots:
     maximum_cardinality: 1
   classification:
     name: classification
-    description: List of classification objects.
+    description: 'Optional statistical or other classification of the data set. Typically
+      also used for structuring LCA databases.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - ClassificationInformation
     range: Classification
+    recommended: true
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -739,78 +792,143 @@ slots:
     inlined_as_list: true
   level:
     name: level
-    description: Hierarchy level.
+    description: 'If more than one class is specified in a hierachical classification  system,
+      the hierarchy level (1,2,...) could be specified with this  attribute of class.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - ClassificationEntry
     range: integer
+    recommended: true
   classId:
     name: classId
-    description: Unique class identifier.
+    description: 'Unique identifier for the class.  [Notes: If such identifiers are
+      also defined in the referenced category  file, they should be identical. Identifiers
+      can be UUID''s, but also  other forms are allowed.]
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - ClassificationEntry
     range: string
+    recommended: true
   referenceToReferenceFlow:
     name: referenceToReferenceFlow
-    description: List of integer indices to reference flows.
+    description: 'One or more of the Inputs or Outputs in case  "Type of quantitative
+      reference" is of type "Reference flow(s)".  (Data set internal reference.)
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - QuantitativeReference
     range: integer
+    recommended: true
     multivalued: true
     inlined: true
     inlined_as_list: true
   referenceYear:
     name: referenceYear
-    description: Reference year.
+    description: 'Start year of the time period for which the data set is valid  (until
+      year of "Data set valid until:").  For data sets that combine data from different
+      years, the most  representative year is given regarding the overall environmental
+      impact.  In that case, the reference year is derived by expert judgement.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - TimeInformation
     range: Year
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   dataSetValidUntil:
     name: dataSetValidUntil
-    description: Year until which the data set is valid.
+    description: 'End year of the time period for which the data set is still valid
+      /  sufficiently representative. This date also determines when a data set  revision
+      / remodelling is required or recommended due to expected  relevant changes in
+      environmentally or technically relevant  inventory values, including in the
+      background system.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - TimeInformation
     range: Year
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   timeRepresentativenessDescription:
     name: timeRepresentativenessDescription
-    description: Time representativeness as list of {value, lang}.
+    description: 'Description of the valid time span of the data set including information  on
+      limited usability within sub-time spans (e.g. summer/winter).
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - TimeInformation
     range: MultiLangString
+    recommended: true
     multivalued: true
     inlined: true
     inlined_as_list: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   otherTime:
     name: otherTime
-    description: Additional time-related dictionary data.
+    description: 'Additional time-related dictionary data. May contain arbitrary content.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - TimeInformation
     range: OtherContent
+    required: false
     inlined: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   locationOfOperationSupplyOrProduction:
     name: locationOfOperationSupplyOrProduction
-    description: Dictionary with location details.
+    description: 'Location, country or region the data set represents.  [Note 1: This
+      field does not refer to e.g. the country in which a  specific site is located
+      that is represented by this data set but to the  actually represented country,
+      region, or site.  Note 2: Entry can be of type "two-letter ISO 3166 country
+      code" for  countries, "seven-letter regional codes" for regions or continents,
+      or  "market areas and market organisations", as predefined for the ILCD. Also  a
+      name for e.g. a specific plant etc. can be given here  (e.g. "FR, Lyon, XY Company,
+      Z Site"; user defined).  Note 3: The fact whether the entry refers to production
+      or to  consumption / supply has to be stated in the name-field  "Mix and location
+      types" e.g. as "Production mix".]
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - GeographyInformation
     range: LocationInfo
+    recommended: true
     inlined: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   descriptionOfRestrictions:
     name: descriptionOfRestrictions
-    description: List of {value, lang} describing restrictions.
+    description: 'Further explanations about additional aspects of the location: e.g.
+      a  company and/or site description and address, whether for certain  sub-areas
+      within the "Location" the data set is not valid, whether data  is only valid
+      for certain regions within the location indicated, or  whether certain elementary
+      flows or intermediate product flows are  extrapolated from another geographical
+      area.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - LocationInfo
     range: MultiLangString
+    required: false
     multivalued: true
     inlined: true
     inlined_as_list: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   location:
     name: location
     description: Location code or name.
@@ -818,33 +936,57 @@ slots:
     domain_of:
     - LocationInfo
     range: string
+    recommended: true
   technologyDescriptionAndIncludedProcesses:
     name: technologyDescriptionAndIncludedProcesses
-    description: List of multi-language strings describing technology.
+    description: 'Description of the technological characteristics including operating  conditions
+      of the process or product system. For the latter this includes  the relevant
+      upstream and downstream processes included in the data set.  Professional terminology
+      should be used.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - TechnologyInformation
     range: MultiLangString
+    recommended: true
     multivalued: true
     inlined: true
     inlined_as_list: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   technologicalApplicability:
     name: technologicalApplicability
-    description: List of multi-language strings for technology applicability.
+    description: 'Description of the intended / possible applications of the good,
+      service,  or process. E.g. for which type of products the material, represented
+      by  this data set, is used. Examples: "This high purity chemical is used for  analytical
+      laboratories only." or "This technical quality bulk chemical  is used for large
+      scale synthesis in chemical industry.". Or: "This truck  is used only for long-distance
+      transport of liquid bulk chemicals".
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - TechnologyInformation
     range: MultiLangString
+    recommended: true
     multivalued: true
     inlined: true
     inlined_as_list: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
   referenceToTechnologyFlowDiagrammOrPicture:
     name: referenceToTechnologyFlowDiagrammOrPicture
-    description: List of references to diagrams/pictures.
+    description: '"Source data set" of the flow diagramm(s) and/or photo(s) of the
+      good,  service, technology, plant etc represented by this data set. For clearer  illustration
+      and documentation of data set.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - TechnologyInformation
     range: GlobalReferenceType
+    required: false
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -1568,30 +1710,44 @@ slots:
     maximum_cardinality: 1
   exchange:
     name: exchange
-    description: List of ExchangeEntry objects.
+    description: 'Input/Output list of exchanges with the quantitative inventory data  as
+      well as pre-calculated LCIA results. Represented in the YAML schema as a list
+      of ExchangeEntry objects.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - Exchanges
     range: ExchangeEntry
+    recommended: true
     multivalued: true
     inlined: true
     inlined_as_list: true
   dataSetInternalID:
     name: dataSetInternalID
-    description: Integer ID for the dataset within the exchange.
+    description: 'Automated entry: internal ID, used in the "Quantitative reference"  section
+      to identify the "Reference flow(s)" in case the quantitative  reference of this
+      Process data set is of this type.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - ExchangeEntry
     range: integer
+    recommended: true
   referenceToFlowDataSet:
     name: referenceToFlowDataSet
-    description: Reference to flow dataset with shortDescription, type, refObjectId,
-      version.
+    description: '"Flow data set" of this Input or Output.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - ExchangeEntry
     range: GlobalReferenceType
+    recommended: true
     inlined: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
   referenceFlow:
     name: referenceFlow
     description: If true, indicates this is a reference flow.
@@ -2615,6 +2771,11 @@ classes:
         required: true
       dataSetInformation:
         name: dataSetInformation
+        description: 'General data set information. Section covers all single fields
+          in the  ISO/TS 14048 "Process description", which are not part of the other  sub-sections.
+          In ISO/TS 14048 no own sub-section is  foreseen for these entries.
+
+          '
         from_schema: https://example.org/ilcd
         alias: dataSetInformation
         owner: ProcessInformation
@@ -2627,40 +2788,66 @@ classes:
         maximum_cardinality: 1
       quantitativeReference:
         name: quantitativeReference
+        description: This section names the quantitative reference used for this data
+          set, i.e. the reference to which the inputs and outputs quantiatively relate.
         from_schema: https://example.org/ilcd
         alias: quantitativeReference
         owner: ProcessInformation
         domain_of:
         - ProcessInformation
         range: QuantitativeReference
+        recommended: true
         inlined: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
       timeInformation:
         name: timeInformation
+        description: 'Provides information about the time representativeness of the
+          data set.
+
+          '
         from_schema: https://example.org/ilcd
         alias: timeInformation
         owner: ProcessInformation
         domain_of:
         - ProcessInformation
         range: TimeInformation
+        recommended: true
         inlined: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
       geography:
         name: geography
+        description: 'Provides information about the geographical representativeness
+          of the  data set.
+
+          '
         from_schema: https://example.org/ilcd
         alias: geography
         owner: ProcessInformation
         domain_of:
         - ProcessInformation
         range: GeographyInformation
+        recommended: true
         inlined: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
       technology:
         name: technology
+        description: 'Provides information about the technological representativeness
+          of the  data set.
+
+          '
         from_schema: https://example.org/ilcd
         alias: technology
         owner: ProcessInformation
         domain_of:
         - ProcessInformation
         range: TechnologyInformation
+        recommended: true
         inlined: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
   DataSetInformation:
     name: DataSetInformation
     description: Data set information details.
@@ -2741,14 +2928,17 @@ classes:
         maximum_cardinality: 1
       dataSetName:
         name: dataSetName
-        description: Container for baseName (multi-lang).
+        description: General descriptive and specifying name of the process.
         from_schema: https://example.org/ilcd
         alias: dataSetName
         owner: DataSetInformation
         domain_of:
         - DataSetInformation
         range: DataSetName
+        recommended: true
         inlined: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
       synonyms:
         name: synonyms
         description: 'Synonyms / alternative names / brands of the good, service,
@@ -2768,13 +2958,22 @@ classes:
         maximum_cardinality: 1
       classificationInformation:
         name: classificationInformation
+        description: 'Hierarchical classification of the good, service, or process.  (Note:
+          This entry is NOT required for the identification of a Process.  It should
+          nevertheless be avoided to use identical names for Processes  in the same
+          category.
+
+          '
         from_schema: https://example.org/ilcd
         alias: classificationInformation
         owner: DataSetInformation
         domain_of:
         - DataSetInformation
         range: ClassificationInformation
+        recommended: true
         inlined: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
       generalComment:
         name: generalComment
         description: 'General information about the data set, including e.g. general  (internal,
@@ -2815,13 +3014,17 @@ classes:
         inlined_as_list: true
       otherDSI:
         name: otherDSI
+        description: May contain arbitrary content.
         from_schema: https://example.org/ilcd
         alias: otherDSI
         owner: DataSetInformation
         domain_of:
         - DataSetInformation
         range: OtherContent
+        required: false
         inlined: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
   DataSetName:
     name: DataSetName
     description: Container for the data set name.
@@ -2885,7 +3088,10 @@ classes:
         required: true
       baseName:
         name: baseName
-        description: Base name as a list of {value, lang}.
+        description: 'General descriptive name of the process and/or its main good(s)
+          or  service(s) and/or it''s level of processing.
+
+          '
         from_schema: https://example.org/ilcd
         alias: baseName
         owner: DataSetName
@@ -2979,13 +3185,17 @@ classes:
         required: true
       classification:
         name: classification
-        description: List of classification objects.
+        description: 'Optional statistical or other classification of the data set.
+          Typically also used for structuring LCA databases.
+
+          '
         from_schema: https://example.org/ilcd
         alias: classification
         owner: ClassificationInformation
         domain_of:
         - ClassificationInformation
         range: Classification
+        recommended: true
         multivalued: true
         inlined_as_list: true
   Classification:
@@ -3150,22 +3360,32 @@ classes:
         range: string
       level:
         name: level
-        description: Hierarchy level.
+        description: 'If more than one class is specified in a hierachical classification  system,
+          the hierarchy level (1,2,...) could be specified with this  attribute of
+          class.
+
+          '
         from_schema: https://example.org/ilcd
         alias: level
         owner: ClassificationEntry
         domain_of:
         - ClassificationEntry
         range: integer
+        recommended: true
       classId:
         name: classId
-        description: Unique class identifier.
+        description: 'Unique identifier for the class.  [Notes: If such identifiers
+          are also defined in the referenced category  file, they should be identical.
+          Identifiers can be UUID''s, but also  other forms are allowed.]
+
+          '
         from_schema: https://example.org/ilcd
         alias: classId
         owner: ClassificationEntry
         domain_of:
         - ClassificationEntry
         range: string
+        recommended: true
   QuantitativeReference:
     name: QuantitativeReference
     description: Quantitative reference details.
@@ -3229,13 +3449,17 @@ classes:
         required: true
       referenceToReferenceFlow:
         name: referenceToReferenceFlow
-        description: List of integer indices to reference flows.
+        description: 'One or more of the Inputs or Outputs in case  "Type of quantitative
+          reference" is of type "Reference flow(s)".  (Data set internal reference.)
+
+          '
         from_schema: https://example.org/ilcd
         alias: referenceToReferenceFlow
         owner: QuantitativeReference
         domain_of:
         - QuantitativeReference
         range: integer
+        recommended: true
         multivalued: true
         inlined_as_list: true
       type:
@@ -3315,43 +3539,73 @@ classes:
         required: true
       referenceYear:
         name: referenceYear
-        description: Reference year.
+        description: 'Start year of the time period for which the data set is valid  (until
+          year of "Data set valid until:").  For data sets that combine data from
+          different years, the most  representative year is given regarding the overall
+          environmental impact.  In that case, the reference year is derived by expert
+          judgement.
+
+          '
         from_schema: https://example.org/ilcd
         alias: referenceYear
         owner: TimeInformation
         domain_of:
         - TimeInformation
         range: Year
+        recommended: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
       dataSetValidUntil:
         name: dataSetValidUntil
-        description: Year until which the data set is valid.
+        description: 'End year of the time period for which the data set is still
+          valid /  sufficiently representative. This date also determines when a data
+          set  revision / remodelling is required or recommended due to expected  relevant
+          changes in environmentally or technically relevant  inventory values, including
+          in the background system.
+
+          '
         from_schema: https://example.org/ilcd
         alias: dataSetValidUntil
         owner: TimeInformation
         domain_of:
         - TimeInformation
         range: Year
+        recommended: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
       timeRepresentativenessDescription:
         name: timeRepresentativenessDescription
-        description: Time representativeness as list of {value, lang}.
+        description: 'Description of the valid time span of the data set including
+          information  on limited usability within sub-time spans (e.g. summer/winter).
+
+          '
         from_schema: https://example.org/ilcd
         alias: timeRepresentativenessDescription
         owner: TimeInformation
         domain_of:
         - TimeInformation
         range: MultiLangString
+        recommended: true
         multivalued: true
         inlined_as_list: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
       otherTime:
         name: otherTime
-        description: Additional time-related dictionary data.
+        description: 'Additional time-related dictionary data. May contain arbitrary
+          content.
+
+          '
         from_schema: https://example.org/ilcd
         alias: otherTime
         owner: TimeInformation
         domain_of:
         - TimeInformation
         range: OtherContent
+        required: false
         inlined: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
   GeographyInformation:
     name: GeographyInformation
     description: Geographical information details.
@@ -3414,14 +3668,28 @@ classes:
         required: true
       locationOfOperationSupplyOrProduction:
         name: locationOfOperationSupplyOrProduction
-        description: Dictionary with location details.
+        description: 'Location, country or region the data set represents.  [Note
+          1: This field does not refer to e.g. the country in which a  specific site
+          is located that is represented by this data set but to the  actually represented
+          country, region, or site.  Note 2: Entry can be of type "two-letter ISO
+          3166 country code" for  countries, "seven-letter regional codes" for regions
+          or continents, or  "market areas and market organisations", as predefined
+          for the ILCD. Also  a name for e.g. a specific plant etc. can be given here  (e.g.
+          "FR, Lyon, XY Company, Z Site"; user defined).  Note 3: The fact whether
+          the entry refers to production or to  consumption / supply has to be stated
+          in the name-field  "Mix and location types" e.g. as "Production mix".]
+
+          '
         from_schema: https://example.org/ilcd
         alias: locationOfOperationSupplyOrProduction
         owner: GeographyInformation
         domain_of:
         - GeographyInformation
         range: LocationInfo
+        recommended: true
         inlined: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
   LocationInfo:
     name: LocationInfo
     description: Location details.
@@ -3485,15 +3753,25 @@ classes:
         required: true
       descriptionOfRestrictions:
         name: descriptionOfRestrictions
-        description: List of {value, lang} describing restrictions.
+        description: 'Further explanations about additional aspects of the location:
+          e.g. a  company and/or site description and address, whether for certain  sub-areas
+          within the "Location" the data set is not valid, whether data  is only valid
+          for certain regions within the location indicated, or  whether certain elementary
+          flows or intermediate product flows are  extrapolated from another geographical
+          area.
+
+          '
         from_schema: https://example.org/ilcd
         alias: descriptionOfRestrictions
         owner: LocationInfo
         domain_of:
         - LocationInfo
         range: MultiLangString
+        required: false
         multivalued: true
         inlined_as_list: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
       location:
         name: location
         description: Location code or name.
@@ -3503,6 +3781,7 @@ classes:
         domain_of:
         - LocationInfo
         range: string
+        recommended: true
   TechnologyInformation:
     name: TechnologyInformation
     description: Technology information for the data set.
@@ -3568,35 +3847,58 @@ classes:
         required: true
       technologyDescriptionAndIncludedProcesses:
         name: technologyDescriptionAndIncludedProcesses
-        description: List of multi-language strings describing technology.
+        description: 'Description of the technological characteristics including operating  conditions
+          of the process or product system. For the latter this includes  the relevant
+          upstream and downstream processes included in the data set.  Professional
+          terminology should be used.
+
+          '
         from_schema: https://example.org/ilcd
         alias: technologyDescriptionAndIncludedProcesses
         owner: TechnologyInformation
         domain_of:
         - TechnologyInformation
         range: MultiLangString
+        recommended: true
         multivalued: true
         inlined_as_list: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
       technologicalApplicability:
         name: technologicalApplicability
-        description: List of multi-language strings for technology applicability.
+        description: 'Description of the intended / possible applications of the good,
+          service,  or process. E.g. for which type of products the material, represented
+          by  this data set, is used. Examples: "This high purity chemical is used
+          for  analytical laboratories only." or "This technical quality bulk chemical  is
+          used for large scale synthesis in chemical industry.". Or: "This truck  is
+          used only for long-distance transport of liquid bulk chemicals".
+
+          '
         from_schema: https://example.org/ilcd
         alias: technologicalApplicability
         owner: TechnologyInformation
         domain_of:
         - TechnologyInformation
         range: MultiLangString
+        recommended: true
         multivalued: true
         inlined_as_list: true
+        minimum_cardinality: 0
+        maximum_cardinality: 1
       referenceToTechnologyFlowDiagrammOrPicture:
         name: referenceToTechnologyFlowDiagrammOrPicture
-        description: List of references to diagrams/pictures.
+        description: '"Source data set" of the flow diagramm(s) and/or photo(s) of
+          the good,  service, technology, plant etc represented by this data set.
+          For clearer  illustration and documentation of data set.
+
+          '
         from_schema: https://example.org/ilcd
         alias: referenceToTechnologyFlowDiagrammOrPicture
         owner: TechnologyInformation
         domain_of:
         - TechnologyInformation
         range: GlobalReferenceType
+        required: false
         multivalued: true
         inlined_as_list: true
       referenceToTechnologyPictogramme:
@@ -5669,18 +5971,23 @@ classes:
         required: true
       exchange:
         name: exchange
-        description: List of ExchangeEntry objects.
+        description: 'Input/Output list of exchanges with the quantitative inventory
+          data  as well as pre-calculated LCIA results. Represented in the YAML schema
+          as a list of ExchangeEntry objects.
+
+          '
         from_schema: https://example.org/ilcd
         alias: exchange
         owner: Exchanges
         domain_of:
         - Exchanges
         range: ExchangeEntry
+        recommended: true
         multivalued: true
         inlined_as_list: true
   ExchangeEntry:
     name: ExchangeEntry
-    description: A single exchange entry with flow data, amounts, and properties.
+    description: A single exchange entry.
     from_schema: https://example.org/ilcd
     slots:
     - id
@@ -5759,24 +6066,33 @@ classes:
         required: true
       dataSetInternalID:
         name: dataSetInternalID
-        description: Integer ID for the dataset within the exchange.
+        description: 'Automated entry: internal ID, used in the "Quantitative reference"  section
+          to identify the "Reference flow(s)" in case the quantitative  reference
+          of this Process data set is of this type.
+
+          '
         from_schema: https://example.org/ilcd
         alias: dataSetInternalID
         owner: ExchangeEntry
         domain_of:
         - ExchangeEntry
         range: integer
+        recommended: true
       referenceToFlowDataSet:
         name: referenceToFlowDataSet
-        description: Reference to flow dataset with shortDescription, type, refObjectId,
-          version.
+        description: '"Flow data set" of this Input or Output.
+
+          '
         from_schema: https://example.org/ilcd
         alias: referenceToFlowDataSet
         owner: ExchangeEntry
         domain_of:
         - ExchangeEntry
         range: GlobalReferenceType
+        recommended: true
         inlined: true
+        minimum_cardinality: 1
+        maximum_cardinality: 1
       meanAmount:
         name: meanAmount
         description: Mean numeric value for the exchange and LCIA indicator.
@@ -5989,8 +6305,7 @@ classes:
         inlined: true
   FlowPropertyEntry:
     name: FlowPropertyEntry
-    description: One flow property with name, uuid, referenceFlowProperty, meanValue,
-      referenceUnit, unitGroupUUID.
+    description: One flow property.
     from_schema: https://example.org/ilcd
     slots:
     - id
@@ -6486,4 +6801,4 @@ classes:
         inlined: true
         minimum_cardinality: 0
         maximum_cardinality: 1
-source_file: linkml/data/yaml/linkml_processDataSet_schema.yaml
+source_file: ../linkml/data/yaml/linkml_processDataSet_schema.yaml
