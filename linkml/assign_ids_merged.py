@@ -6,9 +6,9 @@ import re
 SCHEMA_PATH = (
     "linkml/data/yaml/linkml_ILCDmergedSchemas_schema.yaml"  # Consolidated YAML schema
 )
-JSON_FILE_PATH = "data/pipeline2/json/epds/0db12903-1403-4c9a-817e-b48299d17aba_RN.json"  # Input JSON instance for the EPD
+JSON_FILE_PATH = "data/pipeline2/json/epds/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca_RN.json"  # Input JSON instance for the EPD
 OUTPUT_JSON_PATH = (
-    "data/pipeline2/json/epds/0db12903-1403-4c9a-817e-b48299d17aba_RN_ID.json"
+    "data/pipeline2/json/epds/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca_RN_ID.json"
 )
 
 # --- Schema Utilities (kept for future extension) ---
@@ -68,12 +68,13 @@ def generate_id_from_path(acc_path, prefix="ilcd"):
 
 def get_suffix(item, index):
     """
-    If the list element (item) is a dict and has a 'module' field, return "module" + its value (dashes removed);
-    otherwise, return the 1-based index as a string.
+    If the list element (item) is a dict with a 'module' field,
+    return 'module' + its value (dashes removed);
+    otherwise, return the 1-based index as a two-digit string.
     """
     if isinstance(item, dict) and "module" in item:
         return f"module{item['module'].replace('-', '')}"
-    return str(index + 1)
+    return f"{index + 1:02d}"
 
 
 def reorder_dict_keys(d):

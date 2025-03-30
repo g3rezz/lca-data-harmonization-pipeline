@@ -1,5 +1,5 @@
 # Auto generated from linkml_lciaResults_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-29T15:50:34
+# Generation date: 2025-03-30T10:07:39
 # Schema: ILCDlciaResults
 #
 # id: https://example.org/ILCDlciaResults
