@@ -3,127 +3,2445 @@
 @prefix ns1: <ILCDsd:> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ILCDlcia:LCIAResult0 a ILCDlcia:LCIAResultEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults a ILCDlcia:LCIAResults ;
+    ILCDlcia:LCIAResult ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20 .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01 a ILCDlcia:LCIAResultEntry ;
     ns1:meanAmount "0.0"^^xsd:float ;
-    ILCDlcia:otherLCIA ILCDlcia:otherLCIA0 ;
-    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0 .
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_referenceToLCIAMethodDataSet .
 
-ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0 a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
-    ns1:refObjectId "5f635281-343e-44fb-83df-1971b155e6b6"^^linkml:UUIDType ;
-    ns1:refObjectUri "../lciamethods/5f635281-343e-44fb-83df-1971b155e6b6" ;
-    ns1:shortDescription ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0shortDescriptionEN ;
-    ns1:type "LCIA method data set" .
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleD .
 
-ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0shortDescriptionEN a ns1:MultiLangString ;
-    ns1:lang "en" ;
-    ns1:value "Global Warming Potential - fossil fuels (GWP-fossil)" .
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_19_objectValue .
 
-ILCDlcia:LCIAResults a ILCDlcia:LCIAResults ;
-    ILCDlcia:LCIAResult ILCDlcia:LCIAResult0 .
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "1ebf3012-d0db-4de2-aefd-ef30cedb0be1"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
 
-ILCDlcia:moduleB1 a ns1:AniesType ;
-    ns1:module "B1" ;
-    ns1:value "-4.12301904146275" .
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "kg CO2 eq." .
 
-ILCDlcia:otherLCIA0 a ns1:OtherContent ;
-    ns1:anies ILCDlcia:moduleB1,
-        ILCDlcia:otherLCIA0moduleA1,
-        ILCDlcia:otherLCIA0moduleA1A3,
-        ILCDlcia:otherLCIA0moduleA2,
-        ILCDlcia:otherLCIA0moduleA3,
-        ILCDlcia:otherLCIA0moduleA4,
-        ILCDlcia:otherLCIA0moduleA5,
-        ILCDlcia:otherLCIA0moduleB2,
-        ILCDlcia:otherLCIA0moduleB3,
-        ILCDlcia:otherLCIA0moduleB4,
-        ILCDlcia:otherLCIA0moduleB5,
-        ILCDlcia:otherLCIA0moduleB6,
-        ILCDlcia:otherLCIA0moduleB7,
-        ILCDlcia:otherLCIA0moduleC1,
-        ILCDlcia:otherLCIA0moduleC2,
-        ILCDlcia:otherLCIA0moduleC3,
-        ILCDlcia:otherLCIA0moduleC4,
-        ILCDlcia:otherLCIA0moduleD,
-        ILCDlcia:otherLCIA0referenceToUnitGroupDataSet .
-
-ILCDlcia:otherLCIA0moduleA1 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA1 a ns1:AniesType ;
     ns1:module "A1" ;
     ns1:value "376.846524413267" .
 
-ILCDlcia:otherLCIA0moduleA1A3 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
     ns1:module "A1-A3" ;
     ns1:value "388.707120265804" .
 
-ILCDlcia:otherLCIA0moduleA2 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA2 a ns1:AniesType ;
     ns1:module "A2" ;
     ns1:value "10.658975130637" .
 
-ILCDlcia:otherLCIA0moduleA3 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA3 a ns1:AniesType ;
     ns1:module "A3" ;
     ns1:value "1.20162072189971" .
 
-ILCDlcia:otherLCIA0moduleA4 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA4 a ns1:AniesType ;
     ns1:module "A4" ;
     ns1:value "ND" .
 
-ILCDlcia:otherLCIA0moduleA5 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA5 a ns1:AniesType ;
     ns1:module "A5" ;
     ns1:value "ND" .
 
-ILCDlcia:otherLCIA0moduleB2 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "-4.12301904146275" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB2 a ns1:AniesType ;
     ns1:module "B2" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleB3 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB3 a ns1:AniesType ;
     ns1:module "B3" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleB4 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB4 a ns1:AniesType ;
     ns1:module "B4" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleB5 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB5 a ns1:AniesType ;
     ns1:module "B5" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleB6 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB6 a ns1:AniesType ;
     ns1:module "B6" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleB7 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB7 a ns1:AniesType ;
     ns1:module "B7" ;
     ns1:value "0" .
 
-ILCDlcia:otherLCIA0moduleC1 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC1 a ns1:AniesType ;
     ns1:module "C1" ;
     ns1:value "8.991347753066" .
 
-ILCDlcia:otherLCIA0moduleC2 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC2 a ns1:AniesType ;
     ns1:module "C2" ;
     ns1:value "9.2273105665125" .
 
-ILCDlcia:otherLCIA0moduleC3 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC3 a ns1:AniesType ;
     ns1:module "C3" ;
     ns1:value "3.51999580619816" .
 
-ILCDlcia:otherLCIA0moduleC4 a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC4 a ns1:AniesType ;
     ns1:module "C4" ;
     ns1:value "-4.05759050692558" .
 
-ILCDlcia:otherLCIA0moduleD a ns1:AniesType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleD a ns1:AniesType ;
     ns1:module "D" ;
     ns1:value "-15.07571924265" .
 
-ILCDlcia:otherLCIA0referenceToUnitGroupDataSet a ns1:AniesType ;
-    ns1:name "referenceToUnitGroupDataSet" ;
-    ns1:objectValue ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValue .
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "5f635281-343e-44fb-83df-1971b155e6b6"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/5f635281-343e-44fb-83df-1971b155e6b6" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
 
-ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValue a ns1:GlobalReferenceType ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Global Warming Potential - fossil fuels (GWP-fossil)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
     ns1:refObjectId "1ebf3012-d0db-4de2-aefd-ef30cedb0be1"^^linkml:UUIDType ;
     ns1:refObjectUri "../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1" ;
-    ns1:shortDescription ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValueshortDescription ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_19_objectValue_shortDescription_01 ;
     ns1:type "unit group data set" .
 
-ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValueshortDescription a ns1:MultiLangString ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
     ns1:value "kg CO2 eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "0.0315009029414329" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "0.036141970995835" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.00430152251833464" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.000339545536067533" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.00160456044" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.00677049912" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.020775148515" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.001785639537" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.0608760580725" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "2356e1ab-0185-4db5-86e5-16de51c7485c"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/2356e1ab-0185-4db5-86e5-16de51c7485c" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Global Warming Potential - biogenic (GWP-biogenic)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "1ebf3012-d0db-4de2-aefd-ef30cedb0be1"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "kg CO2 eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "0.0352749393812748" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "0.0392445764674385" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.00374157767518061" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.000228059410983061" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.001133144936" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.00550103994" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.0158296267305" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.001450505826" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.0264141400545" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "4331bbdb-978a-490d-8707-eeb047f01a55"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/4331bbdb-978a-490d-8707-eeb047f01a55" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Global Warming Potential - land use and land use change (GWP-luluc)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "1ebf3012-d0db-4de2-aefd-ef30cedb0be1"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "kg CO2 eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "376.912975543899" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "388.782182147529" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "10.6670182780703" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "1.20218832555971" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "-4.12301904146275" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "8.994085458442" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "9.2395821276" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "3.55660022459816" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "-4.05435461767558" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-15.163009599375" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "6a37f984-a4b3-458a-a20a-64418c145fa2"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/6a37f984-a4b3-458a-a20a-64418c145fa2" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Global Warming Potential - total (GWP-total)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "d9e957c9-7309-4474-bf3a-7777df6c4e5b"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/d9e957c9-7309-4474-bf3a-7777df6c4e5b" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "kg CFC-11 eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "0.0000136912903636346" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "0.0000159296038929445" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.00000209989449012439" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.000000138419039185569" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.000001623390748" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.000001594847034" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.000000400295404575" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.0000008807430555" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.000001032118116975" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b5c629d6-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b5c629d6-def3-11e6-bf01-fe55135034f3" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Depletion potential of the stratospheric ozone layer (ODP)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "42e089ac-92bf-4bf2-8ca1-5fc40d18f2ed"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/42e089ac-92bf-4bf2-8ca1-5fc40d18f2ed" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "mol H+ eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "1.51249392993683" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "1.55287569588694" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.0350476798365761" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.00533408611353006" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.094237145436" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.0431126771625" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.042382540035" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.02589184224" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.10715991066" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b5c611c6-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b5c611c6-def3-11e6-bf01-fe55135034f3" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Acidifcation potential, Accumulated Exceedance (AP)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "0429039d-a61d-4590-ba67-aa4a20a810a1"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/0429039d-a61d-4590-ba67-aa4a20a810a1" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "kg P eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "0.0149718934686855" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "0.0160338917130822" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.000822628695475596" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.000239369548921076" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.000402343333770474" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.00126571345258786" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.00329574263941485" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.000316703316623076" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.00633657899701869" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b53ec18f-7377-4ad3-86eb-cc3f4f276b2b"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b53ec18f-7377-4ad3-86eb-cc3f4f276b2b" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Europhication potential - freshwater (EP-freshwater)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "d05bb823-ecdf-4686-8c40-bf1d9257859f"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/d05bb823-ecdf-4686-8c40-bf1d9257859f" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "kg N eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "0.00227861497310509" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "0.00236847426216143" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.0000714776152807342" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.0000183816737756085" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.0000333851574" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.0000935889631875" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.000228502050975" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.0000299076448275" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.000410524975575" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b5c619fa-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b5c619fa-def3-11e6-bf01-fe55135034f3" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Europhication potential - marine (EP-marine)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "71b4d617-0ec9-4d3f-b65e-e438940c2401"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/71b4d617-0ec9-4d3f-b65e-e438940c2401" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "mol N eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "4.08887408465286" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "4.17453004816314" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.077469442692762" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.00818652081751974" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.444414018888" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.12039516225" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.0790977787875" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.092811903525" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.2673040429125" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b5c614d2-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b5c614d2-def3-11e6-bf01-fe55135034f3" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Europhication potential - terrestrial (EP-terrestrial)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "d27c25f8-fbc1-44c6-b47b-4adbae4199c6"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/d27c25f8-fbc1-44c6-b47b-4adbae4199c6" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "kg NMVOC eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "0.957451678489674" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "0.991594936819023" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.0314317205841776" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.00271153774517177" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.12218908513" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.0397369281375" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.0222982840575" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.0272358937125" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.06767852454" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b5c610fe-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b5c610fe-def3-11e6-bf01-fe55135034f3" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Photochemical Ozone Creation Potential (POCP)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "54ccd2d9-a32a-4fc2-923d-f2c8c93e89d4"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/54ccd2d9-a32a-4fc2-923d-f2c8c93e89d4" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "kg Sb eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "0.000197695181735635" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "0.000219850973201441" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.0000209389840178321" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.00000121680744797384" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.000002660378644" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.000016726063365" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.000004931684109" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.0000029446592175" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.0001727644888035" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b2ad6494-c78d-11e6-9d9d-cec0c932ce01"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b2ad6494-c78d-11e6-9d9d-cec0c932ce01" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Abiotic depletion potential - non-fossil resources (ADPE)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "93a60a57-a3c8-11da-a746-0800200c9a66"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "MJ" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "2280.7386045615" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "2471.96007088935" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "173.485372713409" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "17.736093614435" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "129.71448565334" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "141.28759041705" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "82.261703816325" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "75.238478050725" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-173.534940045225" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b2ad6110-c78d-11e6-9d9d-cec0c932ce01"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b2ad6110-c78d-11e6-9d9d-cec0c932ce01" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Abiotic depletion potential - fossil resources (ADPF)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "6ae2df01-888e-46c8-b17d-49fa3869b476"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/6ae2df01-888e-46c8-b17d-49fa3869b476" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "m3 world eq. deprived" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "65.2024348838069" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "69.1804803150281" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "1.27570968732891" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "2.70233574389223" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.766579517648" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "1.22476526865" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "1.153719168525" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "3.6365898591" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-29.3875512183" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b2ad66ce-c78d-11e6-9d9d-cec0c932ce01"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b2ad66ce-c78d-11e6-9d9d-cec0c932ce01" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Water (user) deprivation potential (WDP)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "1ebf3012-d0db-4de2-aefd-ef30cedb0be1"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "kg CO2 eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "376.882975543899" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "388.752182147529" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "10.6670182780703" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "1.20218832555971" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "-4.12301904146275" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "8.994085458442" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "9.2395821276" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "3.55660022459816" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "-4.05435461767558" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-15.163009599375" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "fb774615-0575-45de-9a89-1ded92f19770"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/fb774615-0575-45de-9a89-1ded92f19770" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Global Warming Potential (GWP-GHG)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "3883559b-648f-4afc-8ba2-0bd24f3affa3"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/3883559b-648f-4afc-8ba2-0bd24f3affa3" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "Disease incidence" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "0.0000119630981379303" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "0.000012895867699202" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.000000917592936334984" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.0000000151766249367649" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.0000024452640491405" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.00000082505256075" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.000000378686427075" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.0000004828951512" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.000001257763421475" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b5c602c6-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b5c602c6-def3-11e6-bf01-fe55135034f3" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Particulate Matter emissions (PM)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "456b05bf-1415-44a9-9993-02452f554c09"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/456b05bf-1415-44a9-9993-02452f554c09" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "kBq U235 eq." .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "8.48647720672908" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "9.45954227044936" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.911985320558599" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.061079743161679" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.6078000663" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.8100996737625" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.882944803125" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.3476182347" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-1.4177313117" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b5c632be-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b5c632be-def3-11e6-bf01-fe55135034f3" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Ionizing radiation, human health (IRP)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "aa959ded-f1eb-4efb-9c5c-2d60be36b3e6"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/aa959ded-f1eb-4efb-9c5c-2d60be36b3e6" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "CTUe" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "59.5163242718722" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "96.0687642987548" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "36.3346169881353" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.217823038747353" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "1.761407471768" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "24.779989087425" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "1.724168419875" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "1.419781623975" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-7.3310418819" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "ee1082d1-b0f7-43ca-a1f0-21e2a4a74511"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/ee1082d1-b0f7-43ca-a1f0-21e2a4a74511" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Eco-toxicity - freshwater (ETP-fw)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "d4c9523e-2d7e-49fd-8469-998f547d3a70"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/d4c9523e-2d7e-49fd-8469-998f547d3a70" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "CTUh" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "0.00000110542814837069" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "0.00000118275298493315" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.0000000707500481919358" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.0000000065747883705192" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.0000000636147274" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.000000107569264275" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.0000000684641793825" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.0000000236485386225" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.0000003617646152175" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "2299222a-bbd8-474f-9d4f-4dd1f18aea7c"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/2299222a-bbd8-474f-9d4f-4dd1f18aea7c" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Human toxicity, cancer effect (HTP-c)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "d4c9523e-2d7e-49fd-8469-998f547d3a70"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/d4c9523e-2d7e-49fd-8469-998f547d3a70" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "CTUh" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "0.0000254874088773767" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "0.0000274887957916206" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "0.00000195963195087809" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "0.000000041754963365738" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "0.000000245889007" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "0.000001484076812625" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "0.000000315235332225" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "0.000000151375096125" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-0.000002154512198025" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "3af763a5-b7a1-48c9-9cee-1f223481fcef"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/3af763a5-b7a1-48c9-9cee-1f223481fcef" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Human toxicity, non-cancer effects (HTP-nc)" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20 a ILCDlcia:LCIAResultEntry ;
+    ns1:meanAmount "0.0"^^xsd:float ;
+    ILCDlcia:otherLCIA ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA ;
+    ILCDlcia:referenceToLCIAMethodDataSet ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_referenceToLCIAMethodDataSet .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA a ns1:OtherContent ;
+    ns1:anies ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_19,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA1A3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB5,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB6,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB7,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC1,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC2,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC3,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC4,
+        ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleD .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_19 a ns1:AniesType ;
+    ns1:name "referenceToUnitGroupDataSet" ;
+    ns1:objectValue ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_19_objectValue .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_19_objectValue a ns1:GlobalReferenceType ;
+    ns1:refObjectId "f130951c-e67f-4f7f-8dd4-665de3974e18"^^linkml:UUIDType ;
+    ns1:refObjectUri "../unitgroups/f130951c-e67f-4f7f-8dd4-665de3974e18" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_19_objectValue_shortDescription_01 ;
+    ns1:type "unit group data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_19_objectValue_shortDescription_01 a ns1:MultiLangString ;
+    ns1:value "dimensionless" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA1 a ns1:AniesType ;
+    ns1:module "A1" ;
+    ns1:value "451.173102518825" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA1A3 a ns1:AniesType ;
+    ns1:module "A1-A3" ;
+    ns1:value "761.493927647128" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA2 a ns1:AniesType ;
+    ns1:module "A2" ;
+    ns1:value "303.726333527981" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA3 a ns1:AniesType ;
+    ns1:module "A3" ;
+    ns1:value "6.59449160032232" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA4 a ns1:AniesType ;
+    ns1:module "A4" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA5 a ns1:AniesType ;
+    ns1:module "A5" ;
+    ns1:value "ND" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB1 a ns1:AniesType ;
+    ns1:module "B1" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB2 a ns1:AniesType ;
+    ns1:module "B2" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB3 a ns1:AniesType ;
+    ns1:module "B3" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB4 a ns1:AniesType ;
+    ns1:module "B4" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB5 a ns1:AniesType ;
+    ns1:module "B5" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB6 a ns1:AniesType ;
+    ns1:module "B6" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB7 a ns1:AniesType ;
+    ns1:module "B7" ;
+    ns1:value "0" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC1 a ns1:AniesType ;
+    ns1:module "C1" ;
+    ns1:value "7.711374057324" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC2 a ns1:AniesType ;
+    ns1:module "C2" ;
+    ns1:value "230.250706573388" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC3 a ns1:AniesType ;
+    ns1:module "C3" ;
+    ns1:value "67.233560008725" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC4 a ns1:AniesType ;
+    ns1:module "C4" ;
+    ns1:value "140.27346146385" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleD a ns1:AniesType ;
+    ns1:module "D" ;
+    ns1:value "-227.390503014675" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+    ns1:refObjectId "b2ad6890-c78d-11e6-9d9d-cec0c932ce01"^^linkml:UUIDType ;
+    ns1:refObjectUri "../lciamethods/b2ad6890-c78d-11e6-9d9d-cec0c932ce01" ;
+    ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_referenceToLCIAMethodDataSet_shortDescription_01 ;
+    ns1:type "LCIA method data set" .
+
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_referenceToLCIAMethodDataSet_shortDescription_01 a ns1:MultiLangString ;
+    ns1:lang "en" ;
+    ns1:value "Land use related impacts/Soil quality (SQP)" .
 

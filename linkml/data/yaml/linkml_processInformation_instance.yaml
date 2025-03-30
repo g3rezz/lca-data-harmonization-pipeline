@@ -1,55 +1,42 @@
 processInformation:
-  id: ILCDpi:ProcessInformation
+  id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_processInformation
   dataSetInformation:
-    id: ILCDpi:DataSetInformation
+    id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_dataSetInformation
     UUID: 63a79af1-1ab0-4677-45a8-08dc6fc9d4ca
-    dataSetName:
-      id: ILCDpi:DataSetName
-      baseName:
-      - id: ILCDpi:DataSetNamebaseName
-        value: ' beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20'
-        lang: en
     classificationInformation:
-      id: ILCDpi:ClassificationInformation
+      id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_classificationInformation
       classification:
-      - id: ILCDpi:Classification
+      - id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_classificationInformation_classification_01
+        name: The International EPD System
         classEntries:
-        - id: ILCDpi:ClassEntry
+        - id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_classificationInformation_classification_01_classEntries_01
           value: Construction products, Infrastructure & buildings
           level: 0
           classId: '0'
-        name: The International EPD System
+    dataSetName:
+      id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_dataSetName
+      baseName:
+      - id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_dataSetName_baseName_01
+        value: ' beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20'
+        lang: en
   quantitativeReference:
-    id: ILCDpi:QuantitativeReference
+    id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_quantitativeReference
     referenceToReferenceFlow:
     - 0
     type: Reference flow(s)
-  timeInformation:
-    id: ILCDpi:TimeInformation
-    referenceYear: 2024
-    dataSetValidUntil: 2029
-    timeRepresentativenessDescription:
-    - id: ILCDpi:TimeInformationtimeRepresentativenessDescription
-      lang: en
-    otherTime:
-      id: ILCDpi:TimeInformationotherTime
-      anies:
-      - id: ILCDpi:publicationDateOfEPD
-        name: publicationDateOfEPD
-        timestampValue: 1715904000000
   geography:
-    id: ILCDpi:Geography
+    id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_geography
     locationOfOperationSupplyOrProduction:
-      id: ILCDpi:LocationOfOperationSupplyOrProduction
+      id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_locationOfOperationSupplyOrProduction
       descriptionOfRestrictions:
-      - id: ILCDpi:LocationOfOperationSupplyOrProductiondescriptionOfRestrictions
+      - id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_locationOfOperationSupplyOrProduction_descriptionOfRestrictions_01
         value: 'Costituents, production and use in Italy. '
         lang: en
       location: IT
   technology:
-    id: ILCDpi:Technology
+    id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_technology
     technologyDescriptionAndIncludedProcesses:
-    - id: ILCDpi:TechnologytechnologyDescriptionAndIncludedProcesses
+    - id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_technology_technologyDescriptionAndIncludedProcesses_01
       value: Concrete is produced by mixing cement, aggregates (sand, crushed stone
         and gravel), water and additives. The cement section is  consists  of storage
         silos connected to a weighbridge, the extraction and loading of the cement
@@ -67,14 +54,27 @@ processInformation:
         the requirements of the REACH regulation.
       lang: en
     technologicalApplicability:
-    - id: ILCDpi:TechnologytechnologicalApplicability
+    - id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_technology_technologicalApplicability_01
       value: Structural concrete for civil buildings and constructions.
       lang: en
     referenceToTechnologyFlowDiagrammOrPicture:
-    - id: ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPicture
+    - id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_technology_referenceToTechnologyFlowDiagrammOrPicture_01
       shortDescription:
-      - id: ILCDpi:TechnologyreferenceToTechnologyFlowDiagrammOrPictureshortDescription
+      - id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_technology_referenceToTechnologyFlowDiagrammOrPicture_01_shortDescription_01
         value: Process flow
         lang: en
       type: source data set
       refObjectId: 785a09be-82f3-461a-ba60-c49b80204481
+  timeInformation:
+    id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_timeInformation
+    referenceYear: 2024
+    dataSetValidUntil: 2029
+    timeRepresentativenessDescription:
+    - id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_timeInformation_timeRepresentativenessDescription_01
+      lang: en
+    otherTime:
+      id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_otherTime
+      anies:
+      - id: ILCDpi:63a79af11ab0467745a808dc6fc9d4ca_otherTime_anies_01
+        name: publicationDateOfEPD
+        timestampValue: 1715904000000

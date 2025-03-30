@@ -1,5 +1,5 @@
 # Auto generated from linkml_shared_definitions.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-29T16:33:49
+# Generation date: 2025-03-30T10:07:40
 # Schema: SharedDefinitions
 #
 # id: https://example.org/SharedDefinitions

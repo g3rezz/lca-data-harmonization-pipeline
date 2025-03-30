@@ -1,30 +1,30 @@
 administrativeInformation:
-  id: ILCDadmin:AdministrativeInformation
+  id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_administrativeInformation
   dataGenerator:
-    id: ILCDadmin:DataGenerator
+    id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_dataGenerator
     referenceToPersonOrEntityGeneratingTheDataSet:
-    - id: ILCDadmin:DataGeneratorreferenceToPersonOrEntityGeneratingTheDataSet
+    - id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_dataGenerator_referenceToPersonOrEntityGeneratingTheDataSet_01
       shortDescription:
-      - id: ILCDadmin:DataGeneratorreferenceToPersonOrEntityGeneratingTheDataSetshortDescriptionEN
+      - id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_dataGenerator_referenceToPersonOrEntityGeneratingTheDataSet_01_shortDescription_01
         value: ', gm.nardelli@financo.it'
         lang: en
       type: contact data set
       version: 00.00.001
   dataEntryBy:
-    id: ILCDadmin:DataEntryBy
+    id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_dataEntryBy
     timeStamp: 1715937801610
     referenceToDataSetFormat:
-    - id: ILCDadmin:DataEntryByreferenceToDataSetFormat0
+    - id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_dataEntryBy_referenceToDataSetFormat_01
       shortDescription:
-      - id: ILCDadmin:DataEntryByreferenceToDataSetFormat0shortDescriptionEN
+      - id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_dataEntryBy_referenceToDataSetFormat_01_shortDescription_01
         value: EPD Data Format Extension
         lang: en
       type: source data set
       refObjectId: cba73800-7874-11e3-981f-0800200c9a66
       version: 00.01.000
-    - id: ILCDadmin:DataEntryByreferenceToDataSetFormat1
+    - id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_dataEntryBy_referenceToDataSetFormat_02
       shortDescription:
-      - id: ILCDadmin:DataEntryByreferenceToDataSetFormat1shortDescriptionEN
+      - id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_dataEntryBy_referenceToDataSetFormat_02_shortDescription_01
         value: ILCD format
         lang: en
       type: source data set
@@ -32,13 +32,13 @@ administrativeInformation:
       version: 01.00.000
       refObjectUri: http://lca.jrc.ec.europa.eu/lcainfohub/sample_data/ilcd/sources/ILCD_Format_a97a0155-0234-4b87-b4ce-a45da52f2a40_01.00.000.xml
   publicationAndOwnership:
-    id: ILCDadmin:PublicationAndOwnership
+    id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_publicationAndOwnership
     dataSetVersion: 07.01.004
     registrationNumber: EPD-IES-0013906:001 (S-P-13906)
     referenceToOwnershipOfDataSet:
-      id: ILCDadmin:PublicationAndOwnershipreferenceToOwnershipOfDataSet
+      id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_referenceToOwnershipOfDataSet
       shortDescription:
-      - id: ILCDadmin:PublicationAndOwnershipreferenceToOwnershipOfDataSetshortDescriptionEN
+      - id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_referenceToOwnershipOfDataSet_shortDescription_01
         value: 'Colabeton S.p.A. '
         lang: en
       type: contact data set
@@ -46,7 +46,7 @@ administrativeInformation:
       version: 00.00.001
     copyright: true
     accessRestrictions:
-    - id: ILCDadmin:PublicationAndOwnershipaccessRestrictionsEN
+    - id: ILCDadmin:63a79af11ab0467745a808dc6fc9d4ca_publicationAndOwnership_accessRestrictions_01
       value: Your use of this material is subject to the General Terms of Use published
         on by EPD International AB:s homepage at https://www.environdec.com/contact/General-terms-of-use/.
         If you have not accepted EPD International AB:s the General Terms of Use,

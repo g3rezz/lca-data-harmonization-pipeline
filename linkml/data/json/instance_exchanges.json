@@ -1,15 +1,15 @@
 {
   "exchanges": {
-    "id": "ILCDex:exchanges",
+    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges",
     "exchange": [
       {
-        "id": "ILCDex:exchangeEntry0",
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_01",
         "dataSetInternalID": 0,
         "referenceToFlowDataSet": {
-          "id": "ILCDex:exchangeEntry0referenceToFlowDataSet",
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_01_referenceToFlowDataSet",
           "shortDescription": [
             {
-              "id": "ILCDex:exchangeEntry0referenceToFlowDataSetshortDescription",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_01_referenceToFlowDataSet_shortDescription_01",
               "value": " beForce Rck50 S5 XC3 D20 CEM II 42,5 R CAM20",
               "lang": "en"
             }
@@ -23,31 +23,31 @@
         "resultingflowAmount": 1.0,
         "flowProperties": [
           {
-            "id": "ILCDex:exchangeEntry0flowPropertyEntry0",
+            "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_01_flowProperties_01",
+            "referenceFlowProperty": true,
+            "meanValue": 1.0,
+            "referenceUnit": "m3",
+            "unitGroupUUID": "93a60a57-a3c8-12da-a746-0800200c9a66",
             "nameFP": [
               {
-                "id": "ILCDex:exchangeEntry0flowPropertyEntry0nameFP",
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_01_flowProperties_01_nameFP_01",
                 "lang": "en",
                 "value": "Volume"
               }
             ],
-            "uuidFP": "93a60a56-a3c8-22da-a746-0800200c9a66",
-            "referenceFlowProperty": true,
-            "meanValue": 1.0,
-            "referenceUnit": "m3",
-            "unitGroupUUID": "93a60a57-a3c8-12da-a746-0800200c9a66"
+            "uuidFP": "93a60a56-a3c8-22da-a746-0800200c9a66"
           }
         ],
         "materialProperties": [
           {
-            "id": "ILCDex:materialPropertyEntry0",
+            "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_01_materialProperties_01",
             "name": "bulk density (kg/m^3)",
             "value": "2475.0",
             "unit": "bulk density (kg/m^3)",
             "unitDescription": "bulk density (kg/m^3)"
           },
           {
-            "id": "ILCDex:materialPropertyEntry1",
+            "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_01_materialProperties_02",
             "name": "compressive strength (mpa)",
             "value": "50.0",
             "unit": "Compressive strength (MPa)",
@@ -57,13 +57,13 @@
         "typeOfFlow": "Product flow"
       },
       {
-        "id": "ILCDex:exchangeEntry1",
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02",
         "dataSetInternalID": 1,
         "referenceToFlowDataSet": {
-          "id": "ILCDex:exchangeEntry1referenceToFlowDataSet",
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_referenceToFlowDataSet",
           "shortDescription": [
             {
-              "id": "ILCDex:exchangeEntry1referenceToFlowDataSetshortDescription",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_referenceToFlowDataSet_shortDescription_01",
               "value": "Use of renewable primary energy as energy carrier (PERE)",
               "lang": "en"
             }
@@ -71,73 +71,112 @@
           "type": "flow data set",
           "refObjectId": "20f32be5-0398-4288-9b6d-accddd195317"
         },
-        "exchangeDirection": "INPUT",
         "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "INPUT",
         "otherEx": {
-          "id": "ILCDex:otherExEntry1",
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx",
           "anies": [
             {
-              "id": "ILCDex:moduleA1",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleA1",
               "value": "200.331850129794",
               "module": "A1"
             },
             {
-              "id": "ILCDex:moduleA2",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleA2",
               "value": "2.48154315611149",
               "module": "A2"
             },
             {
-              "id": "ILCDex:moduleA3",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleA3",
               "value": "1.10198021926091",
               "module": "A3"
             },
             {
-              "id": "ILCDex:moduleA1A3",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleA1A3",
               "value": "203.915373505166",
               "module": "A1-A3"
             },
-            { "id": "ILCDex:moduleA4", "value": "ND", "module": "A4" },
-            { "id": "ILCDex:moduleA5", "value": "ND", "module": "A5" },
-            { "id": "ILCDex:moduleB1", "value": "0", "module": "B1" },
-            { "id": "ILCDex:moduleB2", "value": "0", "module": "B2" },
-            { "id": "ILCDex:moduleB3", "value": "0", "module": "B3" },
-            { "id": "ILCDex:moduleB4", "value": "0", "module": "B4" },
-            { "id": "ILCDex:moduleB5", "value": "0", "module": "B5" },
-            { "id": "ILCDex:moduleB6", "value": "0", "module": "B6" },
-            { "id": "ILCDex:moduleB7", "value": "0", "module": "B7" },
             {
-              "id": "ILCDex:moduleC1",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleC1",
               "value": "0.758557945488",
               "module": "C1"
             },
             {
-              "id": "ILCDex:moduleC2",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleC2",
               "value": "3.542532703875",
               "module": "C2"
             },
             {
-              "id": "ILCDex:moduleC3",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleC3",
               "value": "8.991775066725",
               "module": "C3"
             },
             {
-              "id": "ILCDex:moduleC4",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleC4",
               "value": "1.953996895125",
               "module": "C4"
             },
             {
-              "id": "ILCDex:moduleD",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_moduleD",
               "value": "-14.21955172935",
               "module": "D"
             },
             {
-              "id": "ILCDex:referenceToUnitGroupDataSet",
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_19",
               "name": "referenceToUnitGroupDataSet",
               "objectValue": {
-                "id": "ILCDex:referenceToUnitGroupDataSetobjectValue",
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_19_objectValue",
                 "shortDescription": [
                   {
-                    "id": "ILCDex:referenceToUnitGroupDataSetobjectValueshortDescription",
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_otherEx_anies_19_objectValue_shortDescription_01",
                     "value": "MJ"
                   }
                 ],
@@ -148,12 +187,2338 @@
             }
           ]
         },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_02_classificationEx",
+          "classHierarchy": "Quantities",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03",
+        "dataSetInternalID": 2,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_referenceToFlowDataSet_shortDescription_01",
+              "value": "Use of renewable primary energy resources used as raw materials (PERM)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "fb3ec0de-548d-4508-aea5-00b73bf6f702"
+        },
+        "meanAmount": 0.0,
         "resolvedFlowVersion": "35.00.000",
         "flowProperties": [],
         "typeOfFlow": "Other flow",
+        "exchangeDirection": "INPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleA1",
+              "value": "0",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleA3",
+              "value": "0",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleA1A3",
+              "value": "0",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "MJ"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "93a60a57-a3c8-11da-a746-0800200c9a66",
+                "refObjectUri": "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66"
+              }
+            }
+          ]
+        },
         "classificationEx": {
-          "id": "ILCDex:classificationEx",
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_03_classificationEx",
           "classHierarchy": "Quantities",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04",
+        "dataSetInternalID": 3,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_referenceToFlowDataSet_shortDescription_01",
+              "value": "Total use of renewable primary energy (PERT)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "53f97275-fa8a-4cdd-9024-65936002acd0"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "INPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleA1",
+              "value": "200.331850129794",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleA2",
+              "value": "2.48154315611149",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleA3",
+              "value": "1.10198021926091",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleA1A3",
+              "value": "203.915373505166",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleC1",
+              "value": "0.758557945488",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleC2",
+              "value": "3.542532703875",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleC3",
+              "value": "8.991775066725",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleC4",
+              "value": "1.953996895125",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_moduleD",
+              "value": "-14.21955172935",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "MJ"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "93a60a57-a3c8-11da-a746-0800200c9a66",
+                "refObjectUri": "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_04_classificationEx",
+          "classHierarchy": "Quantities / Environmental quantities / EPD EN 15804 / LCI indicators",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05",
+        "dataSetInternalID": 4,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_referenceToFlowDataSet_shortDescription_01",
+              "value": "Use of non renewable primary energy as energy carrier (PENRE)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "ac857178-2b45-46ec-892a-a9a4332f0372"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "INPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleA1",
+              "value": "2282.2299545615",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleA2",
+              "value": "173.485372713409",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleA3",
+              "value": "17.736093614435",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleA1A3",
+              "value": "2473.45142088935",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleC1",
+              "value": "129.71448565334",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleC2",
+              "value": "141.28759041705",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleC3",
+              "value": "82.261703816325",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleC4",
+              "value": "75.238478050725",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_moduleD",
+              "value": "-173.534940045225",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "MJ"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "93a60a57-a3c8-11da-a746-0800200c9a66",
+                "refObjectUri": "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_05_classificationEx",
+          "classHierarchy": "Quantities",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06",
+        "dataSetInternalID": 5,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_referenceToFlowDataSet_shortDescription_01",
+              "value": "Use of non renewable primary energy resources used as raw materials (PENRM)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "1421caa0-679d-4bf4-b282-0eb850ccae27"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "INPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleA1",
+              "value": "0.00865",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleA3",
+              "value": "0",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleA1A3",
+              "value": "0.00865",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "MJ"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "93a60a57-a3c8-11da-a746-0800200c9a66",
+                "refObjectUri": "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_06_classificationEx",
+          "classHierarchy": "Quantities",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07",
+        "dataSetInternalID": 6,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_referenceToFlowDataSet_shortDescription_01",
+              "value": "Total use of non renewable primary energy resource (PENRT)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "06159210-646b-4c8d-8583-da9b3b95a6c1"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "INPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleA1",
+              "value": "2282.2386045615",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleA2",
+              "value": "173.485372713409",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleA3",
+              "value": "17.736093614435",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleA1A3",
+              "value": "2473.46007088935",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleC1",
+              "value": "129.71448565334",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleC2",
+              "value": "141.28759041705",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleC3",
+              "value": "82.261703816325",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleC4",
+              "value": "75.238478050725",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_moduleD",
+              "value": "-173.534940045225",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "MJ"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "93a60a57-a3c8-11da-a746-0800200c9a66",
+                "refObjectUri": "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_07_classificationEx",
+          "classHierarchy": "Quantities / Environmental quantities / EPD EN 15804 / LCI indicators",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08",
+        "dataSetInternalID": 7,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_referenceToFlowDataSet_shortDescription_01",
+              "value": "Use of secondary material (SM)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "c6a1f35f-2d09-4f54-8dfb-97e502e1ce92"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "INPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleA1",
+              "value": "536.140987215737",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleA3",
+              "value": "0",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleA1A3",
+              "value": "536.140987215737",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "kg"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "ad38d542-3fe9-439d-9b95-2f5f7752acaf",
+                "refObjectUri": "../unitgroups/ad38d542-3fe9-439d-9b95-2f5f7752acaf"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_08_classificationEx",
+          "classHierarchy": "Quantities / Environmental quantities / EPD EN 15804 / LCI indicators",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09",
+        "dataSetInternalID": 8,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_referenceToFlowDataSet_shortDescription_01",
+              "value": "Use of renewable secondary fuels (RSF)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "64333088-a55f-4aa2-9a31-c10b07816787"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "30.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "INPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleA1",
+              "value": "63.0392213775255",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleA3",
+              "value": "0",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleA1A3",
+              "value": "63.0392213775255",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "MJ"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "93a60a57-a3c8-11da-a746-0800200c9a66",
+                "refObjectUri": "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_09_classificationEx",
+          "classHierarchy": "Größen / Umweltliche Größen / EPD EN 15804 / LCI Indikatoren",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10",
+        "dataSetInternalID": 9,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_referenceToFlowDataSet_shortDescription_01",
+              "value": "Use of non renewable secondary fuels (NRSF)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "89def144-d39a-4287-b86f-efde453ddcb2"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "30.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "INPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleA1",
+              "value": "87.9090848380632",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleA3",
+              "value": "0",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleA1A3",
+              "value": "87.9090848380632",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "MJ"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "93a60a57-a3c8-11da-a746-0800200c9a66",
+                "refObjectUri": "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_10_classificationEx",
+          "classHierarchy": "Größen / Umweltliche Größen / EPD EN 15804 / LCI Indikatoren",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11",
+        "dataSetInternalID": 10,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_referenceToFlowDataSet_shortDescription_01",
+              "value": "Net use of fresh water (FW)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "3cf952c8-f3a4-461d-8c96-96456ca62246"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "INPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleA1",
+              "value": "1.83530005474822",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleA2",
+              "value": "0.0381419579383361",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleA3",
+              "value": "0.0601138975028198",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleA1A3",
+              "value": "1.93355591018938",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleC1",
+              "value": "0.019933565638",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleC2",
+              "value": "0.037784055375",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleC3",
+              "value": "0.04678641",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleC4",
+              "value": "0.084679330725",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_moduleD",
+              "value": "-0.703542710475",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "m3"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "cd950537-0a98-4044-9ba7-9f9a68d0a504",
+                "refObjectUri": "../unitgroups/cd950537-0a98-4044-9ba7-9f9a68d0a504"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_11_classificationEx",
+          "classHierarchy": "Quantities / Environmental quantities / EPD EN 15804 / LCI indicators",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12",
+        "dataSetInternalID": 11,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_referenceToFlowDataSet_shortDescription_01",
+              "value": "Hazardous waste disposed (HWD)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "430f9e0f-59b2-46a0-8e0d-55e0e84948fc"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "OUTPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleA1",
+              "value": "0.0324168484932",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleA3",
+              "value": "0",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleA1A3",
+              "value": "0.0324168484932",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "kg"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "ad38d542-3fe9-439d-9b95-2f5f7752acaf",
+                "refObjectUri": "../unitgroups/ad38d542-3fe9-439d-9b95-2f5f7752acaf"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_12_classificationEx",
+          "classHierarchy": "Quantities / Environmental quantities / EPD EN 15804 / LCI indicators",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13",
+        "dataSetInternalID": 12,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_referenceToFlowDataSet_shortDescription_01",
+              "value": "Non harzardous waste disposed (NHWD)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "b29ef66b-e286-4afa-949f-62f1a7b4d7fa"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "OUTPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleA1",
+              "value": "0.0004178068349",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleA3",
+              "value": "0.12",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleA1A3",
+              "value": "0.1204178068349",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleC4",
+              "value": "486.525",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "kg"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "ad38d542-3fe9-439d-9b95-2f5f7752acaf",
+                "refObjectUri": "../unitgroups/ad38d542-3fe9-439d-9b95-2f5f7752acaf"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_13_classificationEx",
+          "classHierarchy": "Quantities / Environmental quantities / EPD EN 15804 / LCI indicators",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14",
+        "dataSetInternalID": 13,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_referenceToFlowDataSet_shortDescription_01",
+              "value": "Radioactive waste disposed (RWD)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "3449546e-52ad-4b39-b809-9fb77cea8ff6"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "OUTPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleA1",
+              "value": "0",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleA3",
+              "value": "0",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleA1A3",
+              "value": "0",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "kg"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "ad38d542-3fe9-439d-9b95-2f5f7752acaf",
+                "refObjectUri": "../unitgroups/ad38d542-3fe9-439d-9b95-2f5f7752acaf"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_14_classificationEx",
+          "classHierarchy": "Quantities / Environmental quantities / EPD EN 15804 / LCI indicators",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15",
+        "dataSetInternalID": 14,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_referenceToFlowDataSet_shortDescription_01",
+              "value": "Components for re-use (CRU)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "a2b32f97-3fc7-4af2-b209-525bc6426f33"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "30.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "OUTPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleA1",
+              "value": "0",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleA3",
+              "value": "0",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleA1A3",
+              "value": "0",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "kg"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "ad38d542-3fe9-439d-9b95-2f5f7752acaf",
+                "refObjectUri": "../unitgroups/ad38d542-3fe9-439d-9b95-2f5f7752acaf"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_15_classificationEx",
+          "classHierarchy": "Größen / Umweltliche Größen / EPD EN 15804 / LCI Indikatoren",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16",
+        "dataSetInternalID": 15,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_referenceToFlowDataSet_shortDescription_01",
+              "value": "Materials for recycling (MFR)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "d7fe48a5-4103-49c8-9aae-b0b5dfdbd6ae"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "30.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "OUTPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleA1",
+              "value": "13.9171550192986",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleA3",
+              "value": "38.59",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleA1A3",
+              "value": "52.5071550192986",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleC3",
+              "value": "1982.475",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "kg"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "ad38d542-3fe9-439d-9b95-2f5f7752acaf",
+                "refObjectUri": "../unitgroups/ad38d542-3fe9-439d-9b95-2f5f7752acaf"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_16_classificationEx",
+          "classHierarchy": "Größen / Umweltliche Größen / EPD EN 15804 / LCI Indikatoren",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17",
+        "dataSetInternalID": 16,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_referenceToFlowDataSet_shortDescription_01",
+              "value": "Materials for energy recovery (MER)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "59a9181c-3aaf-46ee-8b13-2b3723b6e447"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "30.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "OUTPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleA1",
+              "value": "0",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleA3",
+              "value": "0",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleA1A3",
+              "value": "0",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "kg"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "ad38d542-3fe9-439d-9b95-2f5f7752acaf",
+                "refObjectUri": "../unitgroups/ad38d542-3fe9-439d-9b95-2f5f7752acaf"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_17_classificationEx",
+          "classHierarchy": "Größen / Umweltliche Größen / EPD EN 15804 / LCI Indikatoren",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18",
+        "dataSetInternalID": 17,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_referenceToFlowDataSet_shortDescription_01",
+              "value": "Exported electrical energy (EEE)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "4da0c987-2b76-40d6-9e9e-82a017aaaf29"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "OUTPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleA1",
+              "value": "0",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleA3",
+              "value": "0",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleA1A3",
+              "value": "0",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "MJ"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "93a60a57-a3c8-11da-a746-0800200c9a66",
+                "refObjectUri": "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_18_classificationEx",
+          "classHierarchy": "Quantities / Environmental quantities / EPD EN 15804 / LCI indicators",
+          "nameClass": "GaBiCategories"
+        }
+      },
+      {
+        "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19",
+        "dataSetInternalID": 18,
+        "referenceToFlowDataSet": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_referenceToFlowDataSet",
+          "shortDescription": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_referenceToFlowDataSet_shortDescription_01",
+              "value": "Exported thermal energy (EET)",
+              "lang": "en"
+            }
+          ],
+          "type": "flow data set",
+          "refObjectId": "98daf38a-7a79-46d3-9a37-2b7bd0955810"
+        },
+        "meanAmount": 0.0,
+        "resolvedFlowVersion": "35.00.000",
+        "flowProperties": [],
+        "typeOfFlow": "Other flow",
+        "exchangeDirection": "OUTPUT",
+        "otherEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx",
+          "anies": [
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleA1",
+              "value": "0",
+              "module": "A1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleA2",
+              "value": "0",
+              "module": "A2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleA3",
+              "value": "0",
+              "module": "A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleA1A3",
+              "value": "0",
+              "module": "A1-A3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleA4",
+              "value": "ND",
+              "module": "A4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleA5",
+              "value": "ND",
+              "module": "A5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleB1",
+              "value": "0",
+              "module": "B1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleB2",
+              "value": "0",
+              "module": "B2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleB3",
+              "value": "0",
+              "module": "B3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleB4",
+              "value": "0",
+              "module": "B4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleB5",
+              "value": "0",
+              "module": "B5"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleB6",
+              "value": "0",
+              "module": "B6"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleB7",
+              "value": "0",
+              "module": "B7"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleC1",
+              "value": "0",
+              "module": "C1"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleC2",
+              "value": "0",
+              "module": "C2"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleC3",
+              "value": "0",
+              "module": "C3"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleC4",
+              "value": "0",
+              "module": "C4"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_moduleD",
+              "value": "0",
+              "module": "D"
+            },
+            {
+              "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_19",
+              "name": "referenceToUnitGroupDataSet",
+              "objectValue": {
+                "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_19_objectValue",
+                "shortDescription": [
+                  {
+                    "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_otherEx_anies_19_objectValue_shortDescription_01",
+                    "value": "MJ"
+                  }
+                ],
+                "type": "unit group data set",
+                "refObjectId": "93a60a57-a3c8-11da-a746-0800200c9a66",
+                "refObjectUri": "../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66"
+              }
+            }
+          ]
+        },
+        "classificationEx": {
+          "id": "ILCDex:63a79af11ab0467745a808dc6fc9d4ca_exchanges_exchange_19_classificationEx",
+          "classHierarchy": "Quantities / Environmental quantities / EPD EN 15804 / LCI indicators",
           "nameClass": "GaBiCategories"
         }
       }

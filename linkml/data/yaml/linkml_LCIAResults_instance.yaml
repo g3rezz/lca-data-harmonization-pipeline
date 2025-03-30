@@ -1,11 +1,11 @@
-LCIAResults:
-  id: ILCDlcia:LCIAResults
+lciaResults:
+  id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults
   LCIAResult:
-  - id: ILCDlcia:LCIAResult0
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01
     referenceToLCIAMethodDataSet:
-      id: ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_referenceToLCIAMethodDataSet
       shortDescription:
-      - id: ILCDlcia:LCIAResultreferenceToLCIAMethodDataSet0shortDescriptionEN
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_referenceToLCIAMethodDataSet_shortDescription_01
         value: Global Warming Potential - fossil fuels (GWP-fossil)
         lang: en
       type: LCIA method data set
@@ -13,69 +13,1551 @@ LCIAResults:
       refObjectUri: ../lciamethods/5f635281-343e-44fb-83df-1971b155e6b6
     meanAmount: 0.0
     otherLCIA:
-      id: ILCDlcia:otherLCIA0
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA
       anies:
-      - id: ILCDlcia:otherLCIA0moduleA1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA1
         value: '376.846524413267'
         module: A1
-      - id: ILCDlcia:otherLCIA0moduleA2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA2
         value: '10.658975130637'
         module: A2
-      - id: ILCDlcia:otherLCIA0moduleA3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA3
         value: '1.20162072189971'
         module: A3
-      - id: ILCDlcia:otherLCIA0moduleA1A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA1A3
         value: '388.707120265804'
         module: A1-A3
-      - id: ILCDlcia:otherLCIA0moduleA4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA4
         value: ND
         module: A4
-      - id: ILCDlcia:otherLCIA0moduleA5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleA5
         value: ND
         module: A5
-      - id: ILCDlcia:moduleB1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB1
         value: '-4.12301904146275'
         module: B1
-      - id: ILCDlcia:otherLCIA0moduleB2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB2
         value: '0'
         module: B2
-      - id: ILCDlcia:otherLCIA0moduleB3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB3
         value: '0'
         module: B3
-      - id: ILCDlcia:otherLCIA0moduleB4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB4
         value: '0'
         module: B4
-      - id: ILCDlcia:otherLCIA0moduleB5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB5
         value: '0'
         module: B5
-      - id: ILCDlcia:otherLCIA0moduleB6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB6
         value: '0'
         module: B6
-      - id: ILCDlcia:otherLCIA0moduleB7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleB7
         value: '0'
         module: B7
-      - id: ILCDlcia:otherLCIA0moduleC1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC1
         value: '8.991347753066'
         module: C1
-      - id: ILCDlcia:otherLCIA0moduleC2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC2
         value: '9.2273105665125'
         module: C2
-      - id: ILCDlcia:otherLCIA0moduleC3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC3
         value: '3.51999580619816'
         module: C3
-      - id: ILCDlcia:otherLCIA0moduleC4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleC4
         value: '-4.05759050692558'
         module: C4
-      - id: ILCDlcia:otherLCIA0moduleD
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_moduleD
         value: '-15.07571924265'
         module: D
-      - id: ILCDlcia:otherLCIA0referenceToUnitGroupDataSet
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_19
         name: referenceToUnitGroupDataSet
         objectValue:
-          id: ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValue
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_19_objectValue
           shortDescription:
-          - id: ILCDlcia:otherLCIA0referenceToUnitGroupDataSetobjectValueshortDescription
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_anies_19_objectValue_shortDescription_01
             value: kg CO2 eq.
           type: unit group data set
           refObjectId: 1ebf3012-d0db-4de2-aefd-ef30cedb0be1
           refObjectUri: ../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Global Warming Potential - biogenic (GWP-biogenic)
+        lang: en
+      type: LCIA method data set
+      refObjectId: 2356e1ab-0185-4db5-86e5-16de51c7485c
+      refObjectUri: ../lciamethods/2356e1ab-0185-4db5-86e5-16de51c7485c
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA1
+        value: '0.0315009029414329'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA2
+        value: '0.00430152251833464'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA3
+        value: '0.000339545536067533'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA1A3
+        value: '0.036141970995835'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC1
+        value: '0.00160456044'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC2
+        value: '0.00677049912'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC3
+        value: '0.020775148515'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleC4
+        value: '0.001785639537'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_moduleD
+        value: '-0.0608760580725'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: kg CO2 eq.
+          type: unit group data set
+          refObjectId: 1ebf3012-d0db-4de2-aefd-ef30cedb0be1
+          refObjectUri: ../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Global Warming Potential - land use and land use change (GWP-luluc)
+        lang: en
+      type: LCIA method data set
+      refObjectId: 4331bbdb-978a-490d-8707-eeb047f01a55
+      refObjectUri: ../lciamethods/4331bbdb-978a-490d-8707-eeb047f01a55
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA1
+        value: '0.0352749393812748'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA2
+        value: '0.00374157767518061'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA3
+        value: '0.000228059410983061'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA1A3
+        value: '0.0392445764674385'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC1
+        value: '0.001133144936'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC2
+        value: '0.00550103994'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC3
+        value: '0.0158296267305'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleC4
+        value: '0.001450505826'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_moduleD
+        value: '-0.0264141400545'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: kg CO2 eq.
+          type: unit group data set
+          refObjectId: 1ebf3012-d0db-4de2-aefd-ef30cedb0be1
+          refObjectUri: ../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Global Warming Potential - total (GWP-total)
+        lang: en
+      type: LCIA method data set
+      refObjectId: 6a37f984-a4b3-458a-a20a-64418c145fa2
+      refObjectUri: ../lciamethods/6a37f984-a4b3-458a-a20a-64418c145fa2
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA1
+        value: '376.912975543899'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA2
+        value: '10.6670182780703'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA3
+        value: '1.20218832555971'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA1A3
+        value: '388.782182147529'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB1
+        value: '-4.12301904146275'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC1
+        value: '8.994085458442'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC2
+        value: '9.2395821276'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC3
+        value: '3.55660022459816'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleC4
+        value: '-4.05435461767558'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_moduleD
+        value: '-15.163009599375'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: kg CO2 eq.
+          type: unit group data set
+          refObjectId: 1ebf3012-d0db-4de2-aefd-ef30cedb0be1
+          refObjectUri: ../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Depletion potential of the stratospheric ozone layer (ODP)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b5c629d6-def3-11e6-bf01-fe55135034f3
+      refObjectUri: ../lciamethods/b5c629d6-def3-11e6-bf01-fe55135034f3
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA1
+        value: '0.0000136912903636346'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA2
+        value: '0.00000209989449012439'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA3
+        value: '0.000000138419039185569'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA1A3
+        value: '0.0000159296038929445'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC1
+        value: '0.000001623390748'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC2
+        value: '0.000001594847034'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC3
+        value: '0.000000400295404575'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleC4
+        value: '0.0000008807430555'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_moduleD
+        value: '-0.000001032118116975'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: kg CFC-11 eq.
+          type: unit group data set
+          refObjectId: d9e957c9-7309-4474-bf3a-7777df6c4e5b
+          refObjectUri: ../unitgroups/d9e957c9-7309-4474-bf3a-7777df6c4e5b
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Acidifcation potential, Accumulated Exceedance (AP)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b5c611c6-def3-11e6-bf01-fe55135034f3
+      refObjectUri: ../lciamethods/b5c611c6-def3-11e6-bf01-fe55135034f3
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA1
+        value: '1.51249392993683'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA2
+        value: '0.0350476798365761'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA3
+        value: '0.00533408611353006'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA1A3
+        value: '1.55287569588694'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC1
+        value: '0.094237145436'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC2
+        value: '0.0431126771625'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC3
+        value: '0.042382540035'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleC4
+        value: '0.02589184224'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_moduleD
+        value: '-0.10715991066'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: mol H+ eq.
+          type: unit group data set
+          refObjectId: 42e089ac-92bf-4bf2-8ca1-5fc40d18f2ed
+          refObjectUri: ../unitgroups/42e089ac-92bf-4bf2-8ca1-5fc40d18f2ed
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Europhication potential - freshwater (EP-freshwater)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b53ec18f-7377-4ad3-86eb-cc3f4f276b2b
+      refObjectUri: ../lciamethods/b53ec18f-7377-4ad3-86eb-cc3f4f276b2b
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA1
+        value: '0.0149718934686855'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA2
+        value: '0.000822628695475596'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA3
+        value: '0.000239369548921076'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA1A3
+        value: '0.0160338917130822'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC1
+        value: '0.000402343333770474'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC2
+        value: '0.00126571345258786'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC3
+        value: '0.00329574263941485'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleC4
+        value: '0.000316703316623076'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_moduleD
+        value: '-0.00633657899701869'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: kg P eq.
+          type: unit group data set
+          refObjectId: 0429039d-a61d-4590-ba67-aa4a20a810a1
+          refObjectUri: ../unitgroups/0429039d-a61d-4590-ba67-aa4a20a810a1
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Europhication potential - marine (EP-marine)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b5c619fa-def3-11e6-bf01-fe55135034f3
+      refObjectUri: ../lciamethods/b5c619fa-def3-11e6-bf01-fe55135034f3
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA1
+        value: '0.00227861497310509'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA2
+        value: '0.0000714776152807342'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA3
+        value: '0.0000183816737756085'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA1A3
+        value: '0.00236847426216143'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC1
+        value: '0.0000333851574'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC2
+        value: '0.0000935889631875'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC3
+        value: '0.000228502050975'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleC4
+        value: '0.0000299076448275'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_moduleD
+        value: '-0.000410524975575'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: kg N eq.
+          type: unit group data set
+          refObjectId: d05bb823-ecdf-4686-8c40-bf1d9257859f
+          refObjectUri: ../unitgroups/d05bb823-ecdf-4686-8c40-bf1d9257859f
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Europhication potential - terrestrial (EP-terrestrial)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b5c614d2-def3-11e6-bf01-fe55135034f3
+      refObjectUri: ../lciamethods/b5c614d2-def3-11e6-bf01-fe55135034f3
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA1
+        value: '4.08887408465286'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA2
+        value: '0.077469442692762'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA3
+        value: '0.00818652081751974'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA1A3
+        value: '4.17453004816314'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC1
+        value: '0.444414018888'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC2
+        value: '0.12039516225'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC3
+        value: '0.0790977787875'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleC4
+        value: '0.092811903525'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_moduleD
+        value: '-0.2673040429125'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: mol N eq.
+          type: unit group data set
+          refObjectId: 71b4d617-0ec9-4d3f-b65e-e438940c2401
+          refObjectUri: ../unitgroups/71b4d617-0ec9-4d3f-b65e-e438940c2401
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Photochemical Ozone Creation Potential (POCP)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b5c610fe-def3-11e6-bf01-fe55135034f3
+      refObjectUri: ../lciamethods/b5c610fe-def3-11e6-bf01-fe55135034f3
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA1
+        value: '0.957451678489674'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA2
+        value: '0.0314317205841776'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA3
+        value: '0.00271153774517177'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA1A3
+        value: '0.991594936819023'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC1
+        value: '0.12218908513'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC2
+        value: '0.0397369281375'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC3
+        value: '0.0222982840575'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleC4
+        value: '0.0272358937125'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_moduleD
+        value: '-0.06767852454'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: kg NMVOC eq.
+          type: unit group data set
+          refObjectId: d27c25f8-fbc1-44c6-b47b-4adbae4199c6
+          refObjectUri: ../unitgroups/d27c25f8-fbc1-44c6-b47b-4adbae4199c6
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Abiotic depletion potential - non-fossil resources (ADPE)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b2ad6494-c78d-11e6-9d9d-cec0c932ce01
+      refObjectUri: ../lciamethods/b2ad6494-c78d-11e6-9d9d-cec0c932ce01
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA1
+        value: '0.000197695181735635'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA2
+        value: '0.0000209389840178321'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA3
+        value: '0.00000121680744797384'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA1A3
+        value: '0.000219850973201441'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC1
+        value: '0.000002660378644'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC2
+        value: '0.000016726063365'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC3
+        value: '0.000004931684109'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleC4
+        value: '0.0000029446592175'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_moduleD
+        value: '-0.0001727644888035'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: kg Sb eq.
+          type: unit group data set
+          refObjectId: 54ccd2d9-a32a-4fc2-923d-f2c8c93e89d4
+          refObjectUri: ../unitgroups/54ccd2d9-a32a-4fc2-923d-f2c8c93e89d4
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Abiotic depletion potential - fossil resources (ADPF)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b2ad6110-c78d-11e6-9d9d-cec0c932ce01
+      refObjectUri: ../lciamethods/b2ad6110-c78d-11e6-9d9d-cec0c932ce01
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA1
+        value: '2280.7386045615'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA2
+        value: '173.485372713409'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA3
+        value: '17.736093614435'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA1A3
+        value: '2471.96007088935'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC1
+        value: '129.71448565334'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC2
+        value: '141.28759041705'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC3
+        value: '82.261703816325'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleC4
+        value: '75.238478050725'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_moduleD
+        value: '-173.534940045225'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: MJ
+          type: unit group data set
+          refObjectId: 93a60a57-a3c8-11da-a746-0800200c9a66
+          refObjectUri: ../unitgroups/93a60a57-a3c8-11da-a746-0800200c9a66
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Water (user) deprivation potential (WDP)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b2ad66ce-c78d-11e6-9d9d-cec0c932ce01
+      refObjectUri: ../lciamethods/b2ad66ce-c78d-11e6-9d9d-cec0c932ce01
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA1
+        value: '65.2024348838069'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA2
+        value: '1.27570968732891'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA3
+        value: '2.70233574389223'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA1A3
+        value: '69.1804803150281'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC1
+        value: '0.766579517648'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC2
+        value: '1.22476526865'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC3
+        value: '1.153719168525'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleC4
+        value: '3.6365898591'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_moduleD
+        value: '-29.3875512183'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: m3 world eq. deprived
+          type: unit group data set
+          refObjectId: 6ae2df01-888e-46c8-b17d-49fa3869b476
+          refObjectUri: ../unitgroups/6ae2df01-888e-46c8-b17d-49fa3869b476
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Global Warming Potential (GWP-GHG)
+        lang: en
+      type: LCIA method data set
+      refObjectId: fb774615-0575-45de-9a89-1ded92f19770
+      refObjectUri: ../lciamethods/fb774615-0575-45de-9a89-1ded92f19770
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA1
+        value: '376.882975543899'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA2
+        value: '10.6670182780703'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA3
+        value: '1.20218832555971'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA1A3
+        value: '388.752182147529'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB1
+        value: '-4.12301904146275'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC1
+        value: '8.994085458442'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC2
+        value: '9.2395821276'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC3
+        value: '3.55660022459816'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleC4
+        value: '-4.05435461767558'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_moduleD
+        value: '-15.163009599375'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: kg CO2 eq.
+          type: unit group data set
+          refObjectId: 1ebf3012-d0db-4de2-aefd-ef30cedb0be1
+          refObjectUri: ../unitgroups/1ebf3012-d0db-4de2-aefd-ef30cedb0be1
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Particulate Matter emissions (PM)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b5c602c6-def3-11e6-bf01-fe55135034f3
+      refObjectUri: ../lciamethods/b5c602c6-def3-11e6-bf01-fe55135034f3
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA1
+        value: '0.0000119630981379303'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA2
+        value: '0.000000917592936334984'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA3
+        value: '0.0000000151766249367649'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA1A3
+        value: '0.000012895867699202'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC1
+        value: '0.0000024452640491405'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC2
+        value: '0.00000082505256075'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC3
+        value: '0.000000378686427075'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleC4
+        value: '0.0000004828951512'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_moduleD
+        value: '-0.000001257763421475'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: Disease incidence
+          type: unit group data set
+          refObjectId: 3883559b-648f-4afc-8ba2-0bd24f3affa3
+          refObjectUri: ../unitgroups/3883559b-648f-4afc-8ba2-0bd24f3affa3
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Ionizing radiation, human health (IRP)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b5c632be-def3-11e6-bf01-fe55135034f3
+      refObjectUri: ../lciamethods/b5c632be-def3-11e6-bf01-fe55135034f3
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA1
+        value: '8.48647720672908'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA2
+        value: '0.911985320558599'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA3
+        value: '0.061079743161679'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA1A3
+        value: '9.45954227044936'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC1
+        value: '0.6078000663'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC2
+        value: '0.8100996737625'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC3
+        value: '0.882944803125'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleC4
+        value: '0.3476182347'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_moduleD
+        value: '-1.4177313117'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: kBq U235 eq.
+          type: unit group data set
+          refObjectId: 456b05bf-1415-44a9-9993-02452f554c09
+          refObjectUri: ../unitgroups/456b05bf-1415-44a9-9993-02452f554c09
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Eco-toxicity - freshwater (ETP-fw)
+        lang: en
+      type: LCIA method data set
+      refObjectId: ee1082d1-b0f7-43ca-a1f0-21e2a4a74511
+      refObjectUri: ../lciamethods/ee1082d1-b0f7-43ca-a1f0-21e2a4a74511
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA1
+        value: '59.5163242718722'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA2
+        value: '36.3346169881353'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA3
+        value: '0.217823038747353'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA1A3
+        value: '96.0687642987548'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC1
+        value: '1.761407471768'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC2
+        value: '24.779989087425'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC3
+        value: '1.724168419875'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleC4
+        value: '1.419781623975'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_moduleD
+        value: '-7.3310418819'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: CTUe
+          type: unit group data set
+          refObjectId: aa959ded-f1eb-4efb-9c5c-2d60be36b3e6
+          refObjectUri: ../unitgroups/aa959ded-f1eb-4efb-9c5c-2d60be36b3e6
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Human toxicity, cancer effect (HTP-c)
+        lang: en
+      type: LCIA method data set
+      refObjectId: 2299222a-bbd8-474f-9d4f-4dd1f18aea7c
+      refObjectUri: ../lciamethods/2299222a-bbd8-474f-9d4f-4dd1f18aea7c
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA1
+        value: '0.00000110542814837069'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA2
+        value: '0.0000000707500481919358'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA3
+        value: '0.0000000065747883705192'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA1A3
+        value: '0.00000118275298493315'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC1
+        value: '0.0000000636147274'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC2
+        value: '0.000000107569264275'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC3
+        value: '0.0000000684641793825'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleC4
+        value: '0.0000000236485386225'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_moduleD
+        value: '-0.0000003617646152175'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: CTUh
+          type: unit group data set
+          refObjectId: d4c9523e-2d7e-49fd-8469-998f547d3a70
+          refObjectUri: ../unitgroups/d4c9523e-2d7e-49fd-8469-998f547d3a70
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Human toxicity, non-cancer effects (HTP-nc)
+        lang: en
+      type: LCIA method data set
+      refObjectId: 3af763a5-b7a1-48c9-9cee-1f223481fcef
+      refObjectUri: ../lciamethods/3af763a5-b7a1-48c9-9cee-1f223481fcef
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA1
+        value: '0.0000254874088773767'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA2
+        value: '0.00000195963195087809'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA3
+        value: '0.000000041754963365738'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA1A3
+        value: '0.0000274887957916206'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC1
+        value: '0.000000245889007'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC2
+        value: '0.000001484076812625'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC3
+        value: '0.000000315235332225'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleC4
+        value: '0.000000151375096125'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_moduleD
+        value: '-0.000002154512198025'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: CTUh
+          type: unit group data set
+          refObjectId: d4c9523e-2d7e-49fd-8469-998f547d3a70
+          refObjectUri: ../unitgroups/d4c9523e-2d7e-49fd-8469-998f547d3a70
+  - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20
+    referenceToLCIAMethodDataSet:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_referenceToLCIAMethodDataSet
+      shortDescription:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_referenceToLCIAMethodDataSet_shortDescription_01
+        value: Land use related impacts/Soil quality (SQP)
+        lang: en
+      type: LCIA method data set
+      refObjectId: b2ad6890-c78d-11e6-9d9d-cec0c932ce01
+      refObjectUri: ../lciamethods/b2ad6890-c78d-11e6-9d9d-cec0c932ce01
+    meanAmount: 0.0
+    otherLCIA:
+      id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA
+      anies:
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA1
+        value: '451.173102518825'
+        module: A1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA2
+        value: '303.726333527981'
+        module: A2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA3
+        value: '6.59449160032232'
+        module: A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA1A3
+        value: '761.493927647128'
+        module: A1-A3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA4
+        value: ND
+        module: A4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleA5
+        value: ND
+        module: A5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB1
+        value: '0'
+        module: B1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB2
+        value: '0'
+        module: B2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB3
+        value: '0'
+        module: B3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB4
+        value: '0'
+        module: B4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB5
+        value: '0'
+        module: B5
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB6
+        value: '0'
+        module: B6
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleB7
+        value: '0'
+        module: B7
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC1
+        value: '7.711374057324'
+        module: C1
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC2
+        value: '230.250706573388'
+        module: C2
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC3
+        value: '67.233560008725'
+        module: C3
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleC4
+        value: '140.27346146385'
+        module: C4
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_moduleD
+        value: '-227.390503014675'
+        module: D
+      - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_19
+        name: referenceToUnitGroupDataSet
+        objectValue:
+          id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_19_objectValue
+          shortDescription:
+          - id: ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_anies_19_objectValue_shortDescription_01
+            value: dimensionless
+          type: unit group data set
+          refObjectId: f130951c-e67f-4f7f-8dd4-665de3974e18
+          refObjectUri: ../unitgroups/f130951c-e67f-4f7f-8dd4-665de3974e18
