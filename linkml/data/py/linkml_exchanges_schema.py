@@ -1,5 +1,5 @@
 # Auto generated from linkml_exchanges_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-30T10:07:39
+# Generation date: 2025-03-30T12:18:39
 # Schema: ILCDexchanges
 #
 # id: https://example.org/ILCDexchanges
@@ -125,7 +125,7 @@ class Exchanges(YAMLRoot):
 @dataclass(repr=False)
 class ExchangeEntry(YAMLRoot):
     """
-    A single exchange entry with flow data, amounts, and properties.
+    A single exchange entry.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -226,7 +226,7 @@ class ExchangeEntry(YAMLRoot):
 @dataclass(repr=False)
 class FlowPropertyEntry(YAMLRoot):
     """
-    One flow property with name, uuid, referenceFlowProperty, meanValue, referenceUnit, unitGroupUUID.
+    One flow property.
     """
     _inherited_slots: ClassVar[List[str]] = []
 

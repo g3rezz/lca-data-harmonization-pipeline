@@ -1,5 +1,5 @@
 # Auto generated from linkml_lciaResults_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-30T10:07:39
+# Generation date: 2025-03-30T12:18:40
 # Schema: ILCDlciaResults
 #
 # id: https://example.org/ILCDlciaResults
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, OtherContentId, UUIDType
+from . linkml_shared_definitions import GlobalReferenceType, GlobalReferenceTypeId, OtherContent, OtherContentId
 from linkml_runtime.linkml_model.types import Float, String
 
 metamodel_version = "1.7.0"
@@ -80,10 +80,6 @@ class LCIAResultsId(extended_str):
 
 
 class LCIAResultEntryId(extended_str):
-    pass
-
-
-class ReferenceToLCIAMethodDataSetEntryId(GlobalReferenceTypeId):
     pass
 
 
@@ -126,7 +122,7 @@ class LCIAResultEntry(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ILCDLCIA.LCIAResultEntry
 
     id: Union[str, LCIAResultEntryId] = None
-    referenceToLCIAMethodDataSet: Optional[Union[dict, "ReferenceToLCIAMethodDataSetEntry"]] = None
+    referenceToLCIAMethodDataSet: Optional[Union[dict, GlobalReferenceType]] = None
     meanAmount: Optional[float] = None
     uncertaintyDistributionType: Optional[str] = None
     otherLCIA: Optional[Union[dict, OtherContent]] = None
@@ -137,8 +133,8 @@ class LCIAResultEntry(YAMLRoot):
         if not isinstance(self.id, LCIAResultEntryId):
             self.id = LCIAResultEntryId(self.id)
 
-        if self.referenceToLCIAMethodDataSet is not None and not isinstance(self.referenceToLCIAMethodDataSet, ReferenceToLCIAMethodDataSetEntry):
-            self.referenceToLCIAMethodDataSet = ReferenceToLCIAMethodDataSetEntry(**as_dict(self.referenceToLCIAMethodDataSet))
+        if self.referenceToLCIAMethodDataSet is not None and not isinstance(self.referenceToLCIAMethodDataSet, GlobalReferenceType):
+            self.referenceToLCIAMethodDataSet = GlobalReferenceType(**as_dict(self.referenceToLCIAMethodDataSet))
 
         if self.meanAmount is not None and not isinstance(self.meanAmount, float):
             self.meanAmount = float(self.meanAmount)
@@ -148,29 +144,6 @@ class LCIAResultEntry(YAMLRoot):
 
         if self.otherLCIA is not None and not isinstance(self.otherLCIA, OtherContent):
             self.otherLCIA = OtherContent(**as_dict(self.otherLCIA))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class ReferenceToLCIAMethodDataSetEntry(GlobalReferenceType):
-    """
-    Local sub-class for referenceToLCIAMethodDataSet, inheriting from GlobalReferenceType
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDLCIA["ReferenceToLCIAMethodDataSetEntry"]
-    class_class_curie: ClassVar[str] = "ILCDlcia:ReferenceToLCIAMethodDataSetEntry"
-    class_name: ClassVar[str] = "referenceToLCIAMethodDataSetEntry"
-    class_model_uri: ClassVar[URIRef] = ILCDLCIA.ReferenceToLCIAMethodDataSetEntry
-
-    id: Union[str, ReferenceToLCIAMethodDataSetEntryId] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ReferenceToLCIAMethodDataSetEntryId):
-            self.id = ReferenceToLCIAMethodDataSetEntryId(self.id)
 
         super().__post_init__(**kwargs)
 
@@ -186,7 +159,7 @@ slots.LCIAResult = Slot(uri=ILCDLCIA.LCIAResult, name="LCIAResult", curie=ILCDLC
                    model_uri=ILCDLCIA.LCIAResult, domain=None, range=Optional[Union[Dict[Union[str, LCIAResultEntryId], Union[dict, LCIAResultEntry]], List[Union[dict, LCIAResultEntry]]]])
 
 slots.referenceToLCIAMethodDataSet = Slot(uri=ILCDLCIA.referenceToLCIAMethodDataSet, name="referenceToLCIAMethodDataSet", curie=ILCDLCIA.curie('referenceToLCIAMethodDataSet'),
-                   model_uri=ILCDLCIA.referenceToLCIAMethodDataSet, domain=None, range=Optional[Union[dict, ReferenceToLCIAMethodDataSetEntry]])
+                   model_uri=ILCDLCIA.referenceToLCIAMethodDataSet, domain=None, range=Optional[Union[dict, GlobalReferenceType]])
 
 slots.otherLCIA = Slot(uri=ILCDLCIA.otherLCIA, name="otherLCIA", curie=ILCDLCIA.curie('otherLCIA'),
                    model_uri=ILCDLCIA.otherLCIA, domain=None, range=Optional[Union[dict, OtherContent]])

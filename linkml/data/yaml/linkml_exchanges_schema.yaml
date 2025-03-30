@@ -14,14 +14,13 @@ default_prefix: ILCDex
 ########################################
 classes:
   Exchanges:
-    description: "Top-level container for the 'exchanges' section."
+    description: Top-level container for the 'exchanges' section.
     slots:
       - id
       - exchange
 
-  # Each item in 'exchange' array
   ExchangeEntry:
-    description: "A single exchange entry with flow data, amounts, and properties."
+    description: A single exchange entry.
     slots:
       - id
       - dataSetInternalID
@@ -45,9 +44,8 @@ classes:
       - otherEx # second exchange has 'other' with anies
       - classificationEx # for 'classification' { classHierarchy, name }
 
-  # For arrays in 'flowProperties'
   FlowPropertyEntry:
-    description: "One flow property with name, uuid, referenceFlowProperty, meanValue, referenceUnit, unitGroupUUID."
+    description: One flow property.
     slots:
       - id
       - nameFP
@@ -58,14 +56,14 @@ classes:
       - unitGroupUUID
 
   ExchangeClassification:
-    description: "Simple object for classification with 'classHierarchy' and 'name'."
+    description: Simple object for classification with 'classHierarchy' and 'name'.
     slots:
       - id
       - classHierarchy
       - nameClass
 
   MaterialPropEntry:
-    description: "Material property list with name, value, unit, unitDescription."
+    description: Material property list with name, value, unit, unitDescription.
     slots:
       - id
       - name
@@ -82,21 +80,33 @@ slots:
     range: ExchangeEntry
     multivalued: true
     inlined_as_list: true
-    description: "List of ExchangeEntry objects."
+    recommended: true
+    description: >
+      Input/Output list of exchanges with the quantitative inventory data 
+      as well as pre-calculated LCIA results.
+      Represented in the YAML schema as a list of ExchangeEntry objects.
 
   # --- ExchangeEntry
   dataSetInternalID:
     range: integer
-    description: "Integer ID for the dataset within the exchange."
+    recommended: true
+    description: >
+      Automated entry: internal ID, used in the "Quantitative reference" 
+      section to identify the "Reference flow(s)" in case the quantitative 
+      reference of this Process data set is of this type.
 
   referenceToFlowDataSet:
     range: GlobalReferenceType
     inlined: true
-    description: "Reference to flow dataset with shortDescription, type, refObjectId, version."
+    recommended: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+    description: >
+      "Flow data set" of this Input or Output.
 
   referenceFlow:
     range: boolean
-    description: "If true, indicates this is a reference flow."
+    description: If true, indicates this is a reference flow.
 
   referencesToDataSource:
     range: GlobalReferenceType
@@ -113,7 +123,7 @@ slots:
 
   resultingAmount:
     range: float
-    description: "Resulting amount of the flow."
+    description: Resulting amount of the flow.
 
   minimumAmount:
     range: float
@@ -161,83 +171,83 @@ slots:
 
   resultingflowAmount:
     range: float
-    description: "Resulting flow amount."
+    description: Resulting flow amount.
 
   flowProperties:
     range: FlowPropertyEntry
     multivalued: true
     inlined_as_list: true
-    description: "Array of flow properties."
+    description: Array of flow properties.
 
   materialProperties:
     range: MaterialPropEntry
     multivalued: true
     inlined_as_list: true
-    description: "Array of material properties."
+    description: Array of material properties.
 
   resolvedFlowVersion:
     range: string
-    description: "Version of the resolved flow."
+    description: Version of the resolved flow.
 
   typeOfFlow:
     range: string
-    description: "String identifying the type of flow (e.g., 'Product flow', 'Other flow')."
+    description: String identifying the type of flow (e.g., 'Product flow', 'Other flow').
 
   exchangeDirection:
     range: string
-    description: "Renamed from 'exchange direction'; indicates flow direction (INPUT/OUTPUT)."
+    description: Renamed from 'exchange direction'; indicates flow direction (INPUT/OUTPUT).
 
   otherEx:
     range: OtherContent
     inlined: true
-    description: "Equivalent to 'other' in JSON, storing anies with modules or references."
+    description: Equivalent to 'other' in JSON, storing anies with modules or references.
 
   classificationEx:
     range: ExchangeClassification
     inlined: true
-    description: "Flow classification object with classHierarchy and name."
+    description: Flow classification object with classHierarchy and name.
 
   # --- FlowPropertyEntry
   uuidFP:
     range: UUIDType
-    description: "UUID for the flow property."
+    description: UUID for the flow property.
 
   referenceFlowProperty:
     range: boolean
-    description: "Indicates if this property is the reference flow property."
+    description: Indicates if this property is the reference flow property.
 
   meanValue:
     range: float
-    description: "Mean numeric value of the flow property."
+    description: Mean numeric value of the flow property.
 
   referenceUnit:
     range: string
-    description: "Units (e.g., 'm3')."
+    description: Units (e.g., 'm3').
 
   unitGroupUUID:
     range: UUIDType
-    description: "UUID referencing the unit group."
+    description: UUID referencing the unit group.
 
   # --- ExchangeClassification
   classHierarchy:
     range: string
-    description: "Classification hierarchy string (e.g., 'Quantities')."
+    description: Classification hierarchy string (e.g., 'Quantities').
 
   nameClass:
     range: string
-    description: "Classification system name (e.g., 'GaBiCategories')."
+    description: Classification system name (e.g., 'GaBiCategories').
 
   nameFP:
     range: MultiLangString
     multivalued: true
     inlined_as_list: true
-    description: "Name of the flow property"
+    description: Name of the flow property
 
   # -- Material Properties
   unit:
     range: string
-    description: "Descriptive name of the unit."
+    description: Descriptive name of the unit.
 
   unitDescription:
     range: string
-    description: "Extra description for the unit."
+    description: Extra description for the unit.
