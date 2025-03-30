@@ -1,5 +1,5 @@
 # Auto generated from linkml_shared_definitions.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-30T10:07:40
+# Generation date: 2025-03-30T12:18:41
 # Schema: SharedDefinitions
 #
 # id: https://example.org/SharedDefinitions
@@ -129,7 +129,8 @@ class MultiLangStringId(extended_str):
 @dataclass(repr=False)
 class GlobalReferenceType(YAMLRoot):
     """
-    Master reference pattern with optional shortDesc, type, refObjectId, version, refObjectUri.
+    Represents a reference to another dataset or file. Either refObjectId and version, or refObjectUri, or both have
+    to be specified.
     """
     _inherited_slots: ClassVar[List[str]] = []
 

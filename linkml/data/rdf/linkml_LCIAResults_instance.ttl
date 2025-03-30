@@ -136,7 +136,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-15.07571924265" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "5f635281-343e-44fb-83df-1971b155e6b6"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/5f635281-343e-44fb-83df-1971b155e6b6" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_01_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -257,7 +257,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.0608760580725" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "2356e1ab-0185-4db5-86e5-16de51c7485c"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/2356e1ab-0185-4db5-86e5-16de51c7485c" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_02_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -378,7 +378,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.0264141400545" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "4331bbdb-978a-490d-8707-eeb047f01a55"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/4331bbdb-978a-490d-8707-eeb047f01a55" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_03_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -499,7 +499,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-15.163009599375" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "6a37f984-a4b3-458a-a20a-64418c145fa2"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/6a37f984-a4b3-458a-a20a-64418c145fa2" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_04_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -620,7 +620,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.000001032118116975" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b5c629d6-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b5c629d6-def3-11e6-bf01-fe55135034f3" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_05_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -741,7 +741,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.10715991066" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b5c611c6-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b5c611c6-def3-11e6-bf01-fe55135034f3" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_06_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -862,7 +862,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.00633657899701869" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b53ec18f-7377-4ad3-86eb-cc3f4f276b2b"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b53ec18f-7377-4ad3-86eb-cc3f4f276b2b" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_07_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -983,7 +983,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.000410524975575" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b5c619fa-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b5c619fa-def3-11e6-bf01-fe55135034f3" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_08_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -1104,7 +1104,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.2673040429125" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b5c614d2-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b5c614d2-def3-11e6-bf01-fe55135034f3" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_09_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -1225,7 +1225,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.06767852454" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b5c610fe-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b5c610fe-def3-11e6-bf01-fe55135034f3" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_10_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -1346,7 +1346,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.0001727644888035" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b2ad6494-c78d-11e6-9d9d-cec0c932ce01"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b2ad6494-c78d-11e6-9d9d-cec0c932ce01" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_11_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -1467,7 +1467,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-173.534940045225" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b2ad6110-c78d-11e6-9d9d-cec0c932ce01"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b2ad6110-c78d-11e6-9d9d-cec0c932ce01" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_12_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -1588,7 +1588,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-29.3875512183" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b2ad66ce-c78d-11e6-9d9d-cec0c932ce01"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b2ad66ce-c78d-11e6-9d9d-cec0c932ce01" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_13_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -1709,7 +1709,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-15.163009599375" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "fb774615-0575-45de-9a89-1ded92f19770"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/fb774615-0575-45de-9a89-1ded92f19770" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_14_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -1830,7 +1830,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.000001257763421475" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b5c602c6-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b5c602c6-def3-11e6-bf01-fe55135034f3" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_15_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -1951,7 +1951,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-1.4177313117" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b5c632be-def3-11e6-bf01-fe55135034f3"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b5c632be-def3-11e6-bf01-fe55135034f3" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_16_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -2072,7 +2072,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-7.3310418819" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "ee1082d1-b0f7-43ca-a1f0-21e2a4a74511"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/ee1082d1-b0f7-43ca-a1f0-21e2a4a74511" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_17_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -2193,7 +2193,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.0000003617646152175" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "2299222a-bbd8-474f-9d4f-4dd1f18aea7c"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/2299222a-bbd8-474f-9d4f-4dd1f18aea7c" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_18_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -2314,7 +2314,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-0.000002154512198025" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "3af763a5-b7a1-48c9-9cee-1f223481fcef"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/3af763a5-b7a1-48c9-9cee-1f223481fcef" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_19_referenceToLCIAMethodDataSet_shortDescription_01 ;
@@ -2435,7 +2435,7 @@ ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_otherLCIA_an
     ns1:module "D" ;
     ns1:value "-227.390503014675" .
 
-ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_referenceToLCIAMethodDataSet a ILCDlcia:ReferenceToLCIAMethodDataSetEntry ;
+ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_referenceToLCIAMethodDataSet a ns1:GlobalReferenceType ;
     ns1:refObjectId "b2ad6890-c78d-11e6-9d9d-cec0c932ce01"^^linkml:UUIDType ;
     ns1:refObjectUri "../lciamethods/b2ad6890-c78d-11e6-9d9d-cec0c932ce01" ;
     ns1:shortDescription ILCDlcia:63a79af11ab0467745a808dc6fc9d4ca_lciaResults_LCIAResult_20_referenceToLCIAMethodDataSet_shortDescription_01 ;

@@ -41,7 +41,8 @@ types:
 classes:
   GlobalReferenceType:
     description: >
-      Master reference pattern with optional shortDesc, type, refObjectId, version, refObjectUri.
+      Represents a reference to another dataset or file. Either refObjectId 
+      and version, or refObjectUri, or both have to be specified.
     slots:
       - id
       - shortDescription

@@ -391,7 +391,6 @@ slots:
     - MaterialPropEntry
     - LCIAResults
     - LCIAResultEntry
-    - referenceToLCIAMethodDataSetEntry
     range: string
     required: true
   shortDescription:
@@ -1821,32 +1820,41 @@ slots:
     range: string
   LCIAResult:
     name: LCIAResult
-    description: List of LCIAResultEntry objects.
+    description: 'Single LCIA result represented as a list of LCIAResultEntry objects.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - LCIAResults
     range: LCIAResultEntry
+    required: false
     multivalued: true
     inlined: true
     inlined_as_list: true
   referenceToLCIAMethodDataSet:
     name: referenceToLCIAMethodDataSet
-    description: Reference to the LCIA method data set (includes shortDescription,
-      type, refObjectId, version, uri).
+    description: '"LCIA method data set" applied to calculate the LCIA results.
+
+      '
     from_schema: https://example.org/ilcd
     domain_of:
     - LCIAResultEntry
-    range: referenceToLCIAMethodDataSetEntry
+    range: GlobalReferenceType
+    required: false
     inlined: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
   otherLCIA:
     name: otherLCIA
-    description: Renamed from 'other' in JSON. Holds an 'anies' array with modules
-      and possibly referenceToUnitGroupDataSet.
+    description: May contain arbitrary content.
     from_schema: https://example.org/ilcd
     domain_of:
     - LCIAResultEntry
     range: OtherContent
+    required: false
     inlined: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
 classes:
   ProcessDataSet:
     name: ProcessDataSet
@@ -1927,7 +1935,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       processInformation:
@@ -2006,8 +2013,8 @@ classes:
         range: string
   GlobalReferenceType:
     name: GlobalReferenceType
-    description: 'Master reference pattern with optional shortDesc, type, refObjectId,
-      version, refObjectUri.
+    description: 'Represents a reference to another dataset or file. Either refObjectId  and
+      version, or refObjectUri, or both have to be specified.
 
       '
     from_schema: https://example.org/ilcd
@@ -2069,7 +2076,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       shortDescription:
@@ -2082,7 +2088,6 @@ classes:
         - GlobalReferenceType
         range: MultiLangString
         multivalued: true
-        inlined: true
         inlined_as_list: true
       type:
         name: type
@@ -2183,7 +2188,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       anies:
@@ -2266,7 +2270,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       name:
@@ -2426,7 +2429,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       description:
@@ -2523,7 +2525,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       value:
@@ -2610,7 +2611,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       dataSetInformation:
@@ -2725,7 +2725,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       UUID:
@@ -2882,7 +2881,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       baseName:
@@ -2977,7 +2975,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       classification:
@@ -3050,7 +3047,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       name:
@@ -3137,7 +3133,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       value:
@@ -3230,7 +3225,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       referenceToReferenceFlow:
@@ -3317,7 +3311,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       referenceYear:
@@ -3417,7 +3410,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       locationOfOperationSupplyOrProduction:
@@ -3489,7 +3481,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       descriptionOfRestrictions:
@@ -3573,7 +3564,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       technologyDescriptionAndIncludedProcesses:
@@ -3689,7 +3679,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       LCIMethodAndAllocation:
@@ -3826,7 +3815,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       typeOfDataSet:
@@ -3927,7 +3915,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       referenceToDataSource:
@@ -4033,7 +4020,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       review:
@@ -4109,7 +4095,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       reviewDetails:
@@ -4242,7 +4227,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       compliance:
@@ -4322,7 +4306,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       referenceToComplianceSystem:
@@ -4492,7 +4475,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       aniesDSTAR:
@@ -4565,7 +4547,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       name:
@@ -4656,7 +4637,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       shortDescriptionExtended:
@@ -4792,7 +4772,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       value:
@@ -4891,7 +4870,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       versionInt:
@@ -5006,7 +4984,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       uuidValue:
@@ -5079,7 +5056,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       commissionerAndGoal:
@@ -5202,7 +5178,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       referenceToCommissioner:
@@ -5281,7 +5256,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       referenceToPersonOrEntityGeneratingTheDataSet:
@@ -5360,7 +5334,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       timeStamp:
@@ -5481,7 +5454,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       dataSetVersion:
@@ -5693,7 +5665,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       exchange:
@@ -5784,7 +5755,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       dataSetInternalID:
@@ -6081,7 +6051,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       nameFP:
@@ -6199,7 +6168,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       classHierarchy:
@@ -6281,7 +6249,6 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       name:
@@ -6386,18 +6353,21 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       LCIAResult:
         name: LCIAResult
-        description: List of LCIAResultEntry objects.
+        description: 'Single LCIA result represented as a list of LCIAResultEntry
+          objects.
+
+          '
         from_schema: https://example.org/ilcd
         alias: LCIAResult
         owner: LCIAResults
         domain_of:
         - LCIAResults
         range: LCIAResultEntry
+        required: false
         multivalued: true
         inlined_as_list: true
   LCIAResultEntry:
@@ -6461,20 +6431,23 @@ classes:
         - MaterialPropEntry
         - LCIAResults
         - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
         range: string
         required: true
       referenceToLCIAMethodDataSet:
         name: referenceToLCIAMethodDataSet
-        description: Reference to the LCIA method data set (includes shortDescription,
-          type, refObjectId, version, uri).
+        description: '"LCIA method data set" applied to calculate the LCIA results.
+
+          '
         from_schema: https://example.org/ilcd
         alias: referenceToLCIAMethodDataSet
         owner: LCIAResultEntry
         domain_of:
         - LCIAResultEntry
-        range: referenceToLCIAMethodDataSetEntry
+        range: GlobalReferenceType
+        required: false
         inlined: true
+        minimum_cardinality: 1
+        maximum_cardinality: 1
       meanAmount:
         name: meanAmount
         description: Mean numeric value for the exchange and LCIA indicator.
@@ -6502,127 +6475,15 @@ classes:
         required: false
       otherLCIA:
         name: otherLCIA
-        description: Renamed from 'other' in JSON. Holds an 'anies' array with modules
-          and possibly referenceToUnitGroupDataSet.
+        description: May contain arbitrary content.
         from_schema: https://example.org/ilcd
         alias: otherLCIA
         owner: LCIAResultEntry
         domain_of:
         - LCIAResultEntry
         range: OtherContent
+        required: false
         inlined: true
-  referenceToLCIAMethodDataSetEntry:
-    name: referenceToLCIAMethodDataSetEntry
-    description: Local sub-class for referenceToLCIAMethodDataSet, inheriting from
-      GlobalReferenceType
-    from_schema: https://example.org/ilcd
-    is_a: GlobalReferenceType
-    slots:
-    - id
-    attributes:
-      id:
-        name: id
-        description: Unique ID for building URIs, e.g. 'ex:admininfo/123'.
-        from_schema: https://example.org/ilcd
-        identifier: true
-        alias: id
-        owner: referenceToLCIAMethodDataSetEntry
-        domain_of:
-        - ProcessDataSet
-        - GlobalReferenceType
-        - OtherContent
-        - AniesType
-        - Scenario
-        - MultiLangString
-        - ProcessInformation
-        - DataSetInformation
-        - DataSetName
-        - ClassificationInformation
-        - Classification
-        - ClassificationEntry
-        - QuantitativeReference
-        - TimeInformation
-        - GeographyInformation
-        - LocationInfo
-        - TechnologyInformation
-        - ModellingAndValidation
-        - LCIMethodAndAllocationEntry
-        - DataSourcesTreatmentAndRepresentativeness
-        - ValidationInfo
-        - ReviewEntry
-        - ComplianceDeclarations
-        - ComplianceEntry
-        - DSTAROtherRoot
-        - DSTAREntry
-        - DSTARReference
-        - ExtendedMultiLangString
-        - VersionDict
-        - UUIDDict
-        - AdministrativeInformation
-        - CommissionerAndGoal
-        - DataGenerator
-        - DataEntryBy
-        - PublicationAndOwnership
-        - Exchanges
-        - ExchangeEntry
-        - FlowPropertyEntry
-        - ExchangeClassification
-        - MaterialPropEntry
-        - LCIAResults
-        - LCIAResultEntry
-        - referenceToLCIAMethodDataSetEntry
-        range: string
-        required: true
-      shortDescription:
-        name: shortDescription
-        description: Short description as multi-lang list.
-        from_schema: https://example.org/ilcd
-        alias: shortDescription
-        owner: referenceToLCIAMethodDataSetEntry
-        domain_of:
-        - GlobalReferenceType
-        range: MultiLangString
-        multivalued: true
-        inlined_as_list: true
-      type:
-        name: type
-        description: Type indicator.
-        from_schema: https://example.org/ilcd
-        alias: type
-        owner: referenceToLCIAMethodDataSetEntry
-        domain_of:
-        - GlobalReferenceType
-        - QuantitativeReference
-        - ReviewEntry
-        - DSTARReference
-        range: string
-      refObjectId:
-        name: refObjectId
-        description: Reference object ID.
-        from_schema: https://example.org/ilcd
-        alias: refObjectId
-        owner: referenceToLCIAMethodDataSetEntry
-        domain_of:
-        - GlobalReferenceType
-        - DSTARReference
-        range: UUIDType
-      version:
-        name: version
-        description: Version string (e.g., '00.00.001').
-        from_schema: https://example.org/ilcd
-        alias: version
-        owner: referenceToLCIAMethodDataSetEntry
-        domain_of:
-        - ProcessDataSet
-        - GlobalReferenceType
-        range: string
-      refObjectUri:
-        name: refObjectUri
-        description: Optional URI for the data set format.
-        from_schema: https://example.org/ilcd
-        alias: refObjectUri
-        owner: referenceToLCIAMethodDataSetEntry
-        domain_of:
-        - GlobalReferenceType
-        range: string
+        minimum_cardinality: 0
+        maximum_cardinality: 1
 source_file: linkml/data/yaml/linkml_processDataSet_schema.yaml

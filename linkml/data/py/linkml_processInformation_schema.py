@@ -1,5 +1,5 @@
 # Auto generated from linkml_processInformation_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-30T10:07:37
+# Generation date: 2025-03-30T12:18:38
 # Schema: ILCDprocessInformation
 #
 # id: https://example.org/ILCDprocessInformation
