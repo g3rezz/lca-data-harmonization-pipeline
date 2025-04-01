@@ -125,13 +125,13 @@ def build_main_query(
         Returns:
         A SPARQL snippet that filters the country variable against the provided list.
         """
-        joined = '","'.join(countries)
+        joined_countries = '","'.join(countries)
         return f"""
     # -- Filter Country
     ?pInfo{suffix} ilcd:geography ?geo{suffix} .
     ?geo{suffix} ilcd:locationOfOperationSupplyOrProduction ?loc{suffix} .
     ?loc{suffix} ilcd:location ?country{suffix} .
-    FILTER(?country{suffix} IN ("{joined}"))
+    FILTER(?country{suffix} IN ("{joined_countries}"))
     """
 
     def build_subtype_filter(suffix: str, subtypes: list) -> str:
@@ -159,62 +159,44 @@ def build_main_query(
 
     def build_str_filter(suffix: str, str_groups: list) -> str:
         """
-        Build a SPARQL FILTER clause for compressive strength filtering.
+        Build a SPARQL FILTER clause for compressive strength filtering, using skos:prefLabel values.
 
         Parameters:
         suffix: Suffix to append to variable names (e.g. "" or "2").
-        str_groups: List of strength group identifiers; " Strength Concrete" is appended to each.
+        str_groups: List of strength group identifiers (e.g. "Low", "Medium", "High"); " Strength Concrete" is appended to each.
 
         Returns:
-        A SPARQL snippet that filters the computed strength group to the provided values.
+        A SPARQL snippet that filters to the provided prefLabels (e.g. "Low Strength Concrete").
         """
-        joined_str_groups = '","'.join([f"{s} Strength Concrete" for s in str_groups])
+
+        joined_strengths = '","'.join(f"{s} Strength Concrete" for s in str_groups)
+
         return f"""
-    # -- Filter Compressive Strength & Grouping
-    ?epd ilcd:exchanges ?exForStrength{suffix} .
-    ?exForStrength{suffix} ilcd:exchange ?exchS{suffix} .
-    ?exchS{suffix} ilcd:materialProperties ?mpS{suffix} .
-    ?mpS{suffix} ilcd:name "compressive strength" ;
-            ilcd:value ?strengthValStr{suffix} .
-    BIND(xsd:float(?strengthValStr{suffix}) AS ?csVal{suffix})
-    BIND(
-        IF(?csVal{suffix} < 25, "Low Strength Concrete",
-        IF(?csVal{suffix} <= 40, "Medium Strength Concrete", "High Strength Concrete")
-        )
-        AS ?strengthGroup{suffix}
-    )
-    FILTER(?strengthGroup{suffix} IN ("{joined_str_groups}"))
+    # -- Filter Strength Classification
+    ?epd cc:hasStrengthClassification ?strengthClass{suffix} .
+    ?strengthClass{suffix} skos:prefLabel ?strengthLabel{suffix} .
+    FILTER(STR(?strengthLabel{suffix}) IN ("{joined_strengths}"))
     """
 
     def build_density_filter(suffix: str, density_groups: list) -> str:
         """
-        Build a SPARQL FILTER clause for bulk density filtering.
+        Build a SPARQL FILTER clause for bulk density filtering, using skos:prefLabel values.
 
         Parameters:
         suffix: Suffix to append to variable names (e.g. "" or "2").
-        density_groups: List of density group identifiers; " Weight Concrete" is appended to each.
+        density_groups: List of density group identifiers (e.g. "Light", "Normal", "Heavy"); " Weight Concrete" is appended to each.
 
         Returns:
-        A SPARQL snippet that filters the computed density group to the provided values.
+        A SPARQL snippet that filters to the provided prefLabels (e.g. "Light Weight Concrete").
         """
-        joined_density_groups = '","'.join(
-            [f"{s} Weight Concrete" for s in density_groups]
-        )
+
+        joined_densities = '","'.join(f"{s} Weight Concrete" for s in density_groups)
+
         return f"""
-    # -- Filter Bulk Density & Grouping
-    ?epd ilcd:exchanges ?exForDensity{suffix} .
-    ?exForDensity{suffix} ilcd:exchange ?exchD{suffix} .
-    ?exchD{suffix} ilcd:materialProperties ?mpD{suffix} .
-    ?mpD{suffix} ilcd:name "gross density" ;
-            ilcd:value ?densityValStr{suffix} .
-    BIND(xsd:float(?densityValStr{suffix}) AS ?bdVal{suffix})
-    BIND(
-        IF(?bdVal{suffix} < 2000, "Light Weight Concrete",
-        IF(?bdVal{suffix} <= 2600, "Normal Weight Concrete", "Heavy Weight Concrete")
-        )
-        AS ?densityGroup{suffix}
-    )
-    FILTER(?densityGroup{suffix} IN ("{joined_density_groups}"))
+    # -- Filter Weight Classification
+    ?epd cc:hasWeightClassification ?densityClass{suffix} .
+    ?densityClass{suffix} skos:prefLabel ?densityLabel{suffix} .
+    FILTER(STR(?densityLabel{suffix}) IN ("{joined_densities}"))
     """
 
     def build_din_filter(
@@ -233,12 +215,12 @@ def build_main_query(
         - din_filter_code is the SPARQL snippet filtering the DIN cost groups.
         - din_strict_code is a snippet to enforce a strict count (or empty if strict_din is False).
         """
-        joined = '","'.join(din_groups)
+        joined_groups = '","'.join(din_groups)
         din_filter_code = f"""
     # -- Filter DIN 276 cost groups
     ?epd din:hasDIN276CostGroup ?cg{suffix} .
     ?cg{suffix} skos:notation ?notation{suffix} .
-    FILTER(?notation{suffix} IN ("{joined}"))
+    FILTER(?notation{suffix} IN ("{joined_groups}"))
         """
         din_groups_number = len(din_groups)
         din_strict_code = ""
@@ -354,6 +336,7 @@ def build_main_query(
 PREFIX ilcd: <https://example.org/ilcd/>
 PREFIX obd: <https://example.org/obd/>
 PREFIX din:  <https://example.org/din276/>
+PREFIX cc: <https://example.org/concreteclass/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 
@@ -452,6 +435,7 @@ HAVING (
 PREFIX ilcd: <https://example.org/ilcd/>
 PREFIX obd: <https://example.org/obd/>
 PREFIX din:  <https://example.org/din276/>
+PREFIX cc: <https://example.org/concreteclass/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
 

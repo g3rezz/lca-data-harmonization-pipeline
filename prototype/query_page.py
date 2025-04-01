@@ -262,7 +262,7 @@ with st.sidebar.expander("**Concrete Filters**", expanded=False):
         options=strength_options,
         help="""
     **Concrete Strength:**
-    - **Low**: ≤ 25 _MPa_ (e.g., ≤ C16/20)
+    - **Low**: < 25 _MPa_ (e.g., ≤ C16/20)
     - **Medium**: 25 – 40 _MPa_ (e.g., C20/25 – C30/37)
     - **High**: ≥ 40 _MPa_ (e.g., ≥ C35/45)
         """,
