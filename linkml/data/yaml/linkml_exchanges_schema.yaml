@@ -14,19 +14,26 @@ default_prefix: ILCDex
 ########################################
 classes:
   Exchanges:
-    description: "Top-level container for the 'exchanges' section."
+    description: Top-level container for the 'exchanges' section.
     slots:
       - id
       - exchange
 
-  # Each item in 'exchange' array
   ExchangeEntry:
-    description: "A single exchange entry with flow data, amounts, and properties."
+    description: A single exchange entry.
     slots:
       - id
       - dataSetInternalID
       - referenceToFlowDataSet
       - meanAmount
+      - referencesToDataSource
+      - resultingAmount
+      - minimumAmount
+      - maximumAmount
+      - uncertaintyDistributionType
+      - relativeStandardDeviation95In
+      - dataSourceType
+      - dataDerivationTypeStatus
       - referenceFlow
       - resultingflowAmount
       - flowProperties
@@ -37,20 +44,8 @@ classes:
       - otherEx # second exchange has 'other' with anies
       - classificationEx # for 'classification' { classHierarchy, name }
 
-  # Define a local sub-class to override the shared 'OtherContent'
-  # so that we can override 'anies' to reference a specialized Anies
-  ExchangeOtherContent:
-    description: "Local sub-class that enforces 'module' is required."
-    is_a: OtherContent
-    slots:
-      - id
-    slot_usage:
-      anies:
-        range: AniesNameValueObjectValueModule
-
-  # For arrays in 'flowProperties'
   FlowPropertyEntry:
-    description: "One flow property with name, uuid, referenceFlowProperty, meanValue, referenceUnit, unitGroupUUID."
+    description: One flow property.
     slots:
       - id
       - nameFP
@@ -61,14 +56,14 @@ classes:
       - unitGroupUUID
 
   ExchangeClassification:
-    description: "Simple object for classification with 'classHierarchy' and 'name'."
+    description: Simple object for classification with 'classHierarchy' and 'name'.
     slots:
       - id
       - classHierarchy
       - nameClass
 
   MaterialPropEntry:
-    description: "Material property list with name, value, unit, unitDescription."
+    description: Material property list with name, value, unit, unitDescription.
     slots:
       - id
       - name
@@ -85,101 +80,174 @@ slots:
     range: ExchangeEntry
     multivalued: true
     inlined_as_list: true
-    description: "List of ExchangeEntry objects."
+    recommended: true
+    description: >
+      Input/Output list of exchanges with the quantitative inventory data 
+      as well as pre-calculated LCIA results.
+      Represented in the YAML schema as a list of ExchangeEntry objects.
 
   # --- ExchangeEntry
   dataSetInternalID:
     range: integer
-    description: "Integer ID for the dataset within the exchange."
+    recommended: true
+    description: >
+      Automated entry: internal ID, used in the "Quantitative reference" 
+      section to identify the "Reference flow(s)" in case the quantitative 
+      reference of this Process data set is of this type.
 
   referenceToFlowDataSet:
-    range: ShortDescripTypeRefVersion
+    range: GlobalReferenceType
     inlined: true
-    description: "Reference to flow dataset with shortDescription, type, refObjectId, version."
+    recommended: true
+    minimum_cardinality: 1
+    maximum_cardinality: 1
+    description: >
+      "Flow data set" of this Input or Output.
 
   referenceFlow:
     range: boolean
-    description: "If true, indicates this is a reference flow."
+    description: If true, indicates this is a reference flow.
+
+  referencesToDataSource:
+    range: GlobalReferenceType
+    inlined: true
+    required: false
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Reference to "UUID of source"(s) in the "Source data set" of data 
+      source(s) used for modelling the value of this single LCIA factor 
+      e.g. a specific paper, questionnaire, monography etc. 
+      If, as typical, more than one data source was used, more than 
+      one source can be referenced.
+
+  resultingAmount:
+    range: float
+    description: Resulting amount of the flow.
+
+  minimumAmount:
+    range: float
+    description: The minimum amount of the specified quantity.
+
+  maximumAmount:
+    range: float
+    description: The maximum amount of the specified quantity.
+
+  # Excluded from JSON instance files due to difficulty in modeling for now.
+  relativeStandardDeviation95In: # Defined as Perc for % in ILCD schema HTML files. Recommended in EPD_FlowDataSet.html, sting in JSON instance. Optional in ILCD_LCIAMethodDataSet.html, integer in JSON instance.
+    range: string
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      The resulting overall uncertainty of the calculated variable value 
+      considering uncertainty of measurements, modelling, appropriateness, etc.
+      Notes: For log-normal distribution, the square of the geometric standard 
+      deviation (SDg^2) is stated. Mean value times SDg^2 equals the 97.5% value 
+      (= Maximum value), and mean value divided by SDg^2 equals the 2.5% value 
+      (= Minimum value). For normal distribution, the doubled standard deviation 
+      value (2*SD) is entered. Mean value plus 2*SD equals the 97.5% value 
+      (= Maximum value), and mean value minus 2*SD equals the 2.5% value 
+      (= Minimum value). This data field remains empty when uniform or 
+      triangular uncertainty distribution is applied.
+
+  dataSourceType: # Not present in the ILCD schema HTML files. Available in the ILCD_Common_EnumerationValues.html as DataSourceTypeValues
+    range: string
+    description: >
+      The type of data source used.
+      Example values: "Primary", "> 90% primary", "Mixed primary / secondary",
+      "Secondary"
+
+  dataDerivationTypeStatus: # Has enum
+    range: string
+    recommended: true
+    minimum_cardinality: 0
+    maximum_cardinality: 1
+    description: >
+      Identifies the way by which the Flow property value was derived 
+      (e.g., measured, estimated, etc.), respectively the status and 
+      relevancy of missing data.
+      Example values: "Measured", "Calculated", "Estimated", "Unknown derivation".
 
   resultingflowAmount:
     range: float
-    description: "Resulting flow amount."
+    description: Resulting flow amount.
 
   flowProperties:
     range: FlowPropertyEntry
     multivalued: true
     inlined_as_list: true
-    description: "Array of flow properties."
+    description: Array of flow properties.
 
   materialProperties:
     range: MaterialPropEntry
     multivalued: true
     inlined_as_list: true
-    description: "Array of material properties."
+    description: Array of material properties.
 
   resolvedFlowVersion:
     range: string
-    description: "Version of the resolved flow."
+    description: Version of the resolved flow.
 
   typeOfFlow:
     range: string
-    description: "String identifying the type of flow (e.g., 'Product flow', 'Other flow')."
+    description: String identifying the type of flow (e.g., 'Product flow', 'Other flow').
 
   exchangeDirection:
     range: string
-    description: "Renamed from 'exchange direction'; indicates flow direction (INPUT/OUTPUT)."
+    description: Renamed from 'exchange direction'; indicates flow direction (INPUT/OUTPUT).
 
   otherEx:
-    range: ExchangeOtherContent
+    range: OtherContent
     inlined: true
-    description: "Equivalent to 'other' in JSON, storing anies with modules or references."
+    description: Equivalent to 'other' in JSON, storing anies with modules or references.
 
   classificationEx:
     range: ExchangeClassification
     inlined: true
-    description: "Flow classification object with classHierarchy and name."
+    description: Flow classification object with classHierarchy and name.
 
   # --- FlowPropertyEntry
   uuidFP:
     range: UUIDType
-    description: "UUID for the flow property."
+    description: UUID for the flow property.
 
   referenceFlowProperty:
     range: boolean
-    description: "Indicates if this property is the reference flow property."
+    description: Indicates if this property is the reference flow property.
 
   meanValue:
     range: float
-    description: "Mean numeric value of the flow property."
+    description: Mean numeric value of the flow property.
 
   referenceUnit:
     range: string
-    description: "Units (e.g., 'm3')."
+    description: Units (e.g., 'm3').
 
   unitGroupUUID:
     range: UUIDType
-    description: "UUID referencing the unit group."
+    description: UUID referencing the unit group.
 
   # --- ExchangeClassification
   classHierarchy:
     range: string
-    description: "Classification hierarchy string (e.g., 'Quantities')."
+    description: Classification hierarchy string (e.g., 'Quantities').
 
   nameClass:
     range: string
-    description: "Classification system name (e.g., 'GaBiCategories')."
+    description: Classification system name (e.g., 'GaBiCategories').
 
   nameFP:
     range: MultiLangString
     multivalued: true
     inlined_as_list: true
-    description: "Name of the flow property"
+    description: Name of the flow property
 
   # -- Material Properties
   unit:
     range: string
-    description: "Descriptive name of the unit."
+    description: Descriptive name of the unit.
 
   unitDescription:
     range: string
-    description: "Extra description for the unit."
+    description: Extra description for the unit.

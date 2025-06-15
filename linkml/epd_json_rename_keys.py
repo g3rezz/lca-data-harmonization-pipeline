@@ -1,6 +1,46 @@
 import json
 
 
+def recursive_rename_uri(obj):
+    """
+    Recursively rename any key 'uri' to 'refObjectUri' in the given object.
+    """
+    if isinstance(obj, dict):
+        new_obj = {}
+        for key, value in obj.items():
+            new_key = "refObjectUri" if key == "uri" else key
+            new_obj[new_key] = recursive_rename_uri(value)
+        return new_obj
+    elif isinstance(obj, list):
+        return [recursive_rename_uri(item) for item in obj]
+    else:
+        return obj
+
+
+def remove_raw_strings_in_anies(obj):
+    """
+    Recursively traverse the object and remove any raw string elements found in lists
+    that are assigned to an 'anies' key.
+    """
+    if isinstance(obj, dict):
+        new_obj = {}
+        for key, value in obj.items():
+            if key == "anies" and isinstance(value, list):
+                # Filter out raw string elements and recursively process each remaining item.
+                new_obj[key] = [
+                    remove_raw_strings_in_anies(item)
+                    for item in value
+                    if not isinstance(item, str)
+                ]
+            else:
+                new_obj[key] = remove_raw_strings_in_anies(value)
+        return new_obj
+    elif isinstance(obj, list):
+        return [remove_raw_strings_in_anies(item) for item in obj]
+    else:
+        return obj
+
+
 def transform_json(data):
     """
     Transform an Environmental Product Declaration (EPD) JSON instance file by renaming keys
@@ -8,8 +48,15 @@ def transform_json(data):
 
     Detailed transformations include:
 
+    - Global Transformation:
+      - Rename every occurrence of the key "uri" to "refObjectUri" wherever that key is present.
+      - Remove any raw string elements from lists under any key named "anies" in the entire JSON.
+
     - processInformation:
       - Rename "dataSetInformation.name" to "dataSetName".
+      - Rename "dataSetInformation.other" to "otherDSI".
+        - If any item in "otherDSI.anies" contains the key "componentsAndMaterialsAndSubstances",
+          remove the entire "anies" key.
       - For each classification in "dataSetInformation.classificationInformation.classification",
         rename "class" to "classEntries".
       - Rename "time" to "timeInformation", then:
@@ -22,38 +69,41 @@ def transform_json(data):
         - Rename "other" to "otherDSTAR".
         - Rename the inner "anies" list to "aniesDSTAR".
         - For each item in "aniesDSTAR":
-          - Rename "value" to "valueDSTAR".
-          - Within "valueDSTAR", rename "shortDescription" to "shortDescriptionExtended".
-          - In "version", rename "version" to "versionInt" and reassign to "versionDict".
-          - In "uuid", rename "uuid" to "uuidValue" and reassign to "uuidDict".
+          - If the "value" holds an object (dict), rename "value" to "valueDSTAR" and update its subkeys:
+            - Rename "shortDescription" to "shortDescriptionExtended".
+            - In "version", rename "version" to "versionInt" and reassign to "versionDict".
+            - In "uuid", rename "uuid" to "uuidValue" and reassign to "uuidDict".
       - Rename "validation" to "validationInfo".
       - Rename "other" to "otherMAV" and for each item in its "anies":
-        - If the "value" is a dictionary and contains "uri", rename it to "refObjectUri".
-        - Rename "value" to "objectValue".
+          - If the "value" holds an object (dict), rename "value" to "objectValue".
 
     - administrativeInformation:
-      - In each item of "dataEntryBy.referenceToDataSetFormat", if "uri" exists,
-        rename it to "refObjectUri".
+      - In each item of "dataEntryBy.referenceToDataSetFormat", keys (like "uri") will be renamed globally.
+      - In "publicationAndOwnership":
+        - Rename "other" to "otherPAO".
+        - For each item in "otherPAO.anies":
+          - If the "value" holds an object (dict), rename "value" to "objectValue".
+      - (Other keys such as "referenceToPersonOrEntityEnteringTheData",
+         "referenceToRegistrationAuthority", and "referenceToOwnershipOfDataSet" will have their "uri" keys
+         renamed globally.)
 
     - exchanges:
       - For each exchange in "exchanges.exchange":
         - For each item in "flowProperties", rename "name" to "nameFP" and "uuid" to "uuidFP".
         - Rename "exchange direction" to "exchangeDirection".
-        - Rename "other" to "otherEx" and for each item in its "anies":
-          - If the "value" is a dictionary and contains "uri", rename it to "refObjectUri".
-          - Rename "value" to "objectValue".
-        - Rename "classification" to "classificationEx", and within it,
-          rename "name" to "nameClass".
+        - Rename "other" to "otherEx" and update inner keys for each item in "anies":
+          - If the "value" holds an object (dict), rename "value" to "objectValue".
+        - Rename "classification" to "classificationEx" and within it, rename "name" to "nameClass".
 
     - LCIAResults:
       - Rename the top-level key "LCIAResults" to "lciaResults".
       - For each result in "lciaResults.LCIAResult":
-        - Rename "other" to "otherLCIA" and for each item in its "anies":
-          - If the "value" is a dictionary and contains "uri", rename it to "refObjectUri".
-          - Rename "value" to "objectValue".
-        - In "referenceToLCIAMethodDataSet", if "uri" exists, rename it to "refObjectUri".
+        - Rename "other" to "otherLCIA" and update inner keys for each item in "anies":
+          - If the "value" holds an object (dict), rename "value" to "objectValue".
+        - In "referenceToLCIAMethodDataSet", keys (like "uri") will be renamed globally.
 
-    - Remove the top-level "otherAttributes" key and its contents.
+    - Removal:
+      - Remove the top-level "otherAttributes" key and its contents.
 
     Args:
       data (dict): The original EPD JSON data.
@@ -69,6 +119,19 @@ def transform_json(data):
     if "name" in data_set_info:
         data_set_info["dataSetName"] = data_set_info.pop("name")
 
+    # Rename "other" under dataSetInformation to "otherDSI"
+    if "other" in data_set_info:
+        data_set_info["otherDSI"] = data_set_info.pop("other")
+        # If any item in otherDSI.anies contains "componentsAndMaterialsAndSubstances", remove the entire "anies" key.
+        if "anies" in data_set_info["otherDSI"]:
+            for item in data_set_info["otherDSI"]["anies"]:
+                if (
+                    isinstance(item, dict)
+                    and "componentsAndMaterialsAndSubstances" in item
+                ):
+                    data_set_info["otherDSI"].pop("anies")
+                    break
+
     # For each classification entry, rename "class" to "classEntries"
     classification_info = data_set_info.get("classificationInformation", {})
     classifications = classification_info.get("classification", [])
@@ -83,7 +146,8 @@ def transform_json(data):
         if "other" in time_info:
             time_info["otherTime"] = time_info.pop("other")
             for item in time_info["otherTime"].get("anies", []):
-                if "value" in item:
+                if isinstance(item, dict) and "value" in item:
+                    # Rename "value" to "timestampValue" regardless of its type.
                     item["timestampValue"] = item.pop("value")
 
     # --- modellingAndValidation transformations ---
@@ -102,7 +166,11 @@ def transform_json(data):
             # Rename inner "anies" list to "aniesDSTAR"
             dstar["otherDSTAR"]["aniesDSTAR"] = dstar["otherDSTAR"].pop("anies")
             for item in dstar["otherDSTAR"]["aniesDSTAR"]:
-                if "value" in item:
+                if (
+                    isinstance(item, dict)
+                    and "value" in item
+                    and isinstance(item["value"], dict)
+                ):
                     item["valueDSTAR"] = item.pop("value")
                     val = item["valueDSTAR"]
                     if "shortDescription" in val:
@@ -126,18 +194,27 @@ def transform_json(data):
     if "other" in mod_val:
         mod_val["otherMAV"] = mod_val.pop("other")
         for item in mod_val["otherMAV"].get("anies", []):
-            if "value" in item and isinstance(item["value"], dict):
-                # Rename uri to refObjectUri if present inside the dict
-                if "uri" in item["value"]:
-                    item["value"]["refObjectUri"] = item["value"].pop("uri")
+            if (
+                isinstance(item, dict)
+                and "value" in item
+                and isinstance(item["value"], dict)
+            ):
                 item["objectValue"] = item.pop("value")
 
     # --- administrativeInformation transformations ---
     admin_info = data.get("administrativeInformation", {})
-    data_entry = admin_info.get("dataEntryBy", {})
-    for item in data_entry.get("referenceToDataSetFormat", []):
-        if "uri" in item:
-            item["refObjectUri"] = item.pop("uri")
+
+    # In publicationAndOwnership, rename "other" to "otherPAO" and update inner keys
+    pub_own = admin_info.get("publicationAndOwnership", {})
+    if "other" in pub_own:
+        pub_own["otherPAO"] = pub_own.pop("other")
+        for item in pub_own["otherPAO"].get("anies", []):
+            if (
+                isinstance(item, dict)
+                and "value" in item
+                and isinstance(item["value"], dict)
+            ):
+                item["objectValue"] = item.pop("value")
 
     # --- exchanges transformations ---
     exchanges = data.get("exchanges", {}).get("exchange", [])
@@ -157,10 +234,11 @@ def transform_json(data):
         if "other" in exchange:
             exchange["otherEx"] = exchange.pop("other")
             for item in exchange["otherEx"].get("anies", []):
-                if "value" in item and isinstance(item["value"], dict):
-                    # Rename uri to refObjectUri if present inside the dict
-                    if "uri" in item["value"]:
-                        item["value"]["refObjectUri"] = item["value"].pop("uri")
+                if (
+                    isinstance(item, dict)
+                    and "value" in item
+                    and isinstance(item["value"], dict)
+                ):
                     item["objectValue"] = item.pop("value")
 
         # Rename "classification" to "classificationEx" and inside, rename "name" to "nameClass"
@@ -182,19 +260,25 @@ def transform_json(data):
         if "other" in result:
             result["otherLCIA"] = result.pop("other")
             for item in result["otherLCIA"].get("anies", []):
-                if "value" in item and isinstance(item["value"], dict):
-                    # Rename uri to refObjectUri if present inside the dict
-                    if "uri" in item["value"]:
-                        item["value"]["refObjectUri"] = item["value"].pop("uri")
+                if (
+                    isinstance(item, dict)
+                    and "value" in item
+                    and isinstance(item["value"], dict)
+                ):
                     item["objectValue"] = item.pop("value")
-        # In referenceToLCIAMethodDataSet, rename "uri" to "refObjectUri"
-        ref_lcia = result.get("referenceToLCIAMethodDataSet", {})
-        if "uri" in ref_lcia:
-            ref_lcia["refObjectUri"] = ref_lcia.pop("uri")
+        # In referenceToLCIAMethodDataSet, keys (like "uri") will be renamed globally
 
-    # --- Remove otherAttributes ---
+    # --- Removal ---
+    # Remove the top-level "otherAttributes" key and its contents.
     if "otherAttributes" in data:
         data.pop("otherAttributes")
+
+    # --- Global Removal of Raw Strings from any "anies" key ---
+    data = remove_raw_strings_in_anies(data)
+
+    # --- Global URI Renaming ---
+    # Recursively rename any key "uri" to "refObjectUri" throughout the JSON.
+    data = recursive_rename_uri(data)
 
     return data
 
@@ -202,7 +286,7 @@ def transform_json(data):
 if __name__ == "__main__":
     # Load the JSON file from disk
     with open(
-        "data/pipeline2/json/epds/5b6b44e0-f5e4-451f-54a3-08dcec2f0f89.json",
+        "data/pipeline2/json/epds/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca.json",
         "r",
         encoding="utf-8",
     ) as infile:
@@ -213,7 +297,7 @@ if __name__ == "__main__":
 
     # Write the updated JSON to a new file with an indent of 2
     with open(
-        "data/pipeline2/json/epds/5b6b44e0-f5e4-451f-54a3-08dcec2f0f89_renamedScript.json",
+        "data/pipeline2/json/epds/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca_RN.json",
         "w",
         encoding="utf-8",
     ) as outfile:

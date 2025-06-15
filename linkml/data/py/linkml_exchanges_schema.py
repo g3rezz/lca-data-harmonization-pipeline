@@ -1,5 +1,5 @@
 # Auto generated from linkml_exchanges_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-02-28T19:46:52
+# Generation date: 2025-03-30T12:18:39
 # Schema: ILCDexchanges
 #
 # id: https://example.org/ILCDexchanges
@@ -57,7 +57,7 @@ from rdflib import (
     URIRef
 )
 
-from . linkml_shared_definitions import AniesNameValueObjectValueModule, AniesNameValueObjectValueModuleId, MultiLangString, MultiLangStringId, OtherContent, ShortDescripTypeRefVersion, ShortDescripTypeRefVersionId, UUIDType
+from . linkml_shared_definitions import GlobalReferenceType, GlobalReferenceTypeId, MultiLangString, MultiLangStringId, OtherContent, OtherContentId, UUIDType
 from linkml_runtime.linkml_model.types import Boolean, Float, Integer, String
 from linkml_runtime.utils.metamodelcore import Bool
 
@@ -96,10 +96,6 @@ class MaterialPropEntryId(extended_str):
     pass
 
 
-class ExchangeOtherContentId(extended_str):
-    pass
-
-
 @dataclass(repr=False)
 class Exchanges(YAMLRoot):
     """
@@ -129,7 +125,7 @@ class Exchanges(YAMLRoot):
 @dataclass(repr=False)
 class ExchangeEntry(YAMLRoot):
     """
-    A single exchange entry with flow data, amounts, and properties.
+    A single exchange entry.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -140,8 +136,16 @@ class ExchangeEntry(YAMLRoot):
 
     id: Union[str, ExchangeEntryId] = None
     dataSetInternalID: Optional[int] = None
-    referenceToFlowDataSet: Optional[Union[dict, ShortDescripTypeRefVersion]] = None
+    referenceToFlowDataSet: Optional[Union[dict, GlobalReferenceType]] = None
     meanAmount: Optional[float] = None
+    referencesToDataSource: Optional[Union[dict, GlobalReferenceType]] = None
+    resultingAmount: Optional[float] = None
+    minimumAmount: Optional[float] = None
+    maximumAmount: Optional[float] = None
+    uncertaintyDistributionType: Optional[str] = None
+    relativeStandardDeviation95In: Optional[str] = None
+    dataSourceType: Optional[str] = None
+    dataDerivationTypeStatus: Optional[str] = None
     referenceFlow: Optional[Union[bool, Bool]] = None
     resultingflowAmount: Optional[float] = None
     flowProperties: Optional[Union[Dict[Union[str, FlowPropertyEntryId], Union[dict, "FlowPropertyEntry"]], List[Union[dict, "FlowPropertyEntry"]]]] = empty_dict()
@@ -149,7 +153,7 @@ class ExchangeEntry(YAMLRoot):
     materialProperties: Optional[Union[Dict[Union[str, MaterialPropEntryId], Union[dict, "MaterialPropEntry"]], List[Union[dict, "MaterialPropEntry"]]]] = empty_dict()
     typeOfFlow: Optional[str] = None
     exchangeDirection: Optional[str] = None
-    otherEx: Optional[Union[dict, "ExchangeOtherContent"]] = None
+    otherEx: Optional[Union[dict, OtherContent]] = None
     classificationEx: Optional[Union[dict, "ExchangeClassification"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -161,11 +165,35 @@ class ExchangeEntry(YAMLRoot):
         if self.dataSetInternalID is not None and not isinstance(self.dataSetInternalID, int):
             self.dataSetInternalID = int(self.dataSetInternalID)
 
-        if self.referenceToFlowDataSet is not None and not isinstance(self.referenceToFlowDataSet, ShortDescripTypeRefVersion):
-            self.referenceToFlowDataSet = ShortDescripTypeRefVersion(**as_dict(self.referenceToFlowDataSet))
+        if self.referenceToFlowDataSet is not None and not isinstance(self.referenceToFlowDataSet, GlobalReferenceType):
+            self.referenceToFlowDataSet = GlobalReferenceType(**as_dict(self.referenceToFlowDataSet))
 
         if self.meanAmount is not None and not isinstance(self.meanAmount, float):
             self.meanAmount = float(self.meanAmount)
+
+        if self.referencesToDataSource is not None and not isinstance(self.referencesToDataSource, GlobalReferenceType):
+            self.referencesToDataSource = GlobalReferenceType(**as_dict(self.referencesToDataSource))
+
+        if self.resultingAmount is not None and not isinstance(self.resultingAmount, float):
+            self.resultingAmount = float(self.resultingAmount)
+
+        if self.minimumAmount is not None and not isinstance(self.minimumAmount, float):
+            self.minimumAmount = float(self.minimumAmount)
+
+        if self.maximumAmount is not None and not isinstance(self.maximumAmount, float):
+            self.maximumAmount = float(self.maximumAmount)
+
+        if self.uncertaintyDistributionType is not None and not isinstance(self.uncertaintyDistributionType, str):
+            self.uncertaintyDistributionType = str(self.uncertaintyDistributionType)
+
+        if self.relativeStandardDeviation95In is not None and not isinstance(self.relativeStandardDeviation95In, str):
+            self.relativeStandardDeviation95In = str(self.relativeStandardDeviation95In)
+
+        if self.dataSourceType is not None and not isinstance(self.dataSourceType, str):
+            self.dataSourceType = str(self.dataSourceType)
+
+        if self.dataDerivationTypeStatus is not None and not isinstance(self.dataDerivationTypeStatus, str):
+            self.dataDerivationTypeStatus = str(self.dataDerivationTypeStatus)
 
         if self.referenceFlow is not None and not isinstance(self.referenceFlow, Bool):
             self.referenceFlow = Bool(self.referenceFlow)
@@ -186,8 +214,8 @@ class ExchangeEntry(YAMLRoot):
         if self.exchangeDirection is not None and not isinstance(self.exchangeDirection, str):
             self.exchangeDirection = str(self.exchangeDirection)
 
-        if self.otherEx is not None and not isinstance(self.otherEx, ExchangeOtherContent):
-            self.otherEx = ExchangeOtherContent(**as_dict(self.otherEx))
+        if self.otherEx is not None and not isinstance(self.otherEx, OtherContent):
+            self.otherEx = OtherContent(**as_dict(self.otherEx))
 
         if self.classificationEx is not None and not isinstance(self.classificationEx, ExchangeClassification):
             self.classificationEx = ExchangeClassification(**as_dict(self.classificationEx))
@@ -198,7 +226,7 @@ class ExchangeEntry(YAMLRoot):
 @dataclass(repr=False)
 class FlowPropertyEntry(YAMLRoot):
     """
-    One flow property with name, uuid, referenceFlowProperty, meanValue, referenceUnit, unitGroupUUID.
+    One flow property.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -311,32 +339,6 @@ class MaterialPropEntry(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
-class ExchangeOtherContent(OtherContent):
-    """
-    Local sub-class that enforces 'module' is required.
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = ILCDEX["ExchangeOtherContent"]
-    class_class_curie: ClassVar[str] = "ILCDex:ExchangeOtherContent"
-    class_name: ClassVar[str] = "ExchangeOtherContent"
-    class_model_uri: ClassVar[URIRef] = ILCDEX.ExchangeOtherContent
-
-    id: Union[str, ExchangeOtherContentId] = None
-    anies: Optional[Union[Dict[Union[str, AniesNameValueObjectValueModuleId], Union[dict, AniesNameValueObjectValueModule]], List[Union[dict, AniesNameValueObjectValueModule]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ExchangeOtherContentId):
-            self.id = ExchangeOtherContentId(self.id)
-
-        self._normalize_inlined_as_list(slot_name="anies", slot_type=AniesNameValueObjectValueModule, key_name="id", keyed=True)
-
-        super().__post_init__(**kwargs)
-
-
 # Enumerations
 
 
@@ -351,10 +353,31 @@ slots.dataSetInternalID = Slot(uri=ILCDEX.dataSetInternalID, name="dataSetIntern
                    model_uri=ILCDEX.dataSetInternalID, domain=None, range=Optional[int])
 
 slots.referenceToFlowDataSet = Slot(uri=ILCDEX.referenceToFlowDataSet, name="referenceToFlowDataSet", curie=ILCDEX.curie('referenceToFlowDataSet'),
-                   model_uri=ILCDEX.referenceToFlowDataSet, domain=None, range=Optional[Union[dict, ShortDescripTypeRefVersion]])
+                   model_uri=ILCDEX.referenceToFlowDataSet, domain=None, range=Optional[Union[dict, GlobalReferenceType]])
 
 slots.referenceFlow = Slot(uri=ILCDEX.referenceFlow, name="referenceFlow", curie=ILCDEX.curie('referenceFlow'),
                    model_uri=ILCDEX.referenceFlow, domain=None, range=Optional[Union[bool, Bool]])
+
+slots.referencesToDataSource = Slot(uri=ILCDEX.referencesToDataSource, name="referencesToDataSource", curie=ILCDEX.curie('referencesToDataSource'),
+                   model_uri=ILCDEX.referencesToDataSource, domain=None, range=Optional[Union[dict, GlobalReferenceType]])
+
+slots.resultingAmount = Slot(uri=ILCDEX.resultingAmount, name="resultingAmount", curie=ILCDEX.curie('resultingAmount'),
+                   model_uri=ILCDEX.resultingAmount, domain=None, range=Optional[float])
+
+slots.minimumAmount = Slot(uri=ILCDEX.minimumAmount, name="minimumAmount", curie=ILCDEX.curie('minimumAmount'),
+                   model_uri=ILCDEX.minimumAmount, domain=None, range=Optional[float])
+
+slots.maximumAmount = Slot(uri=ILCDEX.maximumAmount, name="maximumAmount", curie=ILCDEX.curie('maximumAmount'),
+                   model_uri=ILCDEX.maximumAmount, domain=None, range=Optional[float])
+
+slots.relativeStandardDeviation95In = Slot(uri=ILCDEX.relativeStandardDeviation95In, name="relativeStandardDeviation95In", curie=ILCDEX.curie('relativeStandardDeviation95In'),
+                   model_uri=ILCDEX.relativeStandardDeviation95In, domain=None, range=Optional[str])
+
+slots.dataSourceType = Slot(uri=ILCDEX.dataSourceType, name="dataSourceType", curie=ILCDEX.curie('dataSourceType'),
+                   model_uri=ILCDEX.dataSourceType, domain=None, range=Optional[str])
+
+slots.dataDerivationTypeStatus = Slot(uri=ILCDEX.dataDerivationTypeStatus, name="dataDerivationTypeStatus", curie=ILCDEX.curie('dataDerivationTypeStatus'),
+                   model_uri=ILCDEX.dataDerivationTypeStatus, domain=None, range=Optional[str])
 
 slots.resultingflowAmount = Slot(uri=ILCDEX.resultingflowAmount, name="resultingflowAmount", curie=ILCDEX.curie('resultingflowAmount'),
                    model_uri=ILCDEX.resultingflowAmount, domain=None, range=Optional[float])
@@ -375,7 +398,7 @@ slots.exchangeDirection = Slot(uri=ILCDEX.exchangeDirection, name="exchangeDirec
                    model_uri=ILCDEX.exchangeDirection, domain=None, range=Optional[str])
 
 slots.otherEx = Slot(uri=ILCDEX.otherEx, name="otherEx", curie=ILCDEX.curie('otherEx'),
-                   model_uri=ILCDEX.otherEx, domain=None, range=Optional[Union[dict, ExchangeOtherContent]])
+                   model_uri=ILCDEX.otherEx, domain=None, range=Optional[Union[dict, OtherContent]])
 
 slots.classificationEx = Slot(uri=ILCDEX.classificationEx, name="classificationEx", curie=ILCDEX.curie('classificationEx'),
                    model_uri=ILCDEX.classificationEx, domain=None, range=Optional[Union[dict, ExchangeClassification]])
