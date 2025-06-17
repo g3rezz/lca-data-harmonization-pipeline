@@ -6,10 +6,8 @@ import re
 SCHEMA_PATH = (
     "linkml/data/yaml/linkml_ILCDmergedSchemas_schema.yaml"  # Consolidated YAML schema
 )
-JSON_FILE_PATH = "data/pipeline2/json/epds/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca_RN.json"  # Input JSON instance for the EPD
-OUTPUT_JSON_PATH = (
-    "data/pipeline2/json/epds/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca_RN_ID.json"
-)
+JSON_FILE_PATH = "linkml/data/json/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca_RN.json"  # Input JSON instance for the EPD
+OUTPUT_JSON_PATH = "linkml/data/json/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca_RN_ID.json"
 
 # --- Schema Utilities (kept for future extension) ---
 
