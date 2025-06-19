@@ -286,7 +286,7 @@ def transform_json(data):
 if __name__ == "__main__":
     # Load the JSON file from disk
     with open(
-        "linkml/data/json/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca.json",
+        "data/linkml/json/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca.json",
         "r",
         encoding="utf-8",
     ) as infile:
@@ -297,7 +297,7 @@ if __name__ == "__main__":
 
     # Write the updated JSON to a new file with an indent of 2
     with open(
-        "linkml/data/json/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca_RN.json",
+        "data/linkml/json/63a79af1-1ab0-4677-45a8-08dc6fc9d4ca_RN.json",
         "w",
         encoding="utf-8",
     ) as outfile:
