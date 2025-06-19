@@ -6801,4 +6801,4 @@ classes:
         inlined: true
         minimum_cardinality: 0
         maximum_cardinality: 1
-source_file: ../linkml/data/yaml/linkml_processDataSet_schema.yaml
+source_file: ../data/linkml/yaml/linkml_processDataSet_schema.yaml
