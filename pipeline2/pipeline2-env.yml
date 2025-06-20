@@ -1,4 +1,4 @@
-name: langchain_env
+name: pipeline2-env
 channels:
   - pytorch
   - nvidia
