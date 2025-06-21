@@ -6,7 +6,7 @@ The repository includes both semantic modeling and harmonization workflows (via 
 
 ## Demo
 
-[video]
+https://github.com/user-attachments/assets/d0d76de3-7c82-4ea8-a346-ef030aa3451c
 
 The video shows querying ILCD datasets filtered by ready-mix concrete category, DIN 276 cost groups, country codes, dataset type and GWP/PENRT values, using the Streamlit UI.
 
