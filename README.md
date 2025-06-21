@@ -1,6 +1,6 @@
 # LCA Data Harmonization Pipeline
 
-This project supports the harmonization of heterogeneous ILCD-based LCA data (including EPDs) into a semantic knowledge graph using LinkML, SKOS, and SHACL. It enables structured querying across material classifications, indicators, and regulatory systems (e.g., DIN 276). The Streamlit prototype provides an accessible front-end for early-stage building design decisions. This work was developed as part of a master's thesis at RWTH Aachen University.
+This project supports the harmonization of heterogeneous ILCD-based LCA data (including EPDs) into a semantic knowledge graph using LinkML, SKOS, and SHACL. It enables structured querying across material classifications, environmental and life cycle indicators, material properties, dataset type (e.g., specific), country codes, and regulatory systems (e.g., DIN 276). The Streamlit prototype provides an accessible front-end for early-stage building design decisions. This work was developed as part of a master's thesis at RWTH Aachen University.
 
 The repository includes both semantic modeling and harmonization workflows (via LinkML and RDF) and a secondary pipeline (`pipeline2/`) that explores category extraction and vector-based retrieval.
 
@@ -8,7 +8,7 @@ The repository includes both semantic modeling and harmonization workflows (via 
 
 https://github.com/user-attachments/assets/d0d76de3-7c82-4ea8-a346-ef030aa3451c
 
-The video shows querying ILCD datasets filtered by ready-mix concrete category, DIN 276 cost groups, country codes, dataset type and GWP/PENRT values, using the Streamlit UI.
+The video shows querying ILCD instances filtered by ready-mix concrete category, DIN 276 cost groups, concrete material categories, country codes, dataset type, and GWP/PENRT threshold values, using the Streamlit UI.
 
 ## Methodology Overview
 
