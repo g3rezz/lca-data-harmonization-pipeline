@@ -14,42 +14,7 @@ The video shows querying ILCD instances filtered by ready-mix concrete category,
 
 The diagram below shows the semantic harmonization pipeline used in this project:
 
-```mermaid
-flowchart LR
-    %% Input and Output
-    Raw["Raw ILCDx Data"] --> WP1_Start
-    WP4_End --> QueryTool["User-facing<br>Query Tool"]
-
-    %% WP1 – Diagnostics
-    subgraph WP1 [WP1 – Diagnostics]
-        direction TB
-        WP1_Start[Repositories] --> QA[Quality analysis] --> Metrics[Baseline metrics]
-    end
-
-    %% WP2 – Categorization
-    subgraph WP2 [WP2 – Categorization]
-        direction TB
-        Regex[Regex parsing] --> RAG[RAG enrichment] --> Semantic[Semantic mapping]
-    end
-
-    %% WP3 – Ontology
-    subgraph WP3 [WP3 – Ontology]
-        direction TB
-        LinkML[LinkML schema] --> SKOS[SKOS alignment] --> SHACL[SHACL inference]
-    end
-
-    %% WP4 – Querying
-    subgraph WP4 [WP4 – Querying]
-        direction TB
-        UI[Streamlit UI] --> SPARQL[Dynamic SPARQL] --> WP4_End[Instance ranking]
-    end
-
-    %% Connections across WPs
-    Metrics --> Regex
-    Metrics --> LinkML
-    Semantic --> UI
-    SHACL --> UI
-```
+![Diagram](data/img/methodology.svg)
 
 ## Directory Overview
 
