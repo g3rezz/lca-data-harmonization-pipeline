@@ -186,7 +186,7 @@ with st.sidebar.expander("**Main Filters**", expanded=False):
 
     # Environmental Impact Indicator Threshold Filter
     environmental_indicator_threshold = st.slider(
-        f"{selected_environmental}", min_value=0, max_value=1000, value=1000
+        f"{selected_environmental}", min_value=0, max_value=1000, value=1000, step=10
     )
 
     # Life Cycle Filter (selectbox)
@@ -240,7 +240,7 @@ with st.sidebar.expander("**Main Filters**", expanded=False):
 
     # Life Cycle Indicator Threshold Filter
     lifecycle_indicator_threshold = st.slider(
-        f"{selected_lifecycle}", min_value=0, max_value=5000, value=5000
+        f"{selected_lifecycle}", min_value=0, max_value=5000, value=5000, step=10
     )
 
     # Scenario Toggle (Recycled)
