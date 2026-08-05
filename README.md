@@ -2,6 +2,10 @@
 
 This project supports the harmonization of heterogeneous ILCD-based LCA data (including EPDs) into a semantic knowledge graph using LinkML, SKOS, and SHACL. It enables structured querying across material classifications, environmental and life cycle indicators, material properties, dataset type (e.g., specific), country codes, and regulatory systems (e.g., DIN 276). The Streamlit prototype provides an accessible front-end for early-stage building design decisions. This work was developed as part of a master's thesis at RWTH Aachen University.
 
+![LCA data harmonization knowledge graph](images/lca-data-harmonization-knowledge-graph.jpg)
+
+*Knowledge-graph view of the harmonized LCA data, showing the dense relationships between source datasets, classifications, indicators, material concepts, and linked semantic entities.*
+
 The repository includes both semantic modeling and harmonization workflows (via LinkML and RDF) and a secondary pipeline (`pipeline2/`) that explores category extraction and vector-based retrieval.
 
 ## Demo
